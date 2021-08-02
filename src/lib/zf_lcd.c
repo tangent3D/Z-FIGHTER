@@ -15,7 +15,6 @@ void lcd_instruction(int i, bool extended);
 void lcd_data(int d);
 void lcd_wait_busy();
 void lcd_switch_buffer();
-void test();
 
 void lcd_init()
 	{
