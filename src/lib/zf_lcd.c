@@ -1,7 +1,6 @@
 // ST7920 LCD controller functions for Z-Fighter
 // by Tangent 2021
 
-#include <stdio.h>
 #include <stdbool.h>
 
 #define	PORTA	40h		
