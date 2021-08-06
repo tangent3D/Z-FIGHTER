@@ -17,9 +17,6 @@ void lcd_switch_buffer();
 void lcd_init()
 	{
 		ppi_init();
-
-		lcd_instruction(0x03, 1); // Enable vertical scroll position (used as frame buffer)
-		// TODO: Clear GDRAM before turning G. display on?
 	}
 
 int buffer = 1;
@@ -78,7 +75,7 @@ void lcd_instruction(int i, int extended)
 				CALL 	_lcd_enable
 				#endasm
 
-				lcd_wait_busy();			// Disable for speed boost (unstable?)
+				lcd_wait_busy();
 				#asm
 				LD  	A,30h				// Reset basic instruction set
 				OUT 	(PORTB),A
@@ -100,7 +97,7 @@ int data;
 void lcd_data(int d)
 	{
 		data = d;
-		lcd_wait_busy();			// Disable for speed boost (unstable?)
+		// lcd_wait_busy();			// Disable for speed boost (possibly unstable)
 
 		#asm 
 		LD  	A,5 				// Set LCD D
@@ -163,7 +160,7 @@ void lcd_wait_busy()
 	}
 
 void lcd_switch_buffer()
-	{
+	{	
 		if (buffer == 1)
 			{
 				lcd_instruction(32+0x40, 1);	// Vertical scroll address = GDRAM top half
@@ -174,4 +171,6 @@ void lcd_switch_buffer()
 				lcd_instruction(0+0x40, 1);	// Vertical scroll address = GDRAM bottom half
 				buffer = 1;
 			}
+
+		lcd_instruction(0x03, 1); // Enable vertical scroll position
 	}
