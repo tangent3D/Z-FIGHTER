@@ -1,8 +1,6 @@
 // ST7920 LCD controller functions for Z-Fighter
 // by Tangent 2021
 
-#include <stdbool.h>
-
 #define	PORTA	40h		
 #define	PORTB	41h
 #define	PORTC	42h
@@ -11,7 +9,7 @@
 void ppi_init();
 void lcd_init();
 void lcd_update(unsigned char arr[]);
-void lcd_instruction(int i, bool extended);
+void lcd_instruction(int i, int extended);
 void lcd_data(int d);
 void lcd_wait_busy();
 void lcd_switch_buffer();
@@ -19,55 +17,52 @@ void lcd_switch_buffer();
 void lcd_init()
 	{
 		ppi_init();
+
+		lcd_instruction(0x03, 1); // Enable vertical scroll position (used as frame buffer)
 		// TODO: Clear GDRAM before turning G. display on?
 	}
 
-bool buffer = 1;
+int buffer = 1;
 void lcd_update(unsigned char arr[])
 	{	
+		int upperScreenPointer = 0;
+		int lowerScreenPointer = 512;
+
 		int x = 0;
 		int y = 0;
-		int byte = 0;
 
 		if (buffer == 1)
 			{
-				x = 0;
 				y = 32;
 			}
 
-		for (int c=0; c<=1; c++)							// Repeat for each half of screen
+		for (int a=0; a<=31; a++)
 			{
-				for (int b=0; b<=31; b++)					// 32 rows per half of screen
-				{
-					lcd_instruction(y+0x80, true);
-				 	lcd_instruction(x+0x80, true);
-					for (int a=0; a<=15; a++)				// Put row of 16 bytes of data to GDRAM
-						{
-							lcd_data(arr[byte]);			
-							byte++;						
-						}
-					y++;									// Increment Y address after each row
-				}
-				if (buffer == 1)
+				lcd_instruction(y+0x80, 1);
+				lcd_instruction(x+0x80, 1);
+				for (int i=0; i<=15; i++)
 					{
-						y = 32;
+						lcd_data(arr[upperScreenPointer]);
+						upperScreenPointer++;
 					}
-				else
-					{	
-						y = 0;
+				for (int i=0; i<=15; i++)
+					{
+						lcd_data(arr[lowerScreenPointer]);
+						lowerScreenPointer++;
 					}
-				x=8;										// Set X address to bottom half of screen
+				y++;
+
 			}
 
 		lcd_switch_buffer();
 	}
 
 int instruction;
-void lcd_instruction(int i, bool extended)
+void lcd_instruction(int i, int extended)
 	{
 		instruction = i;
 
-		if (extended == true)				// Check basic or extended instruction
+		if (extended == 1)				// Check basic or extended instruction
 			{	
 				lcd_wait_busy();
 				#asm
@@ -83,7 +78,7 @@ void lcd_instruction(int i, bool extended)
 				CALL 	_lcd_enable
 				#endasm
 
-				lcd_wait_busy();
+				lcd_wait_busy();			// Disable for speed boost (unstable?)
 				#asm
 				LD  	A,30h				// Reset basic instruction set
 				OUT 	(PORTB),A
@@ -105,7 +100,7 @@ int data;
 void lcd_data(int d)
 	{
 		data = d;
-		lcd_wait_busy();
+		lcd_wait_busy();			// Disable for speed boost (unstable?)
 
 		#asm 
 		LD  	A,5 				// Set LCD D
@@ -169,13 +164,14 @@ void lcd_wait_busy()
 
 void lcd_switch_buffer()
 	{
-		if (buffer == 0)
+		if (buffer == 1)
 			{
-				lcd_instruction(0+0x40, true);	// Vertical scroll address = GDRAM top half
+				lcd_instruction(32+0x40, 1);	// Vertical scroll address = GDRAM top half
+				buffer = 0;
 			}
 		else
 			{
-				lcd_instruction(32+0x40, true);	// Vertical scroll address = GDRAM bottom half
+				lcd_instruction(0+0x40, 1);	// Vertical scroll address = GDRAM bottom half
+				buffer = 1;
 			}
-		buffer = !buffer;
 	}
