@@ -11,7 +11,7 @@ unsigned char buffer = 0;
 void lcd_update(unsigned char arr[])
 	{	
 		int upperScreenPointer = 0;
-		int lowerScreenPointer = 512;
+		int lowerScreenPointer = 0;
 
 		unsigned char x = 0;
 		unsigned char y = 0;
@@ -32,7 +32,7 @@ void lcd_update(unsigned char arr[])
 					}
 				for (unsigned char i=0; i<=15; i++)
 					{
-						lcd_data(arr[lowerScreenPointer]);
+						lcd_data(arr[lowerScreenPointer+512]);
 						lowerScreenPointer++;
 					}
 				y++;
