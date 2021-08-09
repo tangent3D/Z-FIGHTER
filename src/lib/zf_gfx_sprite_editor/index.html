@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+<title>Z-Fighter GFX Sprite Editor</title>
+<!-- v1.0 by xrrawva -->
+<link rel="icon" href="favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{background-color:#d0d0d0;color:#000000;font-family:monospace;font-size:16px;text-align:center;}
+a{color:#000000;text-decoration:none;}
+canvas{border-style:solid;border-color:#777777;border-width:1px;image-rendering:-webkit-optimize-contrast;image-rendering:-moz-crisp-edges;}
+input{width:20px;}
+textarea.error{background-color:#ffd0d0;}
+</style>
+</head>
+<body>
+<a href="https://github.com/tangent3D/Z-FIGHTER">Z-Fighter</a> GFX Sprite Editor<br>
+<canvas id="canvas0" width="256" height="256">error</canvas><br>
+w = <input type="text" id="w"> h = <input type="text" id="h"><br>
+<br>
+<textarea id="result" rows="10" cols="50"></textarea><br>
+<script>
+
+  // prepare canvas double-buffering
+  var c0=document.getElementById("canvas0");
+  var c0c=c0.getContext("2d");
+  var c1=document.createElement("canvas");
+  c1.width=c0.width;
+  c1.height=c0.height;
+  var c1c=c1.getContext("2d");
+
+  // init app
+  var pixelsMaxWH=256;
+  var pixels=new Array();
+  for(let y=0;y<pixelsMaxWH;y++)
+  {
+    pixels[y]=new Array();
+    for(let x=0;x<pixelsMaxWH;x++)
+    {
+      pixels[y][x]=false;
+    }
+  }
+  var name="sprite";
+  document.getElementById("w").value=8;
+  document.getElementById("h").value=8;
+  var mouseDragColor=-1;
+  var layoutPixelSize;
+  var layoutCenterX;
+  var layoutCenterY;
+  updateCanvas();
+  updateResult();
+
+  function updateLayout(w,h)
+  {
+    let pixelW=Math.floor(c0.width/w);
+    let pixelH=Math.floor(c0.height/h);
+    if(pixelW>pixelH)layoutPixelSize=pixelH;
+    else             layoutPixelSize=pixelW;
+    layoutCenterX=Math.floor((c0.width -layoutPixelSize*w)*0.5);
+    layoutCenterY=Math.floor((c0.height-layoutPixelSize*h)*0.5);
+  }
+
+  function drawPixel(x,y)
+  {
+    if(pixels[y][x])
+    {
+      if(x%2!=y%2)c1c.fillStyle="rgb(20,20,20)";
+      else        c1c.fillStyle="rgb(0,0,0)";
+    }
+    else
+    {
+      if(x%2==y%2)c1c.fillStyle="rgb(235,235,235)";
+      else        c1c.fillStyle="rgb(255,255,255)";
+    }
+    c1c.fillRect(layoutCenterX+x*layoutPixelSize,layoutCenterY+y*layoutPixelSize,layoutPixelSize,layoutPixelSize);
+  }
+
+  function updateCanvas()
+  {
+    // cls
+    c1c.fillStyle="#777777";
+    c1c.fillRect(0,0,c0.width,c0.height);
+
+    // abort if w h invalid
+    let w=parseInt(document.getElementById("w").value);
+    let h=parseInt(document.getElementById("h").value);
+    if(w<1||h<1)
+    {
+      c0c.drawImage(c1,0,0); // show buffer
+      return;
+    }
+
+    // draw pixels
+    updateLayout(w,h);
+    for(let y=0;y<h;y++)
+    {
+      for(let x=0;x<w;x++)
+      {
+        drawPixel(x,y);
+      }
+    }
+
+    c0c.drawImage(c1,0,0); // show buffer
+  }
+
+  function updateResult()
+  {
+    document.getElementById("result").className=""; // show as ok
+
+    // abort if w h invalid
+    let w=parseInt(document.getElementById("w").value);
+    let h=parseInt(document.getElementById("h").value);
+    if(w<1||h<1)
+    {
+      document.getElementById("result").value="";
+      return;
+    }
+
+    // generate new export string
+    let result="unsigned char "+name+"[] = {";
+    if(w==256)result+="0,";
+    else      result+=w+",";
+    if(h==256)result+="0,";
+    else      result+=h+",";
+    let nextBit=128;
+    let thisByte=0;
+    for(let y=0;y<h;y++)
+    {
+      for(let x=0;x<w;x++)
+      {
+        if(pixels[y][x])thisByte+=nextBit;
+        if(nextBit==1) // byte full?
+        {
+          nextBit=128;
+          result+=thisByte+",";
+          thisByte=0;
+        }
+        else
+        {
+          nextBit/=2;
+        }
+      }
+    }
+    if(nextBit!=128)result+=thisByte+"};";
+    else result=result.substring(0,result.length-1)+"};";
+    document.getElementById("result").value=result;
+  }
+
+  function fixResolutionValue(value)
+  {
+    value=parseInt(value,10);
+    if(isNaN(value))value=0;
+    if(value>pixelsMaxWH)value=pixelsMaxWH;
+    return value;
+  }
+
+  document.getElementById("w").onkeyup=function(e)
+  {
+    e.target.value=fixResolutionValue(e.target.value);
+    updateCanvas();
+    updateResult();
+  };
+
+  document.getElementById("h").onkeyup=function(e)
+  {
+    e.target.value=fixResolutionValue(e.target.value);
+    updateCanvas();
+    updateResult();
+  };
+
+  document.getElementById("result").onkeyup=function(e)
+  {
+    document.getElementById("result").className="error"; // show as error
+
+    // update name
+    let result=document.getElementById("result").value;
+    let newName=result.substring(result.search("unsigned char ")+14,result.search("\\[\\]"));
+    if(newName!="")name=newName;
+
+    // get data as array
+    result=result.substring(result.search("{")+1,result.search("}"));
+    let resultArray=result.split(",");
+
+    // abort if array too short
+    if(resultArray.length<3)return;
+
+    // update w h
+    w=fixResolutionValue(resultArray[0]);
+    if(w==0)w=256;
+    document.getElementById("w").value=w;
+    h=fixResolutionValue(resultArray[1]);
+    if(h==0)h=256;
+    document.getElementById("h").value=h;
+
+    // update pixels
+    let nextBit=128;
+    let i=2;
+    for(let y=0;y<h;y++)
+    {
+      for(let x=0;x<w;x++)
+      {
+        if(resultArray[i]&nextBit)pixels[y][x]=true;
+        else                      pixels[y][x]=false;
+        if(nextBit>1)
+        {
+          nextBit/=2;
+        }
+        else // byte complete?
+        {
+          nextBit=128;
+          i++;
+          if(i>resultArray.length)
+          {
+            updateCanvas();
+            return;
+          }
+        }
+      }
+    }
+    document.getElementById("result").className=""; // show as ok
+    updateCanvas();
+  };
+
+  // x y: mouse position relative to canvas
+  // color: -1 autodetect from old pixel color, 0 false, 1 true
+  // returns: auto detected color
+  function drawIfPossible(canvasX, canvasY, color)
+  {
+    // abort if w h invalid
+    let w=parseInt(document.getElementById("w").value);
+    let h=parseInt(document.getElementById("h").value);
+    if(w<1||h<1)return -1;
+
+    // abort if click not on pixel
+    updateLayout(w,h);
+    let x=Math.floor((canvasX-layoutCenterX)/layoutPixelSize);
+    let y=Math.floor((canvasY-layoutCenterY)/layoutPixelSize);
+    if(x<0||x>=w||y<0||y>=h)return -1;
+
+    // set pixel value
+    let autoDetectColor=!pixels[y][x];
+    if(color==-1)pixels[y][x]=autoDetectColor;
+    else         pixels[y][x]=color;
+    drawPixel(x,y);
+    c0c.drawImage(c1,0,0); // show buffer
+    updateResult();
+    return autoDetectColor;
+  }
+
+  c0.onmousedown=function(e)
+  {
+    // start drawing
+    mouseDragColor=drawIfPossible(e.offsetX,e.offsetY,-1);
+  };
+
+  c0.onmousemove=function(e)
+  {
+    // keep drawing
+    if(mouseDragColor!=-1)drawIfPossible(e.offsetX,e.offsetY,mouseDragColor);
+  };
+
+  document.onmouseup=function(e)
+  {
+    // stop drawing
+    mouseDragColor=-1;
+  };
+
+</script>
+</body>
+</html>
