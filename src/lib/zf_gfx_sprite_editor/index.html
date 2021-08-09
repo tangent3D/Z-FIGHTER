@@ -2,20 +2,20 @@
 <html>
 <head>
 <title>Z-Fighter GFX Sprite Editor</title>
-<!-- v0.0 by xrrawva -->
+<!-- v1.0 by xrrawva -->
 <link rel="icon" href="favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 body{background-color:#d0d0d0;color:#000000;font-family:monospace;font-size:16px;text-align:center;}
-canvas{border-style:solid;border-color:#000000;border-width:1px;width:256px;height:256px;}
+canvas{border-style:solid;border-color:#777777;border-width:1px;image-rendering:-webkit-optimize-contrast;image-rendering:-moz-crisp-edges;}
 input{width:20px;}
 textarea.error{background-color:#ffd0d0;}
 </style>
 </head>
 <body>
 Z-Fighter GFX Sprite Editor<br>
-<canvas id="canvas0" width="512" height="512">error</canvas><br>
+<canvas id="canvas0" width="256" height="256">error</canvas><br>
 w = <input type="text" id="w"> h = <input type="text" id="h"><br>
 <br>
 <textarea id="result" rows="10" cols="50"></textarea><br>
@@ -43,14 +43,42 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
   var name="sprite";
   document.getElementById("w").value=8;
   document.getElementById("h").value=8;
+  var mouseDragColor=-1;
+  var layoutPixelSize;
+  var layoutCenterX;
+  var layoutCenterY;
   updateCanvas();
   updateResult();
-  var mouseDragColor=-1;
+
+  function updateLayout(w,h)
+  {
+    let pixelW=Math.floor(c0.width/w);
+    let pixelH=Math.floor(c0.height/h);
+    if(pixelW>pixelH)layoutPixelSize=pixelH;
+    else             layoutPixelSize=pixelW;
+    layoutCenterX=Math.floor((c0.width -layoutPixelSize*w)*0.5);
+    layoutCenterY=Math.floor((c0.height-layoutPixelSize*h)*0.5);
+  }
+
+  function drawPixel(x,y)
+  {
+    if(pixels[y][x])
+    {
+      if(x%2!=y%2)c1c.fillStyle="rgb(20,20,20)";
+      else        c1c.fillStyle="rgb(0,0,0)";
+    }
+    else
+    {
+      if(x%2==y%2)c1c.fillStyle="rgb(235,235,235)";
+      else        c1c.fillStyle="rgb(255,255,255)";
+    }
+    c1c.fillRect(layoutCenterX+x*layoutPixelSize,layoutCenterY+y*layoutPixelSize,layoutPixelSize,layoutPixelSize);
+  }
 
   function updateCanvas()
   {
     // cls
-    c1c.fillStyle="rgb(0,0,0)";
+    c1c.fillStyle="#777777";
     c1c.fillRect(0,0,c0.width,c0.height);
 
     // abort if w h invalid
@@ -62,28 +90,13 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
       return;
     }
 
-    // prepare pixel layout
-    let pixelW=c0.width/w;
-    let pixelH=c0.height/h
-    if(pixelW>pixelH)pixelW=pixelH;
-    else             pixelH=pixelW;
-
     // draw pixels
+    updateLayout(w,h);
     for(let y=0;y<h;y++)
     {
       for(let x=0;x<w;x++)
       {
-        if(pixels[y][x])
-        {
-          if(x%2!=y%2)c1c.fillStyle="rgb(20,20,20)";
-          else        c1c.fillStyle="rgb(0,0,0)";
-        }
-        else
-        {
-          if(x%2==y%2)c1c.fillStyle="rgb(235,235,235)";
-          else        c1c.fillStyle="rgb(255,255,255)";
-        }
-        c1c.fillRect(x*pixelW+0.5,y*pixelH+0.5,pixelW,pixelH);
+        drawPixel(x,y);
       }
     }
 
@@ -92,6 +105,8 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
 
   function updateResult()
   {
+    document.getElementById("result").className=""; // show as ok
+
     // abort if w h invalid
     let w=parseInt(document.getElementById("w").value);
     let h=parseInt(document.getElementById("h").value);
@@ -129,7 +144,6 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     if(nextBit!=128)result+=thisByte+"};";
     else result=result.substring(0,result.length-1)+"};";
     document.getElementById("result").value=result;
-    document.getElementById("result").className=""; // show as ok
   }
 
   function fixResolutionValue(value)
@@ -156,26 +170,26 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
 
   document.getElementById("result").onkeyup=function(e)
   {
+    document.getElementById("result").className="error"; // show as error
+
     // update name
     let result=document.getElementById("result").value;
-    name=result.substring(result.search("unsigned char ")+14,result.search("\\[\\]"));
+    let newName=result.substring(result.search("unsigned char ")+14,result.search("\\[\\]"));
+    if(newName!="")name=newName;
 
     // get data as array
     result=result.substring(result.search("{")+1,result.search("}"));
     let resultArray=result.split(",");
 
     // abort if array too short
-    if(resultArray.length<3)
-    {
-      document.getElementById("result").className="error"; // show as error
-      updateCanvas();
-      return;
-    }
+    if(resultArray.length<3)return;
 
     // update w h
     w=fixResolutionValue(resultArray[0]);
+    if(w==0)w=256;
     document.getElementById("w").value=w;
     h=fixResolutionValue(resultArray[1]);
+    if(h==0)h=256;
     document.getElementById("h").value=h;
 
     // update pixels
@@ -187,7 +201,6 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
       {
         if(resultArray[i]&nextBit)pixels[y][x]=true;
         else                      pixels[y][x]=false;
-
         if(nextBit>1)
         {
           nextBit/=2;
@@ -198,7 +211,6 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
           i++;
           if(i>resultArray.length)
           {
-            document.getElementById("result").className="error"; // show as error
             updateCanvas();
             return;
           }
@@ -219,23 +231,18 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     let h=parseInt(document.getElementById("h").value);
     if(w<1||h<1)return -1;
 
-    // prepare pixel layout
-    let pixelW=c0.width/w;
-    let pixelH=c0.height/h;
-    if(pixelW>pixelH)pixelW=pixelH;
-    else             pixelH=pixelW;
-
     // abort if click not on pixel
-    let canvasZoom=0.5;
-    let x=Math.floor(canvasX/pixelW/canvasZoom);
-    let y=Math.floor(canvasY/pixelH/canvasZoom);
+    updateLayout(w,h);
+    let x=Math.floor((canvasX-layoutCenterX)/layoutPixelSize);
+    let y=Math.floor((canvasY-layoutCenterY)/layoutPixelSize);
     if(x<0||x>=w||y<0||y>=h)return -1;
 
     // set pixel value
     let autoDetectColor=!pixels[y][x];
     if(color==-1)pixels[y][x]=autoDetectColor;
     else         pixels[y][x]=color;
-    updateCanvas();
+    drawPixel(x,y);
+    c0c.drawImage(c1,0,0); // show buffer
     updateResult();
     return autoDetectColor;
   }
