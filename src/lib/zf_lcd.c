@@ -1,10 +1,11 @@
 // ST7920 LCD controller functions for Z-Fighter
 // by Tangent 2021
 
-void lcd_update(unsigned char *bitmap) __naked
+#include "zf_lcd.h"
+
+void lcd_bitmap(unsigned char *bitmap) __naked
     {
         (void)*bitmap;
-
         __asm
         
         INIT:
@@ -24,7 +25,7 @@ void lcd_update(unsigned char *bitmap) __naked
             LD      (Y),A
 
         MAIN:
-        LD      B,32
+            LD      B,32
         MNLOOP:
             PUSH    BC
 
@@ -70,7 +71,7 @@ void lcd_update(unsigned char *bitmap) __naked
             LD      B,16
             DRLOOP:
                 CALL    WAITBSY
-                LD      A,5             // Set LCD D
+                LD      A,LCD_DATA      // Set LCD D
                 OUT     (CTRL),A
 
                 LD      C,PORTB
@@ -79,7 +80,7 @@ void lcd_update(unsigned char *bitmap) __naked
                 OR      B               // Check if loop is complete
                 JR      NZ,DRLOOP
 
-                LD      A,4             // Reset LCD #I
+                LD      A,LCD_INST      // Reset LCD #I
                 OUT     (CTRL),A
                 RET
 
@@ -108,21 +109,21 @@ void lcd_update(unsigned char *bitmap) __naked
             RET
 
         ENABLE:
-            LD      A,1
+            LD      A,LCD_EN_HI
             OUT     (CTRL),A
-            LD      A,0
+            LD      A,LCD_EN_LO
             OUT     (CTRL),A
             RET
 
         WAITBSY:
             LD      A,92h               // 8255 Simple I/O, PA,B in, PC out
             OUT     (CTRL),A
-            LD      A,7                 // Backlight ON
+            LD      A,LCD_BL_ON         // Backlight ON
             OUT     (CTRL),A
 
-            LD      A,3                 // Set LCD RD
+            LD      A,LCD_RD            // Set LCD RD
             OUT     (CTRL),A
-            LD      A,1                 // Set LCD ENABLE
+            LD      A,LCD_EN_HI         // Set LCD ENABLE
             OUT     (CTRL),A
 
             CHKFLAG:
@@ -130,13 +131,14 @@ void lcd_update(unsigned char *bitmap) __naked
                 BIT     7,A             // Check busy flag
                 JR      NZ,CHKFLAG
 
+        INITPPI:                        // Complete WAITBSY by initializing PPI
             LD      A,90h               // 8255 Simple I/O, PA in, PB,C out
             OUT     (CTRL),A
-            LD      A,7                 // Backlight ON
+            LD      A,LCD_BL_ON         // Backlight ON
             OUT     (CTRL),A
             RET
 
-        SWTCBUF:
+        SWTCBUF:                        // Switch frame buffer using LCD vertical scroll
             LD      A,(BUFFER)
             CP      1
             JR      Z,SB1
@@ -171,5 +173,61 @@ void lcd_update(unsigned char *bitmap) __naked
         BUFFER:
             DB      0
 
+        __endasm;
+    }
+
+//FIXME: Pass parameter via stack
+unsigned char instruction;
+void lcd_instruction(unsigned char i, unsigned char extended)
+    {
+        instruction = i;
+
+        if (extended == 1)                  // Check basic or extended instruction
+            {   
+                __asm
+                CALL    WAITBSY             // Wait until LCD is ready
+                LD      A,36h               // Set extended instruction set
+                OUT     (PORTB),A
+                CALL    ENABLE
+
+                CALL    WAITBSY             // Wait until LCD is ready
+                LD      A,(_instruction)    // Send extended instruction
+                OUT     (PORTB),A 
+                CALL    ENABLE
+
+                CALL    WAITBSY             // Wait until LCD is ready
+                LD      A,30h               // Reset basic instruction set
+                OUT     (PORTB),A
+                CALL    ENABLE
+                __endasm;
+            }
+        else                                
+            {
+                __asm
+                CALL    WAITBSY             // Wait until LCD is ready
+                LD      A,(_instruction)    // Send basic instruction
+                OUT     (PORTB),A
+                CALL    ENABLE
+                __endasm;
+            }
+    }
+
+//FIXME: Pass parameter via stack
+unsigned char data;
+void lcd_data(unsigned char d)
+    {
+        data = d;
+
+        __asm 
+        CALL    WAITBSY             // Wait until LCD is ready
+        LD      A,LCD_DATA          // Set LCD D
+        OUT     (CTRL),A
+
+        LD      A,(_data)           // Send data
+        OUT     (PORTB),A 
+        CALL    ENABLE
+
+        LD      A,LCD_INST          // Reset LCD #I
+        OUT     (CTRL),A
         __endasm;
     }
