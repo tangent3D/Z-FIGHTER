@@ -48,6 +48,7 @@ end
 
 :error1
 messagebox 'Connection or link error!'
+end
 
 :error2
 messagebox 'XMODEM error!'
