@@ -147,13 +147,13 @@ void lcd_bitmap(unsigned char *bitmap) __naked
                 CALL    EXTINST
                 LD      A,1
                 LD      (BUFFER),A
-                JR      SB3
+                JR      SB2
             SB1:
                 LD      D,32+040h       // Vertical scroll address = GDRAM bottom half
                 CALL    EXTINST
                 LD      A,0
                 LD      (BUFFER),A
-            SB3:
+            SB2:
                 LD      D,3
                 CALL    EXTINST         // Enable vertical scroll position
                 RET
