@@ -11,16 +11,16 @@
 #define CTRL    43h     // 8255 control port
 
 // BSR (Bit Set/Reset) control words:
-#define LCD_EN_LO       0x0     // LCD 'E' (Enable) high       
-#define LCD_EN_HI       0x1     // LCD 'E' low
-#define LCD_WR          0x2     // LCD R/#W low (Write)
-#define LCD_RD          0x3     // LCD R/#W high (Read)
-#define LCD_INST        0x4     // LCD RS low (Instruction)
-#define LCD_DATA        0x5     // LCD RS high (Data)
-#define LCD_BL_OFF      0x6     // Backlight off
-#define LCD_BL_ON       0x7     // Backlight on
-#define BUZZER_OFF      0xE     // Electromagnetic buzzer off
-#define BUZZER_ON       0xF     // Electromagnetic buzzer on
+#define LCD_EN_LO	0x0     // LCD 'E' (Enable) high       
+#define LCD_EN_HI	0x1     // LCD 'E' low
+#define LCD_WR		0x2     // LCD R/#W low (Write)
+#define LCD_RD		0x3     // LCD R/#W high (Read)
+#define LCD_INST	0x4     // LCD RS low (Instruction)
+#define LCD_DATA    0x5     // LCD RS high (Data)
+#define LCD_BL_OFF  0x6     // Backlight off
+#define LCD_BL_ON   0x7     // Backlight on
+#define BUZZER_OFF  0xE     // Electromagnetic buzzer off
+#define BUZZER_ON   0xF     // Electromagnetic buzzer on
 
 // Initialize accessory board PPI to default state.
 // Call this function before interfacing with peripherals.
