@@ -1,5 +1,5 @@
 ### Description
-Included here are some helpful batch files and a Tera Term macro for cross-development for Z-Fighter and other Grant Searle CP/M BIOS computers. 
+Included here are some helpful batch files and a Tera Term macro for cross-development for Z-Fighter and other computers using Grant Searle's CP/M BIOS.
 
 ### Requirements
 Tera Term [[homepage](https://ttssh2.osdn.jp/index.html.en)]
