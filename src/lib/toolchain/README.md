@@ -14,4 +14,4 @@ Included here are some helpful batch files and a Tera Term macro for cross-devel
 
 ### Usage
 - `z88dk_CPM.bat` accepts a C source file, compiles it to a CP/M .COM executable with z88dk, calls `zf_xmodem.bat` to transfer the file from the host machine to the CP/M computer and immediately executes it.
-- `zf_xmodem.bat` can be used independently to easily transfer any file via XMODEM from your host machine using a Tera Term Macro. It accepts a full path to the file on your host machine that you wish to transfer. `zf_xmodem.ttl` automatically attempts to execute the received file by calling its base name. If this is not desired, comment out line 42 in `zf_xmodem.ttl`.
+- `zf_xmodem.bat` can be used independently to easily transfer any file via XMODEM from your host machine using a Tera Term Macro. It accepts a full path to the file on your host machine that you wish to transfer. `zf_xmodem.ttl` automatically attempts to execute the received file by calling its base name.
