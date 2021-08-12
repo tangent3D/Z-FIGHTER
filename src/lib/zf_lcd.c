@@ -66,7 +66,7 @@ void lcdBitmap(unsigned char *bitmap) __naked
             LD      HL,0
             LD      (LWRBMP),HL
 
-            RET
+            RET                         // End of function
 
         DATAROW:
             LD      B,16
