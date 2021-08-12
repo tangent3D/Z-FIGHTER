@@ -3,7 +3,7 @@
 REM Compile a CP/M .COM executable with z88dk [compiler = sdcc]
 
 REM Path to your z88dk installation
-SET Z88DK_DIR=D:\Dropbox\Projects\Z-Fighter\DevTools\z88dk
+SET Z88DK_DIR=C:\z88dk
 
 REM Path to Z-Fighter libraries
 SET INC1=%~dp0\..
