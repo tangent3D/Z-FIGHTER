@@ -1,4 +1,4 @@
-A// Keypad input functions for Z-Fighter
+// Keypad input functions for Z-Fighter
 // by Tangent 2021
 
 #include "zf_keys.h"
