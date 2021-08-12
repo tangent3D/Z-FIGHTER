@@ -695,11 +695,11 @@ X 2 2 200 0 100 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# Z-FIGHTER_Mainboard_ATF22V10C
+# Z-FIGHTER_Mainboard-rescue_ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue
 #
-DEF Z-FIGHTER_Mainboard_ATF22V10C U 0 40 Y Y 1 F N
+DEF Z-FIGHTER_Mainboard-rescue_ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U 0 40 Y Y 1 F N
 F0 "U" 0 200 50 H V L CNN
-F1 "Z-FIGHTER_Mainboard_ATF22V10C" 0 300 50 H V L CNN
+F1 "Z-FIGHTER_Mainboard-rescue_ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue" 0 300 50 H V L CNN
 F2 "Microchip___Atmel-ATF22V10CZ-15PI-*" 0 400 50 H I L CNN
 F3 "" 0 500 50 H I L CNN
 F4 "MS-001-AF" 0 600 50 H I L CNN "Code  JEDEC"
@@ -743,11 +743,11 @@ X IN 9 100 -800 100 R 40 40 1 1 I
 ENDDRAW
 ENDDEF
 #
-# Z-FIGHTER_Mainboard_DS1233
+# Z-FIGHTER_Mainboard-rescue_DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue
 #
-DEF Z-FIGHTER_Mainboard_DS1233 U 0 10 Y Y 1 F N
+DEF Z-FIGHTER_Mainboard-rescue_DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U 0 10 Y Y 1 F N
 F0 "U" 1200 400 60 H V C CNN
-F1 "Z-FIGHTER_Mainboard_DS1233" 1200 300 60 H V C CNN
+F1 "Z-FIGHTER_Mainboard-rescue_DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue" 1200 300 60 H V C CNN
 F2 "21-0248A_MXM" 1200 240 60 H I C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -764,11 +764,11 @@ X VCC 3 2400 0 300 L 59 59 1 1 W
 ENDDRAW
 ENDDEF
 #
-# Z-FIGHTER_Mainboard_MAX203
+# Z-FIGHTER_Mainboard-rescue_MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue
 #
-DEF Z-FIGHTER_Mainboard_MAX203 IC 0 30 Y Y 1 F N
+DEF Z-FIGHTER_Mainboard-rescue_MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC 0 30 Y Y 1 F N
 F0 "IC" 1450 300 50 H V L CNN
-F1 "Z-FIGHTER_Mainboard_MAX203" 1450 200 50 H V L CNN
+F1 "Z-FIGHTER_Mainboard-rescue_MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue" 1450 200 50 H V L CNN
 F2 "DIP762W56P254L2616H457Q20N" 1450 100 50 H I L CNN
 F3 "" 1450 0 50 H I L CNN
 F4 "RS-232 Interface IC +/-15kV ESD-Protected, +5V RS-232 Transceivers" 1450 -100 50 H I L CNN "Description"
@@ -802,11 +802,11 @@ X GND_2 9 0 -800 200 R 50 50 0 0 P
 ENDDRAW
 ENDDEF
 #
-# Z-FIGHTER_Mainboard_Z80SIO
+# Z-FIGHTER_Mainboard-rescue_Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue
 #
-DEF Z-FIGHTER_Mainboard_Z80SIO IC 0 40 Y Y 1 F N
+DEF Z-FIGHTER_Mainboard-rescue_Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC 0 40 Y Y 1 F N
 F0 "IC" -500 1326 50 H V L BNN
-F1 "Z-FIGHTER_Mainboard_Z80SIO" -501 -1402 50 H V L BNN
+F1 "Z-FIGHTER_Mainboard-rescue_Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue" -501 -1402 50 H V L BNN
 F2 "DIL40" 0 0 50 H I L BNN
 F3 "" 0 0 50 H I L BNN
 DRAW
