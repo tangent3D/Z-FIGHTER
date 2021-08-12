@@ -2,9 +2,9 @@
 Included here are some helpful batch files and a Tera Term macro for cross-development for Z-Fighter and other computers using Grant Searle's CP/M BIOS.
 
 ### Requirements
-Tera Term [[homepage](https://ttssh2.osdn.jp/index.html.en)]
-z88dk [[homepage](https://z88dk.org/site/)]
-XMODEM installation on CP/M storage device (ex. CompactFlash card)
+- Tera Term [[homepage](https://ttssh2.osdn.jp/index.html.en)]
+- z88dk [[homepage](https://z88dk.org/site/)]
+- XMODEM installation on CP/M storage device (ex. CompactFlash card)
 
 ### Setup
 - Install `XMODEM.COM` on CP/M computer's A: drive. Refer to the *INSTALLING APPLICATIONS* instructions on [Grant Searle's page](http://searle.x10host.com/cpm/index.html).
