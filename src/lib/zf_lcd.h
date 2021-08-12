@@ -1,4 +1,4 @@
-// ST7920 LCD controller functions for Z-Fighter
+// ST7920 LCD controller definitions for Z-Fighter
 // by Tangent 2021
 
 #ifndef ZF_LCD_H
