@@ -3,20 +3,21 @@
 
 #include "zf_lcd.h"
 
-void lcd_bitmap(unsigned char *bitmap) __naked
+void lcdBitmap(unsigned char *bitmap) __naked
     {
         (void)*bitmap;
         __asm
         
         INIT:
-            POP     BC
-            POP     HL
+            LD      IY,2                // Bypass return address of function
+            ADD     IY,SP
+            LD      L,(IY)              // Load parameter (bitmap) into HL
+            LD      H,1(IY)
+
             LD      (UPRBMP),HL         // Store address of bitmap argument
             LD      DE,512
             ADD     HL,DE
             LD      (LWRBMP),HL         // Store address of bitmap argument + 512
-            PUSH    HL
-            PUSH    BC
 
             LD      A,(BUFFER)          // Init Y as 32 if buffer = 1
             CP      1
@@ -176,58 +177,62 @@ void lcd_bitmap(unsigned char *bitmap) __naked
         __endasm;
     }
 
-//FIXME: Pass parameter via stack
-unsigned char instruction;
-void lcd_instruction(unsigned char i, unsigned char extended)
+void lcdInst(unsigned char i, unsigned char extended) __naked
     {
-        instruction = i;
+        (void)i;
+        (void)extended;
+        __asm
+        LD      IY,2                    // Bypass return address of function
+        ADD     IY,SP
+        LD      D,(IY)                  // Load parameter (i) into D
+        LD      A,1(IY)                 // Load parameter (extended) into A
+        OR      A                       // Check if basic or extended instruction
+        JR      Z,BAS                   // Jump accordingly
 
-        if (extended == 1)                  // Check basic or extended instruction
-            {   
-                __asm
-                CALL    WAITBSY             // Wait until LCD is ready
-                LD      A,36h               // Set extended instruction set
-                OUT     (PORTB),A
-                CALL    ENABLE
+        EXT:
+            CALL    WAITBSY             // Wait until LCD is ready
+            LD      A,36h               // Set extended instruction set
+            OUT     (PORTB),A
+            CALL    ENABLE
 
-                CALL    WAITBSY             // Wait until LCD is ready
-                LD      A,(_instruction)    // Send extended instruction
-                OUT     (PORTB),A 
-                CALL    ENABLE
+            CALL    WAITBSY             // Wait until LCD is ready
+            LD      A,D                 // Send extended instruction stored in D
+            OUT     (PORTB),A 
+            CALL    ENABLE
 
-                CALL    WAITBSY             // Wait until LCD is ready
-                LD      A,30h               // Reset basic instruction set
-                OUT     (PORTB),A
-                CALL    ENABLE
-                __endasm;
-            }
-        else                                
-            {
-                __asm
-                CALL    WAITBSY             // Wait until LCD is ready
-                LD      A,(_instruction)    // Send basic instruction
-                OUT     (PORTB),A
-                CALL    ENABLE
-                __endasm;
-            }
+            CALL    WAITBSY             // Wait until LCD is ready
+            LD      A,30h               // Reset basic instruction set
+            OUT     (PORTB),A
+            CALL    ENABLE
+            RET
+
+        BAS:
+            CALL    WAITBSY             // Wait until LCD is ready
+            LD      A,D                 // Send basic instruction stored in D
+            OUT     (PORTB),A
+            CALL    ENABLE
+            RET
+        __endasm;
     }
 
-//FIXME: Pass parameter via stack
-unsigned char data;
-void lcd_data(unsigned char d)
+void lcdData(unsigned char d) __naked
     {
-        data = d;
+        (void)d;
+        __asm
+        LD      IY,2                    // Bypass return address of function
+        ADD     IY,SP
+        LD      D,(IY)                  // Load parameter into D
 
-        __asm 
-        CALL    WAITBSY             // Wait until LCD is ready
-        LD      A,LCD_DATA          // Set LCD D
+        CALL    WAITBSY                 // Wait until LCD is ready
+        LD      A,LCD_DATA              // Set LCD D
         OUT     (CTRL),A
 
-        LD      A,(_data)           // Send data
+        LD      A,D                     // Send data stored in D
         OUT     (PORTB),A 
         CALL    ENABLE
 
-        LD      A,LCD_INST          // Reset LCD #I
+        LD      A,LCD_INST              // Reset LCD #I
         OUT     (CTRL),A
+        RET
         __endasm;
     }
