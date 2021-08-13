@@ -25,6 +25,6 @@
 // Initialize accessory board PPI to default state.
 // Call this function before interfacing with peripherals.
 // (Mode 0 (Simple I/O), port A input, ports B/C output)
-void ppi_init();
+void ppiInit();
 
 #endif
