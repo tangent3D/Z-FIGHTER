@@ -4,7 +4,7 @@
 #ifndef ZF_UTIL_H
 #define ZF_UTIL_H
 
-// Sleep for approximately 1s
+// Sleep for approximately 1s @ 7.3728MHz
 void sleep1000();
 
 // Sleep for approximately 500ms
