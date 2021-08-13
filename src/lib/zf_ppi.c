@@ -4,7 +4,7 @@
 
 #include "zf_ppi.h"
 
-void ppi_init()
+void ppiInit()
     {
         __asm
         LD      A,90h           // 8255 Simple I/O, PA in, PB,C out
