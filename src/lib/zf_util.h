@@ -5,15 +5,15 @@
 #define ZF_UTIL_H
 
 // Sleep for approximately 1s
-void sleepSec();
+void sleep1000();
 
 // Sleep for approximately 500ms
-void sleepHlfSec();
+void sleep500();
 
 // Sleep for approximately 250ms
-void sleepQtrSec();
+void sleep250();
 
 // Sleep for approximately 125ms
-void sleepEgtSec();
+void sleep125();
 
 #endif
