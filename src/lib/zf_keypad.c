@@ -12,7 +12,7 @@ unsigned char keyDown(unsigned char key) __naked
         LD      D,(IY)              // Load parameter (key) into D    
         IN      A,(PORTA)           // Read the current state of the keypad
         AND     D                   // Compare input with specified key
-        JR      NZ,KD$             
+        JR      NZ,0001$             
         LD      L,1                 // Return 1 if key is pressed
         RET
         0001$:
