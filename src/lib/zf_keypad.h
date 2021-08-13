@@ -1,8 +1,8 @@
 // Keypad definitions for Z-Fighter
 // by Tangent 2021
 
-#ifndef ZF_KEYS_H
-#define ZF_KEYS_H
+#ifndef ZF_KEYPAD_H
+#define ZF_KEYPAD_H
 
 #include "zf_ppi.h"
 
@@ -16,9 +16,6 @@
 #define KEY_C       64  //   ''   bit 6
 #define KEY_D       128 //   ''   bit 7
 
-// Keys are pulled high with pull-up resistors and
-// are in a logic '1' state when not depressed.
-
 // Keypad layout:
 // +-----+-----+-----+-----+-----+
 // |     |  U  |     |  A  |  B  |
@@ -28,10 +25,13 @@
 // |     |     |     |     |     |
 // +-----+-----+-----+-----+-----+
 
-// Return the current state of the keypad keys
-unsigned char keyGet();
+// Check if a specific key is pressed (ex. 'KEY_UP')
+unsigned char keyDown(unsigned char key);
 
-// Wait until a specific key is pressed (ex. 'KEY_UP')
+// Wait until a specific key is pressed 
 void keyWait(unsigned char key);
+
+// Wait until any key is pressed
+void keyWaitAny();
 
 #endif
