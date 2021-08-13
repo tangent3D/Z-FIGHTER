@@ -4,7 +4,7 @@
 #include "zf_util.h"
 
 // TODO: Reduce amount of instructions
-void sleepSec() __naked
+void sleep1000() __naked
     {
         __asm
         LD      BC,63565
@@ -41,7 +41,7 @@ void sleepSec() __naked
     }
 
 // TODO: Reduce amount of instructions
-void sleepHlfSec() __naked
+void sleep500() __naked
     {
         __asm
         LD      BC,61439
@@ -63,7 +63,7 @@ void sleepHlfSec() __naked
         __endasm;
     }
 
-void sleepQtrSec() __naked
+void sleep250() __naked
     {
         __asm
         LD      BC,57596
@@ -78,7 +78,7 @@ void sleepQtrSec() __naked
         __endasm;
     }
 
-void sleepEgtSec() __naked
+void sleep125() __naked
     {
         __asm
         LD      BC,38396
