@@ -1,9 +1,11 @@
-// v0.0 by tangent and xrrawva
+// graphics library definitions for z-fighter
+// by tangent and xrrawva 2021
+
 #ifndef ZF_GFX_H
 #define ZF_GFX_H
 
 // there is no init()
-// init what you need: color = 1; oldX = 0; oldY = 0; cls();
+// init what you need: color = 1; cls();
 
 // coordinates
 // x = 0 left ... x = 127 right
@@ -20,7 +22,8 @@ void cls();
 
 // draws vector graphics
 void point(unsigned char x, unsigned char y);
-void lineTo(unsigned char x, unsigned char y); // from last point or line
+void lineFrom(unsigned char x, unsigned char y);
+void lineTo(unsigned char x, unsigned char y); // from last lineFrom() or last lineTo()
 void rect(unsigned char x, unsigned char y, unsigned char w, unsigned char h);
 
 // draws sprite
@@ -46,8 +49,8 @@ void spriteTransparent(const unsigned char* spriteObject, unsigned char x, unsig
 // 0 means white, 1 means black
 unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 
-// used by lineTo()
-unsigned char oldX;
-unsigned char oldY;
+// used by lineFrom() and lineTo()
+unsigned char oldLineX;
+unsigned char oldLineY;
 
 #endif // ZF_GFX_H
