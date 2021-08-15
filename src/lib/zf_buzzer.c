@@ -3,10 +3,10 @@
 
 #include "zf_buzzer.h"
 
-void buzzer(int frequency, int duration)
+void buzzer(int pulseWidth, int waveCycles)
     {
-        (void)frequency;
-        (void)duration;
+        (void)pulseWidth;
+        (void)waveCycles;
         __asm
         LD      IY,2        // Bypass return address of function
         ADD     IY,SP
