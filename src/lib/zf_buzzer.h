@@ -63,7 +63,7 @@
 #define NOTE_C7     70, 268
 
 // Produce a 50% duty cycle square wave with the buzzer
-// pulseWidth: Delay between buzzer "off" and "on" states
+// pulseWidth: Duration of buzzer 'on' and 'off' states
 // waveCycles: Amount of square waves to generate
 void buzzer(int pulseWidth, int waveCycles);
 
