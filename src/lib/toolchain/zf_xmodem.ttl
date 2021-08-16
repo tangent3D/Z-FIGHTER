@@ -4,8 +4,8 @@
 ; it to TERATERM.INI so that flow control is correctly configured on startup.
 ; Failure to do so may prevent XMODEM transfers.
 
-; Specify COM port and connection settings
-connect '/C=6'
+; Specify COM port and connection settings (e.g. '/C=1' for port COM1)
+connect '/C=1'
 setbaud 115200
 setflowctrl 1
 

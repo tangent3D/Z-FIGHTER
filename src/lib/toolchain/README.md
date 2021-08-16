@@ -4,12 +4,13 @@ Included here are some helpful batch files and a Tera Term macro for cross-devel
 ### Requirements
 - Tera Term [[homepage](https://ttssh2.osdn.jp/index.html.en)]
 - z88dk [[homepage](https://z88dk.org/site/)]
-- XMODEM installation on CP/M storage device (ex. CompactFlash card)
+- XMODEM installation on CP/M storage device (e.g. CompactFlash card)
 
 ### Setup
 - Install `XMODEM.COM` on CP/M computer's A: drive. Refer to the *INSTALLING APPLICATIONS* instructions on [Grant Searle's page](http://searle.x10host.com/cpm/index.html).
 - Set `Z88DK_DIR` in `z88dk_CPM.bat` to the location of your z88dk installation on your host machine.
 - Set `TERA_TERM_DIR` in `zf_xmodem.bat` to the location of your Tera Term installation on your host machine.
+- Specify the COM port of your serial port or USB-to-serial device at the head of `zf_xmodem.ttl`, e.g. `connect '/C=1'` for COM1.
 - Ensure that `hardware` or `RTS/CTS` flow control is set in Tera Term's `Setup > Serial Port...` settings. Store these values to `TERATERM.INI` with `Setup > Save setup...`
 
 ### Usage

@@ -1,4 +1,4 @@
-// 8255A Programmable Peripheral Interface definitions for Z-Fighter peripherals
+// 8255A Programmable Peripheral Interface definitions for Z-Fighter
 // (Keys, LCD, buzzer)
 // by Tangent 2021
 
@@ -8,7 +8,7 @@
 #define PORTA       40h     // Connected to key switches
 #define PORTB       41h     // Connected to ST7920 LCD data bus
 #define PORTC       42h     // Connected to LCD control signals, backlight and buzzer
-#define CTRL        43h     // 8255 control port
+#define CTRL        43h     // PPI control port
 
 // BSR (Bit Set/Reset) control words:
 #define LCD_EN_LO   0x0     // LCD 'E' (Enable) high       
