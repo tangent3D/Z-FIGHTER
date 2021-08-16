@@ -177,7 +177,7 @@ void rect(unsigned char x0, unsigned char y0, unsigned char w, unsigned char h)
     {
         // create row pattern
         unsigned char x0BitsSelector = 255 >> x0Bit;
-        if(x0Byte == x1Byte) x0BitsSelector ^= (255 >> x1Bit);
+        if(x0Byte == x1Byte) x0BitsSelector ^= (255 >> (x1Bit + 1));
 
         // write row pattern
         int screenPointer = y0;
