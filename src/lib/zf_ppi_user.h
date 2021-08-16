@@ -7,7 +7,7 @@
 
 #define USERPORTA	80h     // PA7-PA0
 #define USERPORTB   81h     // PB7-PB0
-#define USERPORTC   82h     // Connected to LCD control signals, backlight and buzzer
+#define USERPORTC   82h		// PC7-PC0
 #define USERCTRL    83h     // User PPI control port
 
 #endif
