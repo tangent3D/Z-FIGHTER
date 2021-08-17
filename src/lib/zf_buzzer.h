@@ -6,12 +6,12 @@
 
 #include "zf_ppi.h"
 
-// Note definitions (pulseWidth, waveCycles) 
+// Note definitions (pulseWidth, waveCycles):
 // As defined here, waveCycles values will produce a tone for ~125ms (1/8 second).
-// For sustained notes, copy the the values here and add a multiplier.
+// For sustained notes, add a multiplier to the end of a note.
 // For rests, 'sleep' functions from zf_util can be used.
 // Usage:       buzzer(NOTE_C4)     // Produce a middle C tone for ~125ms
-//              buzzer(583, 32*4)   // Produce a middle C tone for ~500ms
+//              buzzer(NOTE_C4*4)   // Produce a middle C tone for ~500ms
 #define NOTE_C3     1171, 16
 #define NOTE_CS3    1105, 17
 #define NOTE_D3     1042, 18
@@ -62,7 +62,7 @@
 #define NOTE_B6     74, 253
 #define NOTE_C7     70, 268
 
-// Produce a 50% duty cycle square wave with the buzzer
+// Produce a 50% duty cycle square wave with the buzzer:
 // pulseWidth: Duration of buzzer 'on' and 'off' states
 // waveCycles: Amount of square waves to generate
 void buzzer(int pulseWidth, int waveCycles);
