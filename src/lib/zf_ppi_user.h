@@ -2,13 +2,13 @@
 // (User parallel port)
 // by Tangent 2021
 
-#ifndef ZF_PPI_H
-#define ZF_PPI_H
+#ifndef ZF_PPI_USER_H
+#define ZF_PPI_USER_H
 
-#define USERPORTA   80h     // PA7-PA0
-#define USERPORTB   81h     // PB7-PB0
-#define USERPORTC   82h     // PC7-PC0
-#define USERCTRL    83h     // User PPI control port
+#define USERPORTA   0x80     // PA7-PA0
+#define USERPORTB   0x81     // PB7-PB0
+#define USERPORTC   0x82     // PC7-PC0
+#define USERCTRL    0x83     // User PPI control port
 
 // User port pinout (male side):
 // ╔══════════════════    ═══════════════════╗
@@ -16,4 +16,25 @@
 // ║ C0 C1 C2 C3 C4 C5 C6 C7 B7 B6 B5 B4 VCC ║
 // ╚═════════════════════════════════════════╝
 
+unsigned char cw;
+
+void ppiUserInit(char pa, char pb, char pcu, char pcl);
+
+void bitSet(char bit, char state);
+    
+unsigned char ppiRead(char port);
+
+void ppiWrite(char byte, char port);
+
+unsigned char spiRead(char dataPin, char clockPin);
+
+void spiWrite(char byte, char dataPin, char clockPin);
+
+void ppiWriteControlWord();
+
+unsigned char bitTest(char bit, char byte);
+
+unsigned char bitReverse(char byte);
+
 #endif
+
