@@ -113,7 +113,7 @@ void lineTo(unsigned char x, unsigned char y)
     // undo center to 128
     x0 -= ((256 - SCREEN_W) / 2);
     y0 -= ((256 - SCREEN_H) / 2);
-    x1 -= ((256 - SCREEN_W) / 2);
+    x1 -= ((256 - SCREEN_W) / 2) - 1;
     y1 -= ((256 - SCREEN_H) / 2);
 
     // drawing loop
@@ -132,7 +132,7 @@ void lineTo(unsigned char x, unsigned char y)
             {
                 point(x, y); // draw
                 x++;
-                if(x > x1) return; // don't overshoot
+                if(x == x1) return; // don't overshoot
                 mulXYNow += diffY;
             }
         }
