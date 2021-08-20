@@ -1765,11 +1765,9 @@ S2RTS
 Text GLabel 6200 6700 2    50   Input ~ 0
 S2CTS
 Wire Wire Line
-	6350 7700 6350 7000
-Wire Wire Line
 	6200 7000 6350 7000
 Wire Wire Line
-	4600 7700 6350 7700
+	4600 7650 6350 7650
 Wire Wire Line
 	6250 6900 6200 6900
 Wire Wire Line
@@ -1783,7 +1781,7 @@ Wire Wire Line
 Wire Wire Line
 	6200 7500 6300 7500
 Wire Wire Line
-	4600 7500 4600 7700
+	4600 7500 4600 7650
 $Comp
 L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
 U 1 1 600F2768
@@ -1846,52 +1844,52 @@ TXDB
 $Comp
 L power:GND #PWR0135
 U 1 1 603D6FB0
-P 1050 10450
-F 0 "#PWR0135" H 1050 10200 50  0001 C CNN
-F 1 "GND" H 1055 10277 50  0000 C CNN
-F 2 "" H 1050 10450 50  0001 C CNN
-F 3 "" H 1050 10450 50  0001 C CNN
-	1    1050 10450
+P 9700 10400
+F 0 "#PWR0135" H 9700 10150 50  0001 C CNN
+F 1 "GND" H 9705 10227 50  0000 C CNN
+F 2 "" H 9700 10400 50  0001 C CNN
+F 3 "" H 9700 10400 50  0001 C CNN
+	1    9700 10400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR0104
 U 1 1 60EBD7C5
-P 1550 9850
-F 0 "#PWR0104" H 1550 9700 50  0001 C CNN
-F 1 "VCC" V 1567 9978 50  0000 L CNN
-F 2 "" H 1550 9850 50  0001 C CNN
-F 3 "" H 1550 9850 50  0001 C CNN
-	1    1550 9850
+P 10200 9800
+F 0 "#PWR0104" H 10200 9650 50  0001 C CNN
+F 1 "VCC" V 10217 9928 50  0000 L CNN
+F 2 "" H 10200 9800 50  0001 C CNN
+F 3 "" H 10200 9800 50  0001 C CNN
+	1    10200 9800
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1050 10450 1150 10450
+	9700 10400 9800 10400
 $Comp
 L power:GND #PWR0156
 U 1 1 603F6F2E
-P 1250 10450
-F 0 "#PWR0156" H 1250 10200 50  0001 C CNN
-F 1 "GND" H 1255 10277 50  0000 C CNN
-F 2 "" H 1250 10450 50  0001 C CNN
-F 3 "" H 1250 10450 50  0001 C CNN
-	1    1250 10450
+P 9900 10400
+F 0 "#PWR0156" H 9900 10150 50  0001 C CNN
+F 1 "GND" H 9905 10227 50  0000 C CNN
+F 2 "" H 9900 10400 50  0001 C CNN
+F 3 "" H 9900 10400 50  0001 C CNN
+	1    9900 10400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 1550 10050
-NoConn ~ 1550 10150
+NoConn ~ 10200 10000
+NoConn ~ 10200 10100
 $Comp
 L Connector:USB_B J3
 U 1 1 603B1E19
-P 1250 10050
-F 0 "J3" H 1307 10517 50  0000 C CNN
-F 1 "USB_B" H 1307 10426 50  0000 C CNN
-F 2 "Connector_USB:USB_B_OST_USB-B1HSxx_Horizontal" H 1400 10000 50  0001 C CNN
-F 3 " ~" H 1400 10000 50  0001 C CNN
-	1    1250 10050
+P 9900 10000
+F 0 "J3" H 9957 10467 50  0000 C CNN
+F 1 "USB_B" H 9957 10376 50  0000 C CNN
+F 2 "Connector_USB:USB_B_OST_USB-B1HSxx_Horizontal" H 10050 9950 50  0001 C CNN
+F 3 " ~" H 10050 9950 50  0001 C CNN
+	1    9900 10000
 	1    0    0    -1  
 $EndComp
-Text Notes 950  9500 0    50   ~ 0
+Text Notes 9600 9450 0    50   ~ 0
 Power connector
 Wire Notes Line
 	11650 4600 11650 8050
@@ -1906,7 +1904,7 @@ Wire Notes Line
 Wire Notes Line
 	15750 4800 15750 8050
 Wire Notes Line
-	8750 8900 8750 4600
+	8800 8900 8800 4600
 Wire Wire Line
 	11150 7550 11150 7350
 Wire Wire Line
@@ -1944,7 +1942,7 @@ Wire Wire Line
 	10950 7000 10950 7150
 Wire Wire Line
 	11050 7000 11050 7250
-Text Notes 9250 6950 0    50   ~ 0
+Text Notes 9300 6950 0    50   ~ 0
 DIP-3 for manual ROM paging
 Text GLabel 11150 7000 1    50   Input ~ 0
 ROMA16
@@ -2139,10 +2137,6 @@ F 3 "" H 4600 5700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8000 4950 8000 5350
-Wire Notes Line
-	1050 4600 8750 4600
-Wire Notes Line
-	1050 8900 8750 8900
 Wire Wire Line
 	8000 6450 8000 6850
 $Comp
@@ -2169,8 +2163,6 @@ F 3 "" H 9450 8700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9450 8700 9650 8700
-Text Notes 9000 8400 0    50   ~ 0
-CPU control lines & external SIO Ch.B clock pin
 Wire Wire Line
 	10150 8700 10350 8700
 $Comp
@@ -2383,8 +2375,6 @@ F 3 "" H 13800 8850 50  0001 C CNN
 	1    13800 8850
 	0    1    1    0   
 $EndComp
-Text Notes 12150 8400 0    50   ~ 0
-Supervisory circuit
 $Comp
 L Jumper:Jumper_2_Open JP5
 U 1 1 61288488
@@ -2408,14 +2398,28 @@ F 3 "~" H 8200 4950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VCC #PWR?
+L power:VCC #PWR0145
 U 1 1 6122487F
 P 8400 4950
-F 0 "#PWR?" H 8400 4800 50  0001 C CNN
+F 0 "#PWR0145" H 8400 4800 50  0001 C CNN
 F 1 "VCC" V 8418 5077 50  0000 L CNN
 F 2 "" H 8400 4950 50  0001 C CNN
 F 3 "" H 8400 4950 50  0001 C CNN
 	1    8400 4950
 	0    1    1    0   
 $EndComp
+Text Notes 12150 8350 0    50   ~ 0
+Supervisory circuit
+Text Notes 9150 8400 0    50   ~ 0
+External CPU interrupt & clock header
+Wire Notes Line
+	1050 8900 8800 8900
+Wire Notes Line
+	1050 4600 8800 4600
+Text Notes 7950 4750 0    50   ~ 0
+Pin 9 +5V Jumper
+Text Notes 7950 6250 0    50   ~ 0
+Pin 9 +5V Jumper
+Wire Wire Line
+	6350 7650 6350 7000
 $EndSCHEMATC
