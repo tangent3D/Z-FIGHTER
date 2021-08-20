@@ -132,7 +132,7 @@ void lineTo(unsigned char x, unsigned char y)
             {
                 point(x, y); // draw
                 x++;
-                if(x == x1) return; // don't overshoot
+                if(x > x1) return; // don't overshoot
                 mulXYNow += diffY;
             }
         }
