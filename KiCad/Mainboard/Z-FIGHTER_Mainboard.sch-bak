@@ -2137,12 +2137,45 @@ F 3 "" H 4600 5700 50  0001 C CNN
 	1    4600 5700
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Jumper:Jumper_2_Open JP4
+U 1 1 612627AE
+P 8200 4950
+F 0 "JP4" H 8200 5185 50  0000 C CNN
+F 1 "Jumper_2_Open" H 8200 5094 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 4950 50  0001 C CNN
+F 3 "~" H 8200 4950 50  0001 C CNN
+	1    8200 4950
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	8000 4950 8000 5350
+$Comp
+L power:VCC #PWR0145
+U 1 1 6126C1AD
+P 8400 4950
+F 0 "#PWR0145" H 8400 4800 50  0001 C CNN
+F 1 "VCC" V 8418 5077 50  0000 L CNN
+F 2 "" H 8400 4950 50  0001 C CNN
+F 3 "" H 8400 4950 50  0001 C CNN
+	1    8400 4950
+	0    1    1    0   
+$EndComp
 Wire Notes Line
 	1050 4600 8750 4600
 Wire Notes Line
 	1050 8900 8750 8900
+$Comp
+L Jumper:Jumper_2_Open JP5
+U 1 1 61288488
+P 8200 6450
+F 0 "JP5" H 8200 6685 50  0000 C CNN
+F 1 "Jumper_2_Open" H 8200 6594 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 6450 50  0001 C CNN
+F 3 "~" H 8200 6450 50  0001 C CNN
+	1    8200 6450
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	8000 6450 8000 6850
 $Comp
@@ -2385,37 +2418,4 @@ F 3 "" H 13800 8850 50  0001 C CNN
 $EndComp
 Text Notes 12150 8400 0    50   ~ 0
 Supervisory circuit
-$Comp
-L Jumper:Jumper_2_Open JP5
-U 1 1 61288488
-P 8200 6450
-F 0 "JP5" H 8200 6378 50  0000 C TNN
-F 1 "Jumper_2_Open" H 8200 6594 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 6450 50  0001 C CNN
-F 3 "~" H 8200 6450 50  0001 C CNN
-	1    8200 6450
-	-1   0    0    1   
-$EndComp
-$Comp
-L Jumper:Jumper_2_Open JP4
-U 1 1 6121EA98
-P 8200 4950
-F 0 "JP4" H 8200 4878 50  0000 C TNN
-F 1 "Jumper_2_Open" H 8200 5094 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 4950 50  0001 C CNN
-F 3 "~" H 8200 4950 50  0001 C CNN
-	1    8200 4950
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:VCC #PWR?
-U 1 1 6122487F
-P 8400 4950
-F 0 "#PWR?" H 8400 4800 50  0001 C CNN
-F 1 "VCC" V 8418 5077 50  0000 L CNN
-F 2 "" H 8400 4950 50  0001 C CNN
-F 3 "" H 8400 4950 50  0001 C CNN
-	1    8400 4950
-	0    1    1    0   
-$EndComp
 $EndSCHEMATC
