@@ -12,7 +12,7 @@
 
 // sets foreground color used by all zf_gfx functions
 // 0 means white, 1 means black (default)
-unsigned char color;
+extern unsigned char color;
 
 // fills screen with background color (inverted foreground color)
 void cls();
@@ -69,10 +69,10 @@ void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned 
 // the bitmap all zf_gfx functions draw onto
 // each byte represents 8 horizontal pixels
 // 0 means white, 1 means black
-unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
+extern unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 
 // used by lineFrom() and lineTo()
-unsigned char oldLineX;
-unsigned char oldLineY;
+extern unsigned char oldLineX;
+extern unsigned char oldLineY;
 
 #endif // ZF_GFX_H
