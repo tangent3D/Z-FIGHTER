@@ -292,11 +292,11 @@ void rect(unsigned char x0, unsigned char y0, unsigned char w, unsigned char h)
     }
 }
 
-void sprite(const unsigned char* spriteObject, unsigned char x, unsigned char y)
+void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y)
 {
-    unsigned char w = spriteObject[0];
-    unsigned char h = spriteObject[1];
-    const unsigned char* spritePointer = spriteObject + 2;
+    unsigned char w = spritePattern[0];
+    unsigned char h = spritePattern[1];
+    const unsigned char* spritePointer = spritePattern + 2;
     unsigned char spriteBitSelector = 128;
 
     unsigned char colorStart1 = color;
@@ -326,11 +326,11 @@ void sprite(const unsigned char* spriteObject, unsigned char x, unsigned char y)
     color = colorStart1;
 }
 
-void spriteTransparent(const unsigned char* spriteObject, unsigned char x, unsigned char y)
+void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsigned char y)
 {
-    unsigned char w = spriteObject[0];
-    unsigned char h = spriteObject[1];
-    const unsigned char* spritePointer = spriteObject + 2;
+    unsigned char w = spritePattern[0];
+    unsigned char h = spritePattern[1];
+    const unsigned char* spritePointer = spritePattern + 2;
     unsigned char spriteBitSelector = 128;
 
     unsigned char xStart = x;
@@ -351,5 +351,68 @@ void spriteTransparent(const unsigned char* spriteObject, unsigned char x, unsig
         }
         x = xStart;
         y++;
+    }
+}
+
+void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
+{
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
+    // skip if off screen
+    if(blockX > SCREEN_W / 8 - 1 || blockY > SCREEN_H / 8 - 1) return;
+#endif
+
+    int screenPointer = blockY;
+    screenPointer <<= 7;
+    screenPointer += blockX;
+    screenPointer += (int)screen;
+    if(color)
+    {
+        *(unsigned char*)screenPointer = *blockPattern; // byte 1
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 2
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 3
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 4
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 5
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 6
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 7
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = *blockPattern; // byte 8
+    }
+    else
+    {
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 1
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 2
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 3
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 4
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 5
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 6
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 7
+        screenPointer += SCREEN_W/8;
+        blockPattern++;
+        *(unsigned char*)screenPointer = ~(*blockPattern); // byte 8
     }
 }
