@@ -1,7 +1,7 @@
 // graphics library implementation for z-fighter
 // by xrrawva 2021
 
-#include "zf_gfx.h"
+#include <zf_gfx.h>
 
 //#define ZF_GFX_SKIP_PARAM_CHECKS // faster but undefined behavior for out of bounds parameters
 

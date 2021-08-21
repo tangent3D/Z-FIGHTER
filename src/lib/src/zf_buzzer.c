@@ -1,9 +1,10 @@
 // WT-1205 50mA electromagnetic buzzer functions for Z-Fighter
 // by Tangent 2021
 
-#include "zf_buzzer.h"
+#include <zf_ppi.h>
+#include <zf_buzzer.h>
 
-void buzzer(int pulseWidth, int waveCycles)
+void buzzer(int pulseWidth, int waveCycles) __naked
     {
         (void)pulseWidth;
         (void)waveCycles;

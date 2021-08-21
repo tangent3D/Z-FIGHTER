@@ -1,7 +1,7 @@
 // Utility functions for Z-Fighter
 // by Tangent 2021
 
-#include "zf_util.h"
+#include <zf_util.h>
 
 // TODO: Reduce amount of instructions
 void sleep1000() __naked

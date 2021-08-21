@@ -1,7 +1,8 @@
 // ST7920 LCD controller functions for Z-Fighter
 // by Tangent 2021
 
-#include "zf_lcd.h"
+#include <zf_ppi.h>
+#include <zf_lcd.h>
 
 void lcdBitmap(unsigned char *bitmap) __naked
     {
