@@ -1,17 +1,11 @@
 // graphics library demo for z-fighter
 // by xrrawva 2021
 
-#include "../lib/zf_buzzer.h"
-#include "../lib/zf_gfx.h"
-#include "../lib/zf_lcd.h"
-#include "../lib/zf_util.h"
-
-// makefile substitute
-#include "../lib/zf_ppi.c"
-#include "../lib/zf_buzzer.c"
-#include "../lib/zf_gfx.c"
-#include "../lib/zf_lcd.c"
-#include "../lib/zf_util.c"
+#include <zf_ppi.h>
+#include <zf_buzzer.h>
+#include <zf_gfx.h>
+#include <zf_lcd.h>
+#include <zf_util.h>
 
 int main(int argc, char* argv[])
 {
