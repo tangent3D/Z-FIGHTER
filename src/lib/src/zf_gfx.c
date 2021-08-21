@@ -287,11 +287,11 @@ void rect(unsigned char x0, unsigned char y0, unsigned char w, unsigned char h)
     }
 }
 
-void sprite(const unsigned char* spriteObject, unsigned char x, unsigned char y)
+void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y)
 {
-    unsigned char w = spriteObject[0];
-    unsigned char h = spriteObject[1];
-    const unsigned char* spritePointer = spriteObject + 2;
+    unsigned char w = spritePattern[0];
+    unsigned char h = spritePattern[1];
+    const unsigned char* spritePointer = spritePattern + 2;
     unsigned char spriteBitSelector = 128;
 
     unsigned char colorStart1 = color;
@@ -321,11 +321,11 @@ void sprite(const unsigned char* spriteObject, unsigned char x, unsigned char y)
     color = colorStart1;
 }
 
-void spriteTransparent(const unsigned char* spriteObject, unsigned char x, unsigned char y)
+void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsigned char y)
 {
-    unsigned char w = spriteObject[0];
-    unsigned char h = spriteObject[1];
-    const unsigned char* spritePointer = spriteObject + 2;
+    unsigned char w = spritePattern[0];
+    unsigned char h = spritePattern[1];
+    const unsigned char* spritePointer = spritePattern + 2;
     unsigned char spriteBitSelector = 128;
 
     unsigned char xStart = x;
@@ -347,4 +347,20 @@ void spriteTransparent(const unsigned char* spriteObject, unsigned char x, unsig
         x = xStart;
         y++;
     }
+}
+
+void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
+{
+    int screenPointer = y;
+    screenPointer <<= 4; // *(SCREEN_W/8)
+    screenPointer += xByte;
+    screenPointer += (int)screen;
+
+
+    if(color)
+    {
+        while(screenPointer < screen + SCREEN_H * SCREEN_W / 8)
+        {
+            *screenPointer = 0;
+            screenPointer++;
 }
