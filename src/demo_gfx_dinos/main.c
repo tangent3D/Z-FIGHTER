@@ -1,10 +1,10 @@
 // graphics library demo for z-fighter
 // by xrrawva 2021
 
-#include <zf_ppi.h>
 #include <zf_buzzer.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
+#include <zf_ppi.h>
 #include <zf_util.h>
 
 int main(int argc, char* argv[])
