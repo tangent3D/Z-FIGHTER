@@ -4,8 +4,6 @@
 #ifndef ZF_LCD_H
 #define ZF_LCD_H
 
-#include "zf_ppi.h"
-
 // Fill LCD GDRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx)
 // Contains primary LCD control routines used by other functions
 void lcdBitmap(unsigned char *bitmap);

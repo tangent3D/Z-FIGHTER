@@ -1,23 +1,15 @@
 @ECHO OFF
 
-REM Compile a CP/M .COM executable with z88dk [compiler = sdcc]
+REM Compile a .c source file to a CP/M .COM executable with z88dk/zsdcc
 
-REM Path to your z88dk installation
-SET Z88DK_DIR=C:\z88dk
+CALL %~dp0\config.bat
 
-REM Path to Z-Fighter libraries
-SET INC1=%~dp0\..\lib
-
-SET ZCCCFG=%Z88DK_DIR%\lib\config\
-SET PATH=%Z88DK_DIR%\bin;%PATH%
-SET PATH=%~dp0;%PATH%
-
-REM Get filename of argument [C source]
+REM Get/define filename of argument/source file to use as filename for output
 SET mysource=%~n1
 
 ECHO [Compiling %mysource%.c with z88dk for CP/M]
 
-zcc +cpm -lm -I%INC1% -o "%mysource%.com" %mysource%.c -compiler=sdcc
+zcc +cpm -I%INC% -L%LIBPATH% -lzf_lib_cpm -o "%mysource%.com" %mysource%.c -compiler=sdcc
 
 REM Send executable to Z-Fighter only if compilation succeeds
 if %ERRORLEVEL% == 0 (

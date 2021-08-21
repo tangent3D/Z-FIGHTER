@@ -4,8 +4,6 @@
 #ifndef ZF_BUZZER_H
 #define ZF_BUZZER_H
 
-#include "zf_ppi.h"
-
 // Note definitions (pulseWidth, waveCycles):
 // As defined here, waveCycles values will produce a tone for ~125ms (1/8 second).
 // For sustained notes, add a multiplier to the end of a note.

@@ -1,7 +1,6 @@
 @ECHO OFF
 
-REM Path to Tera Term executable:
-SET TERA_TERM_DIR=C:\Program Files (x86)\teraterm
+CALL %~dp0\config.bat
 
 REM Kill any running instances of Tera Term, suppressing any error messages
 taskkill /IM ttermpro.exe /T /F 2>nul

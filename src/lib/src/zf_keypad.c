@@ -1,6 +1,7 @@
 // Keypad input functions for Z-Fighter
 // by Tangent 2021
 
+#include "zf_ppi.h"
 #include "zf_keypad.h"
 
 unsigned char keyDown(unsigned char key) __naked
