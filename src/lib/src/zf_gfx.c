@@ -5,6 +5,11 @@
 
 //#define ZF_GFX_SKIP_PARAM_CHECKS // faster but undefined behavior for out of bounds parameters
 
+unsigned char color;
+unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
+unsigned char oldLineX;
+unsigned char oldLineY;
+
 void cls()
 {
     unsigned char* screenPointer = screen;
