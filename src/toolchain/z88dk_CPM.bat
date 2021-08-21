@@ -6,7 +6,7 @@ REM Path to your z88dk installation
 SET Z88DK_DIR=C:\z88dk
 
 REM Path to Z-Fighter libraries
-SET INC1=%~dp0\..
+SET INC1=%~dp0\..\lib
 
 SET ZCCCFG=%Z88DK_DIR%\lib\config\
 SET PATH=%Z88DK_DIR%\bin;%PATH%
