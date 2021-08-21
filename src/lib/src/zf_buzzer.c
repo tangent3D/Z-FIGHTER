@@ -4,7 +4,7 @@
 #include <zf_ppi.h>
 #include <zf_buzzer.h>
 
-void buzzer(int pulseWidth, int waveCycles)
+void buzzer(int pulseWidth, int waveCycles) __naked
     {
         (void)pulseWidth;
         (void)waveCycles;
