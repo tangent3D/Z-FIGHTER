@@ -5,7 +5,6 @@ REM Path to Tera Term executable:
 SET TERA_TERM_DIR=C:\Program Files (x86)\teraterm
 
 REM Paths to Z-Fighter libraries
-
 SET LIBPATH=%~dp0\..\lib
 SET INC=%~dp0\..\lib\src
 
