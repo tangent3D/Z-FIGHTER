@@ -1,4 +1,4 @@
-; 8255A Programmable Peripheral Interface functions for Z-Fighter peripherals
+; 8255A Programmable Peripheral Interface implementation for Z-Fighter peripherals
 ; (Keys, LCD, buzzer)
 ; by Tangent 2021
 

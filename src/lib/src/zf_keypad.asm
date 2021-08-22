@@ -1,4 +1,4 @@
-; Keypad input functions for Z-Fighter
+; Keypad input implementation for Z-Fighter
 ; by Tangent 2021
 
 SECTION code_user

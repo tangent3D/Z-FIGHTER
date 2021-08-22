@@ -1,4 +1,4 @@
-; Utility functions for Z-Fighter
+; Utility function implementation for Z-Fighter
 ; by Tangent 2021
 ; TODO: Reduce amount of instructions
 
