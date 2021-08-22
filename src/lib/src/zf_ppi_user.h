@@ -23,24 +23,24 @@
 // Any port programmed as an output port is initialized to all zeroes when the control word is written.
 // pa = Port A, pb = Port B, pcu/pcl = Port C upper/lower
 // '0' = output, '1' = input
-void ppiUserInit(char pa, char pb, char pcu, char pcl);
+void ppiUserInit(unsigned char pa, unsigned char pb, unsigned char pcu, unsigned char pcl);
 
 // BSR: Set or reset a bit of port C (C0-C7)
 // bit: bit selection (0-7)
 // state: '0' = off, '1' = on
-void bitSet(char bit, char state);
+void bitSet(unsigned char bit, unsigned char state);
     
 // Read byte from PPI port, e.g. USERPORTA    
 unsigned char ppiRead(char port);
 
 // Write byte to PPI port, e.g. USERPORTB
-void ppiWrite(char byte, char port);
+void ppiWrite(unsigned char byte, unsigned char port);
 
 // Read byte serially from a pin on port C
-unsigned char serialRead(char dataPin, char clockPin, char bitOrder);
+unsigned char serialRead(unsigned char dataPin, unsigned char clockPin, unsigned char bitOrder);
 
 // Write byte serially to a pin on port C
-void serialWrite(char byte, char dataPin, char clockPin, char bitOrder);
+void serialWrite(unsigned char byte, unsigned char dataPin, unsigned char clockPin, unsigned char bitOrder);
 
 // Test a bit in a byte and return 0 or 1
 unsigned char bitTest(char bit, char byte);

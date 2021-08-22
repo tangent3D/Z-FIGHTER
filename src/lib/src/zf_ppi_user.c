@@ -5,7 +5,7 @@
 #include <zf_ppi_user.h>
 #include <zf_util.h>
 
-void ppiUserInit(char pa, char pb, char pcu, char pcl)
+void ppiUserInit(unsigned char pa, unsigned char pb, unsigned char pcu, unsigned char pcl)
     {
     unsigned char cw  = 0x80;       // I/O mode control word
 
@@ -30,7 +30,7 @@ void ppiUserInit(char pa, char pb, char pcu, char pcl)
     }
 
 
-void bitSet(char bit, char state)
+void bitSet(unsigned char bit, unsigned char state)
     {
     unsigned char cw = 0;           // BSR control word
     bit = bit << 1;                 // Shift bit value to D1-D3
@@ -38,15 +38,15 @@ void bitSet(char bit, char state)
     ppiWrite(cw, USERCTRL);         // Write control word
     }
 
-unsigned char serialRead(char dataPin, char clockPin, char bitOrder)
+unsigned char serialRead(unsigned char dataPin, unsigned char clockPin, unsigned char bitOrder)
     {
     unsigned char byte = 0;
 
-    for(char i = 0; i <= 7; i++)
+    for(unsigned char i = 0; i <= 7; i++)
         {
         bitSet(clockPin, 1);
         bitSet(clockPin, 0);
-        
+
         byte = byte << 1;
 
         byte = byte | bitTest(dataPin, ppiRead(USERPORTC));
@@ -60,7 +60,7 @@ unsigned char serialRead(char dataPin, char clockPin, char bitOrder)
     return(byte);
     }
 
-void serialWrite(char byte, char dataPin, char clockPin, char bitOrder)
+void serialWrite(unsigned char byte, unsigned char dataPin, unsigned char clockPin, unsigned char bitOrder)
     {
     unsigned char bit = 0;
 
@@ -69,7 +69,7 @@ void serialWrite(char byte, char dataPin, char clockPin, char bitOrder)
         byte = byteReverse(byte);
         }
 
-    for(char i = 0; i <= 7; i++)
+    for(unsigned char i = 0; i <= 7; i++)
         {
         bitSet(dataPin, bitTest(bit, byte));
         bitSet(clockPin, 1);
@@ -79,9 +79,9 @@ void serialWrite(char byte, char dataPin, char clockPin, char bitOrder)
     }
 
 
-unsigned char bitTest(char bit, char byte)
+unsigned char bitTest(unsigned char bit, unsigned char byte)
     {
-    char bitMask = 0x01 << bit;
+    unsigned char bitMask = 0x01 << bit;
     byte = bitMask & byte;
     return(byte >> bit);
     }
