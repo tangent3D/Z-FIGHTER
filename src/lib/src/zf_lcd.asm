@@ -71,16 +71,16 @@ DATAROW:
     LD      B,16
 DRLOOP:
     CALL    WAITBSY
-    LD      A,LCD_DATA      ; Set LCD D
+    LD      A,LCD_DATA          ; Set LCD D
     OUT     (CTRL),A
 
     LD      C,PORTB
-    OUTI                    ; OUT contents of HL to (C), DEC B
+    OUTI                        ; OUT contents of HL to (C), DEC B
     CALL    ENABLE
-    OR      B               ; Check if loop is complete
+    OR      B                   ; Check if loop is complete
     JR      NZ,DRLOOP
 
-    LD      A,LCD_INST      ; Reset LCD #I
+    LD      A,LCD_INST          ; Reset LCD #I
     OUT     (CTRL),A
     RET
 
