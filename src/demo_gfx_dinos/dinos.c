@@ -1,4 +1,5 @@
 // graphics library demo for z-fighter
+// (screenshot edition)
 // by xrrawva 2021
 
 #include <zf_buzzer.h>
@@ -7,14 +8,19 @@
 #include <zf_ppi.h>
 #include <zf_util.h>
 
+void slowDown()
+{
+    //sleep125();
+}
+
 int main(int argc, char* argv[])
 {
     // init z-fighter
     ppiInit();
-    color = 1;
-    cls();
-    lcdBitmap(screen); // update screen
-    buzzer(NOTE_C6);
+    //color = 1;
+    //cls();
+    //lcdBitmap(screen); // update screen
+    //buzzer(NOTE_C6);
 
     // init objects
     const unsigned char spPlantB[] = {31, 31, 0, 14, 0, 0, 0, 35, 192, 0, 1, 140, 96, 0, 28, 160, 56, 0, 33, 192, 8, 0, 134, 224, 16, 1, 48, 188, 16, 4, 65, 116, 32, 8, 131, 164, 32, 33, 6, 68, 64, 66, 24, 132, 129, 28, 99, 201, 4, 104, 190, 138, 17, 145, 49, 20, 38, 36, 66, 24, 72, 72, 104, 16, 160, 145, 240, 33, 129, 98, 112, 66, 2, 132, 32, 4, 5, 4, 128, 0, 12, 63, 0, 0, 24, 79, 0, 0, 16, 66, 0, 0, 0, 136, 0, 0, 15, 224, 0, 80, 19, 128, 0, 64, 16, 144, 216, 143, 34, 17, 96, 7, 199, 0, 129, 255, 255, 241, 31, 255, 248, 2, 0};
@@ -29,17 +35,23 @@ int main(int argc, char* argv[])
     for(unsigned char i = 0; i < OBJECT_N_MAX; i++)
     {
         objectXSubpixel[i] = 0;
-        objectX[i] = (((i << 4) + i) ^ 113) & (255 - 128); // random
-        objectY[i] = 4 + i; // in drawing order
+        //objectX[i] = (((i << 4) + i) ^ 113) & (255 - 128); // random (old)
+        objectX[i] = (((i << 4) + i) ^ 13) & (255 - 128); // random
+        objectY[i] = 4 + i + 2; // in drawing order
         objectSpeed[i] = 64 + i * 2; // to match perspective
     }
 
+    // init stars
+    unsigned char starsX = 0;
+
     // phases
-    for(int complexity = 1; complexity < 5; complexity++)
+    for(unsigned char repeats = 0; repeats < 2; repeats++)
     {
+        unsigned char complexity = 1;
+
         // main loop
         unsigned char frame = 0;
-        while(frame < 200)
+        while((unsigned char)(frame + 1) != 0)
         {
             // calculate
             // ---------
@@ -91,9 +103,10 @@ int main(int argc, char* argv[])
 
             // stars
             {
-                unsigned char x = -(frame >> 2);
+                if(frame & 1 + 2) starsX--;
+                unsigned char x = starsX;
                 unsigned char y = 0;
-                unsigned char yStep = 20 >> complexity;
+                unsigned char yStep = 20 >> (complexity + 2);
                 if(yStep == 0) yStep = 1;
                 while(y < 32)
                 {
@@ -108,7 +121,7 @@ int main(int argc, char* argv[])
             {
                 unsigned char y = 32;
                 unsigned char yStep = 1;
-                unsigned char complexityMinusOne = complexity - 1;
+                unsigned char complexityMinusOne = complexity - 1 + 1;
                 while(y < 64)
                 {
                     lineFrom(0, y);
@@ -122,8 +135,8 @@ int main(int argc, char* argv[])
 
             // grid lines vertical
             {
-                unsigned char x0Step = 64 >> complexity;
-                unsigned char x1Step = 128 >> complexity;
+                unsigned char x0Step = 64 >> (complexity + 1);
+                unsigned char x1Step = 128 >> (complexity + 1);
                 unsigned char x0 = (255 - frame) % x0Step;
                 unsigned char x1 = (x0 << 1) - 64;
                 while(x0 < 128)
@@ -149,27 +162,27 @@ int main(int argc, char* argv[])
 
             // objects
             {
-                unsigned char* thisObjectX = objectX;
-                unsigned char* thisObjectY = objectY;
-                unsigned char* nObjectX = objectX + OBJECT_N_MAX;
-                unsigned char iStep = 9 - (complexity << 1);
+                unsigned char* thisObjectX = objectX + 8;
+                unsigned char* thisObjectY = objectY + 8;
+                unsigned char* nObjectX = objectX + OBJECT_N_MAX - 4;
+                unsigned char iStep = 9 - (complexity << 2);
                 while(thisObjectX < nObjectX)
                 {
                     unsigned char x = *thisObjectX;
                     unsigned char y = *thisObjectY;
-                    if(y & 3)
-                    {
-                        color = 1;
-                        spriteTransparent(spPlantB, x, y);
-                        color = 0;
-                        spriteTransparent(spPlantW, x, y);
-                    }
-                    else
+                    if(y > 17 && y < 22)
                     {
                         color = 1;
                         spriteTransparent(spDinoB, x, y);
                         color = 0;
                         spriteTransparent(spDinoW, x, y);
+                    }
+                    else
+                    {
+                        color = 1;
+                        spriteTransparent(spPlantB, x, y);
+                        color = 0;
+                        spriteTransparent(spPlantW, x, y);
                     }
                     thisObjectX += iStep;
                     thisObjectY += iStep;
@@ -178,20 +191,15 @@ int main(int argc, char* argv[])
 
             // finish frame
             lcdBitmap(screen); // update screen
+            slowDown();
             frame++;
         }
-
-        // finish phase
-        color = 0;
-        cls();
-        lcdBitmap(screen); // update screen
-        sleep1000();
     }
 
     // exit
     color = 1;
     cls();
     lcdBitmap(screen); // update screen
-    buzzer(NOTE_C6);
+    //buzzer(NOTE_C6);
     return 0;
 }
