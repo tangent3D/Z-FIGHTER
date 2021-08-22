@@ -8,6 +8,8 @@ unsigned char keyDown(unsigned char key) __naked
     {
         (void)key;
         __asm
+        SECTION CODE_USER
+
         LD      IY,2                // Bypass return address of function
         ADD     IY,SP
         LD      D,(IY)              // Load parameter (key) into D    
@@ -26,6 +28,8 @@ void keyWait(unsigned char key) __naked
     {
         (void)key;
         __asm 
+        SECTION CODE_USER
+
         LD      IY,2                // Bypass return address of function
         ADD     IY,SP
         LD      D,(IY)              // Load parameter (key) into D          
@@ -40,6 +44,8 @@ void keyWait(unsigned char key) __naked
 void keyWaitAny() __naked
     {
         __asm
+        SECTION CODE_USER
+        
         IN      A,(PORTA)           // Read the current state of the keypad
         CP      0xFF                // Check if any key has been pressed
         JR      Z,_keyWaitAny       // Repeat loop until any key is pressed

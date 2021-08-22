@@ -1,14 +1,8 @@
 // 8255A Programmable Peripheral Interface definitions for Z-Fighter
 // (User parallel port)
 // by Tangent 2021
-
 #ifndef ZF_PPI_USER_H
 #define ZF_PPI_USER_H
-
-#define USERPORTA   0x80     // PA7-PA0
-#define USERPORTB   0x81     // PB7-PB0
-#define USERPORTC   0x82     // PC7-PC0
-#define USERCTRL    0x83     // User PPI control port
 
 // User port pinout (male side):
 // ╔══════════════════    ═══════════════════╗
@@ -37,4 +31,3 @@ unsigned char bitTest(char bit, char byte);
 unsigned char bitReverse(char byte);
 
 #endif
-
