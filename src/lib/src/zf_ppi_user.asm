@@ -4,8 +4,6 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
-
 PUBLIC _ppiRead
 _ppiRead:
     LD      IY,2                    ; Bypass the return address of the function
@@ -21,4 +19,17 @@ _ppiWrite:
     LD      A,(IY)                  ; Load parameter (byte) into A
     LD      C,(IY+1)                ; Load parameter (port) into C
     OUT     (C),A                   ; Write byte to the specified port
+    RET
+
+PUBLIC _byteReverse
+_byteReverse:
+    LD      IY,2                    ; Bypass the return address of the function
+    ADD     IY,SP
+    LD      L,(IY)                  ; Load parameter (byte) into L
+    LD      B,8                     ; Reverse all bits in byte
+BRLOOP:
+    RL      L
+    RRA
+    DJNZ    BRLOOP
+    LD      L,A
     RET

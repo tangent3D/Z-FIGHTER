@@ -10,6 +10,9 @@
 #define USERPORTC   0x82     // PC7-PC0
 #define USERCTRL    0x83     // User PPI control port
 
+#define MSB			0
+#define LSB			1
+
 // User port pinout (male side):
 // ╔══════════════════    ═══════════════════╗
 // ║ A0 A1 A2 A3 A4 A5 A6 A7 B0 B1 B2 B3 GND ║
@@ -17,7 +20,7 @@
 // ╚═════════════════════════════════════════╝
 
 // Write a control word to the PPI control register defining port direction settings (mode 0, Simple I/O):
-// Any port programmed as an output port is initialized to all zeros when the control word is written.
+// Any port programmed as an output port is initialized to all zeroes when the control word is written.
 // pa = Port A, pb = Port B, pcu/pcl = Port C upper/lower
 // '0' = output, '1' = input
 void ppiUserInit(char pa, char pb, char pcu, char pcl);
@@ -33,16 +36,16 @@ unsigned char ppiRead(char port);
 // Write byte to PPI port, e.g. USERPORTB
 void ppiWrite(char byte, char port);
 
-// Read byte serially from a pin on port C (LSB first)
-unsigned char serialRead(char dataPin, char clockPin);
+// Read byte serially from a pin on port C
+unsigned char serialRead(char dataPin, char clockPin, char bitOrder);
 
-// Write byte serially to a pin on port C (LSB first)
-void serialWrite(char byte, char dataPin, char clockPin);
+// Write byte serially to a pin on port C
+void serialWrite(char byte, char dataPin, char clockPin, char bitOrder);
 
-// Test a bit and return 0 or 1
+// Test a bit in a byte and return 0 or 1
 unsigned char bitTest(char bit, char byte);
 
 // Reverse order of all bits in a byte
-unsigned char bitReverse(char byte);
+unsigned char byteReverse(char byte);
 
 #endif

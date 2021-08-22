@@ -3,6 +3,7 @@
 // by Tangent 2021
 
 #include <zf_ppi_user.h>
+#include <zf_util.h>
 
 void ppiUserInit(char pa, char pb, char pcu, char pcl)
     {
@@ -37,30 +38,36 @@ void bitSet(char bit, char state)
     ppiWrite(cw, USERCTRL);         // Write control word
     }
 
-
-unsigned char serialRead(char dataPin, char clockPin)
+unsigned char serialRead(char dataPin, char clockPin, char bitOrder)
     {
     unsigned char byte = 0;
-    unsigned char bit = 0;
 
     for(char i = 0; i <= 7; i++)
         {
-        byte = byte|bitTest(dataPin, ppiRead(USERPORTC));
         bitSet(clockPin, 1);
         bitSet(clockPin, 0);
-        if(i != 7)
-            {
-            byte = byte << bit;
-            }
-        bit++;
+        
+        byte = byte << 1;
+
+        byte = byte | bitTest(dataPin, ppiRead(USERPORTC));
+        }
+
+    if(bitOrder == LSB)
+        {
+        byte = byteReverse(byte);
         }
 
     return(byte);
     }
 
-void serialWrite(char byte, char dataPin, char clockPin)
+void serialWrite(char byte, char dataPin, char clockPin, char bitOrder)
     {
     unsigned char bit = 0;
+
+    if(bitOrder == MSB)
+        {
+        byte = byteReverse(byte);
+        }
 
     for(char i = 0; i <= 7; i++)
         {
