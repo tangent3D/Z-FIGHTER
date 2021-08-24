@@ -18,3 +18,9 @@ if %ERRORLEVEL% == 0 (
 ) else if %ERRORLEVEL% == 1 (
     echo [Compilation failed!]
 )
+
+REM Clean up intermediate files
+del %mysource%_CODE.bin >nul 2>&1
+del %mysource%_DATA.bin >nul 2>&1
+del %mysource%_BSS.bin >nul 2>&1
+del %mysource%_UNASSIGNED.bin >nul 2>&1
