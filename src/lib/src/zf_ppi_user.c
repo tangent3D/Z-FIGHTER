@@ -3,7 +3,6 @@
 // by Tangent 2021
 
 #include <zf_ppi_user.h>
-#include <zf_util.h>
 
 void ppiUserInit(unsigned char pa, unsigned char pb, unsigned char pcu, unsigned char pcl)
     {
