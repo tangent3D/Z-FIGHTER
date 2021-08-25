@@ -6,7 +6,7 @@
 #define ZF_PPI_H
 
 // Initialize accessory board PPI to default state.
-// Call this function before interfacing with peripherals.
+// Call this function before interfacing with Z-Fighter peripherals.
 // (Mode 0 (Simple I/O), port A input, ports B/C output)
 void ppiInit();
 
