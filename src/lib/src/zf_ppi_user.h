@@ -10,8 +10,8 @@
 #define USERPORTC   0x82     // PC7-PC0
 #define USERCTRL    0x83     // User PPI control port
 
-#define MSB			0
-#define LSB			1
+#define MSB         0
+#define LSB         1
 
 // User port pinout (male side):
 // ╔══════════════════    ═══════════════════╗
