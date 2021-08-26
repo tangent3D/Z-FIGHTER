@@ -4,7 +4,8 @@ REM Compile a .c source file to a CP/M .COM executable with z88dk/zsdcc
 
 CALL %~dp0\config.bat
 
-REM Get/define filename of argument/source file to use as filename for output
+REM Get/define filename of argument/source file to use as filename for output.
+REM CP/M allows filenames with a maximum of eight characters.
 SET mysource=%~n1
 
 ECHO [Compiling %mysource%.c with z88dk for CP/M]
