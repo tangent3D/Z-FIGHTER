@@ -456,6 +456,7 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
     }
 }
 
+/*
 void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsigned char y)
 {
     unsigned char w = spritePattern[0];
@@ -534,6 +535,35 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
             y++; //                                                           (copy)
         } //                                                                  (copy)
     } //                                                                      (copy)
+}
+*/
+
+void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsigned char y)
+{
+    unsigned char w = spritePattern[0];
+    unsigned char h = spritePattern[1];
+    const unsigned char* spritePointer = spritePattern + 2;
+    unsigned char spriteBitSelector = 128;
+
+    unsigned char xStart = x;
+    for(unsigned char yy = 0; yy < h; yy++)
+    {
+        for(unsigned char xx = 0; xx < w; xx++)
+        {
+            if(*spritePointer & spriteBitSelector) point(x, y);
+
+            spriteBitSelector >>= 1;
+            if(!spriteBitSelector)
+            {
+                spritePointer++;
+                spriteBitSelector = 128;
+            }
+
+            x++;
+        }
+        x = xStart;
+        y++;
+    }
 }
 
 void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
