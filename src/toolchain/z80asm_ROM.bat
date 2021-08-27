@@ -10,3 +10,14 @@ REM CP/M allows filenames with a maximum of eight characters.
 SET mysource=%~n1
 
 zcc +z80 --no-crt -Ca-I=%INC% %mysource%.asm -o %mysource%.bin
+
+if %ERRORLEVEL% == 0 (
+REM Concatenate output binaries
+COPY /B %mysource%_CODE.bin + %mysource%_DATA.bin %mysource%.bin >nul 2>&1    
+)
+
+REM Clean up outputs, REM if debugging
+del %mysource%_CODE.bin >nul 2>&1
+del %mysource%_DATA.bin >nul 2>&1
+del %mysource%_BSS.bin >nul 2>&1
+del %mysource%_UNASSIGNED.bin >nul 2>&1
