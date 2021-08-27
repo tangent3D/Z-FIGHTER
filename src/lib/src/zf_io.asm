@@ -24,3 +24,9 @@ USERPORTA   EQU     80h     ; User port PA7-PA0
 USERPORTB   EQU     81h     ; User port PB7-PB0
 USERPORTC   EQU     82h     ; User port PC7-PC0
 USERCTRL    EQU     83h     ; User PPI control port
+
+; Z80 SIO/0 Serial Input/Output Controller
+SIO_A       EQU     00h     ; SIO channel A data port
+SIO_B       EQU     01h     ; SIO channel B data port
+CTRL_A      EQU     02h     ; SIO channel A control port
+CTRL_B      EQU     03h     ; SIO channel B control port
