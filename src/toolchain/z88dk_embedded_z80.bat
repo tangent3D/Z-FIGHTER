@@ -1,6 +1,6 @@
 @ECHO OFF
 
-REM Compile a .c source file to an Embedded_Z80 ROM model binary with z88dk/zsdcc
+REM Compile a C source file to an Embedded_Z80 ROM model binary with z88dk/zsdcc
 
 CALL %~dp0\config.bat
 
