@@ -9,7 +9,7 @@ REM Get/define filename of argument/source file to use as filename for output.
 REM CP/M allows filenames with a maximum of eight characters.
 SET mysource=%~n1
 
-zcc +cpm --no-crt -Ca-I=%INC% %mysource%.asm -lzf_lib_cpm -o %mysource%.com -create-app
+zcc +cpm --no-crt -Ca-I=%INC% %mysource%.asm -o %mysource%.com -create-app
 
 REM Send executable to Z-Fighter only if assembly succeeds
 if %ERRORLEVEL% == 0 (
