@@ -8,10 +8,19 @@ REM Get/define filename of argument/source file to use as filename for output.
 REM CP/M allows filenames with a maximum of eight characters.
 SET mysource=%~n1
 
-ECHO [Compiling %mysource%.c with z88dk for CP/M]
-
+REM Compile a source file e.g. 'mysource.C' or compile a list of source files e.g. 'mysource.LST' if existent
 REM Add "-lm" to link in generic Z80 maths library if required
-zcc +cpm -SO3 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf_lib_cpm -o "%mysource%.com" %mysource%.c -create-app
+if exist %mysource%.lst (
+ECHO [Compiling list file %mysource%.lst with z88dk for CP/M]
+SET list=@%mysource%.lst
+SET source=
+) else (
+ECHO [Compiling %mysource%.c with z88dk for CP/M]
+SET source=%mysource%.c
+SET list=
+)
+
+zcc +cpm -SO3 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf_lib_cpm -o "%mysource%.com" %source% -create-app %list%
 
 REM Send executable to Z-Fighter only if compilation succeeds
 if %ERRORLEVEL% == 0 (
