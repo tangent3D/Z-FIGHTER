@@ -332,6 +332,7 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
     {
         for(unsigned char yy = 0; yy < h; yy++)
         {
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
             if(y > SCREEN_H - 1)
             {
                 // skip row
@@ -344,6 +345,7 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
             }
             else
             {
+#endif
                 // prepare point(x, y) replacement 1/2
                 unsigned char xByte = x >> 3; // /8
                 unsigned char xBit = x & (1 + 2 + 4); // %8
@@ -352,17 +354,23 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
                 screenPointer <<= 4; // *(SCREEN_W/8)
                 screenPointer += xByte;
                 screenPointer += (int)screen;
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
                 if(x > SCREEN_W - 1) screenPointer -= 32;
+#endif
 
                 // draw row
                 for(unsigned char xx = 0; xx < w; xx++)
                 {
                     // point(x, y) replacement
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
                     if(x < SCREEN_W)
                     {
+#endif
                         if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer |= xBitSelector; // black because color=1
                         else *(unsigned char*)screenPointer &= (~xBitSelector); //                                white because color=1
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
                     }
+#endif
 
                     // prepare point(x, y) replacement 2/2
                     xBitSelector >>= 1;
@@ -380,7 +388,9 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
                     }
                     x++;
                 }
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
             }
+#endif
             x = xStart;
             y++;
         }
@@ -389,6 +399,7 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
     {
         for(unsigned char yy = 0; yy < h; yy++) //                         (copy)
         { //                                                               (copy)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                        (copy)
             if(y > SCREEN_H - 1) //                                        (copy)
             { //                                                           (copy)
                 for(unsigned char xx = 0; xx < wBits; xx++) //             (copy)
@@ -400,6 +411,7 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
             } //                                                           (copy)
             else //                                                        (copy)
             { //                                                           (copy)
+#endif //                                                                  (copy)
                 unsigned char xByte = x >> 3; //                           (copy)
                 unsigned char xBit = x & (1 + 2 + 4); //                   (copy)
                 unsigned char xBitSelector = 128 >> xBit; //               (copy)
@@ -407,14 +419,20 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
                 screenPointer <<= 4; //                                    (copy)
                 screenPointer += xByte; //                                 (copy)
                 screenPointer += (int)screen; //                           (copy)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                        (copy)
                 if(x > SCREEN_W - 1) screenPointer -= 32; //               (copy)
+#endif //                                                                  (copy)
                 for(unsigned char xx = 0; xx < w; xx++) //                 (copy)
                 { //                                                       (copy)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                        (copy)
                     if(x < SCREEN_W) //                                    (copy)
                     { //                                                   (copy)
+#endif //                                                                  (copy)
                         if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer &= (~xBitSelector); // white because color=0 // (different)
-                        else *(unsigned char*)screenPointer |= xBitSelector; //                                black because color=0 // (different)
+                        else *(unsigned char*)screenPointer |= xBitSelector; //                                      black because color=0 // (different)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                        (copy)
                     } //                                                   (copy)
+#endif //                                                                  (copy)
                     xBitSelector >>= 1; //                                 (copy)
                     if(xBitSelector == 0) //                               (copy)
                     { //                                                   (copy)
@@ -429,7 +447,9 @@ void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y
                     } //                                                   (copy)
                     x++; //                                                (copy)
                 } //                                                       (copy)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                        (copy)
             } //                                                           (copy)
+#endif //                                                                  (copy)
             x = xStart; //                                                 (copy)
             y++; //                                                        (copy)
         } //                                                               (copy)
@@ -440,83 +460,80 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
 {
     unsigned char w = spritePattern[0];
     unsigned char h = spritePattern[1];
-    spritePattern += 2;
+    const unsigned char* spritePointer = spritePattern + 2;
     unsigned char spriteBitSelector = 128;
     unsigned char xStart = x;
-    if(color)
+    if(color == 1)
     {
-        for(unsigned char yy = 0; yy < h; yy++) //       (copy)
-        { //                                             (copy)
-            unsigned char xByte = x >> 3; //             (copy)
-            unsigned char xBit = x & (1 + 2 + 4); //     (copy)
-            unsigned char xBitSelector = 128 >> xBit; // (copy)
-            int screenPointer = y; //                    (copy)
-            screenPointer <<= 4; //                      (copy)
-            screenPointer += xByte; //                   (copy)
-            screenPointer += (int)screen; //             (copy)
-            if(x > SCREEN_W - 1) screenPointer -= 32; // (copy)
-            for(unsigned char xx = 0; xx < w; xx++) //   (copy)
-            { //                                         (copy)
-                if(x < SCREEN_W && y < SCREEN_H) //      (copy)
-                { //                                     (copy)
-                    if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer |= xBitSelector; //      black because color=1 // (different)
-                    //if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer &= (~xBitSelector); // white because color=0 // (different)
-                } //                                     (copy)
-                xBitSelector = xBitSelector >> 1; //     (copy)
-                if(xBitSelector == 0) //                 (copy)
-                { //                                     (copy)
-                    xBitSelector = 128; //               (copy)
-                    screenPointer++; //                  (copy)
-                } //                                     (copy)
-                spriteBitSelector >>= 1; //              (copy)
-                if(!spriteBitSelector) //                (copy)
-                { //                                     (copy)
-                    spritePattern++; //                  (copy)
-                    spriteBitSelector = 128; //          (copy)
-                } //                                     (copy)
-                x++; //                                  (copy)
-            } //                                         (copy)
-            x = xStart; //                               (copy)
-            y++; //                                      (copy)
-        } //                                             (copy)
+        for(unsigned char yy = 0; yy < h; yy++)
+        {
+            int screenPointerRowStart = (y << 4) + (int)screen; // y*(SCREEN_W/8) + screen
+            for(unsigned char xx = 0; xx < w; xx++)
+            {
+                if(*spritePointer & spriteBitSelector)
+                {
+                    // point(x, y) replacement
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
+                    if(x < SCREEN_W && y < SCREEN_H)
+                    {
+#endif
+                        unsigned char xByte = x >> 3; // /8
+                        unsigned char xBit = x & (1 + 2 + 4); // %8
+                        unsigned char xBitSelector = 128 >> xBit;
+                        int screenPointer = screenPointerRowStart + xByte;
+                        *(unsigned char*)screenPointer |= xBitSelector; //    black because color=1
+                        //*(unsigned char*)screenPointer &= ~xBitSelector; // white because color=0
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS
+                    }
+#endif
+                }
+                spriteBitSelector >>= 1;
+                if(!spriteBitSelector)
+                {
+                    spritePointer++;
+                    spriteBitSelector = 128;
+                }
+                x++;
+            }
+            x = xStart;
+            y++;
+        }
     }
     else
     {
-        for(unsigned char yy = 0; yy < h; yy++) //       (copy)
-        { //                                             (copy)
-            unsigned char xByte = x >> 3; //             (copy)
-            unsigned char xBit = x & (1 + 2 + 4); //     (copy)
-            unsigned char xBitSelector = 128 >> xBit; // (copy)
-            int screenPointer = y; //                    (copy)
-            screenPointer <<= 4; //                      (copy)
-            screenPointer += xByte; //                   (copy)
-            screenPointer += (int)screen; //             (copy)
-            if(x > SCREEN_W - 1) screenPointer -= 32; // (copy)
-            for(unsigned char xx = 0; xx < w; xx++) //   (copy)
-            { //                                         (copy)
-                if(x < SCREEN_W && y < SCREEN_H) //      (copy)
-                { //                                     (copy)
-                  //if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer |= xBitSelector; //    black because color=1 // (different)
-                    if(*spritePattern & spriteBitSelector) *(unsigned char*)screenPointer &= (~xBitSelector); // white because color=0 // (different)
-                } //                                     (copy)
-                xBitSelector = xBitSelector >> 1; //     (copy)
-                if(xBitSelector == 0) //                 (copy)
-                { //                                     (copy)
-                    xBitSelector = 128; //               (copy)
-                    screenPointer++; //                  (copy)
-                } //                                     (copy)
-                spriteBitSelector >>= 1; //              (copy)
-                if(!spriteBitSelector) //                (copy)
-                { //                                     (copy)
-                    spritePattern++; //                  (copy)
-                    spriteBitSelector = 128; //          (copy)
-                } //                                     (copy)
-                x++; //                                  (copy)
-            } //                                         (copy)
-            x = xStart; //                               (copy)
-            y++; //                                      (copy)
-        } //                                             (copy)
-    }
+        for(unsigned char yy = 0; yy < h; yy++) //                            (copy)
+        { //                                                                  (copy)
+            int screenPointerRowStart = (y << 4) + (int)screen; //            (copy)
+            for(unsigned char xx = 0; xx < w; xx++) //                        (copy)
+            { //                                                              (copy)
+                if(*spritePointer & spriteBitSelector) //                     (copy)
+                { //                                                          (copy)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                           (copy)
+                    if(x < SCREEN_W && y < SCREEN_H) //                       (copy)
+                    { //                                                      (copy)
+#endif //                                                                     (copy)
+                        unsigned char xByte = x >> 3; //                      (copy)
+                        unsigned char xBit = x & (1 + 2 + 4); //              (copy)
+                        unsigned char xBitSelector = 128 >> xBit; //          (copy)
+                        int screenPointer = screenPointerRowStart + xByte; // (copy)
+                        //*(unsigned char*)screenPointer |= xBitSelector; // black because color=1 // (different)
+                        *(unsigned char*)screenPointer &= ~xBitSelector; //  white because color=0 // (different)
+#ifndef ZF_GFX_SKIP_PARAM_CHECKS //                                           (copy)
+                    } //                                                      (copy)
+#endif //                                                                     (copy)
+                } //                                                          (copy)
+                spriteBitSelector >>= 1; //                                   (copy)
+                if(!spriteBitSelector) //                                     (copy)
+                { //                                                          (copy)
+                    spritePointer++; //                                       (copy)
+                    spriteBitSelector = 128; //                               (copy)
+                } //                                                          (copy)
+                x++; //                                                       (copy)
+            } //                                                              (copy)
+            x = xStart; //                                                    (copy)
+            y++; //                                                           (copy)
+        } //                                                                  (copy)
+    } //                                                                      (copy)
 }
 
 void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
