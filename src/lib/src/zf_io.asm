@@ -28,5 +28,5 @@ USERCTRL    EQU     83h     ; User PPI control port
 ; Z80 SIO/0 Serial Input/Output Controller
 SIO_A       EQU     00h     ; SIO channel A data port
 SIO_B       EQU     01h     ; SIO channel B data port
-CTRL_A      EQU     02h     ; SIO channel A control port
-CTRL_B      EQU     03h     ; SIO channel B control port
+SIO_AC      EQU     02h     ; SIO channel A control port
+SIO_BC      EQU     03h     ; SIO channel B control port
