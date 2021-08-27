@@ -158,6 +158,22 @@ SB2:
     CALL    EXTINST             ; Enable vertical scroll position
     RET
 
+PUBLIC _lcdBacklight
+_lcdBacklight:
+    LD      IY,2                ; Bypass return address of function
+    ADD     IY,SP
+    LD      A,(IY)              ; Load parameter (state) into A
+    CP      1
+    JR      Z,BL_ON
+BL_OFF:
+    LD      A,LCD_BL_OFF        ; If state != 1, turn backlight off
+    OUT     (CTRL),A
+    RET
+BL_ON:
+    LD      A,LCD_BL_ON         ; If state = 1, turn backlight on
+    OUT     (CTRL),A
+    RET
+
 PUBLIC _lcdInst
 _lcdInst:
     LD      IY,2                ; Bypass return address of function

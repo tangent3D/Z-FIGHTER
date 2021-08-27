@@ -9,7 +9,8 @@ SET mysource=%~n1
 
 ECHO [Compiling %mysource%.c with z88dk for Embedded_Z80]
 
-zcc +z80 -vn -SO3 -startup=1 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf_lib_embedded_z80 %mysource%.c -o "%mysource%" -lm -create-app
+REM Add "-lm" to link in generic Z80 maths library if required
+zcc +z80 -vn -SO3 -startup=1 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf_lib_embedded_z80 %mysource%.c -o "%mysource%" -create-app
 
 REM Concatenate output binaries
 COPY /B %mysource%_CODE.bin + %mysource%_DATA.bin %mysource%.bin
