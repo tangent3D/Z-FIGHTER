@@ -13,8 +13,5 @@ zcc +cpm --no-crt -Ca-I=%INC% %mysource%.asm -o %mysource%.com -create-app
 
 REM Send executable to Z-Fighter only if assembly succeeds
 if %ERRORLEVEL% == 0 (
-    echo [Assembly succeeded!]
     ZF_XMODEM %cd%\%mysource%.com %mysource%.com
-) else if %ERRORLEVEL% == 1 (b
-    echo [Assembly failed!]
 )

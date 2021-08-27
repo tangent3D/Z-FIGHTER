@@ -9,7 +9,6 @@ REM CP/M allows filenames with a maximum of eight characters.
 SET mysource=%~n1
 
 REM Compile a source file e.g. 'mysource.C' or compile a list of source files e.g. 'mysource.LST' if existent
-REM Add "-lm" to link in generic Z80 maths library if required
 if exist %mysource%.lst (
 ECHO [Compiling list file %mysource%.lst with z88dk for CP/M]
 SET list=@%mysource%.lst
@@ -24,10 +23,7 @@ zcc +cpm -SO3 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf
 
 REM Send executable to Z-Fighter only if compilation succeeds
 if %ERRORLEVEL% == 0 (
-    echo [Compilation succeeded!]
     ZF_XMODEM %cd%\%mysource%.com %mysource%.com
-) else if %ERRORLEVEL% == 1 (b
-    echo [Compilation failed!]
 )
 
 REM Clean up intermediate files

@@ -13,8 +13,5 @@ REM Add "-lm" to link in generic Z80 maths library if required
 zcc +z80 -vn -a -SO3 -clib=sdcc_iy --max-allocs-per-node200000 -I%INC% -L%LIBPATH% -lzf_lib_embedded_z80 %mysource%.c -o %mysource%.asm
 
 if %ERRORLEVEL% == 0 (
-    echo [Compilation succeeded!]
     %cd%\%mysource%.asm
-) else if %ERRORLEVEL% == 1 (
-    echo [Compilation failed!]
 )

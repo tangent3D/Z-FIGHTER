@@ -20,9 +20,3 @@ del %mysource%_CODE.bin >nul 2>&1
 del %mysource%_DATA.bin >nul 2>&1
 del %mysource%_BSS.bin >nul 2>&1
 del %mysource%_UNASSIGNED.bin >nul 2>&1
-
-if %ERRORLEVEL% == 0 (
-    echo [Compilation succeeded!]
-) else if %ERRORLEVEL% == 1 (
-    echo [Compilation failed!]
-)
