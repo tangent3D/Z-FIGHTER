@@ -12,7 +12,7 @@ SET mysource=%~n1
 zcc +z80 --no-crt -Ca-I=%INC% %mysource%.asm -o %mysource%.bin
 
 if %ERRORLEVEL% == 0 (
-REM Concatenate output binaries
+REM Concatenate output binaries if existent
 COPY /B %mysource%_CODE.bin + %mysource%_DATA.bin %mysource%.bin >nul 2>&1    
 )
 
