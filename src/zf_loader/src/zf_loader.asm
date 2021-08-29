@@ -3,7 +3,7 @@
 
 ; Copies boot loader to top of RAM, jumps to it and disables ROM.
 ; Loads a .BIN serially through SIO Ch.A to 0000h.
-; Does not use flow control. Does not perform error checking.
+; Does not use interrupts, flow control or error checking.
 ; Initializes stack pointer beneath boot loader.
 ; Performs CALL to 0000h. RET to boot loader is supported.
     
