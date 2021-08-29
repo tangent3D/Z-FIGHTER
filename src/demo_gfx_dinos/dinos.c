@@ -7,7 +7,7 @@
 #include <zf_ppi.h>
 #include <zf_util.h>
 
-int main(int argc, char* argv[])
+void main()
 {
     // init z-fighter
     ppiInit();
@@ -193,5 +193,5 @@ int main(int argc, char* argv[])
     cls();
     lcdBitmap(screen); // update screen
     buzzer(NOTE_C6);
-    return 0;
+    return;
 }
