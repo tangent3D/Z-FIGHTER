@@ -341,6 +341,12 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
     else                         document.getElementById("redo").disabled=true;
   }
 
+  window.onbeforeunload=function(e)
+  {
+    if(undoStackILast==0)return;
+    else return "";
+  };
+
 </script>
 </body>
 </html>
