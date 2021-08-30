@@ -9,9 +9,11 @@
     
 INCLUDE "zf_io.asm"
 
-BL          EQU     512            ; Amount of bytes to reserve for boot loader
+BL          EQU     511            ; Amount of bytes to reserve for boot loader
 RAMLOC      EQU     0FFFFh-BL      ; Destination address in RAM for boot loader
 
+    LD      SP,RAMLOC-16
+    
 COPY:
     LD      HL,0000h               ; Copy boot loader ROM to RAM
     LD      DE,RAMLOC              ; Destination address
@@ -45,8 +47,6 @@ EXECUTE:
     CALL    STOPSIO                ; Reset SIO Ch.A
     LD      C,SIO_BC               ; Load C with SIO Ch.B control port
     CALL    STOPSIO                ; Reset SIO Ch.B
-
-    LD      SP,RAMLOC-1            ; Initialize stack pointer below boot loader
 
     CALL    DELAY
     CALL    0000h                  ; CALL loaded data
