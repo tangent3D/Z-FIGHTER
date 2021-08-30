@@ -15,11 +15,13 @@ textarea.error{background-color:#ffd0d0;}
 </style>
 </head>
 <body>
+<form autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">
 <a href="https://github.com/tangent3D/Z-FIGHTER">Z-Fighter</a> GFX Sprite Editor<br>
 <canvas id="canvas0" width="256" height="256">error</canvas><br>
-w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type="button" id="undo" onclick="undo()">&lt;</button>&nbsp;<button type="button" id="redo" onclick="redo()">&gt;</button><br>
+w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type="button" id="undo">&lt;</button>&nbsp;<button type="button" id="redo">&gt;</button><br>
 <br>
 <textarea id="result" rows="10" cols="50"></textarea><br>
+</form>
 <script>
 
   // init canvas double-buffering
@@ -130,7 +132,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
     }
 
     // generate new export string
-    let result="unsigned char "+name+"[] = {";
+    let result="const unsigned char "+name+"[] = {";
     if(w==256)result+="0,";
     else      result+=w+",";
     if(h==256)result+="0,";
@@ -163,13 +165,22 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
   {
     document.getElementById("result").className="error"; // show as error
 
-    // update name
+    // update name if possible
     let result=document.getElementById("result").value;
-    let newName=result.substring(result.search("unsigned char ")+14,result.search("\\[\\]"));
+    let newName="";
+    let nameSearch0=result.search("unsigned char ");
+    let nameSearch1=result.search("\\[\\]");
+    if(nameSearch0!=-1&&nameSearch1!=-1)newName=result.substring(nameSearch0+14,nameSearch1);
     if(newName!="")name=newName;
 
+    // abort if data not found
+    let dataSearch0=result.search("{");
+    let dataSearch1=result.search("}");
+    if(dataSearch0==-1)return;
+    if(dataSearch1==-1)dataSearch1=result.length;
+
     // get data as array
-    result=result.substring(result.search("{")+1,result.search("}"));
+    result=result.substring(dataSearch0+1,dataSearch1);
     let resultArray=result.split(",");
 
     // abort if array too short
@@ -287,7 +298,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
     saveToUndoStack();
   };
 
-  function undo()
+  undo.onclick=function(e)
   {
     // switch current save state
     undoStackI--;
@@ -301,9 +312,9 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
     if(undoStackI>0)document.getElementById("undo").disabled=false;
     else            document.getElementById("undo").disabled=true;
     document.getElementById("redo").disabled=false;
-  }
+  };
 
-  function redo()
+  redo.onclick=function(e)
   {
     // switch current save state
     undoStackI++;
@@ -317,7 +328,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type
     document.getElementById("undo").disabled=false;
     if(undoStackI<undoStackILast)document.getElementById("redo").disabled=false;
     else                         document.getElementById("redo").disabled=true;
-  }
+  };
 
   function saveToUndoStack()
   {
