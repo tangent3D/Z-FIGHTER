@@ -193,5 +193,4 @@ void main()
     cls();
     lcdBitmap(screen); // update screen
     buzzer(NOTE_C6);
-    return;
 }
