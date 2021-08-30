@@ -40,6 +40,7 @@ LOADER:
     LD      HL,CONFIRM             ; Write confirmation message
     CALL    STRING
 
+EXECUTE:
     LD      C,SIO_AC               ; Load C with SIO Ch.A control port
     CALL    STOPSIO                ; Reset SIO Ch.A
     LD      C,SIO_BC               ; Load C with SIO Ch.B control port
@@ -112,7 +113,9 @@ RXDATA:
     LD      C,SIO_A                ; Load C with SIO Ch.A data port
 RD1:
     CALL    RXCHAR                 ; Poll SIO until a character is received
-    LD      (HL),A                 ; Load first received byte into (HL)
+    CP      76h                    ; Check if character = v
+    JP      Z,EXECUTE              ; If so, skip data load and reset to 0000h
+    LD      (HL),A                 ; Otherwise, load first received byte into (HL)
     INC     HL                     ; Increment HL
 RD2:
     LD      B,255                  ; Load timeout counter and receive remaining data
