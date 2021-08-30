@@ -54,7 +54,7 @@ SL2:
     LD      A,C
     OR      B
     JP      NZ,SL2
-    ret
+    RET
 
 PUBLIC _sleep250
 _sleep250:
@@ -66,7 +66,7 @@ SL3:
     LD      A,C
     OR      B
     JP      NZ,SL3
-    ret
+    RET
 
 PUBLIC _sleep125
 _sleep125:
@@ -76,4 +76,4 @@ SL4:
     LD      A,C
     OR      B
     JP      NZ,SL4
-    ret
+    RET

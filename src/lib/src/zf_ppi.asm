@@ -10,3 +10,4 @@ PUBLIC _ppiInit
 _ppiInit:
     LD      A,90h           ; 8255 Simple I/O, PA in, PB,C out
     OUT     (CTRL),A
+    RET
