@@ -34,7 +34,7 @@ EXIT
 
 :start_terminal
 REM Open a terminal window for serial I/O with Z-Fighter following the transfer.
-START "Z-Fighter Terminal" plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N
+zf_terminal.bat
 EXIT
 
 :error_type
