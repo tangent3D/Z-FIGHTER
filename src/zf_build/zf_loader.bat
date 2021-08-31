@@ -38,5 +38,5 @@ START "Z-Fighter Terminal" plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N
 EXIT
 
 :error_type
-ECHO Only .BIN files are supported.
+ECHO Only .BIN files are supported by zf_loader.
 EXIT

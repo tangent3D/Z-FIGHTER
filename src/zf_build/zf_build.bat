@@ -8,9 +8,14 @@ REM Uses configuration options from zf_config.bat.
 SET source=%1
 SET name=%~n1
 SET ext=%~x1
+SET arg=%2
 
 REM Perform error checking for source file type.
-IF NOT %ext% == .c IF NOT %ext% == .asm GOTO error_type
+IF NOT %ext% == .c IF NOT %ext% == .asm IF NOT %ext% == .lst GOTO error_type
+
+REM Inform user of filename and build tool.
+IF NOT %ext% == .asm ECHO Compiling %name%%ext% with z88dk/sdcc.
+IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
 
 CALL %~dp0\zf_config.bat
 
@@ -20,27 +25,34 @@ IF %ext% == .asm SET startup=--no-crt
 
 REM Define %lib%
 REM Configure z88dk to use "new" C library and sdcc as compiler
-IF %ext% == .c SET lib=-clib=sdcc_iy
+IF NOT %ext% == .asm SET lib=-clib=sdcc_iy
 
 REM Define %pragma%
 REM For use with zf_loader.
 REM "Do not change stack location. Return to caller on exit."
-IF %ext% == .c SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
+IF NOT %ext% == .asm SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
 
 REM Define %include%
-IF %ext% == .c SET include=-I%INC% -L%LIBPATH%
+IF NOT %ext% == .asm SET include=-I%INC% -L%LIBPATH%
 
 REM Define %zf_lib%
 REM Include Z-Fighter C library for z88dk projects.
-IF %ext% == .c SET zf_lib=-lzf_lib_z80
+IF NOT %ext% == .asm SET zf_lib=-lzf_lib
 
 REM Define %output%
 SET output=%name%
 IF %ext% == .asm SET output=%name%.bin
+IF output == zf_lib SET transfer=false
 
 REM Define %list%
-REM Check for a .lst file of same name and use it instead of source.
-IF NOT %ext% == .asm (
+REM Replace source with list when using a .lst file.
+IF %ext% == .lst (
+SET list=@%source%
+SET source=
+)
+
+REM Check for a .lst file of same name as source and use it instead of source.
+IF %ext% == .c (
     IF EXIST %name%.lst (
         SET list=@%name%.lst
         SET source=
@@ -48,8 +60,9 @@ IF NOT %ext% == .asm (
     )
 )
 
+:build
 REM Compile/assemble the source with z88dk/z80asm.
-zcc +z80 -vn %startup% -opt=-SO3 --max-allocs-per-node200000 -Ca-I=%INC% %lib% %pragma% %include% %zf_lib% %source% -o %output% -m -create-app %list%
+zcc +z80 %startup% -opt=-SO3 --max-allocs-per-node200000 -Ca-I=%INC% %lib% %pragma% %include% %arg% %zf_lib% %source% -o %output% -m -create-app %list%
 
 IF %errorlevel% NEQ 0 GOTO error_compile
 
@@ -82,7 +95,6 @@ DEL %name%_disassembled.txt >nul 2>&1
 :transfer
 REM Pass output as argument to zf_loader.bat
 IF %transfer% == true zf_loader.bat %name%.bin
-
 EXIT
 
 :error_source
@@ -90,7 +102,7 @@ ECHO No source file.
 EXIT
 
 :error_type
-ECHO Supported source types are .C and .ASM.
+ECHO Supported source types are .C, .ASM and .LST.
 EXIT
 
 :error_compile
