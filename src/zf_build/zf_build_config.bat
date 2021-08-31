@@ -9,8 +9,6 @@ SET ZCCCFG=%Z88DK_DIR%\lib\config
 SET PATH=%Z88DK_DIR%\bin;%PATH%
 SET PATH=%~dp0;%PATH%
 
-SET BUILD_DIR=%~dp0
-
 REM COM port number of your serial communication interface.
 SET COM_port=COM1
 
