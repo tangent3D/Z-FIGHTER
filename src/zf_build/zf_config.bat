@@ -1,3 +1,5 @@
+@ECHO OFF
+
 REM Path to your z88dk installation
 SET Z88DK_DIR=C:\z88dk
 

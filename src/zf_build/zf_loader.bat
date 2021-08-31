@@ -2,6 +2,9 @@
 
 REM Transfer a .BIN to zf_loader via the COM port specified in zf_config.bat.
 
+REM Inform user if no binary file is defined.
+IF [%1] == [] GOTO error_file
+
 CALL %~dp0\zf_config.bat
 
 IF %transfer% == false EXIT
@@ -35,6 +38,10 @@ EXIT
 :start_terminal
 REM Open a terminal window for serial I/O with Z-Fighter following the transfer.
 zf_terminal.bat
+EXIT
+
+:error_file
+ECHO No binary file defined.
 EXIT
 
 :error_type

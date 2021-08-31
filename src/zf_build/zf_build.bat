@@ -5,6 +5,9 @@ REM C sources will be compiled with z88dk/sdcc. ASM sources will be assembled wi
 REM Programs can be run more than once with correct initial state.
 REM Uses configuration options from zf_config.bat.
 
+REM Inform user if no source file is defined.
+IF [%1] == [] GOTO error_file
+
 SET source=%1
 SET name=%~n1
 SET ext=%~x1
@@ -97,8 +100,8 @@ REM Pass output as argument to zf_loader.bat
 IF %transfer% == true zf_loader.bat %name%.bin
 EXIT
 
-:error_source
-ECHO No source file.
+:error_file
+ECHO No source file defined.
 EXIT
 
 :error_type
