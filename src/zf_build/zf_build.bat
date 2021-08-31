@@ -1,6 +1,6 @@
 @ECHO OFF
 
-REM Build a source file to a 'ROM model' .BIN and transfer it to zf_loader.
+REM Build a source file to a 'ROM model' .BIN for Z-Fighter. Passes output to zf_loader.bat.
 REM C sources will be compiled with z88dk/sdcc. ASM sources will be assembled with z80asm.
 REM Programs can be run more than once with correct initial state.
 REM Uses configuration options from zf_config.bat.
@@ -9,10 +9,10 @@ SET source=%1
 SET name=%~n1
 SET ext=%~x1
 
-REM Perform error checking for source file type
+REM Perform error checking for source file type.
 IF NOT %ext% == .c IF NOT %ext% == .asm GOTO error_type
 
-CALL %~dp0\zf_build_config.bat
+CALL %~dp0\zf_config.bat
 
 REM Define %startup%
 SET startup=-startup=1
@@ -48,6 +48,7 @@ IF NOT %ext% == .asm (
     )
 )
 
+REM Compile/assemble the source with z88dk/z80asm.
 zcc +z80 -vn %startup% -opt=-SO3 --max-allocs-per-node200000 -Ca-I=%INC% %lib% %pragma% %include% %zf_lib% %source% -o %output% -m -create-app %list%
 
 IF %errorlevel% NEQ 0 GOTO error_compile
@@ -62,6 +63,7 @@ IF EXIST %name%_UNASSIGNED.bin (
     )
 )
 
+REM Disassemble the output binary and open the resulting text file.
 IF %disassemble% == true (
 z88dk-dis -o 0x0000 -x %name%.map %name%.bin > %name%_disassembled.txt
 %name%_disassembled.txt
@@ -77,25 +79,10 @@ DEL %name%_UNASSIGNED.bin >nul 2>&1
 DEL %name%.map >nul 2>&1
 DEL %name%_disassembled.txt >nul 2>&1
 
-IF %disassemble% == true EXIT 
-IF %transfer% == false EXIT
-     
-taskkill /IM "plink.exe" /T /F >nul 2>&1
-
 :transfer
-ECHO Sending %name%.bin to zf_loader.
-IF %console_output% == true GOTO transfer_console
-MODE %COM_port%: BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
-COPY %name%.bin \\.\%COM_port% >nul
-IF %open_terminal% == true GOTO open_terminal
-EXIT
+REM Pass output as argument to zf_loader.bat
+IF %transfer% == true zf_loader.bat %name%.bin
 
-:transfer_console
-plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %name%.bin
-EXIT
-
-:open_terminal
-start "Z-Fighter Terminal" plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N
 EXIT
 
 :error_source
@@ -103,7 +90,7 @@ ECHO No source file.
 EXIT
 
 :error_type
-ECHO Valid source types are .C and .ASM.
+ECHO Supported source types are .C and .ASM.
 EXIT
 
 :error_compile

@@ -19,11 +19,13 @@ SET disassemble=false
 REM Transfer output binary to zf_loader.
 SET transfer=true
 
-REM Following transfer to zf_loader, display serial output from
-REM Z-Fighter in console. Does not support serial input from user.
+REM Following transfer to zf_loader, immediately display serial output from
+REM Z-Fighter in console. Useful when writing debug text from Z-Fighter.
 REM When true, overrides 'open_terminal' setting.
+REM Does not support serial input from user.
 SET console_output=true
+SET console_in_new_window=true
 
-REM Following transfer to zf_loader, open terminal in a separate window
+REM Following transfer to zf_loader, open terminal in a new window
 REM for serial input/output with Z-Fighter.
-SET open_terminal=false
+SET start_terminal=true
