@@ -79,14 +79,19 @@ DEL %name%_disassembled.txt >nul 2>&1
 
 IF %disassemble% == true EXIT 
 IF %transfer% == false EXIT
-taskkill /IM "plink.exe" /F >nul 2>&1
      
+taskkill /IM "plink.exe" /F >nul 2>&1
+
 :transfer
 ECHO Sending %name%.bin to zf_loader.
+IF %console_output% == true GOTO transfer_console
 MODE %COM_port%: BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
 COPY %name%.bin \\.\%COM_port% >nul
-IF %console_output% == true plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N EXIT
 IF %open_terminal% == true start "Z-Fighter Terminal" plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N
+EXIT
+
+:transfer_console
+plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %name%.bin
 EXIT
 
 :error_source
