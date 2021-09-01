@@ -26,7 +26,7 @@ void main()
     const unsigned char y1 = 100;
 
     // test: cls
-    repeats = 50;
+    repeats = 250;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
     {
@@ -38,7 +38,7 @@ void main()
     buzzer(NOTE_D6);
 
     // test: point
-    repeats = 5;
+    repeats = 2;
     xyStep = 1;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
@@ -54,7 +54,7 @@ void main()
 
     // test: line
     repeats = 1;
-    xyStep = 5;
+    xyStep = 6;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
         for(unsigned char x = 0; x < x1; x += xyStep)
@@ -70,7 +70,7 @@ void main()
     buzzer(NOTE_D6);
 
     // test: rect
-    repeats = 1;
+    repeats = 3;
     xyStep = 5;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
@@ -86,7 +86,7 @@ void main()
 
     // test: sprite
     repeats = 1;
-    xyStep = 10;
+    xyStep = 15;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
         for(unsigned char x = 0; x < x1; x += xyStep)
@@ -101,7 +101,7 @@ void main()
 
     // test: spriteTransparent
     repeats = 1;
-    xyStep = 10;
+    xyStep = 13;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
         for(unsigned char x = 0; x < x1; x += xyStep)
@@ -115,7 +115,7 @@ void main()
     buzzer(NOTE_D6);
 
     // test: putBlock
-    repeats = 20;
+    repeats = 50;
     buzzer(NOTE_C6);
     for(unsigned char i = 0; i < repeats; i++)
         for(unsigned char x = 0; x < 20; x++)
