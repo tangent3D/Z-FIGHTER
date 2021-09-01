@@ -101,11 +101,12 @@ IF %transfer% == true zf_loader.bat %name%.bin
 EXIT
 
 :error_file
-ECHO No source file defined.
+ECHO Please provide a source file.
+PAUSE >nul
 EXIT
 
 :error_type
-ECHO Supported source types are .C, .ASM and .LST.
+ECHO Supported source files are .C, .ASM and .LST.
 EXIT
 
 :error_compile
