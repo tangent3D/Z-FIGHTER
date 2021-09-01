@@ -20,6 +20,8 @@ REM Inform user of filename and build tool.
 IF NOT %ext% == .asm ECHO Compiling %name%%ext% with z88dk/sdcc.
 IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
 
+REM Load user settings from zf_config.
+SET called=true
 CALL %~dp0\zf_config.bat
 
 REM Define %startup%
@@ -102,15 +104,18 @@ EXIT
 
 :error_file
 ECHO Please provide a source file.
-PAUSE >nul
-EXIT
+GOTO :error_type
 
 :error_type
 ECHO Supported source files are .C, .ASM and .LST.
+PAUSE >nul
 EXIT
 
 :error_compile
+ECHO Build failed.
+PAUSE >nul
 EXIT
 
 :error_unassigned
 ECHO Error: %name%_UNASSIGNED.bin contains %unassigned% unassigned bytes.
+PAUSE >nul

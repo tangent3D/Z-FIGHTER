@@ -3,7 +3,7 @@
 REM Path to your z88dk installation
 SET Z88DK_DIR=C:\z88dk
 
-REM Paths to Z-Fighter libraries
+REM Paths to Z-Fighter libraries. Automatically obtained from repository's directory structure.
 SET LIBPATH=%~dp0\..\lib
 SET INC=%~dp0\..\lib\src
 
@@ -25,9 +25,9 @@ REM Following transfer to zf_loader, immediately display serial output from
 REM Z-Fighter in console. Useful when writing debug text from Z-Fighter.
 REM When true, overrides 'open_terminal' setting.
 REM Does not support serial input from user.
-SET console_output=true
-SET console_in_new_window=false
+SET console_output=false
+SET console_new_window=false
 
 REM Following transfer to zf_loader, open terminal in a new window
 REM for serial input/output with Z-Fighter.
-SET start_terminal=false
+SET start_terminal=true
