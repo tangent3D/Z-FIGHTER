@@ -25,9 +25,9 @@ REM Following transfer to zf_loader, immediately display serial output from
 REM Z-Fighter in console. Useful when writing debug text from Z-Fighter.
 REM When true, overrides 'open_terminal' setting.
 REM Does not support serial input from user.
-SET console_output=false
+SET console_output=true
 SET console_new_window=false
 
 REM Following transfer to zf_loader, open terminal in a new window
 REM for serial input/output with Z-Fighter.
-SET start_terminal=true
+SET start_terminal=false
