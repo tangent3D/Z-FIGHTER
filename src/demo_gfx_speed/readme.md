@@ -2,7 +2,7 @@
 Turns screen black to indicate being in progress.  
 Calls each functions many times between beeps.  
 Turns screen white to indicate completion.  
-| Function | Measured Time Between Beeps (2021-08-30) |
+| Function | Measured Time Between Beeps (2021-09-02) |
 | ------ | ---------- |
 | cls | 4.1s |
 | point | 4.2s |
