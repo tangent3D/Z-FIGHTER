@@ -45,5 +45,5 @@ ECHO No binary file defined.
 EXIT
 
 :error_type
-ECHO Only .BIN files are supported by zf_loader.
+ECHO Only .BIN files are supported.
 EXIT
