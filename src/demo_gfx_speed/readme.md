@@ -4,10 +4,10 @@ Calls each functions many times between beeps.
 Turns screen white to indicate completion.  
 | Function | Measured Time Between Beeps (2021-08-30) |
 | ------ | ---------- |
-| cls | ??.? |
-| point | ??.? |
-| lineFrom lineTo | ??.? |
-| rect | ??.? |
-| sprite | ??.? |
-| spriteTransparent | ??.? |
-| putBlock | ??.? |
+| cls | 4.1s |
+| point | 4.2s |
+| lineFrom lineTo | 4.8s |
+| rect | 3.8s |
+| sprite | 4.3s |
+| spriteTransparent | 4.5s |
+| putBlock | 3.7s |
