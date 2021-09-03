@@ -4,8 +4,6 @@
 #ifndef ZF_KEYPAD_H
 #define ZF_KEYPAD_H
 
-#include "zf_ppi.h"
-
 // Key definitions
 #define KEY_UP      1   // Port A bit 0
 #define KEY_DOWN    2   //   ''   bit 1

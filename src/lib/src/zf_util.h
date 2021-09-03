@@ -1,4 +1,4 @@
-// Utility functions for Z-Fighter
+// Utility definitions for Z-Fighter
 // by Tangent 2021
 
 #ifndef ZF_UTIL_H

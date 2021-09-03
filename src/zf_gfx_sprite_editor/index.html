@@ -15,14 +15,16 @@ textarea.error{background-color:#ffd0d0;}
 </style>
 </head>
 <body>
+<form autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">
 <a href="https://github.com/tangent3D/Z-FIGHTER">Z-Fighter</a> GFX Sprite Editor<br>
 <canvas id="canvas0" width="256" height="256">error</canvas><br>
-w = <input type="text" id="w"> h = <input type="text" id="h"><br>
+w = <input type="text" id="w"> h = <input type="text" id="h"> &nbsp;<button type="button" id="undo">&lt;</button>&nbsp;<button type="button" id="redo">&gt;</button><br>
 <br>
 <textarea id="result" rows="10" cols="50"></textarea><br>
+</form>
 <script>
 
-  // prepare canvas double-buffering
+  // init canvas double-buffering
   var c0=document.getElementById("canvas0");
   var c0c=c0.getContext("2d");
   var c1=document.createElement("canvas");
@@ -30,7 +32,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
   c1.height=c0.height;
   var c1c=c1.getContext("2d");
 
-  // init app
+  // init internal sprite state
   var pixelsMaxWH=256;
   var pixels=new Array();
   for(let y=0;y<pixelsMaxWH;y++)
@@ -44,14 +46,26 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
   var name="sprite";
   document.getElementById("w").value=8;
   document.getElementById("h").value=8;
+
+  // init text sprite state
+  updateResult();
+
+  // init undo
+  var undoStack=new Array();
+  undoStack[0]=document.getElementById("result").value;
+  var undoStackI=0;
+  var undoStackILast=0;
+  document.getElementById("undo").disabled=true;
+  document.getElementById("redo").disabled=true;
+
+  // init ui
   var mouseDragColor=-1;
   var layoutPixelSize;
   var layoutCenterX;
   var layoutCenterY;
   updateCanvas();
-  updateResult();
 
-  function updateLayout(w,h)
+  function updateLayout(w,h) // from parameters
   {
     let pixelW=Math.floor(c0.width/w);
     let pixelH=Math.floor(c0.height/h);
@@ -61,7 +75,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     layoutCenterY=Math.floor((c0.height-layoutPixelSize*h)*0.5);
   }
 
-  function drawPixel(x,y)
+  function updateCanvasPixel(x,y) // from internal sprite state
   {
     if(pixels[y][x])
     {
@@ -76,7 +90,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     c1c.fillRect(layoutCenterX+x*layoutPixelSize,layoutCenterY+y*layoutPixelSize,layoutPixelSize,layoutPixelSize);
   }
 
-  function updateCanvas()
+  function updateCanvas() // from internal sprite state
   {
     // cls
     c1c.fillStyle="#777777";
@@ -97,14 +111,14 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     {
       for(let x=0;x<w;x++)
       {
-        drawPixel(x,y);
+        updateCanvasPixel(x,y);
       }
     }
 
     c0c.drawImage(c1,0,0); // show buffer
   }
 
-  function updateResult()
+  function updateResult() // from internal sprite state
   {
     document.getElementById("result").className=""; // show as ok
 
@@ -118,7 +132,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     }
 
     // generate new export string
-    let result="unsigned char "+name+"[] = {";
+    let result="const unsigned char "+name+"[] = {";
     if(w==256)result+="0,";
     else      result+=w+",";
     if(h==256)result+="0,";
@@ -147,39 +161,26 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     document.getElementById("result").value=result;
   }
 
-  function fixResolutionValue(value)
-  {
-    value=parseInt(value,10);
-    if(isNaN(value))value=0;
-    if(value>pixelsMaxWH)value=pixelsMaxWH;
-    return value;
-  }
-
-  document.getElementById("w").onkeyup=function(e)
-  {
-    e.target.value=fixResolutionValue(e.target.value);
-    updateCanvas();
-    updateResult();
-  };
-
-  document.getElementById("h").onkeyup=function(e)
-  {
-    e.target.value=fixResolutionValue(e.target.value);
-    updateCanvas();
-    updateResult();
-  };
-
-  document.getElementById("result").onkeyup=function(e)
+  function updateFromResult() // to internal sprite state and ui
   {
     document.getElementById("result").className="error"; // show as error
 
-    // update name
+    // update name if possible
     let result=document.getElementById("result").value;
-    let newName=result.substring(result.search("unsigned char ")+14,result.search("\\[\\]"));
+    let newName="";
+    let nameSearch0=result.search("unsigned char ");
+    let nameSearch1=result.search("\\[\\]");
+    if(nameSearch0!=-1&&nameSearch1!=-1)newName=result.substring(nameSearch0+14,nameSearch1);
     if(newName!="")name=newName;
 
+    // abort if data not found
+    let dataSearch0=result.search("{");
+    let dataSearch1=result.search("}");
+    if(dataSearch0==-1)return;
+    if(dataSearch1==-1)dataSearch1=result.length;
+
     // get data as array
-    result=result.substring(result.search("{")+1,result.search("}"));
+    result=result.substring(dataSearch0+1,dataSearch1);
     let resultArray=result.split(",");
 
     // abort if array too short
@@ -220,6 +221,36 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     }
     document.getElementById("result").className=""; // show as ok
     updateCanvas();
+  }
+
+  function fixResolutionValue(value)
+  {
+    value=parseInt(value,10);
+    if(isNaN(value))value=0;
+    if(value>pixelsMaxWH)value=pixelsMaxWH;
+    return value;
+  }
+
+  document.getElementById("w").onkeyup=function(e)
+  {
+    e.target.value=fixResolutionValue(e.target.value);
+    updateCanvas();
+    updateResult();
+    saveToUndoStack();
+  };
+
+  document.getElementById("h").onkeyup=function(e)
+  {
+    e.target.value=fixResolutionValue(e.target.value);
+    updateCanvas();
+    updateResult();
+    saveToUndoStack();
+  };
+
+  document.getElementById("result").onkeyup=function(e)
+  {
+    updateFromResult();
+    saveToUndoStack();
   };
 
   // x y: mouse position relative to canvas
@@ -242,7 +273,7 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
     let autoDetectColor=!pixels[y][x];
     if(color==-1)pixels[y][x]=autoDetectColor;
     else         pixels[y][x]=color;
-    drawPixel(x,y);
+    updateCanvasPixel(x,y);
     c0c.drawImage(c1,0,0); // show buffer
     updateResult();
     return autoDetectColor;
@@ -264,6 +295,67 @@ w = <input type="text" id="w"> h = <input type="text" id="h"><br>
   {
     // stop drawing
     mouseDragColor=-1;
+    saveToUndoStack();
+  };
+
+  undo.onclick=function(e)
+  {
+    // switch current save state
+    undoStackI--;
+    if(undoStackI<0)undoStackI=0;
+    document.getElementById("result").value=undoStack[undoStackI];
+
+    // update view
+    updateFromResult();
+
+    // enable or disable buttons
+    if(undoStackI>0)document.getElementById("undo").disabled=false;
+    else            document.getElementById("undo").disabled=true;
+    document.getElementById("redo").disabled=false;
+  };
+
+  redo.onclick=function(e)
+  {
+    // switch current save state
+    undoStackI++;
+    if(undoStackI>undoStackILast)undoStackI=undoStackILast;
+    document.getElementById("result").value=undoStack[undoStackI];
+
+    // update view
+    updateFromResult();
+
+    // enable or disable buttons
+    document.getElementById("undo").disabled=false;
+    if(undoStackI<undoStackILast)document.getElementById("redo").disabled=false;
+    else                         document.getElementById("redo").disabled=true;
+  };
+
+  function saveToUndoStack()
+  {
+    // abort if no changes
+    if(undoStack[undoStackI]==document.getElementById("result").value)return;
+
+    // move possible redos up
+    for(let i=undoStackILast;i>undoStackI;i--)
+    {
+      undoStack[i+1]=undoStack[i];
+    }
+    undoStackILast++;
+
+    // insert current save state
+    undoStackI++;
+    undoStack[undoStackI]=document.getElementById("result").value;
+
+    // enable or disable buttons
+    document.getElementById("undo").disabled=false;
+    if(undoStackI<undoStackILast)document.getElementById("redo").disabled=false;
+    else                         document.getElementById("redo").disabled=true;
+  }
+
+  window.onbeforeunload=function(e)
+  {
+    if(undoStackILast==0)return;
+    else return "";
   };
 
 </script>
