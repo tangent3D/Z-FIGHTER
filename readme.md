@@ -21,5 +21,4 @@ Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Sea
 - Electromagnetic buzzer (CPU-controlled)
 
 ### To-do
-- Bill of materials
 - Assembly instructions
