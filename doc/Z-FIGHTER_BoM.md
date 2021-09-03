@@ -1,7 +1,7 @@
 
 # Bill of Materials for Z-Fighter
 
-## Mainboard [Mouser](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=55fcf50861)
+## Mainboard (rev. 2) [Mouser](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=55fcf50861)
 
 ## Accessory Board [Mouser](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=e552b3f8e6)
 
