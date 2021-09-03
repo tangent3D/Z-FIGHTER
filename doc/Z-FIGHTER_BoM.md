@@ -9,7 +9,7 @@
 
 ST7920 128x64 Graphic LCD [Link](https://www.buydisplay.com/3-3v-5v-graphic-display-128x64-serial-lcd-display-st7920)
 
-'Extra Tall' 26P GPIO connector (Accessory board connector) [Link](https://thepihut.com/products/extra-tall-gpio-connector-for-the-raspberry-pi) - Install this piece on the accessory board after the vertical 26P shrouded header and 20mm standoffs are installed on the main board. The accessory board should be mounted on the standoffs to determine the correct length of the header pins. The header pins must then be trimmed to length before soldering to prevent strain to the solder joints or PCB. The use of safety glasses is encouraged.
+'Extra Tall' 26P GPIO connector (Accessory board connector) [Link](https://thepihut.com/products/extra-tall-gpio-connector-for-the-raspberry-pi) - Install this piece on the accessory board after the vertical 26P shrouded header and 20mm standoffs are installed on the mainboard. The accessory board should be mounted on the standoffs to determine the correct length of the header pins. The header pins must then be trimmed to length before soldering to prevent strain to the solder joints or PCB. The use of safety glasses is encouraged.
 
 DSA profile 2U keycaps (2 ct.) [Link](https://pimpmykeyboard.com/dsa-2-space-pack-of-4/)
 
