@@ -33,6 +33,8 @@ A second full-size (DIP-14) oscillator can optionally be installed in addition t
 
 ## Optional internal CompactFlash to IDE installation
 
-It is possible to mount a common style of [CF to IDE adapter](https://www.amazon.com/dp/B081336VP9/ref=cm_sw_r_tw_dp_JFMTNXX912AVZNW4FQQ4) inside the Z-Fighter enclosure between the mainboard and accessory board. For a comfortable fit, the LEDs and headers with shunts/jumpers should be removed from the adapter and replaced with wire links across pins 1 and 2 on JP1 and JP2.
+It is possible to mount a common style of [CF to IDE adapter](https://www.amazon.com/dp/B081336VP9/ref=cm_sw_r_tw_dp_JFMTNXX912AVZNW4FQQ4) inside the Z-Fighter enclosure between the mainboard and accessory board.
 
 To accomplish this, a [wire wrap style right angle 40P shrouded header](https://www.mouser.com/ProductDetail/?qs=n1d6TrdN4SAGWp%252BEF8S8fg%3D%3D) is used. Install this header after the entire assembly (mainboard, accessory board, LCD module) is complete to find a suitable height for the box header. When installed correctly, a CompactFlash card installed in the CF to IDE adapter should float approximately 2mm above the Z80 CPU. Again, the header pins must be trimmed to length before soldering to prevent strain to the solder joints or PCB. Safety glasses are recommended.
+
+ For a comfortable fit, the LEDs and headers with shunts/jumpers should be removed from the CF to IDE adapter and replaced with wire links across pins 1 and 2 on JP1 and JP2.
