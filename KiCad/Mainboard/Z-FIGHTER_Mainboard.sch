@@ -13,68 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text GLabel 1600 1450 0    50   Input ~ 0
-#RESET
-Text GLabel 1500 2250 0    50   Input ~ 0
-#INT
-Text GLabel 1600 3250 0    50   Input ~ 0
-#WR
-Text GLabel 1600 2450 0    50   Input ~ 0
-#M1
-Text GLabel 1600 3450 0    50   Input ~ 0
-#IORQ
-Text GLabel 1600 3350 0    50   Input ~ 0
-#MREQ
-Text GLabel 1600 3150 0    50   Input ~ 0
-#RD
-Text GLabel 3000 2350 2    50   Input ~ 0
-A9
-Text GLabel 3000 2250 2    50   Input ~ 0
-A8
-Text GLabel 3000 2150 2    50   Input ~ 0
-A7
-Text GLabel 3000 2050 2    50   Input ~ 0
-A6
-Text GLabel 3000 1950 2    50   Input ~ 0
-A5
-Text GLabel 3000 1850 2    50   Input ~ 0
-A4
-Text GLabel 3000 1750 2    50   Input ~ 0
-A3
-Text GLabel 3000 1650 2    50   Input ~ 0
-A2
-Text GLabel 3000 1550 2    50   Input ~ 0
-A1
-Text GLabel 3000 1450 2    50   Input ~ 0
-A0
-Text GLabel 3000 2450 2    50   Input ~ 0
-A10
-Text GLabel 3000 2550 2    50   Input ~ 0
-A11
-Text GLabel 3000 2650 2    50   Input ~ 0
-A12
-Text GLabel 3000 2750 2    50   Input ~ 0
-A13
-Text GLabel 3000 2850 2    50   Input ~ 0
-A14
-Text GLabel 3000 2950 2    50   Input ~ 0
-A15
-Text GLabel 3000 3150 2    50   Input ~ 0
-D0
-Text GLabel 3000 3250 2    50   Input ~ 0
-D1
-Text GLabel 3000 3350 2    50   Input ~ 0
-D2
-Text GLabel 3000 3450 2    50   Input ~ 0
-D3
-Text GLabel 3000 3550 2    50   Input ~ 0
-D4
-Text GLabel 3000 3650 2    50   Input ~ 0
-D5
-Text GLabel 3000 3750 2    50   Input ~ 0
-D6
-Text GLabel 3000 3850 2    50   Input ~ 0
-D7
 Text GLabel 9150 3250 0    50   Input ~ 0
 D6
 Text GLabel 9150 3150 0    50   Input ~ 0
@@ -101,57 +39,57 @@ Text GLabel 9150 1450 0    50   Input ~ 0
 RESET
 Text GLabel 9150 3350 0    50   Input ~ 0
 D7
-Text GLabel 5250 2100 2    50   Input ~ 0
+Text GLabel 5300 2100 2    50   Input ~ 0
 D7
-Text GLabel 5250 2000 2    50   Input ~ 0
+Text GLabel 5300 2000 2    50   Input ~ 0
 D6
-Text GLabel 5250 1900 2    50   Input ~ 0
+Text GLabel 5300 1900 2    50   Input ~ 0
 D5
-Text GLabel 5250 1800 2    50   Input ~ 0
+Text GLabel 5300 1800 2    50   Input ~ 0
 D4
-Text GLabel 5250 1700 2    50   Input ~ 0
+Text GLabel 5300 1700 2    50   Input ~ 0
 D3
-Text GLabel 5250 1600 2    50   Input ~ 0
+Text GLabel 5300 1600 2    50   Input ~ 0
 D2
-Text GLabel 5250 1500 2    50   Input ~ 0
+Text GLabel 5300 1500 2    50   Input ~ 0
 D1
-Text GLabel 5250 1400 2    50   Input ~ 0
+Text GLabel 5300 1400 2    50   Input ~ 0
 D0
-Text GLabel 4250 2900 0    50   Input ~ 0
+Text GLabel 4300 2900 0    50   Input ~ 0
 A15
-Text GLabel 4250 2800 0    50   Input ~ 0
+Text GLabel 4300 2800 0    50   Input ~ 0
 A14
-Text GLabel 4250 2700 0    50   Input ~ 0
+Text GLabel 4300 2700 0    50   Input ~ 0
 A13
-Text GLabel 4250 2600 0    50   Input ~ 0
+Text GLabel 4300 2600 0    50   Input ~ 0
 A12
-Text GLabel 4250 2500 0    50   Input ~ 0
+Text GLabel 4300 2500 0    50   Input ~ 0
 A11
-Text GLabel 4250 2400 0    50   Input ~ 0
+Text GLabel 4300 2400 0    50   Input ~ 0
 A10
-Text GLabel 4250 1400 0    50   Input ~ 0
+Text GLabel 4300 1400 0    50   Input ~ 0
 A0
-Text GLabel 4250 1500 0    50   Input ~ 0
+Text GLabel 4300 1500 0    50   Input ~ 0
 A1
-Text GLabel 4250 1600 0    50   Input ~ 0
+Text GLabel 4300 1600 0    50   Input ~ 0
 A2
-Text GLabel 4250 1700 0    50   Input ~ 0
+Text GLabel 4300 1700 0    50   Input ~ 0
 A3
-Text GLabel 4250 1800 0    50   Input ~ 0
+Text GLabel 4300 1800 0    50   Input ~ 0
 A4
-Text GLabel 4250 1900 0    50   Input ~ 0
+Text GLabel 4300 1900 0    50   Input ~ 0
 A5
-Text GLabel 4250 2000 0    50   Input ~ 0
+Text GLabel 4300 2000 0    50   Input ~ 0
 A6
-Text GLabel 4250 2100 0    50   Input ~ 0
+Text GLabel 4300 2100 0    50   Input ~ 0
 A7
-Text GLabel 4250 2200 0    50   Input ~ 0
+Text GLabel 4300 2200 0    50   Input ~ 0
 A8
-Text GLabel 4250 2300 0    50   Input ~ 0
+Text GLabel 4300 2300 0    50   Input ~ 0
 A9
-Text GLabel 5250 2500 2    50   Input ~ 0
+Text GLabel 5300 2500 2    50   Input ~ 0
 #RD
-Text GLabel 5250 2600 2    50   Input ~ 0
+Text GLabel 5300 2600 2    50   Input ~ 0
 #WR
 Text GLabel 11850 3350 0    50   Input ~ 0
 D7
@@ -227,7 +165,7 @@ Text GLabel 10550 1550 2    50   Input ~ 0
 PA1S
 Text GLabel 10550 1450 2    50   Input ~ 0
 PA0S
-Text GLabel 5250 2400 2    50   Input ~ 0
+Text GLabel 5300 2400 2    50   Input ~ 0
 #RAMCS
 Text GLabel 9150 1750 0    50   Input ~ 0
 #PPIS_CS
@@ -401,24 +339,13 @@ $EndComp
 $Comp
 L power:GND #PWR0113
 U 1 1 5FD1E3FC
-P 4750 3400
-F 0 "#PWR0113" H 4750 3150 50  0001 C CNN
-F 1 "GND" H 4755 3227 50  0000 C CNN
-F 2 "" H 4750 3400 50  0001 C CNN
-F 3 "" H 4750 3400 50  0001 C CNN
-	1    4750 3400
+P 4800 3400
+F 0 "#PWR0113" H 4800 3150 50  0001 C CNN
+F 1 "GND" H 4805 3227 50  0000 C CNN
+F 2 "" H 4800 3400 50  0001 C CNN
+F 3 "" H 4800 3400 50  0001 C CNN
+	1    4800 3400
 	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0119
-U 1 1 5FD1D5DB
-P 2300 4150
-F 0 "#PWR0119" H 2300 3900 50  0001 C CNN
-F 1 "GND" H 2305 3977 50  0000 C CNN
-F 2 "" H 2300 4150 50  0001 C CNN
-F 3 "" H 2300 4150 50  0001 C CNN
-	1    2300 4150
-	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C C4
@@ -708,29 +635,18 @@ Text GLabel 1650 7000 0    50   Input ~ 0
 $Comp
 L power:GND #PWR0184
 U 1 1 610343E9
-P 4100 3200
-F 0 "#PWR0184" H 4100 2950 50  0001 C CNN
-F 1 "GND" H 4105 3027 50  0000 C CNN
-F 2 "" H 4100 3200 50  0001 C CNN
-F 3 "" H 4100 3200 50  0001 C CNN
-	1    4100 3200
+P 4150 3200
+F 0 "#PWR0184" H 4150 2950 50  0001 C CNN
+F 1 "GND" H 4155 3027 50  0000 C CNN
+F 2 "" H 4150 3200 50  0001 C CNN
+F 3 "" H 4150 3200 50  0001 C CNN
+	1    4150 3200
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4250 3000 4100 3000
+	4300 3000 4150 3000
 Wire Wire Line
-	4250 3200 4100 3200
-$Comp
-L power:VCC #PWR0177
-U 1 1 6110346F
-P 1600 3750
-F 0 "#PWR0177" H 1600 3600 50  0001 C CNN
-F 1 "VCC" V 1617 3878 50  0000 L CNN
-F 2 "" H 1600 3750 50  0001 C CNN
-F 3 "" H 1600 3750 50  0001 C CNN
-	1    1600 3750
-	0    -1   -1   0   
-$EndComp
+	4300 3200 4150 3200
 Wire Wire Line
 	1550 6100 1650 6100
 NoConn ~ 14800 7150
@@ -742,8 +658,6 @@ NoConn ~ 14800 6250
 NoConn ~ 15300 6050
 NoConn ~ 15300 5950
 NoConn ~ 15300 5850
-NoConn ~ 1600 2550
-NoConn ~ 1600 3850
 NoConn ~ 3150 5500
 NoConn ~ 3150 6000
 NoConn ~ 3150 6600
@@ -802,16 +716,16 @@ F 3 "" H 3300 7200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3300 7200 3150 7200
-Connection ~ 4100 3200
+Connection ~ 4150 3200
 Text GLabel 3150 5800 2    50   Input ~ 0
 RTSA
 Wire Wire Line
-	4100 3000 4100 3100
+	4150 3000 4150 3100
 Wire Wire Line
-	4250 3100 4100 3100
-Connection ~ 4100 3100
+	4300 3100 4150 3100
+Connection ~ 4150 3100
 Wire Wire Line
-	4100 3100 4100 3200
+	4150 3100 4150 3200
 NoConn ~ 3150 6700
 Wire Wire Line
 	4100 9850 4600 9850
@@ -943,9 +857,7 @@ F 3 "" H 2350 6300 50  0001 L BNN
 $EndComp
 Text Notes 1750 4750 0    50   ~ 0
 Z80 SIO/0 serial I/O peripheral
-Text Notes 1900 900  0    50   ~ 0
-Z80 Microprocessor
-Text Notes 4650 950  0    50   ~ 0
+Text Notes 4700 950  0    50   ~ 0
 RAM
 Text Notes 7000 1000 0    50   ~ 0
 512K ROM
@@ -954,31 +866,18 @@ Accessory board PPI
 Text Notes 12400 900  0    50   ~ 0
 User PPI
 $Comp
-L power:VCC #PWR0115
-U 1 1 5FDD6168
-P 2950 1150
-F 0 "#PWR0115" H 2950 1000 50  0001 C CNN
-F 1 "VCC" V 2967 1278 50  0000 L CNN
-F 2 "" H 2950 1150 50  0001 C CNN
-F 3 "" H 2950 1150 50  0001 C CNN
-	1    2950 1150
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	2950 1150 2300 1150
-$Comp
 L power:VCC #PWR0114
 U 1 1 5FDD2B4C
-P 5250 1200
-F 0 "#PWR0114" H 5250 1050 50  0001 C CNN
-F 1 "VCC" V 5267 1328 50  0000 L CNN
-F 2 "" H 5250 1200 50  0001 C CNN
-F 3 "" H 5250 1200 50  0001 C CNN
-	1    5250 1200
+P 5300 1200
+F 0 "#PWR0114" H 5300 1050 50  0001 C CNN
+F 1 "VCC" V 5317 1328 50  0000 L CNN
+F 2 "" H 5300 1200 50  0001 C CNN
+F 3 "" H 5300 1200 50  0001 C CNN
+	1    5300 1200
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5250 1200 4750 1200
+	5300 1200 4800 1200
 $Comp
 L Memory_Flash:SST39SF040 U4
 U 1 1 5FCEF7AC
@@ -1021,12 +920,12 @@ $EndComp
 $Comp
 L Memory_RAM:AS6C4008-55PCN U1
 U 1 1 5FCE5A8C
-P 4750 2300
-F 0 "U1" H 4750 3581 50  0000 C CNN
-F 1 "AS6C4008-55PCN" H 4750 3490 50  0000 C CNN
-F 2 "Package_DIP:DIP-32_W15.24mm" H 4750 2400 50  0001 C CNN
-F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 4750 2400 50  0001 C CNN
-	1    4750 2300
+P 4800 2300
+F 0 "U1" H 4800 3581 50  0000 C CNN
+F 1 "AS6C4008-55PCN" H 4800 3490 50  0000 C CNN
+F 2 "Package_DIP:DIP-32_W15.24mm" H 4800 2400 50  0001 C CNN
+F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 4800 2400 50  0001 C CNN
+	1    4800 2300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -2180,19 +2079,6 @@ Text GLabel 9650 8900 0    50   Input ~ 0
 CLOCK2
 Text GLabel 10150 8800 2    50   Input ~ 0
 #NMI
-Text GLabel 1500 1950 0    50   Input ~ 0
-#NMI
-$Comp
-L CPU:Z80CPU U2
-U 1 1 5FCE363C
-P 2300 2650
-F 0 "U2" H 2300 4331 50  0000 C CNN
-F 1 "Z80CPU" H 2300 4240 50  0000 C CNN
-F 2 "Package_DIP:DIP-40_W15.24mm" H 2300 3050 50  0001 C CNN
-F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2300 3050 50  0001 C CNN
-	1    2300 2650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	10200 7150 10950 7150
 Wire Wire Line
@@ -2210,80 +2096,8 @@ F 3 "" H 10350 8700 50  0001 C CNN
 	1    10350 8700
 	0    1    1    0   
 $EndComp
-Text GLabel 1600 1750 0    50   Input ~ 0
-CLOCK1
 Text GLabel 10150 8900 2    50   Input ~ 0
 CLOCK1
-$Comp
-L power:VCC #PWR0112
-U 1 1 612070EB
-P 1600 2650
-F 0 "#PWR0112" H 1600 2500 50  0001 C CNN
-F 1 "VCC" V 1617 2778 50  0000 L CNN
-F 2 "" H 1600 2650 50  0001 C CNN
-F 3 "" H 1600 2650 50  0001 C CNN
-	1    1600 2650
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:VCC #PWR0117
-U 1 1 612B503B
-P 900 2050
-F 0 "#PWR0117" H 900 1900 50  0001 C CNN
-F 1 "VCC" V 917 2178 50  0000 L CNN
-F 2 "" H 900 2050 50  0001 C CNN
-F 3 "" H 900 2050 50  0001 C CNN
-	1    900  2050
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:VCC #PWR0151
-U 1 1 612BFEEE
-P 900 2150
-F 0 "#PWR0151" H 900 2000 50  0001 C CNN
-F 1 "VCC" V 917 2278 50  0000 L CNN
-F 2 "" H 900 2150 50  0001 C CNN
-F 3 "" H 900 2150 50  0001 C CNN
-	1    900  2150
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1500 1950 1600 1950
-Wire Wire Line
-	1600 1950 1600 2050
-Wire Wire Line
-	1500 2250 1600 2250
-Wire Wire Line
-	1600 2250 1600 2150
-Wire Wire Line
-	1200 2050 1600 2050
-Connection ~ 1600 2050
-Wire Wire Line
-	1600 2150 1200 2150
-Connection ~ 1600 2150
-$Comp
-L Device:R R2
-U 1 1 61346E6F
-P 1050 2050
-F 0 "R2" V 1257 2050 50  0000 C CNN
-F 1 "4.7KΩ" V 1166 2050 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 980 2050 50  0001 C CNN
-F 3 "~" H 1050 2050 50  0001 C CNN
-	1    1050 2050
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R R1
-U 1 1 6125EDCB
-P 1050 2150
-F 0 "R1" V 843 2150 50  0000 C CNN
-F 1 "4.7KΩ" V 934 2150 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 980 2150 50  0001 C CNN
-F 3 "~" H 1050 2150 50  0001 C CNN
-	1    1050 2150
-	0    -1   -1   0   
-$EndComp
-NoConn ~ 1600 2750
 $Comp
 L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
 U 1 1 60045969
@@ -2422,4 +2236,190 @@ Text Notes 7950 6250 0    50   ~ 0
 Pin 9 +5V Jumper
 Wire Wire Line
 	6350 7650 6350 7000
+NoConn ~ 1700 2750
+$Comp
+L Device:R R1
+U 1 1 6125EDCB
+P 1150 2150
+F 0 "R1" V 943 2150 50  0000 C CNN
+F 1 "4.7KΩ" V 1034 2150 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1080 2150 50  0001 C CNN
+F 3 "~" H 1150 2150 50  0001 C CNN
+	1    1150 2150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 61346E6F
+P 1150 2050
+F 0 "R2" V 1357 2050 50  0000 C CNN
+F 1 "4.7KΩ" V 1266 2050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1080 2050 50  0001 C CNN
+F 3 "~" H 1150 2050 50  0001 C CNN
+	1    1150 2050
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1700 2150
+Wire Wire Line
+	1700 2150 1300 2150
+Connection ~ 1700 2050
+Wire Wire Line
+	1300 2050 1700 2050
+Wire Wire Line
+	1700 2250 1700 2150
+Wire Wire Line
+	1600 2250 1700 2250
+Wire Wire Line
+	1700 1950 1700 2050
+Wire Wire Line
+	1600 1950 1700 1950
+$Comp
+L power:VCC #PWR0151
+U 1 1 612BFEEE
+P 1000 2150
+F 0 "#PWR0151" H 1000 2000 50  0001 C CNN
+F 1 "VCC" V 1017 2278 50  0000 L CNN
+F 2 "" H 1000 2150 50  0001 C CNN
+F 3 "" H 1000 2150 50  0001 C CNN
+	1    1000 2150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:VCC #PWR0117
+U 1 1 612B503B
+P 1000 2050
+F 0 "#PWR0117" H 1000 1900 50  0001 C CNN
+F 1 "VCC" V 1017 2178 50  0000 L CNN
+F 2 "" H 1000 2050 50  0001 C CNN
+F 3 "" H 1000 2050 50  0001 C CNN
+	1    1000 2050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:VCC #PWR0112
+U 1 1 612070EB
+P 1700 2650
+F 0 "#PWR0112" H 1700 2500 50  0001 C CNN
+F 1 "VCC" V 1717 2778 50  0000 L CNN
+F 2 "" H 1700 2650 50  0001 C CNN
+F 3 "" H 1700 2650 50  0001 C CNN
+	1    1700 2650
+	0    -1   -1   0   
+$EndComp
+Text GLabel 1700 1750 0    50   Input ~ 0
+CLOCK1
+$Comp
+L CPU:Z80CPU U2
+U 1 1 5FCE363C
+P 2400 2650
+F 0 "U2" H 2400 4331 50  0000 C CNN
+F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
+F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
+F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
+	1    2400 2650
+	1    0    0    -1  
+$EndComp
+Text GLabel 1600 1950 0    50   Input ~ 0
+#NMI
+Wire Wire Line
+	3050 1150 2400 1150
+$Comp
+L power:VCC #PWR0115
+U 1 1 5FDD6168
+P 3050 1150
+F 0 "#PWR0115" H 3050 1000 50  0001 C CNN
+F 1 "VCC" V 3067 1278 50  0000 L CNN
+F 2 "" H 3050 1150 50  0001 C CNN
+F 3 "" H 3050 1150 50  0001 C CNN
+	1    3050 1150
+	0    1    1    0   
+$EndComp
+Text Notes 2000 900  0    50   ~ 0
+Z80 Microprocessor
+NoConn ~ 1700 3850
+NoConn ~ 1700 2550
+$Comp
+L power:VCC #PWR0177
+U 1 1 6110346F
+P 1700 3750
+F 0 "#PWR0177" H 1700 3600 50  0001 C CNN
+F 1 "VCC" V 1717 3878 50  0000 L CNN
+F 2 "" H 1700 3750 50  0001 C CNN
+F 3 "" H 1700 3750 50  0001 C CNN
+	1    1700 3750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0119
+U 1 1 5FD1D5DB
+P 2400 4150
+F 0 "#PWR0119" H 2400 3900 50  0001 C CNN
+F 1 "GND" H 2405 3977 50  0000 C CNN
+F 2 "" H 2400 4150 50  0001 C CNN
+F 3 "" H 2400 4150 50  0001 C CNN
+	1    2400 4150
+	0    -1   -1   0   
+$EndComp
+Text GLabel 3100 3850 2    50   Input ~ 0
+D7
+Text GLabel 3100 3750 2    50   Input ~ 0
+D6
+Text GLabel 3100 3650 2    50   Input ~ 0
+D5
+Text GLabel 3100 3550 2    50   Input ~ 0
+D4
+Text GLabel 3100 3450 2    50   Input ~ 0
+D3
+Text GLabel 3100 3350 2    50   Input ~ 0
+D2
+Text GLabel 3100 3250 2    50   Input ~ 0
+D1
+Text GLabel 3100 3150 2    50   Input ~ 0
+D0
+Text GLabel 3100 2950 2    50   Input ~ 0
+A15
+Text GLabel 3100 2850 2    50   Input ~ 0
+A14
+Text GLabel 3100 2750 2    50   Input ~ 0
+A13
+Text GLabel 3100 2650 2    50   Input ~ 0
+A12
+Text GLabel 3100 2550 2    50   Input ~ 0
+A11
+Text GLabel 3100 2450 2    50   Input ~ 0
+A10
+Text GLabel 3100 1450 2    50   Input ~ 0
+A0
+Text GLabel 3100 1550 2    50   Input ~ 0
+A1
+Text GLabel 3100 1650 2    50   Input ~ 0
+A2
+Text GLabel 3100 1750 2    50   Input ~ 0
+A3
+Text GLabel 3100 1850 2    50   Input ~ 0
+A4
+Text GLabel 3100 1950 2    50   Input ~ 0
+A5
+Text GLabel 3100 2050 2    50   Input ~ 0
+A6
+Text GLabel 3100 2150 2    50   Input ~ 0
+A7
+Text GLabel 3100 2250 2    50   Input ~ 0
+A8
+Text GLabel 3100 2350 2    50   Input ~ 0
+A9
+Text GLabel 1700 3150 0    50   Input ~ 0
+#RD
+Text GLabel 1700 3350 0    50   Input ~ 0
+#MREQ
+Text GLabel 1700 3450 0    50   Input ~ 0
+#IORQ
+Text GLabel 1700 2450 0    50   Input ~ 0
+#M1
+Text GLabel 1700 3250 0    50   Input ~ 0
+#WR
+Text GLabel 1600 2250 0    50   Input ~ 0
+#INT
+Text GLabel 1700 1450 0    50   Input ~ 0
+#RESET
 $EndSCHEMATC
