@@ -37,8 +37,8 @@ EXIT /B
 REM && EXIT 0
 :transfer_console
 REM Transfer a .BIN to Z-Fighter and immediately display its console output.
-IF %console_new_window% == false plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %bin% EXIT
-IF %console_new_window% == true START "Z-Fighter Console Output" cmd /c "plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %bin%" && EXIT 0
+IF %console_new_window% == false plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %bin% EXIT /B
+IF %console_new_window% == true START "Z-Fighter Console Output" cmd /c "plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N < %bin%" && EXIT /B 0
 
 :start_terminal
 REM Open a terminal window for serial I/O with Z-Fighter following the transfer.
