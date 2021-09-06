@@ -5,4 +5,6 @@ src\zf_lcd.asm
 src\zf_ppi.asm
 src\zf_ppi_user.asm
 src\zf_ppi_user.c
+src\zf_sio.asm
+src\zf_sio.c
 src\zf_util.asm
