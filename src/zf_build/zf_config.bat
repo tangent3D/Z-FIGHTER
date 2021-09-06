@@ -18,6 +18,9 @@ REM Disassemble output binary with z88dk-dis and open for inspection.
 REM Uses .MAP file. Skips transfer to zf_loader.
 SET disassemble=false
 
+REM Optimize with maximum settings. Significantly increases compile time.
+SET optimize=false
+
 REM Transfer output binary to zf_loader.
 SET transfer=true
 

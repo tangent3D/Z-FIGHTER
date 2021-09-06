@@ -28,6 +28,10 @@ REM Define %startup%
 SET startup=-startup=1
 IF %ext% == .asm SET startup=--no-crt
 
+REM Define %optimization%
+IF %optimize% == true SET optimization=-opt=-SO3 --max-allocs-per-node200000
+IF %optimize% == false SET optimization=
+
 REM Define %lib%
 REM Configure z88dk to use "new" C library and sdcc as compiler
 IF NOT %ext% == .asm SET lib=-clib=sdcc_iy
@@ -67,7 +71,7 @@ IF %ext% == .c (
 
 :build
 REM Compile/assemble the source with z88dk/z80asm.
-zcc +z80 %startup% -opt=-SO3 --max-allocs-per-node200000 -Ca-I=%INC% %lib% %pragma% %include% %arg% %zf_lib% %source% -o %output% -m -create-app %list%
+zcc +z80 %startup% %optimization% -Ca-I=%INC% %lib% %pragma% %include% %arg% %zf_lib% %source% -o %output% -m -create-app %list%
 
 IF %errorlevel% NEQ 0 GOTO error_compile
 
@@ -83,6 +87,7 @@ IF EXIST %name%_UNASSIGNED.bin (
 
 REM Disassemble the output binary and open the resulting text file.
 IF %disassemble% == true (
+SET transfer=false
 z88dk-dis -o 0x0000 -x %name%.map %name%.bin > %name%_disassembled.txt
 %name%_disassembled.txt
 )
@@ -97,10 +102,13 @@ DEL %name%_UNASSIGNED.bin >nul 2>&1
 DEL %name%.map >nul 2>&1
 DEL %name%_disassembled.txt >nul 2>&1
 
+REM Skip transfer to zf_loader when building Z-Fighter libraries.
+IF %name% == zf_lib EXIT /B
+
 :transfer
 REM Pass output as argument to zf_loader.bat
 IF %transfer% == true zf_loader.bat %name%.bin
-EXIT
+EXIT /B
 
 :error_file
 ECHO Please provide a source file.
@@ -109,13 +117,14 @@ GOTO :error_type
 :error_type
 ECHO Supported source files are .C, .ASM and .LST.
 PAUSE >nul
-EXIT
+EXIT /B
 
 :error_compile
 ECHO Build failed.
 PAUSE >nul
-EXIT
+EXIT /B
 
 :error_unassigned
 ECHO Error: %name%_UNASSIGNED.bin contains %unassigned% unassigned bytes.
 PAUSE >nul
+EXIT /B
