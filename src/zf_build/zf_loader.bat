@@ -8,7 +8,7 @@ IF [%1] == [] GOTO error_file
 REM Load user settings from zf_config.
 CALL %~dp0\zf_config.bat
 
-IF %transfer% == false EXIT
+IF %transfer% == false EXIT /B
 
 SET bin=%1
 SET name=%~n1
@@ -32,7 +32,7 @@ IF %console_output% == true goto transfer_console
 :transfer
 COPY %bin% \\.\%COM_port% >nul 2>&1
 IF %start_terminal% == true GOTO start_terminal
-EXIT
+EXIT /B
 
 REM && EXIT 0
 :transfer_console
@@ -43,7 +43,7 @@ IF %console_new_window% == true START "Z-Fighter Console Output" cmd /c "plink -
 :start_terminal
 REM Open a terminal window for serial I/O with Z-Fighter following the transfer.
 zf_terminal.bat
-EXIT
+EXIT /B
 
 :error_file
 ECHO Please provide a file to transfer to Z-Fighter.
@@ -52,9 +52,9 @@ GOTO :error_type
 :error_type
 ECHO Only .BIN files are supported.
 PAUSE >nul
-EXIT
+EXIT /B
 
 :error_com_port
 ECHO Cannot connect to %COM_port%.
 PAUSE >nul
-EXIT
+EXIT /B

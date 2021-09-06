@@ -13,8 +13,9 @@ MODE %COM_port%: BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nu
 IF %errorlevel% NEQ 0 GOTO error_com_port
 
 START "Z-Fighter Terminal" plink -serial \\.\%COM_port% -sercfg 115200,8,n,1,N
-EXIT
+EXIT /B
 
 :error_com_port
 ECHO Cannot connect to %COM_port%.
 PAUSE >nul
+EXIT /B
