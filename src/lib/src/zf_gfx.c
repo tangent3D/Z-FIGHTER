@@ -597,7 +597,7 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
     }
 }
 
-void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
+void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 {
 #ifndef ZF_GFX_SKIP_PARAM_CHECKS
     // skip if off screen

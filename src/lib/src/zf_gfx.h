@@ -45,7 +45,7 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
 // overwrites a screen block (8x8 pixels)
 // on grid at blockX blockY
 // block pattern bits: 0 means background color, 1 means foreground color
-void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY);
+void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY);
 
 // block coordinates
 // blockX = 0 left ... blockX = 15 right
