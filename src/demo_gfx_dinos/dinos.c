@@ -41,7 +41,6 @@ void main()
 
     // main loop
     unsigned char frame = 255;
-    #define KEY_ANY 255 // TODO
     while(!keyDown(KEY_ANY))
     {
         // simulate
