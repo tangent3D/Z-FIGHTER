@@ -21,21 +21,20 @@ void main()
     unsigned char starX = 0;
 
     // init objects
-    const unsigned char objectN = 5;
-    unsigned char objectXSubpixel[objectN];
-    unsigned char objectX[objectN];
-    unsigned char objectY[objectN];
-    unsigned char objectSpeed[objectN];
+    #define OBJECT_N 5
+    unsigned char objectXSubpixel[OBJECT_N];
+    unsigned char objectX[OBJECT_N];
+    unsigned char objectY[OBJECT_N];
+    unsigned char objectSpeed[OBJECT_N];
     {
         unsigned char y = 4;
-        const unsigned char yStep = 32 / objectN;
-        for(unsigned char i = 0; i < objectN; i++)
+        for(unsigned char i = 0; i < OBJECT_N; i++)
         {
             objectXSubpixel[i] = 0;
             objectX[i] = (((y << 4) + y) ^ 93) & (255 - 128); // random
             objectY[i] = 4 + y; // in drawing order
             objectSpeed[i] = 64 + y * 2; // to match perspective
-            y += yStep;
+            y += 32 / OBJECT_N;
         }
     }
 
@@ -55,7 +54,7 @@ void main()
             unsigned char* thisObjectSpeed = objectSpeed;
             unsigned char* thisObjectXSubpixel = objectXSubpixel;
             unsigned char* thisObjectX = objectX;
-            const unsigned char* nObjectX = objectX + objectN;
+            unsigned char* nObjectX = objectX + OBJECT_N;
             while(thisObjectX < nObjectX)
             {
                 // load object
@@ -111,7 +110,7 @@ void main()
 
         // grid lines horizontal
         {
-            const unsigned char complexityMinusOne = 1 - 1;
+            #define COMPLEXITY_MINUS_ONE 1-1
             unsigned char y = 32;
             unsigned char yStep = 1;
             while(y < 64)
@@ -120,16 +119,15 @@ void main()
                 lineTo(127, y);
                 y += yStep;
                 yStep += yStep;
-                yStep >>= complexityMinusOne;
-                yStep += complexityMinusOne;
+                yStep >>= COMPLEXITY_MINUS_ONE;
+                yStep += COMPLEXITY_MINUS_ONE;
             }
         }
 
         // grid lines vertical
         {
-            const unsigned char complexity = 2;
-            const unsigned char x0Step = 64 >> complexity;
-            const unsigned char x1Step = 128 >> complexity;
+            #define COMPLEXITY 2
+            unsigned char x0Step = 64 >> COMPLEXITY;
             unsigned char x0 = (255 - frame) % x0Step;
             unsigned char x1 = (x0 << 1) - 64;
             while(x0 < 128)
@@ -137,15 +135,15 @@ void main()
                 lineFrom(x0, 32);
                 lineTo(x1, 63);
                 x0 += x0Step;
-                x1 += x1Step;
+                x1 += 128 >> COMPLEXITY; // x1Step
             }
         }
 
         // skyline
         {
             unsigned char x = 0;
-            const unsigned char n = 8;
-            for(unsigned char i = 0; i < n; i++)
+            #define BUILDING_N 8
+            for(unsigned char i = 0; i < BUILDING_N; i++)
             {
                 x += 155 ^ i;
                 unsigned char y = x & 15;
@@ -157,7 +155,7 @@ void main()
         {
             unsigned char* thisObjectX = objectX;
             unsigned char* thisObjectY = objectY;
-            const unsigned char* nObjectX = objectX + objectN;
+            unsigned char* nObjectX = objectX + OBJECT_N;
             while(thisObjectX < nObjectX)
             {
                 unsigned char x = *thisObjectX;
