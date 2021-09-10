@@ -40,7 +40,7 @@ void main()
 
     // main loop
     unsigned char frame = 255;
-    while(!keyDown(KEY_ANY))
+    while(!key(KEY_ANY))
     {
         // simulate
         // --------
