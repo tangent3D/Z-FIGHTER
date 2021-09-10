@@ -21,6 +21,10 @@ SET disassemble=false
 REM Optimize with maximum settings. Significantly increases compile time.
 SET optimize=false
 
+REM Build Z-Fighter libraries before building source.
+REM Building of source only occurs following successful build of libraries.
+SET build_lib=false
+
 REM Transfer output binary to zf_loader.
 SET transfer=true
 

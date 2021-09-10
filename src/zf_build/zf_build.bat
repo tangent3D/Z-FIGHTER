@@ -16,13 +16,20 @@ SET arg=%2
 REM Perform error checking for source file type.
 IF NOT %ext% == .c IF NOT %ext% == .asm IF NOT %ext% == .lst GOTO error_type
 
-REM Inform user of filename and build tool.
-IF NOT %ext% == .asm ECHO Compiling %name%%ext% with z88dk/sdcc.
-IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
-
 REM Load user settings from zf_config.
 SET called=true
 CALL %~dp0\zf_config.bat
+
+REM If specified, build Z-Fighter libraries before building source.
+IF %build_lib% == true IF NOT %name% == zf_lib (
+SETLOCAL
+CALL %~dp0\..\lib\zf_lib.bat
+ENDLOCAL
+)
+
+REM Inform user of filename and build tool.
+IF NOT %ext% == .asm ECHO Compiling %name%%ext% with z88dk/sdcc.
+IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
 
 REM Define %startup%
 SET startup=-startup=1
@@ -51,7 +58,6 @@ IF NOT %ext% == .asm SET zf_lib=-lzf_lib
 REM Define %output%
 SET output=%name%
 IF %ext% == .asm SET output=%name%.bin
-IF output == zf_lib SET transfer=false
 
 REM Define %list%
 REM Replace source with list when using a .lst file.
@@ -86,7 +92,7 @@ IF EXIST %name%_UNASSIGNED.bin (
 )
 
 REM Disassemble the output binary and open the resulting text file.
-IF %disassemble% == true (
+IF %disassemble% == true IF NOT %name% == zf_lib (
 SET transfer=false
 z88dk-dis -o 0x0000 -x %name%.map %name%.bin > %name%_disassembled.txt
 %name%_disassembled.txt
