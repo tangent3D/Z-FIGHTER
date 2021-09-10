@@ -27,13 +27,7 @@
 // Check if a specific key is pressed (ex. 'KEY_UP')
 unsigned char key(unsigned char key);
 
-// Check if any key is pressed
-unsigned char keyAny();
-
 // Wait until a specific key is pressed 
 void keyWait(unsigned char key);
-
-// Wait until any key is pressed
-void keyWaitAny();
 
 #endif
