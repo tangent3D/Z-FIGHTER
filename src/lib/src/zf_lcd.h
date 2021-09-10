@@ -4,9 +4,7 @@
 #ifndef ZF_LCD_H
 #define ZF_LCD_H
 
-// Fill LCD GDRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx)
-// Contains primary LCD control routines used by other functions.
-// Always turns the LCD backlight on.
+// Fill LCD GDRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx).
 void lcd(unsigned char *bitmap);
 
 // Set LCD backlight on (1) or off (0).
