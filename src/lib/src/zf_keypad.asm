@@ -15,17 +15,17 @@ _key:
     CP      255                 ; Check if testing any key
     JR      Z,KEYANY            ; If so, jump to test for any key
     AND     B                   ; Compare input with specified key
-    JR      NZ,NOPRESS          ; Jump if specified key was not pressed 
+    JR      NZ,NOPRESS          ; Jump if specified key is not pressed 
 PRESS:
-    LD      L,1                 ; Return 1
+    LD      L,1                 ; Return 1 if key is pressed
     RET
 NOPRESS:
     LD      L,0                 ; Return 0 if key is not pressed
     RET
 KEYANY:
     CP      B                   ; Test if any key is pressed
-    JR      Z,NOPRESS           ; Jump if no key was pressed
-    JR      PRESS               ; Otherwise, jump if any key was pressed
+    JR      Z,NOPRESS           ; Jump if no key is pressed
+    JR      PRESS               ; Otherwise, jump if any key is pressed
 
 PUBLIC _keyWait
 _keyWait:
