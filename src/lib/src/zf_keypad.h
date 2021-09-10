@@ -13,6 +13,7 @@
 #define KEY_B       32  //        bit 5
 #define KEY_C       64  //        bit 6
 #define KEY_D       128 //        bit 7
+#define KEY_ANY     255
 
 // Keypad layout:
 // +-----+-----+-----+-----+-----+

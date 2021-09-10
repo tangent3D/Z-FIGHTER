@@ -9,42 +9,39 @@ PUBLIC _key
 _key:
     LD      IY,2                ; Bypass return address of function
     ADD     IY,SP
-    LD      D,(IY)              ; Load parameter (key) into D    
-    IN      A,(PORTA)           ; Read current state of keypad
-    AND     D                   ; Compare input with specified key
-    JR      NZ,KD1             
-    LD      L,1                 ; Return 1 if key is pressed
+    LD      C,PORTA             ; Load C with address of keypad
+    IN      B,(C)               ; Read current state of keypad
+    LD      A,(IY)              ; Load parameter (key) into A
+    CP      255                 ; Check if testing any key
+    JR      Z,KEYANY            ; If so, jump to test for any key
+    AND     B                   ; Compare input with specified key
+    JR      NZ,NOPRESS          ; Jump if specified key was not pressed 
+PRESS:
+    LD      L,1                 ; Return 1
     RET
-KD1:
+NOPRESS:
     LD      L,0                 ; Return 0 if key is not pressed
     RET
-
-PUBLIC _keyAny 
-_keyAny:
-    IN      A,(PORTA)           ; Read current state of keypad
-    CP      255                 ; Compare input with 255
-    JR      NZ,KA1
-    LD      L,0                 ; Return 0 if no key is pressed
-    RET                         
-KA1:
-    LD      L,1                 ; Return 1 if any key is pressed
-    RET
-
+KEYANY:
+    CP      B                   ; Test if any key is pressed
+    JR      Z,NOPRESS           ; Jump if no key was pressed
+    JR      PRESS               ; Otherwise, jump if any key was pressed
 
 PUBLIC _keyWait
 _keyWait:
     LD      IY,2                ; Bypass return address of function
     ADD     IY,SP
-    LD      D,(IY)              ; Load parameter (key) into D          
-KW1:
-    IN      A,(PORTA)           ; Read current state of keypad
-    AND     D                   ; Compare state of keys with specified key
-    JR      NZ,KW1              ; Repeat loop until specified key is pressed
+    LD      C,PORTA             ; Load C with address of keypad
+    LD      A,(IY)              ; Load parameter (key) into A
+    CP      255                 ; Check if testing any key
+    JR      Z,WAITANY           ; If so, jump to test for any key
+WAITKEY:
+    IN      B,(C)               ; Read current state of keypad
+    AND     B                   ; Compare input with specified key
+    JR      NZ,WAITKEY          ; Repeat until key is pressed
     RET
-
-PUBLIC _keyWaitAny
-_keyWaitAny:
-    IN      A,(PORTA)           ; Read current state of keypad
-    CP      255                 ; Check if any key has been pressed
-    JR      Z,_keyWaitAny       ; Repeat loop until any key is pressed
+WAITANY:
+    IN      B,(C)               ; Read current state of keypad
+    CP      B                   ; Test if any key is pressed 
+    JR      Z,WAITANY          ; Repeat until any key is pressed
     RET
