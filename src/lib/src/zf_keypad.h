@@ -1,6 +1,9 @@
 // Keypad definitions for Z-Fighter
 // by Tangent 2021
 
+// Always #include <zf_ppi.h> and call ppiInit() before
+// interfacing with Z-Fighter accessory board peripherals.
+
 #ifndef ZF_KEYPAD_H
 #define ZF_KEYPAD_H
 

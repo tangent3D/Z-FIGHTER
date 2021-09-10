@@ -1,6 +1,9 @@
 // ST7920 LCD controller definitions for Z-Fighter
 // by Tangent 2021
 
+// Always #include <zf_ppi.h> and call ppiInit() before
+// interfacing with Z-Fighter accessory board peripherals.
+
 #ifndef ZF_LCD_H
 #define ZF_LCD_H
 

@@ -1,6 +1,9 @@
 // WT-1205 50mA electromagnetic buzzer definitions for Z-Fighter
 // by Tangent and xrrawva 2021
 
+// Always #include <zf_ppi.h> and call ppiInit() before
+// interfacing with Z-Fighter accessory board peripherals.
+
 #ifndef ZF_BUZZER_H
 #define ZF_BUZZER_H
 
