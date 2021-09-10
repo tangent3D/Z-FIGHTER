@@ -43,5 +43,5 @@ WAITKEY:
 WAITANY:
     IN      B,(C)               ; Read current state of keypad
     CP      B                   ; Test if any key is pressed 
-    JR      Z,WAITANY          ; Repeat until any key is pressed
+    JR      Z,WAITANY           ; Repeat until any key is pressed
     RET
