@@ -14,10 +14,11 @@ _buzzer:
     LD      C,(IY+2)    ; Load BC with parameter (waveCycles)
     LD      B,(IY+3)      
 BLOOP:
-    LD      A,BUZZER_ON
+    LD      A,BUZZER
+    INC     A
     OUT     (CTRL),A
     CALL    DELAY
-    LD      A,BUZZER_OFF
+    LD      A,BUZZER
     OUT     (CTRL),A
     CALL    DELAY
     DEC     BC

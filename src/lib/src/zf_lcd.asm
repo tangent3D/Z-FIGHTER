@@ -5,8 +5,8 @@ SECTION code_user
 
 INCLUDE "zf_io.asm"
 
-PUBLIC _lcdBitmap
-_lcdBitmap:
+PUBLIC _lcd
+_lcd:
 INIT:
     LD      IY,2                ; Bypass return address of function
     ADD     IY,SP
@@ -118,25 +118,23 @@ ENABLE:
 WAITBSY:
     LD      A,92h               ; 8255 Simple I/O, PA,B in, PC out
     OUT     (CTRL),A
-    LD      A,LCD_BL_ON         ; Backlight ON
-    OUT     (CTRL),A
-
+    CALL    BKLGHT              ; Restore state of backlight
     LD      A,LCD_RD            ; Set LCD RD
     OUT     (CTRL),A
     LD      A,LCD_EN_HI         ; Set LCD ENABLE
     OUT     (CTRL),A
-
 CHKFLAG:
     IN      A,(PORTB)
     BIT     7,A                 ; Check busy flag
     JR      NZ,CHKFLAG
-
 INITPPI:                        ; Complete WAITBSY by initializing PPI
     LD      A,90h               ; 8255 Simple I/O, PA in, PB,C out
     OUT     (CTRL),A
-    LD      A,LCD_BL_ON         ; Backlight ON
+BKLGHT:
+    LD      A,(_backlight)      ; Read desired state of backlight
+    OR      LCD_BKLGHT          ; OR with address of backlight
     OUT     (CTRL),A
-    RET
+    RET     
 
 SWTCBUF:                        ; Switch frame buffer using LCD vertical scroll
     LD      A,(BUFFER)
@@ -158,74 +156,11 @@ SB2:
     CALL    EXTINST             ; Enable vertical scroll position
     RET
 
-PUBLIC _lcdBacklight
-_lcdBacklight:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      A,(IY)              ; Load parameter (state) into A
-    CP      1
-    JR      Z,BL_ON
-BL_OFF:
-    LD      A,LCD_BL_OFF        ; If state != 1, turn backlight off
-    OUT     (CTRL),A
-    RET
-BL_ON:
-    LD      A,LCD_BL_ON         ; If state = 1, turn backlight on
-    OUT     (CTRL),A
-    RET
-
-PUBLIC _lcdInst
-_lcdInst:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      D,(IY)              ; Load parameter (i) into D
-    LD      A,(IY+1)            ; Load parameter (extended) into A
-    OR      A                   ; Check if basic or extended instruction
-    JR      Z,BAS               ; Jump accordingly
-
-EXT:
-    CALL    WAITBSY             ; Wait until LCD is ready
-    LD      A,36h               ; Set extended instruction set
-    OUT     (PORTB),A
-    CALL    ENABLE
-
-    CALL    WAITBSY             ; Wait until LCD is ready
-    LD      A,D                 ; Send extended instruction stored in D
-    OUT     (PORTB),A 
-    CALL    ENABLE
-
-    CALL    WAITBSY             ; Wait until LCD is ready
-    LD      A,30h               ; Reset basic instruction set
-    OUT     (PORTB),A
-    CALL    ENABLE
-    RET
-
-BAS:
-    CALL    WAITBSY             ; Wait until LCD is ready
-    LD      A,D                 ; Send basic instruction stored in D
-    OUT     (PORTB),A
-    CALL    ENABLE
-    RET
-
-PUBLIC _lcdData
-_lcdData:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      D,(IY)              ; Load parameter into D
-
-    CALL    WAITBSY             ; Wait until LCD is ready
-    LD      A,LCD_DATA          ; Set LCD D
-    OUT     (CTRL),A
-
-    LD      A,D                 ; Send data stored in D
-    OUT     (PORTB),A 
-    CALL    ENABLE
-
-    LD      A,LCD_INST          ; Reset LCD #I
-    OUT     (CTRL),A
-    RET
-
 SECTION bss_user
+
+PUBLIC _backlight
+_backlight:
+    DB      0
 
 UPRBMP:
     DW      0

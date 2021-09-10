@@ -14,10 +14,8 @@ LCD_WR      EQU     02h     ; LCD R/#W low (Write)
 LCD_RD      EQU     03h     ; LCD R/#W high (Read)
 LCD_INST    EQU     04h     ; LCD RS low (Instruction)
 LCD_DATA    EQU     05h     ; LCD RS high (Data)
-LCD_BL_OFF  EQU     06h     ; Backlight off
-LCD_BL_ON   EQU     07h     ; Backlight on
-BUZZER_OFF  EQU     0Eh     ; Electromagnetic buzzer off
-BUZZER_ON   EQU     0Fh     ; Electromagnetic buzzer on
+LCD_BKLGHT  EQU     06h     ; LCD backlight
+BUZZER      EQU     0Eh     ; Electromagnetic buzzer
 
 ; 8255A Programmable Peripheral Interface (User)
 USERPORTA   EQU     80h     ; User port PA7-PA0
