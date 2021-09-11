@@ -71,8 +71,4 @@ void block(const unsigned char* blockPattern, unsigned char blockX, unsigned cha
 // 0 means white, 1 means black
 extern unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 
-// used by lineFrom() and lineTo()
-extern unsigned char oldLineX;
-extern unsigned char oldLineY;
-
 #endif // ZF_GFX_H
