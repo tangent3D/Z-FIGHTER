@@ -116,25 +116,29 @@ ENABLE:
     RET
 
 WAITBSY:
+    PUSH    BC
+    LD      A,(_backlight)      ; Read desired state of backlight
+    ADD     LCD_BKLGHT          ; Add address of backlight
+    LD      B,A                 ; Store backlight control word in B
+    LD      C,CTRL              ; Load C with address of PPI control register
     LD      A,92h               ; 8255 Simple I/O, PA,B in, PC out
-    OUT     (CTRL),A
-    CALL    BKLGHT              ; Restore state of backlight
+    OUT     (CTRL),A            ; Write PPI control word
+    OUT     (C),B               ; Write backlight control word
     LD      A,LCD_RD            ; Set LCD RD
     OUT     (CTRL),A
     LD      A,LCD_EN+1          ; Set LCD ENABLE
     OUT     (CTRL),A
 CHKFLAG:
-    IN      A,(PORTB)
-    BIT     7,A                 ; Check busy flag
-    JR      NZ,CHKFLAG
-INITPPI:                        ; Complete WAITBSY by initializing PPI
+    IN      A,(PORTB)           ; Read LCD data bus
+    AND     128                 ; Check busy flag
+    JR      NZ,CHKFLAG          ; Repeat until busy flag is reset
+INITPPI:                        ; Complete routine by initializing PPI
     LD      A,90h               ; 8255 Simple I/O, PA in, PB,C out
-    OUT     (CTRL),A
-BKLGHT:
-    LD      A,(_backlight)      ; Read desired state of backlight
-    OR      LCD_BKLGHT          ; OR with address of backlight
-    OUT     (CTRL),A
-    RET     
+    OUT     (CTRL),A            ; Write PPI control word
+BKLGHT:       
+    OUT     (C),B               ; Write backlight control word
+    POP     BC
+    RET
 
 SWTCBUF:                        ; Switch frame buffer using LCD vertical scroll
     LD      A,(BUFFER)
