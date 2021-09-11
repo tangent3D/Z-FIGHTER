@@ -10,6 +10,7 @@
 void main()
 {
     // init z-fighter
+    backlight = 1;
     ppiInit();
     gfxInit();
 
