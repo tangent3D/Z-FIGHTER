@@ -10,6 +10,9 @@
 #define SCREEN_W 128
 #define SCREEN_H 64
 
+// call this function before using this library
+void gfxInit();
+
 // sets foreground color used by all zf_gfx functions
 // 0 means white, 1 means black (default)
 extern unsigned char color;
@@ -70,9 +73,5 @@ void block(const unsigned char* blockPattern, unsigned char blockX, unsigned cha
 // each byte represents 8 horizontal pixels
 // 0 means white, 1 means black
 extern unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
-
-// used by lineFrom() and lineTo()
-extern unsigned char oldLineX;
-extern unsigned char oldLineY;
 
 #endif // ZF_GFX_H

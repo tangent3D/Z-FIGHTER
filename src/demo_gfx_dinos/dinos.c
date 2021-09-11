@@ -16,6 +16,7 @@ void main()
 {
     // init z-fighter
     ppiInit();
+    gfxInit();
 
     // init stars
     unsigned char starX = 0;
@@ -179,12 +180,11 @@ void main()
             }
         }
 
-        // update screen
-        lcdBitmap(screen);
+        lcd(screen);
     }
 
     // exit
     color = 1;
     cls();
-    lcdBitmap(screen); // update screen
+    lcd(screen);
 }
