@@ -109,9 +109,9 @@ EXTINST:
     RET
 
 ENABLE:
-    LD      A,LCD_EN_HI
+    LD      A,LCD_EN+1
     OUT     (CTRL),A
-    LD      A,LCD_EN_LO
+    DEC     A
     OUT     (CTRL),A
     RET
 
@@ -121,7 +121,7 @@ WAITBSY:
     CALL    BKLGHT              ; Restore state of backlight
     LD      A,LCD_RD            ; Set LCD RD
     OUT     (CTRL),A
-    LD      A,LCD_EN_HI         ; Set LCD ENABLE
+    LD      A,LCD_EN+1          ; Set LCD ENABLE
     OUT     (CTRL),A
 CHKFLAG:
     IN      A,(PORTB)

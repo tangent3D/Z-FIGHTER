@@ -8,8 +8,7 @@ PORTC       EQU     42h     ; Connected to LCD control signals, backlight and bu
 CTRL        EQU     43h     ; PPI control port
 
 ; BSR (Bit Set/Reset) control words (Accessory)
-LCD_EN_LO   EQU     00h     ; LCD 'E' (Enable) high       
-LCD_EN_HI   EQU     01h     ; LCD 'E' low
+LCD_EN      EQU     00h     ; LCD 'E' (Enable)     
 LCD_WR      EQU     02h     ; LCD R/#W low (Write)
 LCD_RD      EQU     03h     ; LCD R/#W high (Read)
 LCD_INST    EQU     04h     ; LCD RS low (Instruction)
