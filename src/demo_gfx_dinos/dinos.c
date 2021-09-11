@@ -16,6 +16,7 @@ void main()
 {
     // init z-fighter
     ppiInit();
+    gfxInit();
 
     // init stars
     unsigned char starX = 0;
