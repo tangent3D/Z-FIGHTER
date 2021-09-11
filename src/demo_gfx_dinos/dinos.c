@@ -15,13 +15,15 @@ const unsigned char spDinoW[] = {31, 31, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 31, 128,
 void main()
 {
     // init z-fighter
+    backlight = 1;
     ppiInit();
     gfxInit();
 
-    // init stars
+    // init program
+    unsigned char oldKeyA = 0;
+
     unsigned char starX = 0;
 
-    // init objects
     #define OBJECT_N 5
     unsigned char objectXSubpixel[OBJECT_N];
     unsigned char objectX[OBJECT_N];
@@ -41,11 +43,22 @@ void main()
 
     // main loop
     unsigned char frame = 255;
-    while(!key(KEY_ANY))
+    while(!key(KEY_B))
     {
         // simulate
         // --------
         frame++;
+
+        // switch backlight
+        if(key(KEY_A))
+        {
+            if(oldKeyA == 0) backlight = 1 - backlight;
+            oldKeyA = 1;
+        }
+        else
+        {
+            oldKeyA = 0;
+        }
 
         // move stars
         if(frame & (1)) starX--;
