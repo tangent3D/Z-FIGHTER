@@ -13,7 +13,7 @@ void main()
     ppiInit();
     color = 0;
     cls();
-    lcdBitmap(screen); // update screen
+    lcd(screen); // update screen
 
     // init test
     const unsigned char spTestB[] = {30, 30, 192, 0, 0, 3, 128, 0, 0, 15, 0, 0, 0, 62, 0, 0, 0, 220, 0, 0, 3, 56, 0, 0, 12, 112, 0, 0, 48, 224, 0, 0, 193, 192, 0, 3, 3, 128, 0, 12, 7, 0, 0, 48, 14, 0, 0, 192, 28, 0, 3, 0, 56, 0, 12, 0, 112, 0, 48, 0, 224, 0, 192, 1, 192, 3, 0, 3, 128, 12, 0, 7, 0, 48, 0, 14, 0, 192, 0, 28, 3, 0, 0, 56, 12, 0, 0, 112, 48, 0, 0, 224, 192, 0, 1, 195, 0, 0, 3, 140, 0, 0, 7, 48, 0, 0, 14, 255, 255, 255, 255, 255, 255, 255, 240};
@@ -122,13 +122,13 @@ void main()
             for(unsigned char y = 0; y < 10; y++)
             {
                 color = 1;
-                putBlock(bpBox, x, y);
+                block(bpBox, x, y);
                 color = 0;
-                putBlock(bpBox, x, y);
+                block(bpBox, x, y);
             }
     buzzer(NOTE_D6);
 
     color = 1;
     cls();
-    lcdBitmap(screen); // update screen
+    lcd(screen); // update screen
 }

@@ -179,12 +179,11 @@ void main()
             }
         }
 
-        // update screen
-        lcdBitmap(screen);
+        lcd(screen);
     }
 
     // exit
     color = 1;
     cls();
-    lcdBitmap(screen); // update screen
+    lcd(screen);
 }
