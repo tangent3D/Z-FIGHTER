@@ -42,7 +42,7 @@ IF %console_new_window% == true START "Z-Fighter Console Output" cmd /c "plink -
 
 :start_terminal
 REM Open a terminal window for serial I/O with Z-Fighter following the transfer.
-zf_terminal.bat
+IF %start_terminal% == true zf_terminal.bat
 EXIT /B
 
 :error_file
