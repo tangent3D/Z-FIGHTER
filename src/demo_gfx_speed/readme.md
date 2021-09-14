@@ -10,4 +10,4 @@ Turns screen white to indicate completion.
 | rect | 3.8s |
 | sprite | 4.3s |
 | spriteTransparent | 4.5s |
-| putBlock | 3.7s |
+| block | 3.7s |
