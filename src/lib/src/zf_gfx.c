@@ -605,7 +605,8 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
     }
 }
 
-void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
+// replaced by .asm
+/*void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 {
 #ifndef ZF_GFX_SKIP_PARAM_CHECKS
     // skip if off screen
@@ -667,4 +668,4 @@ void block(const unsigned char* blockPattern, unsigned char blockX, unsigned cha
         blockPattern++;
         *(unsigned char*)screenPointer = ~(*blockPattern); // byte 8
     }
-}
+}*/
