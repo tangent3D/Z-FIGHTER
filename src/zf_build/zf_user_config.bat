@@ -3,6 +3,14 @@
 REM Path to your z88dk installation
 SET Z88DK_DIR=C:\z88dk
 
+REM Paths to Z-Fighter libraries. Automatically obtained from repository's directory structure.
+SET LIBPATH=%~dp0\..\lib
+SET INC=%~dp0\..\lib\src
+
+SET ZCCCFG=%Z88DK_DIR%\lib\config
+SET PATH=%Z88DK_DIR%\bin;%PATH%
+SET PATH=%~dp0;%PATH%
+
 REM COM port number of your serial communication interface.
 SET COM_port=COM1
 

@@ -20,12 +20,6 @@ REM Load user settings from zf_config.
 SET called=true
 CALL %~dp0\zf_user_config.bat
 
-REM Automatically obtain paths from zf_config and directory structure.
-SET PATH=%Z88DK_DIR%\bin;%PATH%
-SET PATH=%~dp0;%PATH%
-SET LIBPATH=%~dp0\..\lib
-SET INC=%~dp0\..\lib\src
-
 REM If specified, build Z-Fighter libraries before building source.
 IF %build_lib% == true IF NOT %name% == zf_lib (
 SETLOCAL
