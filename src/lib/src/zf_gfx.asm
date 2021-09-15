@@ -1,3 +1,6 @@
+; graphics library implementation for z-fighter
+; by xrrawva 2021
+
 SECTION code_user
 
 EXTERN _color
