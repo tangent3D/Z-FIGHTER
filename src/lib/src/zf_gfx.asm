@@ -1,12 +1,12 @@
 ; graphics library implementation for z-fighter
 ; by xrrawva 2021
 
-SECTION code_user
-
-EXTERN _color
-EXTERN _screen
 EXTERN SCREEN_W
 EXTERN SCREEN_H
+EXTERN _color
+EXTERN _screen
+
+SECTION code_user
 
 ; void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 PUBLIC _block
