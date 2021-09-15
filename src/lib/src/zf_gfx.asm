@@ -43,112 +43,112 @@ _block:
     ld c,SCREEN_W/8 ; "
 
     ; if(color)
-    ld a,[_color]
+    ld a,(_color)
     or a
     jr z,writeBlockInverted
 
     ; copy pattern non-inverted byte 1
-    ld a,[de] ; *(unsigned char*)screenPointer = *blockPattern
-    ld [hl],a ; "
+    ld a,(de) ; *(unsigned char*)screenPointer = *blockPattern
+    ld (hl),a ; "
     add hl,bc ; screenPointer += SCREEN_W / 8
     inc de    ; blockPattern++
 
     ; copy pattern non-inverted byte 2
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 3
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 4
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 5
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 6
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 7
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern non-inverted byte 8
-    ld a,[de]
-    ld [hl],a
+    ld a,(de)
+    ld (hl),a
 
 skipBlock:
     RET
 writeBlockInverted:
 
     ; copy pattern inverted byte 1
-    ld a,[de] ; *(unsigned char*)screenPointer = ~(*blockPattern)
+    ld a,(de) ; *(unsigned char*)screenPointer = ~(*blockPattern)
     cpl       ; 
-    ld [hl],a ; "
+    ld (hl),a ; "
     add hl,bc ; screenPointer += SCREEN_W / 8
     inc de    ; blockPattern++
 
     ; copy pattern inverted byte 2
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 3
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 4
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 5
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 6
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 7
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     add hl,bc
     inc de
 
     ; copy pattern inverted byte 8
-    ld a,[de]
+    ld a,(de)
     cpl
-    ld [hl],a
+    ld (hl),a
     
     RET
