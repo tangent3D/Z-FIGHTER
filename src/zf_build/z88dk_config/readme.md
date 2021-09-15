@@ -1,0 +1,1 @@
+z88dk supports accurate busy-wait time delay functions defined in `z80.h` according to the Z80 CPU's clock frequency. `z88dk_config.bat` is a batch script that will copy `config_cpu.m4` from this repository and rebuild z88dk's `Embedded_Z80` build target with a `CPU_CLOCK` setting of 7.3728 MHz for Z-Fighter.
