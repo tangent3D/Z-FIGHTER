@@ -1,6 +1,8 @@
 // graphics library implementation for z-fighter
 // by xrrawva 2021
 
+#include <zf_gfx.h>
+
 SECTION code_user
 
 ; void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
