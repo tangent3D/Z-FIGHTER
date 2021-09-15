@@ -1,6 +1,6 @@
 src\zf_buzzer.asm
-src\zf_gfx.c
 src\zf_gfx.asm
+src\zf_gfx.c
 src\zf_keypad.asm
 src\zf_lcd.asm
 src\zf_ppi.asm
