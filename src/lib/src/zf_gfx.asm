@@ -1,6 +1,9 @@
 SECTION code_user
 
-INCLUDE "zf_gfx2.h"
+EXTERN _color
+EXTERN _screen
+EXTERN SCREEN_W
+EXTERN SCREEN_H
 
 ; void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 PUBLIC _block
