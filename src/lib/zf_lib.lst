@@ -8,4 +8,3 @@ src\zf_ppi_user.c
 src\zf_sio.asm
 src\zf_sio.c
 src\zf_text.c
-src\zf_util.asm
