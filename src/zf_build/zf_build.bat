@@ -17,8 +17,14 @@ REM Perform error checking for source file type.
 IF NOT %ext% == .c IF NOT %ext% == .asm IF NOT %ext% == .lst GOTO error_type
 
 REM Load user settings from zf_config.
-SET called=true
 CALL %~dp0\zf_user_config.bat
+
+REM Paths to Z-Fighter libraries. Automatically obtained from repository's directory structure.
+SET LIBPATH=%~dp0\..\lib
+SET INC=%~dp0\..\lib\src
+SET ZCCCFG=%Z88DK_DIR%\lib\config
+SET PATH=%Z88DK_DIR%\bin;%PATH%
+SET PATH=%~dp0;%PATH%
 
 REM If specified, build Z-Fighter libraries before building source.
 IF %build_lib% == true IF NOT %name% == zf_lib (
@@ -39,9 +45,9 @@ REM Define %optimization%
 IF %optimize% == true SET optimization=-opt=-SO3 --max-allocs-per-node200000
 IF %optimize% == false SET optimization=
 
-REM Define %lib%
+REM Define %clib%
 REM Configure z88dk to use "new" C library and sdcc as compiler
-IF NOT %ext% == .asm SET lib=-clib=sdcc_iy
+IF NOT %ext% == .asm SET clib=-clib=sdcc_iy
 
 REM Define %pragma%
 REM For use with zf_loader.
@@ -49,11 +55,16 @@ REM "Do not change stack location. Return to caller on exit."
 IF NOT %ext% == .asm SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
 
 REM Define %include%
-IF NOT %ext% == .asm SET include=-I%INC% -L%LIBPATH%
+IF NOT %ext% == .asm SET include=-I%INC%
 
-REM Define %zf_lib%
+REM Define %lpath%
+SET lpath=-L%LIBPATH%
+
+REM Define %zf_lib%, %asmopt%, %linkopt%
 REM Include Z-Fighter C library for z88dk projects.
-IF NOT %ext% == .asm SET zf_lib=-lzf_lib
+IF NOT %ext% == .asm SET zf_lib=-l%LIBPATH%\zf_lib
+SET asmopt=-Ca-l%LIBPATH%\zf_lib -Ca-I=%INC%
+SET linkopt=-Cl-l%LIBPATH%\zf_lib -Cl-I=%INC%
 
 REM Define %output%
 SET output=%name%
@@ -77,7 +88,7 @@ IF %ext% == .c (
 
 :build
 REM Compile/assemble the source with z88dk/z80asm.
-zcc +z80 %startup% %optimization% -Ca-I=%INC% %lib% %pragma% %include% %arg% %zf_lib% %source% -o %output% -m -create-app %list%
+zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% %clib% %pragma% %include% %arg% %lpath% %zf_lib% %source% -o %output% -m -create-app %list%
 
 IF %errorlevel% NEQ 0 GOTO error_compile
 

@@ -6,8 +6,9 @@
 ; Does not use interrupts, flow control or error checking.
 ; Initializes stack pointer beneath boot loader.
 ; Performs CALL to 0000h. RET to boot loader is supported.
-    
-INCLUDE "zf_io.asm"
+
+EXTERN SIO_A
+EXTERN SIO_AC
 
 BL          EQU     511            ; Amount of bytes to reserve for boot loader
 RAMLOC      EQU     0FFFFh-BL      ; Destination address in RAM for boot loader

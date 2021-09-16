@@ -3,7 +3,8 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
+EXTERN BUZZER_OFF 
+EXTERN CTRL
 
 PUBLIC _buzzer
 _buzzer:
@@ -14,10 +15,10 @@ _buzzer:
     LD      C,(IY+2)    ; Load BC with parameter (waveCycles)
     LD      B,(IY+3)      
 BLOOP:
-    LD      A,BUZZER+1
+    LD      A,BUZZER_OFF+1
     OUT     (CTRL),A
     CALL    DELAY
-    LD      A,BUZZER
+    LD      A,BUZZER_OFF
     OUT     (CTRL),A
     CALL    DELAY
     DEC     BC

@@ -3,7 +3,7 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
+EXTERN PORTA
 
 PUBLIC _key
 _key:

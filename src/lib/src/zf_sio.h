@@ -4,8 +4,11 @@
 #ifndef ZF_SIO_H
 #define ZF_SIO_H
 
-#define SIO_A 0x02      // SIO channel A control port
-#define SIO_B 0x03      // SIO channel B control port
+#include <zf_hardware.h>
+
+// FIXME
+// #define SIO_A 0x02      // SIO channel A control port
+// #define SIO_B 0x03      // SIO channel B control port
 
 // Initialize specified channel with default configuration (8-N-1, no flow control).
 void sioInit(unsigned char channel);
