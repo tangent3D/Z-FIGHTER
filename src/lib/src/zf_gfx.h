@@ -10,8 +10,8 @@
 #define SCREEN_W 128
 #define SCREEN_H 64
 
-// call this function before using this library
-void gfxInit();
+// there is no gfxInit()
+// init what you need: color=1; cls(); lcd(screen);
 
 // sets foreground color used by all zf_gfx functions
 // 0 means white, 1 means black (default)
