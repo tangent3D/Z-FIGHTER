@@ -17,7 +17,6 @@ void main()
     // init z-fighter
     backlight = 1;
     ppiInit();
-    gfxInit();
 
     // init program
     unsigned char oldKeyA = 0;

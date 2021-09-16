@@ -11,7 +11,6 @@ void main()
     // init z-fighter
     backlight = 1;
     ppiInit();
-    gfxInit();
 
     // black screen
     color = 0;

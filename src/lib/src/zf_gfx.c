@@ -12,14 +12,6 @@ unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 unsigned char oldLineX;
 unsigned char oldLineY;
 
-void gfxInit()
-{
-    color = 1;
-    cls();
-    oldLineX = 0;
-    oldLineY = 0;
-}
-
 void cls()
 {
     unsigned char* screenPointer = screen;
