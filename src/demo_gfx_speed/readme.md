@@ -2,8 +2,6 @@
 Turns screen black to indicate being in progress.  
 Calls each functions many times between beeps.  
 Turns screen white to indicate completion.  
-
-Time Between Beeps
 | Function | 2021-09-02<br>all c | 2021-09-16<br>block() now asm |
 | -------- | ------------------- | ----------------------------- |
 | cls | 4.1s | " |
