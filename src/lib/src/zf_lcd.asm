@@ -139,7 +139,7 @@ CHKFLAG:
     IN      A,(PORTB)           ; Read LCD data bus
     AND     128                 ; Check busy flag
     JR      NZ,CHKFLAG          ; Repeat until busy flag is reset
-INITPPI:                        ; Complete routine by initializing PPI
+RSTPPI:                         ; Complete routine by resetting PPI
     LD      A,90h               ; 8255 Simple I/O, PA in, PB,C out
     OUT     (CTRL),A            ; Write PPI control word
 BKLGHT:       
