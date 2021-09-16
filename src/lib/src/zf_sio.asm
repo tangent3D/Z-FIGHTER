@@ -3,8 +3,6 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
-
 PUBLIC _sioInit
 _sioInit:
     LD      IY,2                   ; Bypass return address of function

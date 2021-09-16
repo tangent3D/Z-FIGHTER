@@ -3,7 +3,14 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
+EXTERN PORTB
+EXTERN CTRL
+EXTERN LCD_E_LO
+EXTERN LCD_WR
+EXTERN LCD_RD
+EXTERN LCD_INST
+EXTERN LCD_DATA
+EXTERN LCD_BL_OFF
 
 PUBLIC _lcd
 _lcd:
@@ -109,7 +116,7 @@ EXTINST:
     RET
 
 ENABLE:
-    LD      A,LCD_EN+1
+    LD      A,LCD_E_LO+1
     OUT     (CTRL),A
     DEC     A
     OUT     (CTRL),A
@@ -118,7 +125,7 @@ ENABLE:
 WAITBSY:
     PUSH    BC
     LD      A,(_backlight)      ; Read desired state of backlight
-    ADD     LCD_BKLGHT          ; Add address of backlight
+    ADD     LCD_BL_OFF          ; Add address of backlight
     LD      B,A                 ; Store backlight control word in B
     LD      C,CTRL              ; Load C with address of PPI control register
     LD      A,92h               ; 8255 Simple I/O, PA,B in, PC out
@@ -126,7 +133,7 @@ WAITBSY:
     OUT     (C),B               ; Write backlight control word
     LD      A,LCD_RD            ; Set LCD RD
     OUT     (CTRL),A
-    LD      A,LCD_EN+1          ; Set LCD ENABLE
+    LD      A,LCD_E_LO+1          ; Set LCD ENABLE
     OUT     (CTRL),A
 CHKFLAG:
     IN      A,(PORTB)           ; Read LCD data bus

@@ -5,10 +5,7 @@
 #ifndef ZF_PPI_USER_H
 #define ZF_PPI_USER_H
 
-#define USERPORTA   0x80     // PA7-PA0
-#define USERPORTB   0x81     // PB7-PB0
-#define USERPORTC   0x82     // PC7-PC0
-#define USERCTRL    0x83     // User PPI control port
+#include <zf_hardware.h>
 
 #define MSB         0
 #define LSB         1

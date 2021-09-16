@@ -4,7 +4,7 @@
 
 SECTION code_user
 
-INCLUDE "zf_io.asm"
+EXTERN CTRL
 
 PUBLIC _ppiInit
 _ppiInit:
