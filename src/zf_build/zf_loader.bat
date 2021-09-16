@@ -6,7 +6,7 @@ REM Inform user if no binary file is defined.
 IF [%1] == [] GOTO error_file
 
 REM Load user settings from zf_config.
-CALL %~dp0\zf_config.bat
+CALL %~dp0\zf_user_config.bat
 
 IF %transfer% == false EXIT /B
 

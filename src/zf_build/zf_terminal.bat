@@ -3,7 +3,7 @@
 REM Open a simple terminal for serial input/output with Z-Fighter.
 
 REM Load user settings from zf_config.
-CALL %~dp0\zf_config.bat
+CALL %~dp0\zf_user_config.bat
 
 REM Terminate any existing instances of plink.
 taskkill /IM "plink.exe" /T /F >nul 2>&1
