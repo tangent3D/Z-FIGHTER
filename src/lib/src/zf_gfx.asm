@@ -17,12 +17,12 @@ _block:
     add iy,sp
 
     ; skip if off screen
-    ld a,(iy+3) ;  a = blockX
+    ld a,(iy+2) ;  a = blockX
     ld d,0      ; de = blockX
     ld e,a      ; "
     cp SCREEN_W/8
     jr nc,skipBlock
-    ld a,(iy+2) ; a = blockY
+    ld a,(iy+3) ; a = blockY
     cp SCREEN_H/8
     jr nc,skipBlock
 
