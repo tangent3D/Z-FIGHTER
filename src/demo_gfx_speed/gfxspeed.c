@@ -5,7 +5,6 @@
 #include <zf_gfx.h>
 #include <zf_lcd.h>
 #include <zf_ppi.h>
-#include <zf_util.h>
 
 void main()
 {
