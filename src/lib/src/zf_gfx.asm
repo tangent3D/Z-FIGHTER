@@ -1,11 +1,12 @@
 ; graphics library implementation for z-fighter
 ; by xrrawva 2021
 
-EXTERN SCREEN_W
-EXTERN SCREEN_H
+EXTERN _screen_w
+EXTERN _screen_h
 EXTERN _color
 EXTERN _screen
-
+SCREEN_W equ _screen_w
+SCREEN_H equ _screen_h
 SECTION code_user
 
 ; void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
@@ -16,12 +17,12 @@ _block:
     add iy,sp
 
     ; skip if off screen
-    ld a,(iy+3) ;  a = blockX
+    ld a,(iy+2) ;  a = blockX
     ld d,0      ; de = blockX
     ld e,a      ; "
     cp SCREEN_W/8
     jr nc,skipBlock
-    ld a,(iy+2) ; a = blockY
+    ld a,(iy+3) ; a = blockY
     cp SCREEN_H/8
     jr nc,skipBlock
 
