@@ -3,12 +3,14 @@
 
 #include <zf_sio.h>
 
-void sioPrint(unsigned char channel, unsigned char string[])
+unsigned char channel = CH_A;
+
+void sioPrint(unsigned char string[])
     {
         int i = 0;
         while (string[i] != '\0')
             {
-            sioWrite(channel, string[i]);
+            sioWrite(string[i]);
             i++;
             }
     }

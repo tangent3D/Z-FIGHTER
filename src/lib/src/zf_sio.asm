@@ -1,13 +1,14 @@
 ; Z80 SIO/0 Serial Input/Output controller implementation for Z-Fighter
 ; by Tangent 2021
 
+EXTERN _channel
+
 SECTION code_user
 
 PUBLIC _sioInit
 _sioInit:
-    LD      IY,2                   ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,(IY)                 ; Load C with parameter (channel (control port))
+    LD      A,(_channel)           ; Retrieve value of _channel
+    LD      C,A                    ; Load C with _channel
     LD      HL,SIOCFG              ; Load HL with base address of config table
     LD      B,11                   ; Load B with length of config table
     OTIR                           ; Output configuration table to (C)
@@ -15,9 +16,8 @@ _sioInit:
 
 PUBLIC _sioRead
 _sioRead:
-    LD      IY,2                   ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,(IY)                 ; Load C with parameter (channel (control port))
+    LD      A,(_channel)           ; Retrieve value of _channel
+    LD      C,A                    ; Load C with _channel
     LD      A,0                    ; WR0, select RR0
     OUT     (C),A
     IN      A,(C)                  ; Read SIO RR0
@@ -33,9 +33,8 @@ NOCHAR:
 
 PUBLIC _sioWait
 _sioWait:
-    LD      IY,2                   ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,(IY)                 ; Load C with parameter (channel (control port))
+    LD      A,(_channel)           ; Retrieve value of _channel
+    LD      C,A                    ; Load C with _channel
 WTLOOP:
     LD      A,0                    ; WR0, select RR0
     OUT     (C),A
@@ -47,11 +46,10 @@ WTLOOP:
     IN      L,(C)                  ; Receive character and return value
     RET
 
-PUBLIC _sioWrite
+PUBLIC _sioWrite                   ; Uses FASTCALL. L = character
 _sioWrite:
-    LD      IY,2                   ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,(IY)                 ; Load C with parameter (channel (control port))
+    LD      A,(_channel)           ; Retrieve value of _channel
+    LD      C,A                    ; Load C with _channel
 WRLOOP:
     LD      A,0                    ; WR0, select RR0
     OUT     (C),A                  
@@ -65,7 +63,7 @@ WRLOOP:
     JP      Z,WRLOOP               ; Wait until All Sent
     DEC     C                      ; Decrement C to point to channel data port
     DEC     C
-    LD      A,(IY+1)               ; Load A with parameter (character)
+    LD      A,L                    ; Load A with parameter (character)
     OUT     (C),A                  ; Transmit character
     RET
 
