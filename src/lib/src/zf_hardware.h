@@ -5,10 +5,10 @@
 #define ZF_HARDWARE_H
 
 // 8255A Programmable Peripheral Interface (Accessory)
-#define PORTA           0x40    // Connected to key switches
-#define PORTB           0x41    // Connected to ST7920 LCD data bus
-#define PORTC           0x42    // Connected to LCD control signals, backlight and buzzer
-#define CTRL            0x43    // PPI control port
+#define PORTA_ACC       0x40    // Connected to key switches
+#define PORTB_ACC       0x41    // Connected to ST7920 LCD data bus
+#define PORTC_ACC       0x42    // Connected to LCD control signals, backlight and buzzer
+#define CTRL_ACC        0x43    // PPI control port
 
 // BSR (Bit Set/Reset) control words (Accessory)
 #define LCD_E_LO        0x00    // LCD E (Enable) low
@@ -23,10 +23,10 @@
 #define BUZZER_ON       0x0F    // Electromagnetic buzzer on
 
 // 8255A Programmable Peripheral Interface (User)
-#define USERPORTA       0x80    // User port PA7-PA0
-#define USERPORTB       0x81    // User port PB7-PB0
-#define USERPORTC       0x82    // User port PC7-PC0
-#define USERCTRL        0x83    // User PPI control port
+#define PORTA           0x80    // User port PA7-PA0
+#define PORTB           0x81    // User port PB7-PB0
+#define PORTC           0x82    // User port PC7-PC0
+#define CTRL            0x83    // User PPI control port
 
 // Z80 SIO/0 Serial Input/Output Controller
 #define SIO_A           0x00    // SIO channel A data port
