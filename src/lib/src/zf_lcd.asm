@@ -1,10 +1,8 @@
 ; ST7920 LCD controller implementation for Z-Fighter
 ; by Tangent 2021
 
-SECTION code_user
-
-EXTERN PORTB
-EXTERN CTRL
+EXTERN PORTB_ACC
+EXTERN CTRL_ACC
 EXTERN LCD_E_LO
 EXTERN LCD_WR
 EXTERN LCD_RD
@@ -12,14 +10,11 @@ EXTERN LCD_INST
 EXTERN LCD_DATA
 EXTERN LCD_BL_OFF
 
-PUBLIC _lcd
+SECTION code_user
+
+PUBLIC _lcd                     ; Uses FASTCALL. HL = *bitmap
 _lcd:
 INIT:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      L,(IY)              ; Load parameter (bitmap) into HL
-    LD      H,(IY+1)
-
     LD      (UPRBMP),HL         ; Store address of bitmap argument
     LD      DE,512
     ADD     HL,DE
@@ -79,21 +74,21 @@ DATAROW:
 DRLOOP:
     CALL    WAITBSY
     LD      A,LCD_DATA          ; Set LCD D
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
 
-    LD      C,PORTB
+    LD      C,PORTB_ACC
     OUTI                        ; OUT contents of HL to (C), DEC B
     CALL    ENABLE
     OR      B                   ; Check if loop is complete
     JR      NZ,DRLOOP
 
     LD      A,LCD_INST          ; Reset LCD #I
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
     RET
 
 INST:
     CALL    WAITBSY
-    LD      C,PORTB
+    LD      C,PORTB_ACC
     OUT     (C),D               ; Send basic instruction
     CALL    ENABLE
     RET
@@ -101,25 +96,25 @@ INST:
 EXTINST:
     CALL    WAITBSY
     LD      A,36h               ; Set extended instruction set
-    OUT     (PORTB),A
+    OUT     (PORTB_ACC),A
     CALL    ENABLE
 
     CALL    WAITBSY
-    LD      C,PORTB
+    LD      C,PORTB_ACC
     OUT     (C),D               ; Send extended instruction
     CALL    ENABLE
 
     CALL    WAITBSY
     LD      A,30h               ; Reset basic instruction set
-    OUT     (PORTB),A
+    OUT     (PORTB_ACC),A
     CALL    ENABLE
     RET
 
 ENABLE:
     LD      A,LCD_E_LO+1
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
     DEC     A
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
     RET
 
 WAITBSY:
@@ -127,21 +122,21 @@ WAITBSY:
     LD      A,(_backlight)      ; Read desired state of backlight
     ADD     LCD_BL_OFF          ; Add address of backlight
     LD      B,A                 ; Store backlight control word in B
-    LD      C,CTRL              ; Load C with address of PPI control register
+    LD      C,CTRL_ACC          ; Load C with address of PPI control register
     LD      A,92h               ; 8255 Simple I/O, PA,B in, PC out
-    OUT     (CTRL),A            ; Write PPI control word
+    OUT     (CTRL_ACC),A        ; Write PPI control word
     OUT     (C),B               ; Write backlight control word
     LD      A,LCD_RD            ; Set LCD RD
-    OUT     (CTRL),A
-    LD      A,LCD_E_LO+1          ; Set LCD ENABLE
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
+    LD      A,LCD_E_LO+1        ; Set LCD ENABLE
+    OUT     (CTRL_ACC),A
 CHKFLAG:
-    IN      A,(PORTB)           ; Read LCD data bus
+    IN      A,(PORTB_ACC)       ; Read LCD data bus
     AND     128                 ; Check busy flag
     JR      NZ,CHKFLAG          ; Repeat until busy flag is reset
 RSTPPI:                         ; Complete routine by resetting PPI
     LD      A,90h               ; 8255 Simple I/O, PA in, PB,C out
-    OUT     (CTRL),A            ; Write PPI control word
+    OUT     (CTRL_ACC),A        ; Write PPI control word
 BKLGHT:       
     OUT     (C),B               ; Write backlight control word
     POP     BC
