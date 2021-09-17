@@ -1,9 +1,6 @@
 // Keypad definitions for Z-Fighter
 // by Tangent 2021
 
-// Always #include <zf_ppi.h> and call ppiInit() before
-// interfacing with Z-Fighter accessory board peripherals.
-
 #ifndef ZF_KEYPAD_H
 #define ZF_KEYPAD_H
 
@@ -28,9 +25,9 @@
 // +-----+-----+-----+-----+-----+
 
 // Check if a specific key is pressed (ex. 'KEY_UP')
-unsigned char key(unsigned char key);
+unsigned char key(unsigned char key) __z88dk_fastcall;
 
 // Wait until a specific key is pressed 
-void keyWait(unsigned char key);
+void keyWait(unsigned char key) __z88dk_fastcall;
 
 #endif

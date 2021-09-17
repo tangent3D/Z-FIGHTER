@@ -1,17 +1,15 @@
 ; Keypad input implementation for Z-Fighter
 ; by Tangent 2021
 
+EXTERN PORTA_ACC
+
 SECTION code_user
 
-EXTERN PORTA
-
-PUBLIC _key
-_key:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,PORTA             ; Load C with address of keypad
+PUBLIC _key                     
+_key:                           ; Uses FASTCALL. L = key
+    LD      C,PORTA_ACC         ; Load C with address of keypad
     IN      B,(C)               ; Read current state of keypad
-    LD      A,(IY)              ; Load parameter (key) into A
+    LD      A,L                 ; Load parameter (key) into A
     CP      255                 ; Check if testing any key
     JR      Z,KEYANY            ; If so, jump to test for any key
     AND     B                   ; Compare input with specified key
@@ -27,12 +25,10 @@ KEYANY:
     JR      Z,NOPRESS           ; Jump if no key is pressed
     JR      PRESS               ; Otherwise, jump if any key is pressed
 
-PUBLIC _keyWait
-_keyWait:
-    LD      IY,2                ; Bypass return address of function
-    ADD     IY,SP
-    LD      C,PORTA             ; Load C with address of keypad
-    LD      A,(IY)              ; Load parameter (key) into A
+PUBLIC _keyWait                 
+_keyWait:                       ; Uses FASTCALL. L = key
+    LD      C,PORTA_ACC         ; Load C with address of keypad
+    LD      A,L                 ; Load parameter (key) into A
     CP      255                 ; Check if testing any key
     JR      Z,WAITANY           ; If so, jump to test for any key
 WAITKEY:
