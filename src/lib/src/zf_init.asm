@@ -1,5 +1,4 @@
 ; Initialization instructions for Z-Fighter
-; 
 ; by Tangent 2021
 
 EXTERN CTRL_ACC
