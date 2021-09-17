@@ -28,9 +28,9 @@ SET PATH=%~dp0;%PATH%
 
 REM If specified, build Z-Fighter libraries before building source.
 IF %build_lib% == true IF NOT %name% == zf_lib (
-SETLOCAL
-CALL %~dp0\..\lib\zf_lib.bat
-ENDLOCAL
+    SETLOCAL
+    CALL %~dp0\..\lib\zf_lib.bat
+    ENDLOCAL
 )
 
 REM Inform user of filename and build tool.
@@ -39,56 +39,46 @@ IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
 
 REM Define %startup%
 SET startup=-startup=1
-IF %ext% == .asm SET startup=--no-crt
 
 REM Define %optimization%
 IF %optimize% == true SET optimization=-opt=-SO3 --max-allocs-per-node200000
 IF %optimize% == false SET optimization=
 
-REM Define %clib%
-REM Configure z88dk to use "new" C library and sdcc as compiler
-IF NOT %ext% == .asm SET clib=-clib=sdcc_iy
-
 REM Define %pragma%
 REM For use with zf_loader.
 REM "Do not change stack location. Return to caller on exit."
-IF NOT %ext% == .asm SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
+SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
 
-REM Define %include%
-IF NOT %ext% == .asm SET include=-I%INC%
-
-REM Define %lpath%
-SET lpath=-L%LIBPATH%
-
-REM Define %zf_lib%, %asmopt%, %linkopt%
-REM Include Z-Fighter C library for z88dk projects.
-IF NOT %ext% == .asm SET zf_lib=-l%LIBPATH%\zf_lib
+REM Define assembler and linker options.
 SET asmopt=-Ca-l%LIBPATH%\zf_lib -Ca-I=%INC%
 SET linkopt=-Cl-l%LIBPATH%\zf_lib -Cl-I=%INC%
 
-REM Define %output%
 SET output=%name%
-IF %ext% == .asm SET output=%name%.bin
 
-REM Define %list%
-REM Replace source with list when using a .lst file.
-IF %ext% == .lst (
-SET list=@%source%
-SET source=
+SET appmake=-create-app
+
+IF %ext% == .asm IF %asm_use_crt% == false (
+    SET startup=--no-crt
+    SET init=
+    SET output=%name%.bin
+    SET appmake=
 )
 
-REM Check for a .lst file of same name as source and use it instead of source.
-IF %ext% == .c (
-    IF EXIST %name%.lst (
-        SET list=@%name%.lst
-        SET source=
-        ECHO Using list file %name%.lst.
-    )
+REM Replace source with list when using a .lst file.
+REM Also, check for a .lst file of same name as source and use it instead of source.
+IF %ext% == .lst (
+    SET list=@%source%
+    SET source=
+)
+IF EXIST %name%.lst (
+    SET list=@%name%.lst
+    SET source=
+    ECHO Using list file %name%.lst.
 )
 
 :build
 REM Compile/assemble the source with z88dk/z80asm.
-zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% %clib% %pragma% %include% %arg% %lpath% %zf_lib% %source% -o %output% -m -create-app %list%
+zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% -clib=sdcc_iy -I%INC% %pragma% %include% %arg% -L%LIBPATH% -l%LIBPATH%\zf_lib %source% %INC%\zf_init.asm -o %output% -m %appmake% %list%
 
 IF %errorlevel% NEQ 0 GOTO error_compile
 

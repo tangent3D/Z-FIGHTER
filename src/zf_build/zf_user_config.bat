@@ -1,6 +1,6 @@
 @ECHO OFF
 
-REM Path to your z88dk installation
+REM Path to your z88dk installation.
 SET Z88DK_DIR=C:\z88dk
 
 REM COM port number of your serial communication interface.
@@ -12,6 +12,9 @@ SET disassemble=false
 
 REM Optimize with maximum settings. Significantly increases compile time.
 SET optimize=false
+
+REM Use CRT startup code and zf_init code for ASM projects.
+SET asm_use_crt=false
 
 REM Build Z-Fighter libraries before building source.
 REM Building of source only occurs following successful build of libraries.
