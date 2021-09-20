@@ -14,7 +14,7 @@ SECTION code_user
 
 PUBLIC _lcd                     ; Uses FASTCALL. HL = *bitmap
 _lcd:
-INIT:
+LCD:
     LD      (UPRBMP),HL         ; Store address of bitmap argument
     LD      DE,512
     ADD     HL,DE
