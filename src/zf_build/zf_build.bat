@@ -1,88 +1,72 @@
 @ECHO OFF
 
-REM Build a source file to a 'ROM model' .BIN for Z-Fighter. Passes output to zf_loader.bat.
-REM C sources will be compiled with z88dk/sdcc. ASM sources will be assembled with z80asm.
-REM Programs can be run more than once with correct initial state.
-REM Uses configuration options from zf_config.bat.
-
-REM Inform user if no source file is defined.
 IF [%1] == [] GOTO error_file
 
 SET source=%1
 SET name=%~n1
 SET ext=%~x1
-SET arg=%2
 
-REM Perform error checking for source file type.
 IF NOT %ext% == .c IF NOT %ext% == .asm IF NOT %ext% == .lst GOTO error_type
 
-REM Load user settings from zf_config.
+REM Uncompressed ROM model
+SET startup=-startup=1
+REM Stack pointer unchanged on startup. Return to caller on exit. Disable stdio. No stdio heap.
+SET pragma=-pragma-define:CRT_ORG_CODE=0 -pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002 -pragma-define:CRT_ENABLE_STDIO=0 -pragma-define:CLIB_STDIO_HEAP_SIZE=0
+SET optimization=-opt=-SO3 --max-allocs-per-node200000
+SET output=%name%
+SET appmake=-create-app
+
+
 CALL %~dp0\zf_user_config.bat
 
-REM Paths to Z-Fighter libraries. Automatically obtained from repository's directory structure.
-SET LIBPATH=%~dp0\..\lib
-SET INC=%~dp0\..\lib\src
 SET ZCCCFG=%Z88DK_DIR%\lib\config
 SET PATH=%Z88DK_DIR%\bin;%PATH%
 SET PATH=%~dp0;%PATH%
+SET LIBPATH=%~dp0\..\lib
+SET LIB=-l%LIBPATH%\zf_lib
+SET INC=%~dp0\..\lib\src
+SET asmopt=-Ca-l%LIBPATH%\zf_lib -Ca-I=%INC%
+SET linkopt=-Cl-l%LIBPATH%\zf_lib -Cl-I=%INC%
+SET init=%INC%\zf_init.asm
 
-REM If specified, build Z-Fighter libraries before building source.
+IF %optimize% == false SET optimization=
+
 IF %build_lib% == true IF NOT %name% == zf_lib (
     SETLOCAL
     CALL %~dp0\..\lib\zf_lib.bat
     ENDLOCAL
 )
 
-REM Inform user of filename and build tool.
-IF NOT %ext% == .asm ECHO Compiling %name%%ext% with z88dk/sdcc.
-IF %ext% == .asm ECHO Assembling %name%%ext% with z80asm.
+IF %name% == zf_lib (
+    SET arg=-x
+    SET lib=
+    SET asmopt=
+    SET linkopt=
+    SET disassemble=false
+    SET transfer=false
+)
 
-REM Define %startup%
-SET startup=-startup=1
-
-REM Define %optimization%
-IF %optimize% == true SET optimization=-opt=-SO3 --max-allocs-per-node200000
-IF %optimize% == false SET optimization=
-
-REM Define %pragma%
-REM For use with zf_loader.
-REM "Do not change stack location. Return to caller on exit."
-SET pragma=-pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002
-
-REM Define assembler and linker options.
-SET asmopt=-Ca-l%LIBPATH%\zf_lib -Ca-I=%INC%
-SET linkopt=-Cl-l%LIBPATH%\zf_lib -Cl-I=%INC%
-
-SET output=%name%
-
-SET appmake=-create-app
-
-IF %ext% == .asm IF %asm_use_crt% == false (
+IF %use_startup% == false (
     SET startup=--no-crt
     SET init=
-    SET output=%name%.bin
     SET appmake=
-)
-
-REM Replace source with list when using a .lst file.
-REM Also, check for a .lst file of same name as source and use it instead of source.
-IF %ext% == .lst (
-    SET list=@%source%
-    SET source=
-)
-IF EXIST %name%.lst (
-    SET list=@%name%.lst
-    SET source=
-    ECHO Using list file %name%.lst.
+    SET output=%name%.bin
 )
 
 :build
-REM Compile/assemble the source with z88dk/z80asm.
-zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% -clib=sdcc_iy -I%INC% %pragma% %include% %arg% -L%LIBPATH% -l%LIBPATH%\zf_lib %source% %INC%\zf_init.asm -o %output% -m %appmake% %list%
+IF NOT %ext% == .lst ECHO Building %name%%ext% with z88dk/sdcc.
 
+IF %ext% == .lst (
+    ECHO Building list file %name%%ext% with z88dk/sdcc.
+    SET list=@%source%
+    SET source=
+)
+
+zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% -clib=sdcc_iy -compiler=sdcc -I%INC% %pragma% %include% %lib% %arg% %init% %source% -o %output% -m %appmake% %list%
+
+:check_errors
 IF %errorlevel% NEQ 0 GOTO error_compile
 
-REM Check if any unassigned bytes.
 IF EXIST %name%_UNASSIGNED.bin (
     FOR %%i in (%name%_UNASSIGNED.bin) do (
         IF %%~z%i GTR 0 (
@@ -92,28 +76,26 @@ IF EXIST %name%_UNASSIGNED.bin (
     )
 )
 
-REM Disassemble the output binary and open the resulting text file.
-IF %disassemble% == true IF NOT %name% == zf_lib (
-SET transfer=false
-z88dk-dis -o 0x0000 -x %name%.map %name%.bin > %name%_disassembled.txt
-%name%_disassembled.txt
+:disassemble
+IF %disassemble% == true (
+    SET transfer=false
+    z88dk-dis -o 0x0000 -x %name%.map %name%.bin > %name%_disassembled.txt
+    %name%_disassembled.txt
 )
 
-REM Delete unused files
-DEL %name% >nul 2>&1
-DEL %name%.rom >nul 2>&1
-DEL %name%_CODE.bin >nul 2>&1
-DEL %name%_DATA.bin >nul 2>&1
-DEL %name%_BSS.bin >nul 2>&1
-DEL %name%_UNASSIGNED.bin >nul 2>&1
-DEL %name%.map >nul 2>&1
-DEL %name%_disassembled.txt >nul 2>&1
-
-REM Skip transfer to zf_loader when building Z-Fighter libraries.
-IF %name% == zf_lib EXIT /B
+:cleanup
+IF %cleanup% == true (
+    DEL %name% >nul 2>&1
+    DEL %name%.rom >nul 2>&1
+    DEL %name%_CODE.bin >nul 2>&1
+    DEL %name%_DATA.bin >nul 2>&1
+    DEL %name%_BSS.bin >nul 2>&1
+    DEL %name%_UNASSIGNED.bin >nul 2>&1
+    DEL %name%.map >nul 2>&1
+    DEL %name%_disassembled.txt >nul 2>&1
+)
 
 :transfer
-REM Pass output as argument to zf_loader.bat
 IF %transfer% == true zf_loader.bat %name%.bin
 EXIT /B
 
