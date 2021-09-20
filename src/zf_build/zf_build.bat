@@ -8,7 +8,7 @@ SET ext=%~x1
 
 IF NOT %ext% == .c IF NOT %ext% == .asm IF NOT %ext% == .lst GOTO error_type
 
-REM Uncompressed ROM model
+REM Embedded_Z80 uncompressed ROM model
 SET startup=-startup=1
 REM Stack pointer unchanged on startup. Return to caller on exit. Disable stdio. No stdio heap.
 SET pragma=-pragma-define:CRT_ORG_CODE=0 -pragma-define:REGISTER_SP=-1 -pragma-define:CRT_ON_EXIT=0x10002 -pragma-define:CRT_ENABLE_STDIO=0 -pragma-define:CLIB_STDIO_HEAP_SIZE=0
