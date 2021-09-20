@@ -1,6 +1,8 @@
 ; Serial boot loader ROM for Z-Fighter
 ; by Tangent 2021
 
+; Does not use CRT/startup code.
+
 ; Copies boot loader to top of RAM, jumps to it and disables ROM.
 ; Loads a .BIN serially through SIO Ch.A to 0000h.
 ; Does not use interrupts, flow control or error checking.
