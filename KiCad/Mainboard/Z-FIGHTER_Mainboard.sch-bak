@@ -857,6 +857,8 @@ F 3 "" H 2350 6300 50  0001 L BNN
 $EndComp
 Text Notes 1750 4750 0    50   ~ 0
 Z80 SIO/0 serial I/O peripheral
+Text Notes 4700 950  0    50   ~ 0
+RAM
 Text Notes 7000 1000 0    50   ~ 0
 512K ROM
 Text Notes 9500 900  0    50   ~ 0
@@ -916,11 +918,11 @@ F 3 "http://jap.hu/electronic/8255.pdf" H 9850 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Memory_RAM:AS6C1008-55PCN U1
+L Memory_RAM:AS6C4008-55PCN U1
 U 1 1 5FCE5A8C
 P 4800 2300
 F 0 "U1" H 4800 3581 50  0000 C CNN
-F 1 "AS6C1008-55PCN" H 4800 3490 50  0000 C CNN
+F 1 "AS6C4008-55PCN" H 4800 3490 50  0000 C CNN
 F 2 "Package_DIP:DIP-32_W15.24mm" H 4800 2400 50  0001 C CNN
 F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 4800 2400 50  0001 C CNN
 	1    4800 2300
@@ -1020,7 +1022,7 @@ U 1 1 603142FD
 P 15000 6150
 F 0 "J6" H 15050 7267 50  0000 C CNN
 F 1 "Conn_PATA" H 15050 7176 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x20_P2.54mm_Horizontal" H 15000 6150 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x20_P2.54mm_Vertical" H 15000 6150 50  0001 C CNN
 F 3 "~" H 15000 6150 50  0001 C CNN
 	1    15000 6150
 	1    0    0    -1  
@@ -2420,6 +2422,4 @@ Text GLabel 1600 2250 0    50   Input ~ 0
 #INT
 Text GLabel 1700 1450 0    50   Input ~ 0
 #RESET
-Text Notes 4700 950  0    50   ~ 0
-SRAM
 $EndSCHEMATC
