@@ -763,20 +763,6 @@ F 3 "~" H 8100 10000 50  0001 C CNN
 	1    8100 10000
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C13
-U 1 1 603D9D9B
-P 8600 10000
-F 0 "C13" H 8715 10046 50  0000 L CNN
-F 1 "0.1uF" H 8715 9955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8638 9850 50  0001 C CNN
-F 3 "~" H 8600 10000 50  0001 C CNN
-	1    8600 10000
-	1    0    0    -1  
-$EndComp
-Connection ~ 8100 9850
-Wire Wire Line
-	8100 9850 8600 9850
 Connection ~ 8100 10150
 Wire Wire Line
 	8100 10150 8600 10150
@@ -2422,4 +2408,35 @@ Text GLabel 1700 1450 0    50   Input ~ 0
 #RESET
 Text Notes 4700 950  0    50   ~ 0
 SRAM
+Connection ~ 8100 9850
+Wire Wire Line
+	8100 9850 8600 9850
+$Comp
+L Device:C C13
+U 1 1 603D9D9B
+P 8600 10000
+F 0 "C13" H 8715 10046 50  0000 L CNN
+F 1 "0.1uF" H 8715 9955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8638 9850 50  0001 C CNN
+F 3 "~" H 8600 10000 50  0001 C CNN
+	1    8600 10000
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C14
+U 1 1 614E6A45
+P 9100 10000
+F 0 "C14" H 9215 10046 50  0000 L CNN
+F 1 "0.1uF" H 9215 9955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9138 9850 50  0001 C CNN
+F 3 "~" H 9100 10000 50  0001 C CNN
+	1    9100 10000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 9850 9100 9850
+Connection ~ 8600 9850
+Wire Wire Line
+	8600 10150 9100 10150
+Connection ~ 8600 10150
 $EndSCHEMATC
