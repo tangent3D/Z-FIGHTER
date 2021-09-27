@@ -164,10 +164,6 @@ SB2:
 
 SECTION bss_user
 
-PUBLIC _backlight
-_backlight:
-    DB      0
-
 UPRBMP:
     DW      0
 
@@ -181,6 +177,10 @@ BUFFER:
     DB      0
 
 SECTION data_user
+
+PUBLIC _backlight
+_backlight:
+    DB      1
 
 Y:
     DB      0+080h
