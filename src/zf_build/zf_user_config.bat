@@ -36,4 +36,4 @@ REM for serial input/output with Z-Fighter.
 SET start_terminal=false
 
 REM Clean up intermediate files following a sucessful build.
-SET cleanup=false
+SET cleanup=true
