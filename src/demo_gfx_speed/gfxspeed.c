@@ -4,13 +4,11 @@
 #include <zf_buzzer.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
-#include <zf_ppi.h>
 
 void main()
 {
     // init z-fighter
     backlight = 1;
-    ppiInit();
 
     // black screen
     color = 0;
