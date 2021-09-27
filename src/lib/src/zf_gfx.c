@@ -7,7 +7,7 @@
 
 __at (SCREEN_W) void* screen_w;
 __at (SCREEN_H) void* screen_h;
-unsigned char color;
+unsigned char color = 1;
 unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 unsigned char oldLineX;
 unsigned char oldLineY;
