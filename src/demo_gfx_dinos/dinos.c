@@ -13,10 +13,7 @@ const unsigned char spDinoW[] = {31, 31, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 31, 128,
 
 void main()
 {
-    // init z-fighter
-    backlight = 1;
-
-    // init program
+    // init
     unsigned char oldKeyA = 0;
 
     unsigned char starX = 0;
