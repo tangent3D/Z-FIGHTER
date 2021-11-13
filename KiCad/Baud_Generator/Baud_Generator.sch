@@ -13,34 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Connector_Generic:Conn_02x07_Row_Letter_Last J2
-U 1 1 618FB5F8
-P 3750 2500
-F 0 "J2" H 3800 3017 50  0000 C CNN
-F 1 "Conn_02x07" H 3800 2926 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x07_P2.54mm_Vertical" H 3750 2500 50  0001 C CNN
-F 3 "~" H 3750 2500 50  0001 C CNN
-	1    3750 2500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4050 2200 4050 2300
-Connection ~ 4050 2300
-Wire Wire Line
-	4050 2300 4050 2400
-Connection ~ 4050 2400
-Wire Wire Line
-	4050 2400 4050 2500
-Connection ~ 4050 2500
-Wire Wire Line
-	4050 2500 4050 2600
-Connection ~ 4050 2600
-Wire Wire Line
-	4050 2600 4050 2700
-Connection ~ 4050 2700
-Wire Wire Line
-	4050 2700 4050 2800
 Wire Wire Line
 	3150 2800 3550 2800
 Wire Wire Line
@@ -90,7 +62,6 @@ F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 1500 1950 50  
 	1    1600 1950
 	0    1    1    0   
 $EndComp
-Connection ~ 4050 2800
 $Comp
 L 4xxx_IEEE:4024 U1
 U 1 1 618F424F
@@ -132,24 +103,8 @@ F 3 "" H 1900 1700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1900 1700 1900 1950
-Text Notes 4150 2800 0    50   ~ 0
-19.2   kHz
-Text Notes 4150 2700 0    50   ~ 0
-38.4   kHz
-Text Notes 4150 2600 0    50   ~ 0
-76.8   kHz
-Text Notes 4150 2500 0    50   ~ 0
-153.6  kHz
-Text Notes 4150 2400 0    50   ~ 0
-307.2  kHz
-Text Notes 4150 2300 0    50   ~ 0
-614.4  kHz
 Wire Wire Line
 	4250 3050 4050 3050
-Wire Wire Line
-	4050 2800 4050 3050
-Text Notes 4150 2200 0    50   ~ 0
-1.2288 MHz
 Connection ~ 2600 3050
 Wire Wire Line
 	1300 3050 1300 2500
@@ -211,21 +166,10 @@ F 3 "~" H 3400 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J1
-U 1 1 61973F40
-P 3750 1350
-F 0 "J1" H 3800 1667 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 3800 1576 50  0000 C CNN
-F 2 "" H 3750 1350 50  0001 C CNN
-F 3 "~" H 3750 1350 50  0001 C CNN
-	1    3750 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR?
+L power:VCC #PWR0106
 U 1 1 6197994A
 P 4050 1250
-F 0 "#PWR?" H 4050 1100 50  0001 C CNN
+F 0 "#PWR0106" H 4050 1100 50  0001 C CNN
 F 1 "VCC" V 4065 1377 50  0000 L CNN
 F 2 "" H 4050 1250 50  0001 C CNN
 F 3 "" H 4050 1250 50  0001 C CNN
@@ -233,10 +177,10 @@ F 3 "" H 4050 1250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0107
 U 1 1 6197CD0A
 P 3550 1250
-F 0 "#PWR?" H 3550 1000 50  0001 C CNN
+F 0 "#PWR0107" H 3550 1000 50  0001 C CNN
 F 1 "GND" H 3555 1077 50  0000 C CNN
 F 2 "" H 3550 1250 50  0001 C CNN
 F 3 "" H 3550 1250 50  0001 C CNN
@@ -248,4 +192,60 @@ CLOCK2
 NoConn ~ 4050 1450
 NoConn ~ 4050 1350
 NoConn ~ 3550 1350
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J1
+U 1 1 61973F40
+P 3750 1350
+F 0 "J1" H 3800 1667 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 3800 1576 50  0001 C CNN
+F 2 "Baud_Generator:ZF_CPU_Control_Header" H 3750 1350 50  0001 C CNN
+F 3 "~" H 3750 1350 50  0001 C CNN
+	1    3750 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2800 4050 3050
+$Comp
+L Connector_Generic:Conn_02x07_Odd_Even J2
+U 1 1 618FC84C
+P 3750 2500
+F 0 "J2" H 3800 2925 50  0000 C CNN
+F 1 "Conn_02x07_Odd_Even" H 3800 2926 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x07_P2.54mm_Vertical" H 3750 2500 50  0001 C CNN
+F 3 "~" H 3750 2500 50  0001 C CNN
+	1    3750 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2200 4050 2300
+Connection ~ 4050 2800
+Connection ~ 4050 2300
+Wire Wire Line
+	4050 2300 4050 2400
+Connection ~ 4050 2400
+Wire Wire Line
+	4050 2400 4050 2500
+Connection ~ 4050 2500
+Wire Wire Line
+	4050 2500 4050 2600
+Connection ~ 4050 2600
+Wire Wire Line
+	4050 2600 4050 2700
+Connection ~ 4050 2700
+Wire Wire Line
+	4050 2700 4050 2800
+Text Notes 4100 2200 0    50   ~ 0
+1.2288 MHz
+Text Notes 4100 2300 0    50   ~ 0
+614.4  kHz
+Text Notes 4100 2400 0    50   ~ 0
+307.2  kHz
+Text Notes 4100 2500 0    50   ~ 0
+153.6  kHz
+Text Notes 4100 2600 0    50   ~ 0
+76.8   kHz
+Text Notes 4100 2700 0    50   ~ 0
+38.4   kHz
+Text Notes 4100 2800 0    50   ~ 0
+19.2   kHz
 $EndSCHEMATC
