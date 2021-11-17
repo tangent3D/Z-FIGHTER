@@ -195,17 +195,6 @@ F 3 "" H 6300 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_BJT:BC547 Q1
-U 1 1 6193E030
-P 6200 2950
-F 0 "Q1" H 6391 2996 50  0000 L CNN
-F 1 "BC547" H 6391 2905 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 6400 2875 50  0001 L CIN
-F 3 "https://www.onsemi.com/pub/Collateral/BC550-D.pdf" H 6200 2950 50  0001 L CNN
-	1    6200 2950
-	1    0    0    -1  
-$EndComp
-$Comp
 L Amplifier_Operational:LM741 U1
 U 1 1 61936A6F
 P 2000 2950
@@ -339,8 +328,8 @@ L Connector:USB_B_Micro J1
 U 1 1 61940271
 P 950 1450
 F 0 "J1" H 1007 1917 50  0000 C CNN
-F 1 "USB_B_Micro" H 1007 1826 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-AB_Molex_47590-0001" H 1100 1400 50  0001 C CNN
+F 1 "USB PWR" H 1007 1826 50  0000 C CNN
+F 2 "Connector_USB:USB_Micro-B_Amphenol_10118194_Horizontal" H 1100 1400 50  0001 C CNN
 F 3 "~" H 1100 1400 50  0001 C CNN
 	1    950  1450
 	1    0    0    -1  
@@ -426,7 +415,6 @@ Wire Wire Line
 	6500 2550 6300 2550
 Wire Wire Line
 	6300 2550 6300 2750
-Connection ~ 6300 2750
 Text GLabel 6000 3850 0    50   Input ~ 0
 RN1d
 Wire Wire Line
@@ -509,13 +497,13 @@ Wire Wire Line
 	5400 1100 5700 1100
 Wire Wire Line
 	5400 1400 5700 1400
-Text GLabel 3100 1500 3    50   Input ~ 0
-RN1d
-Text GLabel 3000 1500 3    50   Input ~ 0
-RN1c
 Text GLabel 2900 1500 3    50   Input ~ 0
-RN1b
+RN1d
 Text GLabel 2800 1500 3    50   Input ~ 0
+RN1c
+Text GLabel 3000 1500 3    50   Input ~ 0
+RN1b
+Text GLabel 3100 1500 3    50   Input ~ 0
 RN1a
 $Comp
 L power:VCC #PWR0101
@@ -533,7 +521,7 @@ L Device:R_Network04 RN1
 U 1 1 61BF0910
 P 3000 1300
 F 0 "RN1" H 3188 1346 50  0000 L CNN
-F 1 "R_Network04" H 3188 1255 50  0000 L CNN
+F 1 "1KΩ" H 3188 1255 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP5" V 3275 1300 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3000 1300 50  0001 C CNN
 	1    3000 1300
@@ -598,8 +586,8 @@ L Connector:DB9_Female_MountingHoles J2
 U 1 1 6193AC83
 P 9900 4200
 F 0 "J2" H 10080 4202 50  0000 L CNN
-F 1 "DB9_Female_MountingHoles" H 10080 4111 50  0000 L CNN
-F 2 "Connector_Dsub:DSUB-9_Male_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm" H 9900 4200 50  0001 C CNN
+F 1 "DE-9 Female" H 10080 4111 50  0000 L CNN
+F 2 "Connector_Dsub:DSUB-9_Female_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset7.48mm" H 9900 4200 50  0001 C CNN
 F 3 " ~" H 9900 4200 50  0001 C CNN
 	1    9900 4200
 	1    0    0    -1  
@@ -609,7 +597,7 @@ L Connector:AudioJack2 J3
 U 1 1 61944CA8
 P 900 2850
 F 0 "J3" H 932 3175 50  0000 C CNN
-F 1 "AudioJack2" H 932 3084 50  0000 C CNN
+F 1 "TS Jack" H 932 3084 50  0000 C CNN
 F 2 "Connector_Audio:Jack_3.5mm_CUI_SJ1-3533NG_Horizontal" H 900 2850 50  0001 C CNN
 F 3 "~" H 900 2850 50  0001 C CNN
 	1    900  2850
@@ -633,10 +621,22 @@ L Device:R_Network03 RN2
 U 1 1 61BEFB64
 P 4300 1300
 F 0 "RN2" H 4488 1346 50  0000 L CNN
-F 1 "R_Network03" H 4488 1255 50  0000 L CNN
+F 1 "1KΩ" H 4488 1255 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP4" V 4575 1300 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4300 1300 50  0001 C CNN
 	1    4300 1300
+	1    0    0    -1  
+$EndComp
+Connection ~ 6300 2750
+$Comp
+L Transistor_BJT:BC547 Q1
+U 1 1 6193E030
+P 6200 2950
+F 0 "Q1" H 6391 2996 50  0000 L CNN
+F 1 "BC547" H 6391 2905 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 6400 2875 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/BC550-D.pdf" H 6200 2950 50  0001 L CNN
+	1    6200 2950
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
