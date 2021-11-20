@@ -1961,7 +1961,7 @@ F 3 "" H 9600 7350 50  0001 C CNN
 	1    9600 7350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9650 8900 0    50   Input ~ 0
+Text GLabel 9650 8800 0    50   Input ~ 0
 #INT
 Wire Wire Line
 	7900 5000 7900 5350
@@ -2018,32 +2018,32 @@ $EndComp
 $Comp
 L power:GND #PWR0147
 U 1 1 61376857
-P 9450 8800
-F 0 "#PWR0147" H 9450 8550 50  0001 C CNN
-F 1 "GND" H 9455 8627 50  0000 C CNN
-F 2 "" H 9450 8800 50  0001 C CNN
-F 3 "" H 9450 8800 50  0001 C CNN
-	1    9450 8800
+P 9450 8700
+F 0 "#PWR0147" H 9450 8450 50  0001 C CNN
+F 1 "GND" H 9455 8527 50  0000 C CNN
+F 2 "" H 9450 8700 50  0001 C CNN
+F 3 "" H 9450 8700 50  0001 C CNN
+	1    9450 8700
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9450 8800 9650 8800
+	9450 8700 9650 8700
 Wire Wire Line
-	10150 8800 10350 8800
+	10150 8700 10350 8700
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J7
 U 1 1 61332756
-P 9850 8900
-F 0 "J7" H 9900 9217 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 9900 9126 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8900 50  0001 C CNN
-F 3 "~" H 9850 8900 50  0001 C CNN
-	1    9850 8900
+P 9850 8800
+F 0 "J7" H 9900 9117 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 9900 9026 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8800 50  0001 C CNN
+F 3 "~" H 9850 8800 50  0001 C CNN
+	1    9850 8800
 	1    0    0    -1  
 $EndComp
-Text GLabel 9650 9000 0    50   Input ~ 0
+Text GLabel 9650 8900 0    50   Input ~ 0
 CLOCK2_EXT
-Text GLabel 10150 8900 2    50   Input ~ 0
+Text GLabel 10150 8800 2    50   Input ~ 0
 #NMI
 Wire Wire Line
 	10200 7150 10950 7150
@@ -2054,12 +2054,12 @@ Wire Wire Line
 $Comp
 L power:VCC #PWR0150
 U 1 1 6137DFCB
-P 10350 8800
-F 0 "#PWR0150" H 10350 8650 50  0001 C CNN
-F 1 "VCC" V 10368 8927 50  0000 L CNN
-F 2 "" H 10350 8800 50  0001 C CNN
-F 3 "" H 10350 8800 50  0001 C CNN
-	1    10350 8800
+P 10350 8700
+F 0 "#PWR0150" H 10350 8550 50  0001 C CNN
+F 1 "VCC" V 10368 8827 50  0000 L CNN
+F 2 "" H 10350 8700 50  0001 C CNN
+F 3 "" H 10350 8700 50  0001 C CNN
+	1    10350 8700
 	0    1    1    0   
 $EndComp
 $Comp
@@ -2188,7 +2188,7 @@ F 3 "" H 8400 4950 50  0001 C CNN
 $EndComp
 Text Notes 12150 8350 0    50   ~ 0
 Supervisory circuit
-Text Notes 9150 8500 0    50   ~ 0
+Text Notes 9150 8400 0    50   ~ 0
 External CPU interrupt & clock header
 Wire Notes Line
 	1050 8900 8800 8900
@@ -2379,7 +2379,7 @@ Text GLabel 1550 8600 2    50   Input ~ 0
 CLOCK
 Text GLabel 1700 2650 0    50   Input ~ 0
 #WAIT
-Text GLabel 10150 9000 2    50   Input ~ 0
+Text GLabel 10150 8900 2    50   Input ~ 0
 #WAIT
 NoConn ~ 5700 8300
 $Comp
@@ -2396,29 +2396,29 @@ $EndComp
 $Comp
 L Device:R_Network03 RN1
 U 1 1 61A6227C
-P 9900 8200
-F 0 "RN1" V 10225 8200 50  0000 C CNN
-F 1 "4.7KΩ" V 10134 8200 50  0000 C CNN
-F 2 "Resistor_THT:R_Array_SIP4" V 10175 8200 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 9900 8200 50  0001 C CNN
-	1    9900 8200
+P 4800 4150
+F 0 "RN1" V 5125 4150 50  0000 C CNN
+F 1 "4.7KΩ" V 5034 4150 50  0000 C CNN
+F 2 "Resistor_THT:R_Array_SIP4" V 5075 4150 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4800 4150 50  0001 C CNN
+	1    4800 4150
 	0    -1   -1   0   
 $EndComp
-Text GLabel 10100 8200 2    50   Input ~ 0
+Text GLabel 5000 4150 2    50   Input ~ 0
 #NMI
-Text GLabel 10100 8100 2    50   Input ~ 0
+Text GLabel 5000 4050 2    50   Input ~ 0
 #INT
-Text GLabel 10100 8300 2    50   Input ~ 0
+Text GLabel 5000 4250 2    50   Input ~ 0
 #WAIT
 $Comp
 L power:VCC #PWR0112
 U 1 1 612070EB
-P 9700 8300
-F 0 "#PWR0112" H 9700 8150 50  0001 C CNN
-F 1 "VCC" V 9717 8428 50  0000 L CNN
-F 2 "" H 9700 8300 50  0001 C CNN
-F 3 "" H 9700 8300 50  0001 C CNN
-	1    9700 8300
+P 4600 4250
+F 0 "#PWR0112" H 4600 4100 50  0001 C CNN
+F 1 "VCC" V 4617 4378 50  0000 L CNN
+F 2 "" H 4600 4250 50  0001 C CNN
+F 3 "" H 4600 4250 50  0001 C CNN
+	1    4600 4250
 	0    -1   -1   0   
 $EndComp
 $EndSCHEMATC
