@@ -1,6 +1,8 @@
 #include <zf_gfx.h>
 #include <zf_lcd.h>
-
+#include <zf_keypad.h>
+#include <zf_buzzer.h>
+#include <zf_text.h>
 
 #define TWO			1
 #define THREE		2
@@ -31,7 +33,7 @@ struct card
 	unsigned char value;
 	unsigned char suit;
 	unsigned char dealt;
-}
+};
 
 struct card deck[52] =
 {
@@ -41,7 +43,7 @@ struct card deck[52] =
 	{ FIVE,  CLUBS, 0 },
 	{ SIX, 	 CLUBS, 0 },
 	{ SEVEN, CLUBS, 0 },
-	{ EIGHT  CLUBS, 0 },
+	{ EIGHT, CLUBS, 0 },
 	{ NINE,  CLUBS, 0 },
 	{ TEN,   CLUBS, 0 },
 	{ JACK,  CLUBS, 0 },
@@ -55,7 +57,7 @@ struct card deck[52] =
 	{ FIVE,  DIAMONDS, 0 },
 	{ SIX, 	 DIAMONDS, 0 },
 	{ SEVEN, DIAMONDS, 0 },
-	{ EIGHT  DIAMONDS, 0 },
+	{ EIGHT, DIAMONDS, 0 },
 	{ NINE,  DIAMONDS, 0 },
 	{ TEN,   DIAMONDS, 0 },
 	{ JACK,  DIAMONDS, 0 },
@@ -69,7 +71,7 @@ struct card deck[52] =
 	{ FIVE,  HEARTS, 0 },
 	{ SIX, 	 HEARTS, 0 },
 	{ SEVEN, HEARTS, 0 },
-	{ EIGHT  HEARTS, 0 },
+	{ EIGHT, HEARTS, 0 },
 	{ NINE,  HEARTS, 0 },
 	{ TEN,   HEARTS, 0 },
 	{ JACK,  HEARTS, 0 },
@@ -83,7 +85,7 @@ struct card deck[52] =
 	{ FIVE,  SPADES, 0 },
 	{ SIX, 	 SPADES, 0 },
 	{ SEVEN, SPADES, 0 },
-	{ EIGHT  SPADES, 0 },
+	{ EIGHT, SPADES, 0 },
 	{ NINE,  SPADES, 0 },
 	{ TEN,   SPADES, 0 },
 	{ JACK,  SPADES, 0 },
@@ -117,7 +119,7 @@ const unsigned char spriteFront[] = {24,32,63,255,252,64,0,2,128,0,1,128,0,1,128
 const unsigned char spriteRear[] = {24,32,63,255,252,64,0,2,159,255,249,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,184,0,61,184,0,125,184,120,221,184,241,157,185,227,29,191,198,61,191,140,125,191,24,253,190,49,253,188,99,157,184,199,29,185,142,29,187,0,29,190,0,29,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,159,255,249,64,0,2,63,255,252};
 const unsigned char spriteHeld[] = {18,5,167,33,169,8,94,98,22,144,133,167,57,128};
 
-const unsigned char* gfxValue[] =
+const unsigned char* gfxValues[] =
 {
 	spriteTwo,
 	spriteThree,
@@ -134,7 +136,7 @@ const unsigned char* gfxValue[] =
 	spriteAce
 };
 
-const unsigned char* gfxSuit[] =
+const unsigned char* gfxSuits[] =
 {
 	spriteClubs,
 	spriteDiamonds,
