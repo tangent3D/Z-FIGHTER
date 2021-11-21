@@ -771,15 +771,15 @@ Decoupling capacitors\nUSB 2.0 standard specifies max of 10uF between Vbus and G
 $Comp
 L power:GND #PWR0133
 U 1 1 6018407B
-P 7450 8600
-F 0 "#PWR0133" H 7450 8350 50  0001 C CNN
-F 1 "GND" H 7455 8427 50  0000 C CNN
-F 2 "" H 7450 8600 50  0001 C CNN
-F 3 "" H 7450 8600 50  0001 C CNN
-	1    7450 8600
+P 7600 8600
+F 0 "#PWR0133" H 7600 8350 50  0001 C CNN
+F 1 "GND" H 7605 8427 50  0000 C CNN
+F 2 "" H 7600 8600 50  0001 C CNN
+F 3 "" H 7600 8600 50  0001 C CNN
+	1    7600 8600
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7150 8300
+NoConn ~ 7300 8300
 Text GLabel 1650 6800 0    50   Input ~ 0
 CLOCK
 Text GLabel 3150 6400 2    50   Input ~ 0
@@ -807,28 +807,28 @@ PATA29
 $Comp
 L Oscillator:CXO_DIP14 X2
 U 1 1 6016DD5D
-P 7450 8300
-F 0 "X2" H 7794 8346 50  0000 L BNN
-F 1 "SIO Ch.B Clock" H 7794 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 7900 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7350 8300 50  0001 C CNN
-	1    7450 8300
+P 7600 8300
+F 0 "X2" H 7944 8346 50  0000 L BNN
+F 1 "SIO Ch.B Clock" H 7944 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 8050 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7500 8300 50  0001 C CNN
+	1    7600 8300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7450 8000 7650 8000
+	7600 8000 7800 8000
 $Comp
 L power:VCC #PWR0134
 U 1 1 6019A931
-P 7650 8000
-F 0 "#PWR0134" H 7650 7850 50  0001 C CNN
-F 1 "VCC" V 7665 8128 50  0000 L CNN
-F 2 "" H 7650 8000 50  0001 C CNN
-F 3 "" H 7650 8000 50  0001 C CNN
-	1    7650 8000
+P 7800 8000
+F 0 "#PWR0134" H 7800 7850 50  0001 C CNN
+F 1 "VCC" V 7815 8128 50  0000 L CNN
+F 2 "" H 7800 8000 50  0001 C CNN
+F 3 "" H 7800 8000 50  0001 C CNN
+	1    7800 8000
 	0    1    1    0   
 $EndComp
-Text Notes 5600 7900 0    50   ~ 0
+Text Notes 5700 7900 0    50   ~ 0
 System/SIO clock oscillator
 $Comp
 L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
@@ -1215,84 +1215,84 @@ PA0U
 $Comp
 L Jumper:Jumper_3_Open JP3
 U 1 1 601A5EFF
-P 3700 8350
-F 0 "JP3" H 3700 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 3700 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3700 8350 50  0001 C CNN
-F 3 "~" H 3700 8350 50  0001 C CNN
-	1    3700 8350
+P 3850 8350
+F 0 "JP3" H 3850 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 3850 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3850 8350 50  0001 C CNN
+F 3 "~" H 3850 8350 50  0001 C CNN
+	1    3850 8350
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Jumper:Jumper_3_Open JP4
 U 1 1 601AD0E1
-P 4650 8350
-F 0 "JP4" H 4650 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 4650 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4650 8350 50  0001 C CNN
-F 3 "~" H 4650 8350 50  0001 C CNN
-	1    4650 8350
+P 4800 8350
+F 0 "JP4" H 4800 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 4800 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4800 8350 50  0001 C CNN
+F 3 "~" H 4800 8350 50  0001 C CNN
+	1    4800 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 4800 8350 2    50   Input ~ 0
+Text GLabel 4950 8350 2    50   Input ~ 0
 SIO_CTSB
-Text GLabel 3850 8350 2    50   Input ~ 0
+Text GLabel 4000 8350 2    50   Input ~ 0
 SIO_CTSA
 $Comp
 L power:GND #PWR0143
 U 1 1 601FF01A
-P 3850 8100
-F 0 "#PWR0143" H 3850 7850 50  0001 C CNN
-F 1 "GND" V 3855 7972 50  0000 R CNN
-F 2 "" H 3850 8100 50  0001 C CNN
-F 3 "" H 3850 8100 50  0001 C CNN
-	1    3850 8100
+P 4000 8100
+F 0 "#PWR0143" H 4000 7850 50  0001 C CNN
+F 1 "GND" V 4005 7972 50  0000 R CNN
+F 2 "" H 4000 8100 50  0001 C CNN
+F 3 "" H 4000 8100 50  0001 C CNN
+	1    4000 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3850 8600 3700 8600
+	4000 8600 3850 8600
 $Comp
 L power:GND #PWR0144
 U 1 1 6020DBBB
-P 4800 8100
-F 0 "#PWR0144" H 4800 7850 50  0001 C CNN
-F 1 "GND" V 4805 7972 50  0000 R CNN
-F 2 "" H 4800 8100 50  0001 C CNN
-F 3 "" H 4800 8100 50  0001 C CNN
-	1    4800 8100
+P 4950 8100
+F 0 "#PWR0144" H 4950 7850 50  0001 C CNN
+F 1 "GND" V 4955 7972 50  0000 R CNN
+F 2 "" H 4950 8100 50  0001 C CNN
+F 3 "" H 4950 8100 50  0001 C CNN
+	1    4950 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4650 8600 4800 8600
+	4800 8600 4950 8600
 Wire Wire Line
-	3850 8100 3700 8100
+	4000 8100 3850 8100
 Wire Wire Line
-	4800 8100 4650 8100
-Text GLabel 3850 8600 2    50   Input ~ 0
+	4950 8100 4800 8100
+Text GLabel 4000 8600 2    50   Input ~ 0
 CTSA
-Text GLabel 4800 8600 2    50   Input ~ 0
+Text GLabel 4950 8600 2    50   Input ~ 0
 CTSB
-Text Notes 3300 8000 0    50   ~ 0
+Text Notes 3450 8000 0    50   ~ 0
 JP3&JP4 1-1: CTS signal is honored on SIO Ch.A/B\nJP3&JP4 2-3: CTS signal is ignored on SIO Ch.A/B
-Text Notes 1200 8000 0    50   ~ 0
+Text Notes 1350 8000 0    50   ~ 0
 JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
 $Comp
 L Jumper:Jumper_3_Open JP1
 U 1 1 601DCDA8
-P 1400 8350
-F 0 "JP1" H 1400 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 1400 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1400 8350 50  0001 C CNN
-F 3 "~" H 1400 8350 50  0001 C CNN
-	1    1400 8350
+P 1450 8350
+F 0 "JP1" H 1450 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 1450 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1450 8350 50  0001 C CNN
+F 3 "~" H 1450 8350 50  0001 C CNN
+	1    1450 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1550 8350 2    50   Input ~ 0
+Text GLabel 1600 8350 2    50   Input ~ 0
 CLOCK_Ch.B
 Wire Wire Line
-	1400 8100 1550 8100
+	1450 8100 1600 8100
 Wire Wire Line
-	1400 8600 1550 8600
+	1450 8600 1600 8600
 Text GLabel 12850 5300 2    50   Input ~ 0
 RESET
 Text Notes 11900 4850 0    50   ~ 0
@@ -1583,7 +1583,7 @@ Text Notes 7450 6100 0    50   ~ 0
 SIO/O Ch.A
 Text Notes 7550 7600 0    50   ~ 0
 SIO/O Ch.B
-Text GLabel 7950 8300 2    50   Input ~ 0
+Text GLabel 8100 8300 2    50   Input ~ 0
 CLOCK2
 Text GLabel 6200 5100 2    50   Input ~ 0
 CTSA
@@ -1592,31 +1592,31 @@ S1RX
 Text Notes 6950 7900 0    50   ~ 0
 User-provided internal oscillator for SIO Ch.B
 Wire Wire Line
-	7750 8300 7950 8300
+	7900 8300 8100 8300
 Wire Wire Line
-	6300 8300 6450 8300
+	6350 8300 6500 8300
 Wire Wire Line
-	6000 8000 6200 8000
+	6050 8000 6250 8000
 $Comp
 L power:VCC #PWR0155
 U 1 1 603ECF18
-P 6200 8000
-F 0 "#PWR0155" H 6200 7850 50  0001 C CNN
-F 1 "VCC" V 6217 8128 50  0000 L CNN
-F 2 "" H 6200 8000 50  0001 C CNN
-F 3 "" H 6200 8000 50  0001 C CNN
-	1    6200 8000
+P 6250 8000
+F 0 "#PWR0155" H 6250 7850 50  0001 C CNN
+F 1 "VCC" V 6267 8128 50  0000 L CNN
+F 2 "" H 6250 8000 50  0001 C CNN
+F 3 "" H 6250 8000 50  0001 C CNN
+	1    6250 8000
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0129
 U 1 1 603CFFAC
-P 6000 8600
-F 0 "#PWR0129" H 6000 8350 50  0001 C CNN
-F 1 "GND" H 6005 8427 50  0000 C CNN
-F 2 "" H 6000 8600 50  0001 C CNN
-F 3 "" H 6000 8600 50  0001 C CNN
-	1    6000 8600
+P 6050 8600
+F 0 "#PWR0129" H 6050 8350 50  0001 C CNN
+F 1 "GND" H 6055 8427 50  0000 C CNN
+F 2 "" H 6050 8600 50  0001 C CNN
+F 3 "" H 6050 8600 50  0001 C CNN
+	1    6050 8600
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -2369,28 +2369,28 @@ Text GLabel 2650 8100 2    50   Input ~ 0
 CLOCK2
 Text GLabel 2650 8600 2    50   Input ~ 0
 CLOCK2_EXT
-Text GLabel 6450 8300 2    50   Input ~ 0
+Text GLabel 6500 8300 2    50   Input ~ 0
 CLOCK
-Text GLabel 1550 8100 2    50   Input ~ 0
+Text GLabel 1600 8100 2    50   Input ~ 0
 CLOCK2_USER
 Text GLabel 2650 8350 2    50   Input ~ 0
 CLOCK2_USER
-Text GLabel 1550 8600 2    50   Input ~ 0
+Text GLabel 1600 8600 2    50   Input ~ 0
 CLOCK
 Text GLabel 1700 2650 0    50   Input ~ 0
 #WAIT
 Text GLabel 10150 9000 2    50   Input ~ 0
 #WAIT
-NoConn ~ 5700 8300
+NoConn ~ 5750 8300
 $Comp
 L Oscillator:CXO_DIP14 X1
 U 1 1 60022D06
-P 6000 8300
-F 0 "X1" H 6344 8346 50  0000 L BNN
-F 1 "Z80/SIO Ch.A Clock" H 6344 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 6450 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5900 8300 50  0001 C CNN
-	1    6000 8300
+P 6050 8300
+F 0 "X1" H 6394 8346 50  0000 L BNN
+F 1 "Z80/SIO Ch.A Clock" H 6394 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 6500 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5950 8300 50  0001 C CNN
+	1    6050 8300
 	1    0    0    -1  
 $EndComp
 $Comp
