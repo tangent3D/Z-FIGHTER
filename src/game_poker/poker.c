@@ -1,32 +1,92 @@
+#include <stdlib.h>
+#include <string.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
 #include <zf_keypad.h>
 #include <zf_buzzer.h>
 #include <zf_text.h>
+#include "poker.h"
 
-#define TWO			1
-#define THREE		2
-#define FOUR		3
-#define FIVE		4
-#define SIX			5
-#define SEVEN		6
-#define EIGHT		7
-#define NINE		8
-#define TEN			9
-#define JACK		10
-#define QUEEN		11
-#define KING		12
-#define ACE			13
-
-#define CLUBS		0
-#define DIAMONDS	1
-#define HEARTS		2
-#define SPADES		3
+unsigned int cred;
+unsigned char bet;
+unsigned char hand[4];
 
 void main()
 {
+	//screenTitle();
+	backlight = 1;
+	gameInit();
+	screenGame();
+	// Render title screen
+	// Generate random seed with input
+	// Init game variables (credits, bet)
+	// Render the game screen
+	// Respond to user input (bet, deal/draw)
+	// Bet: Step bet value from 1 to BET_MAX. Rewrite bet value.
+	// Deal: Subtract bet value from cred. Rewrite cred value. Clear BET status text. Deal a random hand[].
+	// Flip face-down cards from left to right
+	// Write "Hold" status text
+	// Respond to user input (hold, deal/draw)
+	// Render discarded cards as face-down
+	// Replace discarded cards in deck
+	// Flip face-down cards from left to right
+	// Check for winning hand
+	// If winning hand, add payout value to cred. write WIN amount to top left of screen. write type of winning hand status text.
+	// Respond to user input (bet, deal/draw)
 
 }
+
+void screenTitle()
+{
+	unsigned char startText[] = "press a key";
+	print(startText, 0, 0);
+	lcd(screen);
+}
+
+void gameInit()
+{
+	cred = CRED_INIT;
+	bet = BET_INIT;
+}
+
+void screenGame()
+{
+	// Display screen text
+	unsigned char textCred[] = "$";
+	unsigned char textBet[] = "BET";
+	print(textCred, 11, 0);
+	print(textBet, 12, 7);
+
+	// Display 'BET' status text
+	print(textBet, 0, 7);
+
+	printScore();
+
+	// Display bet value
+	block(charSet+128+(bet*8), 15, 7);
+
+	// Display five face-down cards
+	sprite(spriteCardBack, 2, 13);
+	sprite(spriteCardBack, 27, 13);
+	sprite(spriteCardBack, 52, 13);
+	sprite(spriteCardBack, 77, 13);
+	sprite(spriteCardBack, 102, 13);
+
+	// Update the display
+	lcd(screen);
+}
+
+void printScore()
+	{
+	unsigned char arrScore[3];
+	utoa(cred, arrScore, 10);
+	unsigned char offset = 4 - strlen(arrScore);
+	const unsigned char counter[] = "0000";
+	print(counter, 12, 0);
+	print(arrScore, 12+offset, 0);
+	}
+
+
 
 struct card
 {
@@ -115,8 +175,8 @@ const unsigned char spriteDiamonds[] = {11,11,4,1,64,68,16,68,5,0,80,17,4,17,1,6
 const unsigned char spriteHearts[] = {11,11,49,137,74,16,192,24,3,0,80,17,4,17,1,64,16,0};
 const unsigned char spriteSpades[] = {11,11,4,1,192,124,31,199,253,255,255,255,255,117,193,192,124,0};
 
-const unsigned char spriteFront[] = {24,32,63,255,252,64,0,2,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,64,0,2,63,255,252};
-const unsigned char spriteRear[] = {24,32,63,255,252,64,0,2,159,255,249,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,184,0,61,184,0,125,184,120,221,184,241,157,185,227,29,191,198,61,191,140,125,191,24,253,190,49,253,188,99,157,184,199,29,185,142,29,187,0,29,190,0,29,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,159,255,249,64,0,2,63,255,252};
+const unsigned char spriteCardFront[] = {24,32,63,255,252,64,0,2,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,128,0,1,64,0,2,63,255,252};
+const unsigned char spriteCardBack[] = {24,32,63,255,252,64,0,2,159,255,249,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,184,0,61,184,0,125,184,120,221,184,241,157,185,227,29,191,198,61,191,140,125,191,24,253,190,49,253,188,99,157,184,199,29,185,142,29,187,0,29,190,0,29,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,191,255,253,159,255,249,64,0,2,63,255,252};
 const unsigned char spriteHeld[] = {18,5,167,33,169,8,94,98,22,144,133,167,57,128};
 
 const unsigned char* gfxValues[] =
