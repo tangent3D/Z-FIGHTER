@@ -13,145 +13,145 @@ unsigned char hand[4];
 
 void main()
 {
-	//screenTitle();
-	backlight = 1;
-	gameInit();
-	screenGame();
-	// Render title screen
-	// Generate random seed with input
-	// Init game variables (credits, bet)
-	// Render the game screen
-	// Respond to user input (bet, deal/draw)
-	// Bet: Step bet value from 1 to BET_MAX. Rewrite bet value.
-	// Deal: Subtract bet value from cred. Rewrite cred value. Clear BET status text. Deal a random hand[].
-	// Flip face-down cards from left to right
-	// Write "Hold" status text
-	// Respond to user input (hold, deal/draw)
-	// Render discarded cards as face-down
-	// Replace discarded cards in deck
-	// Flip face-down cards from left to right
-	// Check for winning hand
-	// If winning hand, add payout value to cred. write WIN amount to top left of screen. write type of winning hand status text.
-	// Respond to user input (bet, deal/draw)
+    //screenTitle();
+    backlight = 1;
+    gameInit();
+    screenGame();
+    // Render title screen
+    // Generate random seed with input
+    // Init game variables (credits, bet)
+    // Render the game screen
+    // Respond to user input (bet, deal/draw)
+    // Bet: Step bet value from 1 to BET_MAX. Rewrite bet value.
+    // Deal: Subtract bet value from cred. Rewrite cred value. Clear BET status text. Deal a random hand[].
+    // Flip face-down cards from left to right
+    // Write "Hold" status text
+    // Respond to user input (hold, deal/draw)
+    // Render discarded cards as face-down
+    // Replace discarded cards in deck
+    // Flip face-down cards from left to right
+    // Check for winning hand
+    // If winning hand, add payout value to cred. write WIN amount to top left of screen. write type of winning hand status text.
+    // Respond to user input (bet, deal/draw)
 
 }
 
 void screenTitle()
 {
-	unsigned char startText[] = "press a key";
-	print(startText, 0, 0);
-	lcd(screen);
+    unsigned char startText[] = "press a key";
+    print(startText, 0, 0);
+    lcd(screen);
 }
 
 void gameInit()
 {
-	cred = CRED_INIT;
-	bet = BET_INIT;
+    cred = CRED_INIT;
+    bet = BET_INIT;
 }
 
 void screenGame()
 {
-	// Display screen text
-	unsigned char textCred[] = "$";
-	unsigned char textBet[] = "BET";
-	print(textCred, 11, 0);
-	print(textBet, 12, 7);
+    // Display screen text
+    unsigned char textCred[] = "$";
+    unsigned char textBet[] = "BET";
+    print(textCred, 11, 0);
+    print(textBet, 12, 7);
 
-	// Display 'BET' status text
-	print(textBet, 0, 7);
+    // Display 'BET' status text
+    print(textBet, 0, 7);
 
-	printScore();
+    printScore();
 
-	// Display bet value
-	block(charSet+128+(bet*8), 15, 7);
+    // Display bet value
+    block(charSet+128+(bet*8), 15, 7);
 
-	// Display five face-down cards
-	sprite(spriteCardBack, 2, 13);
-	sprite(spriteCardBack, 27, 13);
-	sprite(spriteCardBack, 52, 13);
-	sprite(spriteCardBack, 77, 13);
-	sprite(spriteCardBack, 102, 13);
+    // Display five face-down cards
+    sprite(spriteCardBack, 2, 13);
+    sprite(spriteCardBack, 27, 13);
+    sprite(spriteCardBack, 52, 13);
+    sprite(spriteCardBack, 77, 13);
+    sprite(spriteCardBack, 102, 13);
 
-	// Update the display
-	lcd(screen);
+    // Update the display
+    lcd(screen);
 }
 
 void printScore()
-	{
-	unsigned char arrScore[3];
-	utoa(cred, arrScore, 10);
-	unsigned char offset = 4 - strlen(arrScore);
-	const unsigned char counter[] = "0000";
-	print(counter, 12, 0);
-	print(arrScore, 12+offset, 0);
-	}
+    {
+    unsigned char arrScore[3];
+    utoa(cred, arrScore, 10);
+    unsigned char offset = 4 - strlen(arrScore);
+    const unsigned char counter[] = "0000";
+    print(counter, 12, 0);
+    print(arrScore, 12+offset, 0);
+    }
 
 
 
 struct card
 {
-	unsigned char value;
-	unsigned char suit;
-	unsigned char dealt;
+    unsigned char value;
+    unsigned char suit;
+    unsigned char dealt;
 };
 
 struct card deck[52] =
 {
-	{ TWO,	 CLUBS, 0 },
-	{ THREE, CLUBS, 0 },
-	{ FOUR,  CLUBS, 0 },
-	{ FIVE,  CLUBS, 0 },
-	{ SIX, 	 CLUBS, 0 },
-	{ SEVEN, CLUBS, 0 },
-	{ EIGHT, CLUBS, 0 },
-	{ NINE,  CLUBS, 0 },
-	{ TEN,   CLUBS, 0 },
-	{ JACK,  CLUBS, 0 },
-	{ QUEEN, CLUBS, 0 },
-	{ KING,  CLUBS, 0 },
-	{ ACE,   CLUBS, 0 },
+    { TWO,   CLUBS, 0 },
+    { THREE, CLUBS, 0 },
+    { FOUR,  CLUBS, 0 },
+    { FIVE,  CLUBS, 0 },
+    { SIX,   CLUBS, 0 },
+    { SEVEN, CLUBS, 0 },
+    { EIGHT, CLUBS, 0 },
+    { NINE,  CLUBS, 0 },
+    { TEN,   CLUBS, 0 },
+    { JACK,  CLUBS, 0 },
+    { QUEEN, CLUBS, 0 },
+    { KING,  CLUBS, 0 },
+    { ACE,   CLUBS, 0 },
 
-	{ TWO,	 DIAMONDS, 0 },
-	{ THREE, DIAMONDS, 0 },
-	{ FOUR,  DIAMONDS, 0 },
-	{ FIVE,  DIAMONDS, 0 },
-	{ SIX, 	 DIAMONDS, 0 },
-	{ SEVEN, DIAMONDS, 0 },
-	{ EIGHT, DIAMONDS, 0 },
-	{ NINE,  DIAMONDS, 0 },
-	{ TEN,   DIAMONDS, 0 },
-	{ JACK,  DIAMONDS, 0 },
-	{ QUEEN, DIAMONDS, 0 },
-	{ KING,  DIAMONDS, 0 },
-	{ ACE,   DIAMONDS, 0 },
+    { TWO,   DIAMONDS, 0 },
+    { THREE, DIAMONDS, 0 },
+    { FOUR,  DIAMONDS, 0 },
+    { FIVE,  DIAMONDS, 0 },
+    { SIX,   DIAMONDS, 0 },
+    { SEVEN, DIAMONDS, 0 },
+    { EIGHT, DIAMONDS, 0 },
+    { NINE,  DIAMONDS, 0 },
+    { TEN,   DIAMONDS, 0 },
+    { JACK,  DIAMONDS, 0 },
+    { QUEEN, DIAMONDS, 0 },
+    { KING,  DIAMONDS, 0 },
+    { ACE,   DIAMONDS, 0 },
 
-	{ TWO,	 HEARTS, 0 },
-	{ THREE, HEARTS, 0 },
-	{ FOUR,  HEARTS, 0 },
-	{ FIVE,  HEARTS, 0 },
-	{ SIX, 	 HEARTS, 0 },
-	{ SEVEN, HEARTS, 0 },
-	{ EIGHT, HEARTS, 0 },
-	{ NINE,  HEARTS, 0 },
-	{ TEN,   HEARTS, 0 },
-	{ JACK,  HEARTS, 0 },
-	{ QUEEN, HEARTS, 0 },
-	{ KING,  HEARTS, 0 },
-	{ ACE,   HEARTS, 0 },
+    { TWO,   HEARTS, 0 },
+    { THREE, HEARTS, 0 },
+    { FOUR,  HEARTS, 0 },
+    { FIVE,  HEARTS, 0 },
+    { SIX,   HEARTS, 0 },
+    { SEVEN, HEARTS, 0 },
+    { EIGHT, HEARTS, 0 },
+    { NINE,  HEARTS, 0 },
+    { TEN,   HEARTS, 0 },
+    { JACK,  HEARTS, 0 },
+    { QUEEN, HEARTS, 0 },
+    { KING,  HEARTS, 0 },
+    { ACE,   HEARTS, 0 },
 
-	{ TWO,	 SPADES, 0 },
-	{ THREE, SPADES, 0 },
-	{ FOUR,  SPADES, 0 },
-	{ FIVE,  SPADES, 0 },
-	{ SIX, 	 SPADES, 0 },
-	{ SEVEN, SPADES, 0 },
-	{ EIGHT, SPADES, 0 },
-	{ NINE,  SPADES, 0 },
-	{ TEN,   SPADES, 0 },
-	{ JACK,  SPADES, 0 },
-	{ QUEEN, SPADES, 0 },
-	{ KING,  SPADES, 0 },
-	{ ACE,   SPADES, 0 },	
+    { TWO,   SPADES, 0 },
+    { THREE, SPADES, 0 },
+    { FOUR,  SPADES, 0 },
+    { FIVE,  SPADES, 0 },
+    { SIX,   SPADES, 0 },
+    { SEVEN, SPADES, 0 },
+    { EIGHT, SPADES, 0 },
+    { NINE,  SPADES, 0 },
+    { TEN,   SPADES, 0 },
+    { JACK,  SPADES, 0 },
+    { QUEEN, SPADES, 0 },
+    { KING,  SPADES, 0 },
+    { ACE,   SPADES, 0 },   
 };
 
 // Graphics
@@ -181,25 +181,25 @@ const unsigned char spriteHeld[] = {18,5,167,33,169,8,94,98,22,144,133,167,57,12
 
 const unsigned char* gfxValues[] =
 {
-	spriteTwo,
-	spriteThree,
-	spriteFour,
-	spriteFive,
-	spriteSix,
-	spriteSeven,
-	spriteEight,
-	spriteNine,
-	spriteTen,
-	spriteJack,
-	spriteQueen,
-	spriteKing,
-	spriteAce
+    spriteTwo,
+    spriteThree,
+    spriteFour,
+    spriteFive,
+    spriteSix,
+    spriteSeven,
+    spriteEight,
+    spriteNine,
+    spriteTen,
+    spriteJack,
+    spriteQueen,
+    spriteKing,
+    spriteAce
 };
 
 const unsigned char* gfxSuits[] =
 {
-	spriteClubs,
-	spriteDiamonds,
-	spriteHearts,
-	spriteSpades
+    spriteClubs,
+    spriteDiamonds,
+    spriteHearts,
+    spriteSpades
 };
