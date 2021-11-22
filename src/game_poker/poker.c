@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <z80.h>
 #include <string.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
@@ -21,6 +22,12 @@ void main()
     backlight = 1;
     gameInit();
     screenGame();
+
+    // Test   
+    // Only extern works?
+    extern unsigned char hand[] = {0, 1, 2, 3, 4}; 
+    revealHand();
+
     // Render title screen
     // Generate random seed with input
     // Init game variables (credits, bet)
@@ -37,7 +44,6 @@ void main()
     // Check for winning hand
     // If winning hand, add payout value to cred. write WIN amount to top left of screen. write type of winning hand status text.
     // Respond to user input (bet, deal/draw)
-
 }
 
 void screenTitle()
@@ -56,25 +62,26 @@ void gameInit()
 void screenGame()
 {
     // Display screen text
-    unsigned char textBet[] = "BET/DEAL";
-    print(textBet, 12, 7);
+    unsigned char textBetDeal[] = "BET/DEAL";
+    unsigned char textBet[] = "BET";
 
-    // Display 'BET' status text
-    print(textBet, 0, 7);
+    // Display 'BET/DEAL' status text
+    print(textBetDeal, 0, 7);
 
     // Display credit value
     printChar('$', 11, 0);
     printCred();
 
     // Display bet value
+    print(textBet, 12, 7);
     printChar('0'+bet, 15, 7);
 
     // Display five face-down cards
-    sprite(spriteCardBack, 2, 13);
-    sprite(spriteCardBack, 27, 13);
-    sprite(spriteCardBack, 52, 13);
-    sprite(spriteCardBack, 77, 13);
-    sprite(spriteCardBack, 102, 13);
+    sprite(spriteCardBack, HAND_X+CARD_OFFSET*0, HAND_Y);
+    sprite(spriteCardBack, HAND_X+CARD_OFFSET*1, HAND_Y);
+    sprite(spriteCardBack, HAND_X+CARD_OFFSET*2, HAND_Y);
+    sprite(spriteCardBack, HAND_X+CARD_OFFSET*3, HAND_Y);
+    sprite(spriteCardBack, HAND_X+CARD_OFFSET*4, HAND_Y);
 
     // Update the display
     lcd(screen);
@@ -90,17 +97,52 @@ void printCred()
     print(arrScore, 12+offset, 0);
 }
 
-void revealCards()
+void revealHand()
 {
+    unsigned char hiddenCards[] = {1, 1, 1, 1, 1};
 
+    for(unsigned char i = 0; i<=4; i++)
+    {
+        if(hiddenCards[i] == 1)
+        {
+            revealCard(i);
+            buzzer(16,1);
+            lcd(screen);
+        }
+    }
 }
 
-struct card
+void revealCard(unsigned char i)
 {
-    unsigned char value;
-    unsigned char suit;
-    unsigned char dealt;
-};
+    switch(i)
+    {
+        case 0 :
+            sprite(spriteCardFront, HAND_X, HAND_Y);
+            sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*0)+2, HAND_Y+2);
+            sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET*0)+11, HAND_Y+19);
+            break;
+        case 1 :
+            sprite(spriteCardFront, HAND_X+CARD_OFFSET, HAND_Y);
+            sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*1)+2, HAND_Y+2);
+            sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET)+11, HAND_Y+19);
+            break;
+        case 2 :
+            sprite(spriteCardFront, HAND_X+CARD_OFFSET*2, HAND_Y);
+            sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*2)+2, HAND_Y+2);
+            sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET*2)+11, HAND_Y+19);
+            break;
+        case 3 :
+            sprite(spriteCardFront, HAND_X+CARD_OFFSET*3, HAND_Y);
+            sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*3)+2, HAND_Y+2);
+            sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET*3)+11, HAND_Y+19);
+            break;
+        case 4 :
+            sprite(spriteCardFront, HAND_X+CARD_OFFSET*4, HAND_Y);
+            sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*4)+2, HAND_Y+2);
+            sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET*4)+11, HAND_Y+19);
+            break;
+    }
+}
 
 struct card deck[52] =
 {
