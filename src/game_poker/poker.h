@@ -20,10 +20,6 @@
 #define HEARTS      2
 #define SPADES      3
 
-#define CRED_INIT   80
-#define BET_INIT    1
-#define BET_MAX     5
-
 extern unsigned int cred;
 extern unsigned char bet;
 extern unsigned char hand[];
@@ -31,7 +27,7 @@ extern unsigned char hand[];
 void screenTitle();
 void screenGame();
 void gameInit();
-void printScore();
+void printCred();
 
 // Graphics
 

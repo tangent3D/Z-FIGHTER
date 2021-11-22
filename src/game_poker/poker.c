@@ -9,7 +9,11 @@
 
 unsigned int cred;
 unsigned char bet;
-unsigned char hand[4];
+unsigned char hand[5];
+
+#define CRED_INIT   20
+#define BET_INIT    1
+#define BET_MAX     5
 
 void main()
 {
@@ -52,18 +56,18 @@ void gameInit()
 void screenGame()
 {
     // Display screen text
-    unsigned char textCred[] = "$";
-    unsigned char textBet[] = "BET";
-    print(textCred, 11, 0);
+    unsigned char textBet[] = "BET/DEAL";
     print(textBet, 12, 7);
 
     // Display 'BET' status text
     print(textBet, 0, 7);
 
-    printScore();
+    // Display credit value
+    printChar('$', 11, 0);
+    printCred();
 
     // Display bet value
-    block(charSet+128+(bet*8), 15, 7);
+    printChar('0'+bet, 15, 7);
 
     // Display five face-down cards
     sprite(spriteCardBack, 2, 13);
@@ -76,17 +80,20 @@ void screenGame()
     lcd(screen);
 }
 
-void printScore()
-    {
-    unsigned char arrScore[3];
+void printCred()
+{
+    unsigned char arrScore[4];
     utoa(cred, arrScore, 10);
     unsigned char offset = 4 - strlen(arrScore);
     const unsigned char counter[] = "0000";
     print(counter, 12, 0);
     print(arrScore, 12+offset, 0);
-    }
+}
 
+void revealCards()
+{
 
+}
 
 struct card
 {
