@@ -6,6 +6,8 @@
 
 void print(unsigned char string[], unsigned char x, unsigned char y);
 
+void printChar(unsigned char character, unsigned char x, unsigned char y);
+
 extern const unsigned char charSet[];
 
 #endif

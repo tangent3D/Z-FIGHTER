@@ -5,21 +5,26 @@
 #include <zf_gfx.h>
 
 void print(unsigned char string[], unsigned char x, unsigned char y)
-    {
+{
     unsigned char i = 0;
     while (string[i] != '\0')
         {
-        if(string[i] == '\n')
-            {
-            x = 0;
-            y++;
+            if(string[i] == '\n')
+                {
+                    x = 0;
+                    y++;
+                    i++;
+                }
+            unsigned char j = string[i]-32;
+            block(charSet+(j<<3), x, y);
+            x++;
             i++;
-            }
-        unsigned char j = string[i]-32;
-        block(charSet+(j<<3), x, y);
-        x++;
-        i++;
         }
+}
+
+void printChar(unsigned char character, unsigned char x, unsigned char y)
+    {
+        block(charSet+(character-32)*8, x, y);
     }
 
 const unsigned char charSet [] =
