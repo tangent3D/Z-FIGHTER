@@ -25,7 +25,8 @@ void main()
 
     // Test   
     // Only extern works?
-    extern unsigned char hand[] = {0, 1, 2, 3, 4}; 
+    extern unsigned char hand[] = {0, 1, 2, 3, 4};
+    keyWait(KEY_ANY);
     revealHand();
 
     // Render title screen
