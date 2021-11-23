@@ -33,12 +33,14 @@ struct card
     unsigned char dealt;
 };
 
-void gameInit();
-void screenInit();
+void initGame();
+void initScreen();
 void printCred();
 void placeCards();
 void play();
 void dealDraw();
+void resetCards();
+void gameOver();
 void hold();
 void holdCard(unsigned char i);
 void draw();

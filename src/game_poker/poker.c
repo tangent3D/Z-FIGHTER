@@ -20,10 +20,8 @@ unsigned char holdPhase;
 
 void main()
 {
-    // Initialize the game screen
-    backlight = 1;
-    gameInit();
-    screenInit();
+    initGame();
+    initScreen();
 
     for (;;)
     {
@@ -33,30 +31,22 @@ void main()
         hold();
         dealDraw();
 
-        // check for winning hand?
+        resetCards();
 
-        // FIXME: split into separate function
-        // Reset held cards
-        for (unsigned char i = 0; i <= 4; i++)
-        {
-            held[i] = 0;
-        }
-        // Reset dealt cards
-        for (unsigned char i = 0; i <= 51; i++)
-        {
-            deck[i].dealt = 0;
-        }
+        // check for winning hand?
     }
 }
 
-void gameInit()
+void initGame()
 {
     cred = CRED_INIT;
     bet = BET_INIT;
 }
 
-void screenInit()
+void initScreen()
 {
+    backlight = 1;
+    
     // Display screen text
     unsigned char textBet[] = "BET";
 
@@ -77,21 +67,11 @@ void play()
     // Check for game over
     if (cred == 0)
     {
-        // Display 'GAME OVER' status text
-        unsigned char textGameOver[] = "GAME OVER";
-        print(textGameOver, 0, 7);
-        lcd(screen);
-        buzzer(NOTE_G3);
-        buzzer(NOTE_E3);
-        buzzer(NOTE_C3);
-        for (;;)
-        {
-            //FIXME: reset game on input
-        }
+        gameOver();
     }
 
     // Display 'BET/DEAL' status text
-    unsigned char textBetDeal[] = "BET/DEAL";
+    unsigned char textBetDeal[] = "BET/DEAL ";
     print(textBetDeal, 0, 7);
     lcd(screen);
 
@@ -120,6 +100,8 @@ void play()
         // Deal/draw
         if (key(KEY_D))
         {
+            // Wait for key up
+            //while (key(KEY_D));
             if (cred >= bet)
             {
                 break;                
@@ -247,6 +229,38 @@ void holdCard(unsigned char i)
     buzzer(32, 16);
 }
 
+void resetCards()
+{
+    // Reset held cards
+    for (unsigned char i = 0; i <= 4; i++)
+    {
+        held[i] = 0;
+    }
+    // Reset dealt cards
+    for (unsigned char i = 0; i <= 51; i++)
+    {
+        deck[i].dealt = 0;
+    }
+}
+
+void gameOver()
+{
+    // Display 'GAME OVER' status text
+    unsigned char textGameOver[] = "GAME OVER";
+    print(textGameOver, 0, 7);
+    lcd(screen);
+    buzzer(NOTE_G3);
+    buzzer(NOTE_E3);
+    buzzer(NOTE_C3);
+    for (;;)
+    {
+        if (key(KEY_D))
+        {
+            main();
+        }
+    }
+}
+
 unsigned char rnd(unsigned char maxValue)
 {
     unsigned char result;
@@ -254,7 +268,7 @@ unsigned char rnd(unsigned char maxValue)
     do
     {
         result=rand();
-    } while(result>maxValue);
+    } while (result>maxValue);
 
     return result;
 }
