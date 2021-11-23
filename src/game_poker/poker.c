@@ -191,31 +191,37 @@ void hold()
     {
         if (key(KEY_LEFT))
         {
+            while (key(KEY_LEFT));
             holdCard(0);
         }
 
         if (key(KEY_UP))
         {
+            while (key(KEY_UP));
             holdCard(1);
         }
 
         if (key(KEY_RIGHT))
         {
+            while (key(KEY_RIGHT));
             holdCard(2);
         }
 
         if (key(KEY_A))
         {
+            while (key(KEY_A));
             holdCard(3);
         }
 
         if (key(KEY_B))
         {
+            while (key(KEY_B));
             holdCard(4);
         }
 
         if (key(KEY_D))
         {
+            while (key(KEY_D));
             break;
         }
     }
