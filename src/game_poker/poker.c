@@ -11,6 +11,8 @@
 unsigned int cred;
 unsigned char bet;
 unsigned char hand[5];
+unsigned char held[5];
+unsigned char holdPhase;
 
 #define CRED_INIT   20
 #define BET_INIT    1
@@ -18,43 +20,33 @@ unsigned char hand[5];
 
 void main()
 {
-    //screenTitle();
+    // Initialize the game screen
     backlight = 1;
     gameInit();
-    screenGame();
+    screenInit();
 
-    // Test   
-    hand[0] = 0;
-    hand[1] = 1;
-    hand[2] = 2;
-    hand[3] = 3;
-    hand[4] = 4; 
-    keyWait(KEY_ANY);
-    revealHand();
+    for (;;)
+    {
+        play();
+        dealDraw();
 
-    // Render title screen
-    // Generate random seed with input
-    // Init game variables (credits, bet)
-    // Render the game screen
-    // Respond to user input (bet, deal/draw)
-    // Bet: Step bet value from 1 to BET_MAX. Rewrite bet value.
-    // Deal: Subtract bet value from cred. Rewrite cred value. Clear BET status text. Deal a random hand[].
-    // Flip face-down cards from left to right
-    // Write "Hold" status text
-    // Respond to user input (hold, deal/draw)
-    // Render discarded cards as face-down
-    // Replace discarded cards in deck
-    // Flip face-down cards from left to right
-    // Check for winning hand
-    // If winning hand, add payout value to cred. write WIN amount to top left of screen. write type of winning hand status text.
-    // Respond to user input (bet, deal/draw)
-}
+        hold();
+        dealDraw();
 
-void screenTitle()
-{
-    unsigned char startText[] = "press a key";
-    print(startText, 0, 0);
-    lcd(screen);
+        // check for winning hand?
+
+        // FIXME: split into separate function
+        // Reset held cards
+        for (unsigned char i = 0; i <= 4; i++)
+        {
+            held[i] = 0;
+        }
+        // Reset dealt cards
+        for (unsigned char i = 0; i <= 51; i++)
+        {
+            deck[i].dealt = 0;
+        }
+    }
 }
 
 void gameInit()
@@ -63,14 +55,10 @@ void gameInit()
     bet = BET_INIT;
 }
 
-void screenGame()
+void screenInit()
 {
     // Display screen text
-    unsigned char textBetDeal[] = "BET/DEAL";
     unsigned char textBet[] = "BET";
-
-    // Display 'BET/DEAL' status text
-    print(textBetDeal, 0, 7);
 
     // Display credit value
     printChar('$', 11, 0);
@@ -78,16 +66,90 @@ void screenGame()
 
     // Display bet value
     print(textBet, 12, 7);
-    printChar('0'+bet, 15, 7);
+    printChar('0' + bet, 15, 7);
 
-    // Display five face-down cards
-    sprite(spriteCardBack, HAND_X+CARD_OFFSET*0, HAND_Y);
-    sprite(spriteCardBack, HAND_X+CARD_OFFSET*1, HAND_Y);
-    sprite(spriteCardBack, HAND_X+CARD_OFFSET*2, HAND_Y);
-    sprite(spriteCardBack, HAND_X+CARD_OFFSET*3, HAND_Y);
-    sprite(spriteCardBack, HAND_X+CARD_OFFSET*4, HAND_Y);
+    // Render five face-down cards
+    placeCards();
+}
 
-    // Update the display
+void play()
+{
+    // Check for game over
+    if (cred == 0)
+    {
+        // Display 'GAME OVER' status text
+        unsigned char textGameOver[] = "GAME OVER";
+        print(textGameOver, 0, 7);
+        lcd(screen);
+        buzzer(NOTE_G3);
+        buzzer(NOTE_E3);
+        buzzer(NOTE_C3);
+        for (;;)
+        {
+            //FIXME: reset game on input
+        }
+    }
+
+    // Display 'BET/DEAL' status text
+    unsigned char textBetDeal[] = "BET/DEAL";
+    print(textBetDeal, 0, 7);
+    lcd(screen);
+
+    // Respond to user input
+    for (;;)
+    {
+        // Change bet amount
+        if (key(KEY_C))
+        {
+            if (bet != BET_MAX)
+            {
+                bet++;
+            }
+            else
+            {
+                bet = 1;
+            }
+
+        printChar('0'+bet, 15, 7);
+        lcd(screen);
+        buzzer(32, 16);
+        }
+
+        // Deal/draw
+        if (key(KEY_D))
+        {
+            if (cred >= bet)
+            {
+                break;                
+            }
+        }
+    }
+
+    // Clear 'HELD' sprites if exist
+    if (holdPhase == 1)
+    {
+        color = 0;
+        rect(5, 46, 118, 5);
+        color = 1;
+        holdPhase = 0;
+    }
+
+    cred = cred - bet;
+    printCred();
+}
+
+void placeCards()
+{
+    // Render face-down cards
+    for (unsigned char i = 0; i<=4; i++)
+    {
+        if (held[i] == 0)
+        {
+            // FIXME: optimize?
+            sprite(spriteCardBack, HAND_X+CARD_OFFSET*i, HAND_Y);
+        }
+    }
+
     lcd(screen);
 }
 
@@ -101,13 +163,114 @@ void printCred()
     print(arrScore, 12+offset, 0);
 }
 
+void dealDraw()
+{
+    placeCards();
+
+    for (unsigned char i = 0; i <= 4; i++)
+    {
+        if (held[i] == 0)
+        {
+            randomCard(i);
+        }
+    }
+
+    revealHand();
+}
+
+void hold()
+{
+    holdPhase = 1;
+    unsigned char textHold[] = "HOLD    ";
+    print(textHold, 0, 7);
+    lcd(screen);
+
+    for (;;)
+    {
+        if (key(KEY_LEFT))
+        {
+            holdCard(0);
+        }
+
+        if (key(KEY_UP))
+        {
+            holdCard(1);
+        }
+
+        if (key(KEY_RIGHT))
+        {
+            holdCard(2);
+        }
+
+        if (key(KEY_A))
+        {
+            holdCard(3);
+        }
+
+        if (key(KEY_B))
+        {
+            holdCard(4);
+        }
+
+        if (key(KEY_D))
+        {
+            break;
+        }
+
+        lcd(screen);
+    }
+}
+
+void holdCard(unsigned char i)
+{
+    if (held[i] == 0)
+    {
+        held[i] = 1;
+        sprite(spriteHeld, 5 + (25 * i), 46);
+
+    }
+    else
+    {
+        held[i] = 0;
+        color = 0;
+        rect((5 + (25 * i)), 46, 18, 5);
+        color = 1;
+    }
+    
+    lcd(screen);
+    buzzer(32, 16);
+}
+
+unsigned char rnd(unsigned char maxValue)
+{
+    unsigned char result;
+
+    do
+    {
+        result=rand();
+    } while(result>maxValue);
+
+    return result;
+}
+
+void randomCard(unsigned char i)
+{
+    unsigned char j;
+
+    do
+    {
+        j = rnd(51);
+    } while (deck[j].dealt == 1);
+
+    hand[i] = j;
+    deck[i].dealt = 1;
+}
+
 void revealHand()
 {
-    unsigned char hiddenCards[] = {1, 1, 1, 1, 1};
-
-    for(unsigned char i = 0; i<=4; i++)
+    for (unsigned char i = 0; i<=4; i++)
     {
-        if(hiddenCards[i] == 1)
+        if (held[i] == 0)
         {
             revealCard(i);
             buzzer(16,1);
@@ -116,6 +279,7 @@ void revealHand()
     }
 }
 
+//FIXME: terrible
 void revealCard(unsigned char i)
 {
     switch(i)

@@ -23,6 +23,8 @@
 extern unsigned int cred;
 extern unsigned char bet;
 extern unsigned char hand[];
+extern unsigned char held[];
+extern struct card deck[];
 
 struct card
 {
@@ -31,14 +33,19 @@ struct card
     unsigned char dealt;
 };
 
-extern struct card deck[];
-
-void screenTitle();
-void screenGame();
 void gameInit();
+void screenInit();
 void printCred();
+void placeCards();
+void play();
+void dealDraw();
+void hold();
+void holdCard(unsigned char i);
+void draw();
 void revealHand();
 void revealCard(unsigned char i);
+void randomCard(unsigned char i);
+unsigned char rnd(unsigned char maxValue);
 
 // Graphics
 
