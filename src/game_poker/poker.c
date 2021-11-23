@@ -110,6 +110,8 @@ void play()
                 bet = 1;
             }
 
+        // Wait for key up
+        while (key(KEY_C));
         printChar('0'+bet, 15, 7);
         lcd(screen);
         buzzer(32, 16);
@@ -216,8 +218,6 @@ void hold()
         {
             break;
         }
-
-        lcd(screen);
     }
 }
 
