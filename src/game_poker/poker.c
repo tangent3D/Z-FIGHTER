@@ -46,7 +46,7 @@ void initGame()
 void initScreen()
 {
     backlight = 1;
-    
+
     // Display screen text
     unsigned char textBet[] = "BET";
 
@@ -101,7 +101,7 @@ void play()
         if (key(KEY_D))
         {
             // Wait for key up
-            //while (key(KEY_D));
+            while (key(KEY_D));
             if (cred >= bet)
             {
                 break;                
