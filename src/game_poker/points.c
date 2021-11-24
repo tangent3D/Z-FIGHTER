@@ -7,7 +7,7 @@ unsigned char isFlush();
 void getCardCountByValue(unsigned char* cardCountByValue);
 unsigned char isStraight(unsigned char* cardCountByValue);
 unsigned char hasThreeOfAKind(unsigned char* cardCountByValue);
-unsigned char getCountOfTwoOfAKind(unsigned char* cardCountByValue);
+unsigned char getPairCount(unsigned char* cardCountByValue);
 
 int getHandPoints(unsigned char bet)
 {
@@ -21,7 +21,7 @@ int getHandPoints(unsigned char bet)
 	unsigned char straight=isStraight(cardCountByValue);
 
 	// royal flush?
-	if( straight && flush && cardCountByValue[ACE]==1 )
+	if( straight && flush && cardCountByValue[ACE]==1 && cardCountByValue[KING]==1 )
 	{
 		if(bet==5)return 4000;
 		else      return bet*250;
@@ -39,10 +39,10 @@ int getHandPoints(unsigned char bet)
 
 	// generate statistics 2/2
 	unsigned char threeOfAKind=hasThreeOfAKind(cardCountByValue);
-	unsigned char countOfTwoOfAKind=getCountOfTwoOfAKind(cardCountByValue);
+	unsigned char pairCount=getPairCount(cardCountByValue);
 
 	// full house?
-	if( threeOfAKind && countOfTwoOfAKind==1 )return bet*7;
+	if( threeOfAKind && pairCount==1 )return bet*7;
 
 	// flush?
 	if( flush )return bet*5;
@@ -54,7 +54,7 @@ int getHandPoints(unsigned char bet)
 	if( threeOfAKind )return bet*3;
 
 	// 2 pair?
-	if( countOfTwoOfAKind==2 )return bet;
+	if( pairCount==2 )return bet;
 
 	// jacks or better?
 	if( cardCountByValue[JACK ]==2 ||
@@ -106,6 +106,11 @@ unsigned char isStraight(unsigned char* cardCountByValue)
 			straightLength=0;
 		}
 	}
+	if(cardCountByValue[0]==ACE)
+	{
+		straightLength++;
+		if(straightLength==5)return TRUE;
+	}
 	return FALSE;
 }
 
@@ -121,7 +126,7 @@ unsigned char hasThreeOfAKind(unsigned char* cardCountByValue)
 	return FALSE;
 }
 
-unsigned char getCountOfTwoOfAKind(unsigned char* cardCountByValue)
+unsigned char getPairCount(unsigned char* cardCountByValue)
 {
 	unsigned char result=0;
 	for(unsigned char value=0;value<13;value++)
