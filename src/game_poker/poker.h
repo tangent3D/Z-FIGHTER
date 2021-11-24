@@ -1,6 +1,9 @@
 #ifndef POKER_H
 #define POKER_H
 
+#define TRUE    1
+#define FALSE   0
+
 #define TWO         0
 #define THREE       1
 #define FOUR        2

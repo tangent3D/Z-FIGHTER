@@ -7,6 +7,7 @@
 #include <zf_buzzer.h>
 #include <zf_text.h>
 #include "poker.h"
+#include "points.c"
 
 unsigned int cred;
 unsigned char bet;
@@ -116,12 +117,12 @@ void play()
     }
 
     // Clear 'HELD' sprites if exist
-    if (holdPhase == 1)
+    if (holdPhase == TRUE)
     {
         color = 0;
         rect(5, 46, 118, 5);
         color = 1;
-        holdPhase = 0;
+        holdPhase = FALSE;
     }
 
     cred = cred - bet;
@@ -133,7 +134,7 @@ void placeCards()
     // Render face-down cards
     for (unsigned char i = 0; i<=4; i++)
     {
-        if (held[i] == 0)
+        if (held[i] == FALSE)
         {
             // FIXME: optimize?
             sprite(spriteCardBack, HAND_X+CARD_OFFSET*i, HAND_Y);
@@ -159,7 +160,7 @@ void dealDraw()
 
     for (unsigned char i = 0; i <= 4; i++)
     {
-        if (held[i] == 0)
+        if (held[i] == FALSE)
         {
             randomCard(i);
         }
@@ -170,7 +171,7 @@ void dealDraw()
 
 void hold()
 {
-    holdPhase = 1;
+    holdPhase = TRUE;
     unsigned char textHold[] = "HOLD    ";
     print(textHold, 0, 7);
     lcd(screen);
@@ -217,15 +218,15 @@ void hold()
 
 void holdCard(unsigned char i)
 {
-    if (held[i] == 0)
+    if (held[i] == FALSE)
     {
-        held[i] = 1;
+        held[i] = TRUE;
         sprite(spriteHeld, 5 + (25 * i), 46);
 
     }
     else
     {
-        held[i] = 0;
+        held[i] = FALSE;
         color = 0;
         rect((5 + (25 * i)), 46, 18, 5);
         color = 1;
@@ -240,12 +241,12 @@ void resetCards()
     // Reset held cards
     for (unsigned char i = 0; i <= 4; i++)
     {
-        held[i] = 0;
+        held[i] = FALSE;
     }
     // Reset dealt cards
     for (unsigned char i = 0; i <= 51; i++)
     {
-        deck[i].dealt = 0;
+        deck[i].dealt = FALSE;
     }
 }
 
@@ -301,17 +302,17 @@ void randomCard(unsigned char i)
     do
     {
         j = rnd(51);
-    } while (deck[j].dealt == 1);
+    } while (deck[j].dealt == TRUE);
 
     hand[i] = j;
-    deck[i].dealt = 1;
+    deck[i].dealt = TRUE;
 }
 
 void revealHand()
 {
     for (unsigned char i = 0; i<=4; i++)
     {
-        if (held[i] == 0)
+        if (held[i] == FALSE)
         {
             revealCard(i);
             buzzer(16,1);
