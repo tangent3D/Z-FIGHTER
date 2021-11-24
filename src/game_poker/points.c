@@ -94,6 +94,11 @@ void getCardCountByValue(unsigned char* cardCountByValue)
 unsigned char isStraight(unsigned char* cardCountByValue)
 {
 	unsigned char straightLength=0;
+	if(cardCountByValue[ACE]==1)
+	{
+		// allows detection of {ace,2,3,4,5}
+		straightLength++;
+	}
 	for(unsigned char value=0;value<13;value++)
 	{
 		if(cardCountByValue[value]==1)
@@ -105,11 +110,6 @@ unsigned char isStraight(unsigned char* cardCountByValue)
 		{
 			straightLength=0;
 		}
-	}
-	if(cardCountByValue[0]==ACE)
-	{
-		straightLength++;
-		if(straightLength==5)return TRUE;
 	}
 	return FALSE;
 }
