@@ -13,7 +13,6 @@ unsigned int cred;
 unsigned char bet;
 unsigned char hand[5];
 unsigned char held[5];
-unsigned char holdPhase;
 
 #define CRED_INIT   20
 #define BET_INIT    1
@@ -21,8 +20,7 @@ unsigned char holdPhase;
 
 void main()
 {
-    initGame();
-    initScreen();
+    init();
 
     for (;;)
     {
@@ -38,29 +36,31 @@ void main()
     }
 }
 
-void initGame()
+void init()
 {
     cred = CRED_INIT;
     bet = BET_INIT;
-}
 
-void initScreen()
-{
     backlight = 1;
-
-    // Display screen text
-    unsigned char textBet[] = "BET";
 
     // Display credit value
     printChar('$', 11, 0);
     printCred();
 
     // Display bet value
+    unsigned char textBet[] = "BET";
     print(textBet, 12, 7);
     printChar('0' + bet, 15, 7);
 
+    // Display 'BET/DEAL' status text
+    unsigned char textBetDeal[] = "BET/DEAL ";
+    print(textBetDeal, 0, 0);
+
     // Render five face-down cards
     placeCards();
+
+    buzzer(NOTE_G3);
+    buzzer(NOTE_C4);
 }
 
 void newRound()
@@ -79,8 +79,10 @@ void newRound()
 
     // Display 'BET/DEAL' status text
     unsigned char textBetDeal[] = "BET/DEAL ";
-    print(textBetDeal, 0, 7);
+    print(textBetDeal, 0, 0);
     lcd(screen);
+
+    while(key(KEY_D));
 
     // Respond to user input
     for (;;)
@@ -98,20 +100,23 @@ void newRound()
             }
 
         // Wait for key up
-        while (key(KEY_C));
         printChar('0'+bet, 15, 7);
-        lcd(screen);
         buzzer(32, 16);
+        lcd(screen);
+        while(key(KEY_C));
         }
 
         // Deal/draw
         if (key(KEY_D))
         {
-            // Wait for key up
-            while (key(KEY_D));
             if (cred >= bet)
             {
                 break;                
+            }
+            else 
+            {
+                buzzer(NOTE_G3);
+                while(key(KEY_D));;
             }
         }
     }
@@ -169,48 +174,46 @@ void dealDraw()
     revealHand();
 }
 
+unsigned char holdPhase;
+
 void hold()
 {
     holdPhase = TRUE;
     unsigned char textHold[] = "HOLD    ";
-    print(textHold, 0, 7);
+    print(textHold, 0, 0);
     lcd(screen);
+
+    while(key(KEY_D));
 
     for (;;)
     {
         if (key(KEY_LEFT))
         {
-            while (key(KEY_LEFT));
             holdCard(0);
         }
 
         if (key(KEY_UP))
         {
-            while (key(KEY_UP));
             holdCard(1);
         }
 
         if (key(KEY_RIGHT))
         {
-            while (key(KEY_RIGHT));
             holdCard(2);
         }
 
         if (key(KEY_A))
         {
-            while (key(KEY_A));
             holdCard(3);
         }
 
         if (key(KEY_B))
         {
-            while (key(KEY_B));
             holdCard(4);
         }
 
         if (key(KEY_D))
         {
-            while (key(KEY_D));
             break;
         }
     }
@@ -218,6 +221,8 @@ void hold()
 
 void holdCard(unsigned char i)
 {
+    buzzer(32, 16);
+
     if (held[i] == FALSE)
     {
         held[i] = TRUE;
@@ -233,7 +238,7 @@ void holdCard(unsigned char i)
     }
     
     lcd(screen);
-    buzzer(32, 16);
+    while (key(KEY_ANY));
 }
 
 void resetCards()
@@ -254,11 +259,14 @@ void gameOver()
 {
     // Display 'GAME OVER' status text
     unsigned char textGameOver[] = "GAME OVER";
-    print(textGameOver, 0, 7);
+    print(textGameOver, 0, 0);
     lcd(screen);
     buzzer(NOTE_G3);
     buzzer(NOTE_E3);
     buzzer(NOTE_C3);
+
+    while(key(KEY_D));
+
     for (;;)
     {
         if (key(KEY_D))
@@ -272,7 +280,7 @@ void gameWin()
 {
     // Display "YOU WIN" status text
     unsigned char textYouWin[] = "YOU WIN!";
-    print(textYouWin, 0, 7);
+    print(textYouWin, 0, 0);
     lcd(screen);
     for (;;)
     {

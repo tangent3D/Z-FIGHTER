@@ -28,6 +28,7 @@ extern unsigned char bet;
 extern unsigned char hand[];
 extern unsigned char held[];
 extern struct card deck[];
+extern unsigned char holdPhase;
 
 struct card
 {
@@ -36,8 +37,7 @@ struct card
     unsigned char dealt;
 };
 
-void initGame();
-void initScreen();
+void init();
 void printCred();
 void placeCards();
 void newRound();
