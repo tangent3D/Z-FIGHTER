@@ -57,7 +57,9 @@ void init()
     print(textBetDeal, 0, 0);
 
     // Clear 'HELD' sprites
+    color = 0;
     rect(5, 46, 118, 5);
+    color = 1;
 
     // Render five face-down cards
     placeCards();
