@@ -56,6 +56,9 @@ void init()
     unsigned char textBetDeal[] = "BET/DEAL ";
     print(textBetDeal, 0, 0);
 
+    // Clear 'HELD' sprites
+    rect(5, 46, 118, 5);
+
     // Render five face-down cards
     placeCards();
 
