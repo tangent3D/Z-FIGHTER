@@ -40,7 +40,7 @@ void initGame();
 void initScreen();
 void printCred();
 void placeCards();
-void play();
+void newRound();
 void dealDraw();
 void resetCards();
 void gameWin();

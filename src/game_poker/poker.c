@@ -26,7 +26,7 @@ void main()
 
     for (;;)
     {
-        play();
+        newRound();
         dealDraw();
 
         hold();
@@ -63,7 +63,7 @@ void initScreen()
     placeCards();
 }
 
-void play()
+void newRound()
 {
     // Check for victory
     if (cred == 9999)
