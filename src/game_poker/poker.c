@@ -64,6 +64,12 @@ void initScreen()
 
 void play()
 {
+    // Check for victory
+    if (cred == 9999)
+    {
+        gameWin();
+    }
+
     // Check for game over
     if (cred == 0)
     {
@@ -252,6 +258,21 @@ void gameOver()
     buzzer(NOTE_G3);
     buzzer(NOTE_E3);
     buzzer(NOTE_C3);
+    for (;;)
+    {
+        if (key(KEY_D))
+        {
+            main();
+        }
+    }
+}
+
+void gameWin()
+{
+    // Display "YOU WIN" status text
+    unsigned char textYouWin[] = "YOU WIN!";
+    print(textYouWin, 0, 7);
+    lcd(screen);
     for (;;)
     {
         if (key(KEY_D))

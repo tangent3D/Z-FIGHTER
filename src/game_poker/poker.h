@@ -40,6 +40,7 @@ void placeCards();
 void play();
 void dealDraw();
 void resetCards();
+void gameWin();
 void gameOver();
 void hold();
 void holdCard(unsigned char i);
