@@ -188,45 +188,65 @@ void hold()
     print(textHold, 0, 0);
     lcd(screen);
 
-    while(key(KEY_D));
-
+    while( key(KEY_ANY));
+    unsigned char keyOld[5]={0,0,0,0,0};
+    unsigned char keyNew[5]={0,0,0,0,0};
     for (;;)
     {
-        if (key(KEY_LEFT))
+        keyNew[0]=key(KEY_LEFT  );
+        keyNew[1]=key(KEY_UP    );
+        keyNew[2]=key(KEY_RIGHT );
+        keyNew[3]=key(KEY_A     );
+        keyNew[4]=key(KEY_B     );
+
+        unsigned char keyEventHappened=FALSE;
+        if (keyNew[0] && !keyOld[0])
         {
+            keyEventHappened=TRUE;
             holdCard(0);
         }
-
-        if (key(KEY_UP))
+        if (keyNew[1] && !keyOld[1])
         {
+            keyEventHappened=TRUE;
             holdCard(1);
         }
-
-        if (key(KEY_RIGHT))
+        if (keyNew[2] && !keyOld[2])
         {
+            keyEventHappened=TRUE;
             holdCard(2);
         }
-
-        if (key(KEY_A))
+        if (keyNew[3] && !keyOld[3])
         {
+            keyEventHappened=TRUE;
             holdCard(3);
         }
-
-        if (key(KEY_B))
+        if (keyNew[4] && !keyOld[4])
         {
+            keyEventHappened=TRUE;
             holdCard(4);
         }
 
-        if (key(KEY_D))
+        if (keyEventHappened)
         {
-            break;
+            buzzer(32, 16);
+            lcd(screen);
         }
+
+        keyOld[0]=keyNew[0];
+        keyOld[1]=keyNew[1];
+        keyOld[2]=keyNew[2];
+        keyOld[3]=keyNew[3];
+        keyOld[4]=keyNew[4];
+
+        if (key(KEY_D))break;
     }
+
+    while (key(KEY_ANY));
 }
 
 void holdCard(unsigned char i)
 {
-    buzzer(32, 16);
+    //buzzer(32, 16); // ---------------------- moved to hold()
 
     if (held[i] == FALSE)
     {
@@ -242,8 +262,8 @@ void holdCard(unsigned char i)
         color = 1;
     }
     
-    lcd(screen);
-    while (key(KEY_ANY));
+    //lcd(screen); // ---------------------- moved to hold()
+    //while (key(KEY_ANY)); // ---------------------- moved to hold()
 }
 
 void resetCards()
