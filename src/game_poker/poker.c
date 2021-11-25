@@ -8,6 +8,7 @@
 #include <zf_text.h>
 #include "poker.h"
 #include "points.c"
+#include "rnd.c"
 
 unsigned int cred;
 unsigned char bet;
@@ -25,14 +26,34 @@ void main()
     for (;;)
     {
         newRound();
+
+        // remove old results from display
+        print("                ", 0, 3);
+        print("      ", 0, 7);
+
         dealDraw();
 
         hold();
         dealDraw();
 
-        resetCards();
+        // check for winning hand
+        const unsigned char* messageString = "";
+        unsigned int addedCredit = getHandPoints(bet, &messageString);
+        if(addedCredit>0)
+        {
+            cred += addedCredit;
+            printCred();
 
-        // check for winning hand?
+            // display results
+            color=0;
+            print("                ", 0, 3);
+            print((unsigned char*)messageString, 0, 3); // TODO: maybe print should require const unsigned char[] too
+            color=1;
+            print("+?$", 0, 7);
+            lcd(screen);
+        }
+
+        resetCards();
     }
 }
 
@@ -90,8 +111,11 @@ void newRound()
     while(key(KEY_D));
 
     // Respond to user input
+    unsigned char unpredictableByte=0;
     for (;;)
     {
+        unpredictableByte++;
+
         // Change bet amount
         if (key(KEY_C))
         {
@@ -125,6 +149,7 @@ void newRound()
             }
         }
     }
+    rndImprove(unpredictableByte);
 
     // Clear 'HELD' sprites if exist
     if (holdPhase == TRUE)
@@ -246,8 +271,6 @@ void hold()
 
 void holdCard(unsigned char i)
 {
-    //buzzer(32, 16); // ---------------------- moved to hold()
-
     if (held[i] == FALSE)
     {
         held[i] = TRUE;
@@ -261,9 +284,6 @@ void holdCard(unsigned char i)
         rect((5 + (25 * i)), 46, 18, 5);
         color = 1;
     }
-    
-    //lcd(screen); // ---------------------- moved to hold()
-    //while (key(KEY_ANY)); // ---------------------- moved to hold()
 }
 
 void resetCards()
@@ -314,18 +334,6 @@ void gameWin()
             main();
         }
     }
-}
-
-unsigned char rnd(unsigned char maxValue)
-{
-    unsigned char result;
-
-    do
-    {
-        result=rand();
-    } while (result>maxValue);
-
-    return result;
 }
 
 void randomCard(unsigned char i)
