@@ -9,11 +9,8 @@ unsigned char isStraight(unsigned char* cardCountByValue);
 unsigned char hasThreeOfAKind(unsigned char* cardCountByValue);
 unsigned char getPairCount(unsigned char* cardCountByValue);
 
-int getHandPoints(unsigned char bet)
+int getHandPoints(unsigned char bet, const unsigned char** returnMessageStringPointer)
 {
-	// TODO: sort returns by correct priority! by highest result?
-	// currently sorted by order of appearance in screenshot
-
 	// generate statistics 1/2
 	unsigned char flush=isFlush();
 	unsigned char cardCountByValue[13];
@@ -23,19 +20,28 @@ int getHandPoints(unsigned char bet)
 	// royal flush?
 	if( straight && flush && cardCountByValue[ACE]==1 && cardCountByValue[KING]==1 )
 	{
+	    *returnMessageStringPointer="ROYAL FLUSH";
 		if(bet==5)return 4000;
 		else      return bet*250;
 	}
 
 	// straight flush?
-	if( straight && flush )return bet*50;
+	if( straight && flush )
+    {
+        *returnMessageStringPointer="STRAIGHT FLUSH";
+	    return bet*50;
+    }
 
     // 4 of a kind (a) with 2,3,4?
     if( cardCountByValue[ACE]==4 )
     {
         if( cardCountByValue[TWO  ]==1 ||
             cardCountByValue[THREE]==1 ||
-            cardCountByValue[FOUR ]==1 )return bet*320;
+            cardCountByValue[FOUR ]==1 )
+            {
+                *returnMessageStringPointer="4X ACE + 2/3/4";
+                return bet*400;
+            }
     }
 
     // 4 of a kind (a) with j,q,k?
@@ -43,7 +49,11 @@ int getHandPoints(unsigned char bet)
     {
         if( cardCountByValue[JACK ]==1 ||
             cardCountByValue[QUEEN]==1 ||
-            cardCountByValue[KING ]==1 )return bet*320;
+            cardCountByValue[KING ]==1 )
+        {
+            *returnMessageStringPointer="4X ACE + J/Q/K";
+            return bet*320;
+        }
     }
 
     // 4 of a kind (2,3,4) with a,2,3,4?
@@ -54,7 +64,11 @@ int getHandPoints(unsigned char bet)
         if( cardCountByValue[ACE  ]==1 ||
             cardCountByValue[TWO  ]==1 ||
             cardCountByValue[THREE]==1 ||
-            cardCountByValue[FOUR ]==1 )return bet*160;
+            cardCountByValue[FOUR ]==1 )
+        {
+            *returnMessageStringPointer="4X 2/3/4+A/2/3/4";
+            return bet*160;
+        }
     }
 
     // 4 of a kind (j,q,k) with j,q,k,a?
@@ -65,16 +79,28 @@ int getHandPoints(unsigned char bet)
         if( cardCountByValue[JACK ]==1 ||
             cardCountByValue[QUEEN]==1 ||
             cardCountByValue[KING ]==1 ||
-            cardCountByValue[ACE  ]==1 )return bet*160;
+            cardCountByValue[ACE  ]==1 )
+        {
+            *returnMessageStringPointer="4X J/Q/K+J/Q/K/A";
+            return bet*160;
+        }
     }
 
     // 4 of a kind (a)?
-	if( cardCountByValue[ACE]==4 )return bet*160;
+	if( cardCountByValue[ACE]==4 )
+    {
+        *returnMessageStringPointer="4 ACES";
+	    return bet*160;
+    }
 
     // 4 of a kind (2,3,4)?
     if( cardCountByValue[TWO  ]==4 ||
         cardCountByValue[THREE]==4 ||
-        cardCountByValue[FOUR ]==4 )return bet*80;
+        cardCountByValue[FOUR ]==4 )
+    {
+        *returnMessageStringPointer="4X 2/3/4";
+        return bet*80;
+    }
 
     // 4 of a kind (5-k)?
     if( cardCountByValue[FIVE ]==4 ||
@@ -85,33 +111,62 @@ int getHandPoints(unsigned char bet)
         cardCountByValue[TEN  ]==4 ||
         cardCountByValue[JACK ]==4 ||
         cardCountByValue[QUEEN]==4 ||
-        cardCountByValue[KING ]==4 )return bet*50;
+        cardCountByValue[KING ]==4 )
+    {
+        *returnMessageStringPointer="4X 5-K";
+        return bet*50;
+    }
 
 	// generate statistics 2/2
 	unsigned char threeOfAKind=hasThreeOfAKind(cardCountByValue);
 	unsigned char pairCount=getPairCount(cardCountByValue);
 
 	// full house?
-	if( threeOfAKind && pairCount==1 )return bet*7;
+	if( threeOfAKind && pairCount==1 )
+    {
+        *returnMessageStringPointer="FULL HOUSE";
+	    return bet*7;
+    }
 
 	// flush?
-	if( flush )return bet*5;
+	if( flush )
+    {
+        *returnMessageStringPointer="FLUSH";
+	    return bet*5;
+    }
 
 	// straight?
-	if( straight )return bet*4;
+	if( straight )
+	{
+        *returnMessageStringPointer="STRAIGHT";
+	    return bet*4;
+	}
 
 	// 3 of a kind?
-	if( threeOfAKind )return bet*3;
+	if( threeOfAKind )
+    {
+        *returnMessageStringPointer="3 OF A KIND";
+	    return bet*3;
+    }
 
 	// 2 pair?
-	if( pairCount==2 )return bet;
+	if( pairCount==2 )
+    {
+        *returnMessageStringPointer="2 PAIR";
+	    return bet;
+    }
 
 	// jacks or better?
 	if( cardCountByValue[JACK ]==2 ||
 	    cardCountByValue[QUEEN]==2 ||
 	    cardCountByValue[KING ]==2 ||
-	    cardCountByValue[ACE  ]==2 )return bet;
+	    cardCountByValue[ACE  ]==2 )
+    {
+        *returnMessageStringPointer="JACKS OR BETTER";
+	    return bet;
+    }
 
+    *returnMessageStringPointer="NOTHING";
 	return 0;
 }
 
