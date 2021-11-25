@@ -30,12 +30,62 @@ int getHandPoints(unsigned char bet)
 	// straight flush?
 	if( straight && flush )return bet*50;
 
-	// TODO: ...
+    // 4 of a kind (a) with 2,3,4?
+    if( cardCountByValue[ACE]==4 )
+    {
+        if( cardCountByValue[TWO  ]==1 ||
+            cardCountByValue[THREE]==1 ||
+            cardCountByValue[FOUR ]==1 )return bet*320;
+    }
 
-	// 4 aces?
+    // 4 of a kind (a) with j,q,k?
+    if( cardCountByValue[ACE]==4 )
+    {
+        if( cardCountByValue[JACK ]==1 ||
+            cardCountByValue[QUEEN]==1 ||
+            cardCountByValue[KING ]==1 )return bet*320;
+    }
+
+    // 4 of a kind (2,3,4) with a,2,3,4?
+    if( cardCountByValue[TWO  ]==4 ||
+        cardCountByValue[THREE]==4 ||
+        cardCountByValue[FOUR ]==4 )
+    {
+        if( cardCountByValue[ACE  ]==1 ||
+            cardCountByValue[TWO  ]==1 ||
+            cardCountByValue[THREE]==1 ||
+            cardCountByValue[FOUR ]==1 )return bet*160;
+    }
+
+    // 4 of a kind (j,q,k) with j,q,k,a?
+    if( cardCountByValue[JACK ]==4 ||
+        cardCountByValue[QUEEN]==4 ||
+        cardCountByValue[KING ]==4 )
+    {
+        if( cardCountByValue[JACK ]==1 ||
+            cardCountByValue[QUEEN]==1 ||
+            cardCountByValue[KING ]==1 ||
+            cardCountByValue[ACE  ]==1 )return bet*160;
+    }
+
+    // 4 of a kind (a)?
 	if( cardCountByValue[ACE]==4 )return bet*160;
 
-	// TODO: ...
+    // 4 of a kind (2,3,4)?
+    if( cardCountByValue[TWO  ]==4 ||
+        cardCountByValue[THREE]==4 ||
+        cardCountByValue[FOUR ]==4 )return bet*80;
+
+    // 4 of a kind (5-k)?
+    if( cardCountByValue[FIVE ]==4 ||
+        cardCountByValue[SIX  ]==4 ||
+        cardCountByValue[SEVEN]==4 ||
+        cardCountByValue[EIGHT]==4 ||
+        cardCountByValue[NINE ]==4 ||
+        cardCountByValue[TEN  ]==4 ||
+        cardCountByValue[JACK ]==4 ||
+        cardCountByValue[QUEEN]==4 ||
+        cardCountByValue[KING ]==4 )return bet*50;
 
 	// generate statistics 2/2
 	unsigned char threeOfAKind=hasThreeOfAKind(cardCountByValue);
