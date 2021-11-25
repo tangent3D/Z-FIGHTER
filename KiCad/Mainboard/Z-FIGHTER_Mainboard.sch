@@ -831,7 +831,7 @@ $EndComp
 Text Notes 5700 7900 0    50   ~ 0
 System/SIO clock oscillator
 $Comp
-L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
+L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
 U 1 1 5FCE6A42
 P 2350 6300
 F 0 "IC1" H 2400 7770 50  0000 C CNN
@@ -1274,8 +1274,6 @@ Text GLabel 4950 8600 2    50   Input ~ 0
 CTSB
 Text Notes 3450 8000 0    50   ~ 0
 JP3&JP4 1-1: CTS signal is honored on SIO Ch.A/B\nJP3&JP4 2-3: CTS signal is ignored on SIO Ch.A/B
-Text Notes 1350 8000 0    50   ~ 0
-JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
 $Comp
 L Jumper:Jumper_3_Open JP1
 U 1 1 601DCDA8
@@ -1559,7 +1557,7 @@ $EndComp
 Wire Wire Line
 	4600 5600 4300 5600
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
 U 1 1 60200F61
 P 4600 5100
 F 0 "U5" H 5400 5365 50  0000 C CNN
@@ -1648,7 +1646,7 @@ Wire Wire Line
 Wire Wire Line
 	4600 7500 4600 7650
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
 U 1 1 600F2768
 P 4600 6600
 F 0 "U6" H 5400 6865 50  0000 C CNN
@@ -1744,7 +1742,7 @@ $EndComp
 NoConn ~ 10200 10000
 NoConn ~ 10200 10100
 $Comp
-L Connector:USB_B J3
+L Z-FIGHTER_Mainboard-rescue:USB_B-Connector J3
 U 1 1 603B1E19
 P 9900 10000
 F 0 "J3" H 9957 10467 50  0000 C CNN
@@ -1893,7 +1891,7 @@ $EndComp
 Wire Wire Line
 	9450 5300 9250 5300
 $Comp
-L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
+L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
 U 1 1 60365A06
 P 9350 5100
 F 0 "U7" H 9900 5365 50  0000 C CNN
@@ -2063,7 +2061,7 @@ F 3 "" H 10350 8800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
+L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
 U 1 1 60045969
 P 11350 8850
 F 0 "U10" H 12550 9237 60  0000 C CNN
@@ -2365,17 +2363,15 @@ Wire Wire Line
 	2500 8100 2650 8100
 Wire Wire Line
 	2500 8600 2650 8600
-Text GLabel 2650 8100 2    50   Input ~ 0
-CLOCK2
 Text GLabel 2650 8600 2    50   Input ~ 0
-CLOCK2_EXT
+CLOCK2
 Text GLabel 6500 8300 2    50   Input ~ 0
 CLOCK
-Text GLabel 1600 8100 2    50   Input ~ 0
+Text GLabel 1600 8600 2    50   Input ~ 0
 CLOCK2_USER
 Text GLabel 2650 8350 2    50   Input ~ 0
 CLOCK2_USER
-Text GLabel 1600 8600 2    50   Input ~ 0
+Text GLabel 1600 8100 2    50   Input ~ 0
 CLOCK
 Text GLabel 1700 2650 0    50   Input ~ 0
 #WAIT
@@ -2421,4 +2417,8 @@ F 3 "" H 9700 8300 50  0001 C CNN
 	1    9700 8300
 	0    -1   -1   0   
 $EndComp
+Text Notes 1350 8000 0    50   ~ 0
+JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
+Text GLabel 2650 8100 2    50   Input ~ 0
+CLOCK2_EXT
 $EndSCHEMATC
