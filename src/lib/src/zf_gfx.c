@@ -5,8 +5,8 @@
 
 //#define ZF_GFX_SKIP_PARAM_CHECKS // faster but undefined behavior for out of bounds parameters
 
-//__at (SCREEN_W) void* screen_w;
-//__at (SCREEN_H) void* screen_h;
+__at (SCREEN_W) void* screen_w;
+__at (SCREEN_H) void* screen_h;
 unsigned char color = 1;
 unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 unsigned char oldLineX;
