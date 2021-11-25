@@ -26,30 +26,32 @@ void main()
     for (;;)
     {
         newRound();
+
+        // remove old results from display
+        print("                ", 0, 3);
+        print("      ", 0, 7);
+
         dealDraw();
 
         hold();
         dealDraw();
 
         // check for winning hand
-        const unsigned char* messageString="";
-        cred += getHandPoints(bet, &messageString);
+        const unsigned char* messageString = "";
+        unsigned int addedCredit = getHandPoints(bet, &messageString);
+        if(addedCredit>0)
+        {
+            cred += addedCredit;
+            printCred();
 
-        // display results
-        printCred();
-        color=0;
-        print("                ", 0, 7);
-        print((unsigned char*)messageString, 0, 7); // TODO: maybe print should require const unsigned char[] too
-        lcd(screen);
-        while (key(KEY_ANY));
-        while (!key(KEY_ANY));
-
-        // display bet value again
-        color=1;
-        print("            BET?", 0, 7);
-        printChar('0' + bet, 15, 7);
-        lcd(screen);
-
+            // display results
+            color=0;
+            print("                ", 0, 3);
+            print((unsigned char*)messageString, 0, 3); // TODO: maybe print should require const unsigned char[] too
+            color=1;
+            print("+?$", 0, 7);
+            lcd(screen);
+        }
 
         resetCards();
     }
