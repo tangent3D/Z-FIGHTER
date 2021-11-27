@@ -9,7 +9,7 @@ unsigned char isStraight(unsigned char* cardCountByValue);
 unsigned char hasThreeOfAKind(unsigned char* cardCountByValue);
 unsigned char getPairCount(unsigned char* cardCountByValue);
 
-int getHandPoints(unsigned char bet, const unsigned char** returnMessageStringPointer)
+unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessageStringPointer)
 {
 	// generate statistics 1/2
 	unsigned char flush=isFlush();
