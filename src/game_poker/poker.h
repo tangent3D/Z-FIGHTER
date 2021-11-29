@@ -52,6 +52,7 @@ void revealHand();
 void revealCard(unsigned char i);
 void randomCard(unsigned char i);
 unsigned char rnd(unsigned char maxValue);
+void switchBacklight();
 
 // Graphics
 

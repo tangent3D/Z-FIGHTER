@@ -51,6 +51,10 @@ void main()
             color=1;
             print("+?$", 0, 7);
             lcd(screen);
+
+            // sound
+            buzzer(NOTE_C4);
+            buzzer(NOTE_G4);
         }
     }
 }
@@ -59,8 +63,6 @@ void init()
 {
     cred = CRED_INIT;
     bet = BET_INIT;
-
-    backlight = 1;
 
     // Display credit value
     printChar('$', 11, 0);
@@ -83,8 +85,8 @@ void init()
     // Render five face-down cards
     placeCards();
 
+    buzzer(NOTE_C3);
     buzzer(NOTE_G3);
-    buzzer(NOTE_C4);
 }
 
 void newRound()
@@ -148,7 +150,10 @@ void newRound()
                 while(key(KEY_D));;
             }
         }
+
+        switchBacklight();
     }
+
     rndImprove(unpredictableByte);
 
     // Clear 'HELD' sprites if exist
@@ -262,6 +267,8 @@ void hold()
         keyOld[2]=keyNew[2];
         keyOld[3]=keyNew[3];
         keyOld[4]=keyNew[4];
+
+        switchBacklight();
 
         if (key(KEY_D))break;
     }
@@ -392,6 +399,16 @@ void revealCard(unsigned char i)
             sprite(gfxValues[deck[hand[i]].value], (HAND_X+CARD_OFFSET*4)+2, HAND_Y+2);
             sprite(gfxSuits[deck[hand[i]].suit], (HAND_X+CARD_OFFSET*4)+11, HAND_Y+19);
             break;
+    }
+}
+
+void switchBacklight()
+{
+        if (key(KEY_DOWN))
+    {
+        backlight = !backlight;
+        while (key(KEY_DOWN));
+        lcd(screen);
     }
 }
 
