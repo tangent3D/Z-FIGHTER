@@ -52,8 +52,6 @@ void main()
             print("+?$", 0, 7);
             lcd(screen);
         }
-
-        resetCards();
     }
 }
 
@@ -91,6 +89,8 @@ void init()
 
 void newRound()
 {
+    resetCards();
+
     // Check for victory
     if (cred == 9999)
     {
@@ -346,7 +346,7 @@ void randomCard(unsigned char i)
     } while (deck[j].dealt == TRUE);
 
     hand[i] = j;
-    deck[i].dealt = TRUE;
+    deck[j].dealt = TRUE;
 }
 
 void revealHand()
