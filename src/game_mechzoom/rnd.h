@@ -5,6 +5,6 @@
 #define POKER_RND_H
 
 unsigned char rnd(unsigned char maxValue);
-void rndImprove(unsigned char unpredictableByte);
+//void rndImprove(unsigned char unpredictableByte);
 
 #endif // POKER_RND_H

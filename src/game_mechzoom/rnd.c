@@ -25,7 +25,7 @@ unsigned char rnd(unsigned char maxValue)
     return result;
 }
 
-void rndImprove(unsigned char unpredictableByte)
-{
-    srand(rand()+unpredictableByte);
-}
+//void rndImprove(unsigned char unpredictableByte)
+//{
+//    srand(rand()+unpredictableByte);
+//}
