@@ -59,7 +59,7 @@ unsigned char simY=255;
 
 
 unsigned char scrollDelay=4;
-unsigned char scrollDelayCounter=scrollDelay;
+unsigned char scrollDelayCounter=4;
 
 //unsigned char scrollY=255;
 void scroll()
