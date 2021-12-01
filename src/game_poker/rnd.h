@@ -1,4 +1,4 @@
-// randomizer definitions for z-fighter game "poker"
+// randomizer definitions for z-fighter
 // by xrrawva 2021
 
 #ifndef POKER_RND_H
