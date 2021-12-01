@@ -1,6 +1,7 @@
 // randomizer implementation for z-fighter game "poker"
 // by xrrawva 2021
 
+#include <stdlib.h>
 #include "rnd.h"
 
 unsigned char rnd(unsigned char maxValue)
