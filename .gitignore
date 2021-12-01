@@ -23,3 +23,6 @@ _autosave-*
 # Exported BOM files
 *.xml
 *.csv
+
+# Compiled binaries
+*.bin
