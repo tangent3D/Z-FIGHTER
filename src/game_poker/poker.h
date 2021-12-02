@@ -29,6 +29,7 @@ extern unsigned char hand[];
 extern unsigned char held[];
 extern struct card deck[];
 extern unsigned char holdPhase;
+extern unsigned char cueWinSound;
 
 struct card
 {

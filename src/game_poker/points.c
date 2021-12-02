@@ -20,7 +20,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
 	// royal flush?
 	if( straight && flush && cardCountByValue[ACE]==1 && cardCountByValue[KING]==1 )
 	{
-	    *returnMessageStringPointer="ROYAL FLUSH";
+	    *returnMessageStringPointer="  ROYAL FLUSH   ";
 		if(bet==5)return 4000;
 		else      return bet*250;
 	}
@@ -28,7 +28,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
 	// straight flush?
 	if( straight && flush )
     {
-        *returnMessageStringPointer="STRAIGHT FLUSH";
+        *returnMessageStringPointer=" STRAIGHT FLUSH ";
 	    return bet*50;
     }
 
@@ -39,7 +39,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
             cardCountByValue[THREE]==1 ||
             cardCountByValue[FOUR ]==1 )
             {
-                *returnMessageStringPointer="4X ACE + 2/3/4";
+                *returnMessageStringPointer="4 ACES w/ 2,3,4 ";
                 return bet*400;
             }
     }
@@ -51,7 +51,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
             cardCountByValue[QUEEN]==1 ||
             cardCountByValue[KING ]==1 )
         {
-            *returnMessageStringPointer="4X ACE + J/Q/K";
+            *returnMessageStringPointer="4 ACES w/ J,Q,K ";
             return bet*320;
         }
     }
@@ -66,7 +66,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
             cardCountByValue[THREE]==1 ||
             cardCountByValue[FOUR ]==1 )
         {
-            *returnMessageStringPointer="4X 2/3/4+A/2/3/4";
+            *returnMessageStringPointer="4 2-4s & A,2,3,4";
             return bet*160;
         }
     }
@@ -81,7 +81,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
             cardCountByValue[KING ]==1 ||
             cardCountByValue[ACE  ]==1 )
         {
-            *returnMessageStringPointer="4X J/Q/K+J/Q/K/A";
+            *returnMessageStringPointer="4 J-Ks & A,2,3,4";
             return bet*160;
         }
     }
@@ -89,7 +89,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
     // 4 of a kind (a)?
 	if( cardCountByValue[ACE]==4 )
     {
-        *returnMessageStringPointer="4 ACES";
+        *returnMessageStringPointer="   FOUR ACES    ";
 	    return bet*160;
     }
 
@@ -98,7 +98,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
         cardCountByValue[THREE]==4 ||
         cardCountByValue[FOUR ]==4 )
     {
-        *returnMessageStringPointer="4X 2/3/4";
+        *returnMessageStringPointer="  4 2s, 3s, 4s  ";
         return bet*80;
     }
 
@@ -113,7 +113,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
         cardCountByValue[QUEEN]==4 ||
         cardCountByValue[KING ]==4 )
     {
-        *returnMessageStringPointer="4X 5-K";
+        *returnMessageStringPointer="4 5s THRU KINGS ";
         return bet*50;
     }
 
@@ -124,35 +124,35 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
 	// full house?
 	if( threeOfAKind && pairCount==1 )
     {
-        *returnMessageStringPointer="FULL HOUSE";
+        *returnMessageStringPointer="   FULL HOUSE   ";
 	    return bet*7;
     }
 
 	// flush?
 	if( flush )
     {
-        *returnMessageStringPointer="FLUSH";
+        *returnMessageStringPointer="     FLUSH      ";
 	    return bet*5;
     }
 
 	// straight?
 	if( straight )
 	{
-        *returnMessageStringPointer="STRAIGHT";
+        *returnMessageStringPointer="    STRAIGHT    ";
 	    return bet*4;
 	}
 
 	// 3 of a kind?
 	if( threeOfAKind )
     {
-        *returnMessageStringPointer="3 OF A KIND";
+        *returnMessageStringPointer="THREE OF A KIND ";
 	    return bet*3;
     }
 
 	// 2 pair?
 	if( pairCount==2 )
     {
-        *returnMessageStringPointer="2 PAIR";
+        *returnMessageStringPointer="    TWO PAIR    ";
 	    return bet;
     }
 
@@ -162,7 +162,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
 	    cardCountByValue[KING ]==2 ||
 	    cardCountByValue[ACE  ]==2 )
     {
-        *returnMessageStringPointer="JACKS OR BETTER";
+        *returnMessageStringPointer="JACKS OR BETTER ";
 	    return bet;
     }
 

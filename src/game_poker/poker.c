@@ -14,6 +14,7 @@ unsigned int cred;
 unsigned char bet;
 unsigned char hand[5];
 unsigned char held[5];
+unsigned char cueWinSound;
 
 #define CRED_INIT   20
 #define BET_INIT    1
@@ -29,7 +30,7 @@ void main()
 
         // remove old results from display
         print("                ", 0, 3);
-        print("      ", 0, 7);
+        print("         ", 0, 7);
 
         dealDraw();
 
@@ -49,12 +50,13 @@ void main()
             print("                ", 0, 3);
             print((unsigned char*)messageString, 0, 3); // TODO: maybe print should require const unsigned char[] too
             color=1;
-            print("+?$", 0, 7);
-            lcd(screen);
 
-            // sound
-            buzzer(NOTE_C4);
-            buzzer(NOTE_G4);
+            unsigned char winAmount[4];
+            utoa(addedCredit, winAmount, 10);
+            print("WIN ", 0, 7);
+            print(winAmount, 4, 7);
+
+            cueWinSound = 1;
         }
     }
 }
@@ -69,13 +71,11 @@ void init()
     printCred();
 
     // Display bet value
-    unsigned char textBet[] = "BET";
-    print(textBet, 12, 7);
+    print("BET ", 11, 7);
     printChar('0' + bet, 15, 7);
 
     // Display 'BET/DEAL' status text
-    unsigned char textBetDeal[] = "BET/DEAL ";
-    print(textBetDeal, 0, 0);
+    print("BET/DEAL ", 0, 0);
 
     // Clear 'HELD' sprites
     color = 0;
@@ -85,8 +85,13 @@ void init()
     // Render five face-down cards
     placeCards();
 
-    buzzer(NOTE_C3);
-    buzzer(NOTE_G3);
+    // Game start sound
+    // buzzer(519, 36*2);
+    // buzzer(NOTE_D4);
+    // buzzer(388, 48*2);
+    buzzer(1042, 18*2);
+    buzzer(NOTE_D3);
+    buzzer(780, 24*2);
 }
 
 void newRound()
@@ -94,8 +99,9 @@ void newRound()
     resetCards();
 
     // Check for victory
-    if (cred == 9999)
-    {
+    if (cred >= 9999)
+    {   
+        cred = 9999;
         gameWin();
     }
 
@@ -106,9 +112,19 @@ void newRound()
     }
 
     // Display 'BET/DEAL' status text
-    unsigned char textBetDeal[] = "BET/DEAL ";
-    print(textBetDeal, 0, 0);
+    print("BET/DEAL ", 0, 0);
     lcd(screen);
+
+    if (cueWinSound == 1)
+    {
+        // Play a win sound if a winning hand was produced in previous round
+        buzzer(1171/2, 15);
+        buzzer(1105/2, 15);
+        buzzer(1042/2, 15);
+        buzzer(984/2, 15);
+        buzzer(928/2, 15);
+        cueWinSound = 0;
+    }
 
     while(key(KEY_D));
 
@@ -146,8 +162,9 @@ void newRound()
             }
             else 
             {
-                buzzer(NOTE_G3);
-                while(key(KEY_D));;
+                buzzer(NOTE_A3);
+                buzzer(NOTE_E3);
+                while(key(KEY_D));
             }
         }
 
@@ -214,11 +231,10 @@ unsigned char holdPhase;
 void hold()
 {
     holdPhase = TRUE;
-    unsigned char textHold[] = "HOLD    ";
-    print(textHold, 0, 0);
+    print("HOLD    ", 0, 0);
     lcd(screen);
 
-    while( key(KEY_ANY));
+    while (key(KEY_ANY));
     unsigned char keyOld[5]={0,0,0,0,0};
     unsigned char keyNew[5]={0,0,0,0,0};
     for (;;)
@@ -310,8 +326,7 @@ void resetCards()
 void gameOver()
 {
     // Display 'GAME OVER' status text
-    unsigned char textGameOver[] = "GAME OVER";
-    print(textGameOver, 0, 0);
+    print("GAME OVER ", 0, 0);
     lcd(screen);
     buzzer(NOTE_G3);
     buzzer(NOTE_E3);
@@ -331,8 +346,7 @@ void gameOver()
 void gameWin()
 {
     // Display "YOU WIN" status text
-    unsigned char textYouWin[] = "YOU WIN!";
-    print(textYouWin, 0, 0);
+    print("YOU WIN! ", 0, 0);
     lcd(screen);
     for (;;)
     {
@@ -363,6 +377,7 @@ void revealHand()
         if (held[i] == FALSE)
         {
             revealCard(i);
+            // Card sound
             buzzer(16,1);
             lcd(screen);
         }
