@@ -86,12 +86,9 @@ void init()
     placeCards();
 
     // Game start sound
-    // buzzer(519, 36*2);
-    // buzzer(NOTE_D4);
-    // buzzer(388, 48*2);
-    buzzer(1042, 18*2);
-    buzzer(NOTE_D3);
-    buzzer(780, 24*2);
+    buzzer(519, 36*2);
+    buzzer(NOTE_D4);
+    buzzer(388, 48*2);
 }
 
 void newRound()
@@ -231,7 +228,7 @@ unsigned char holdPhase;
 void hold()
 {
     holdPhase = TRUE;
-    print("HOLD    ", 0, 0);
+    print("HOLD/DRAW", 0, 0);
     lcd(screen);
 
     while (key(KEY_ANY));
