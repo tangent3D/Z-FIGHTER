@@ -122,7 +122,7 @@ void newRound()
         cueWinSound = 0;
     }
 
-    while(key(KEY_D));
+    while (key(KEY_D));
 
     // Respond to user input
     unsigned char unpredictableByte=0;
@@ -146,7 +146,7 @@ void newRound()
         printChar('0'+bet, 15, 7);
         buzzer(32, 16);
         lcd(screen);
-        while(key(KEY_C));
+        while (key(KEY_C));
         }
 
         // Deal/draw
