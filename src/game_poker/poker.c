@@ -98,7 +98,6 @@ void newRound()
     // Check for victory
     if (cred >= 9999)
     {   
-        cred = 9999;
         gameWin();
     }
 
@@ -342,6 +341,8 @@ void gameOver()
 
 void gameWin()
 {
+    cred = 9999;
+    printCred();
     // Display "YOU WIN" status text
     print("YOU WIN! ", 0, 0);
     lcd(screen);
