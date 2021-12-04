@@ -43,6 +43,7 @@ void main()
         if(addedCredit>0)
         {
             cred += addedCredit;
+            if(cred>9999)cred=9999;
             printCred();
 
             // display results
