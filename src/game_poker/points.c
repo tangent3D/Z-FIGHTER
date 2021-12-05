@@ -81,7 +81,7 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
             cardCountByValue[KING ]==1 ||
             cardCountByValue[ACE  ]==1 )
         {
-            *returnMessageStringPointer="4 J-Ks & A,2,3,4";
+            *returnMessageStringPointer="4 J-Ks & J,Q,K,A";
             return bet*160;
         }
     }
