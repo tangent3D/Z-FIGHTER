@@ -52,7 +52,7 @@ void main()
             print((unsigned char*)messageString, 0, 3); // TODO: maybe print should require const unsigned char[] too
             color=1;
 
-            unsigned char winAmount[4];
+            unsigned char winAmount[5];
             utoa(addedCredit, winAmount, 10);
             print("WIN ", 0, 7);
             print(winAmount, 4, 7);
@@ -200,7 +200,7 @@ void placeCards()
 
 void printCred()
 {
-    unsigned char arrScore[4];
+    unsigned char arrScore[5];
     utoa(cred, arrScore, 10);
     unsigned char offset = 4 - strlen(arrScore);
     const unsigned char counter[] = "0000";
