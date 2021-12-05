@@ -143,11 +143,11 @@ void newRound()
                 bet = 1;
             }
 
-        // Wait for key up
-        printChar('0'+bet, 15, 7);
-        buzzer(32, 16);
-        lcd(screen);
-        while (key(KEY_C));
+            // Wait for key up
+            printChar('0'+bet, 15, 7);
+            buzzer(32, 16);
+            lcd(screen);
+            while (key(KEY_C));
         }
 
         // Deal/draw
