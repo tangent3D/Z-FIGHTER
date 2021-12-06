@@ -23,7 +23,41 @@ unsigned char cueWinSound;
 void main()
 {
     init();
+    gameLoop();
+}
 
+void init()
+{
+    cred = CRED_INIT;
+    bet = BET_INIT;
+
+    // Display credit value
+    printChar('$', 11, 0);
+    printCred();
+
+    // Display bet value
+    print("BET ", 11, 7);
+    printChar('0' + bet, 15, 7);
+
+    // Display 'BET/DEAL' status text
+    print("BET/DEAL ", 0, 0);
+
+    // Clear 'HELD' sprites
+    color = 0;
+    rect(5, 46, 118, 5);
+    color = 1;
+
+    // Render five face-down cards
+    placeCards();
+
+    // Game start sound
+    buzzer(1042, 16*2);
+    buzzer(NOTE_D3);
+    buzzer(780, 24*2);
+}
+
+void gameLoop()
+{
     for (;;)
     {
         newRound();
@@ -60,36 +94,6 @@ void main()
             cueWinSound = 1;
         }
     }
-}
-
-void init()
-{
-    cred = CRED_INIT;
-    bet = BET_INIT;
-
-    // Display credit value
-    printChar('$', 11, 0);
-    printCred();
-
-    // Display bet value
-    print("BET ", 11, 7);
-    printChar('0' + bet, 15, 7);
-
-    // Display 'BET/DEAL' status text
-    print("BET/DEAL ", 0, 0);
-
-    // Clear 'HELD' sprites
-    color = 0;
-    rect(5, 46, 118, 5);
-    color = 1;
-
-    // Render five face-down cards
-    placeCards();
-
-    // Game start sound
-    buzzer(1042, 16*2);
-    buzzer(NOTE_D3);
-    buzzer(780, 24*2);
 }
 
 void newRound()

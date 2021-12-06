@@ -38,6 +38,7 @@ struct card
     unsigned char dealt;
 };
 
+void gameLoop();
 void init();
 void printCred();
 void placeCards();
