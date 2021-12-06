@@ -22,7 +22,6 @@ unsigned char cueWinSound;
 
 void main()
 {
-    init();
     gameLoop();
 }
 
@@ -58,6 +57,8 @@ void init()
 
 void gameLoop()
 {
+    init();
+
     for (;;)
     {
         newRound();
@@ -339,7 +340,7 @@ void gameOver()
     {
         if (key(KEY_D))
         {
-            main();
+            gameLoop();
         }
     }
 }
@@ -355,7 +356,7 @@ void gameWin()
     {
         if (key(KEY_D))
         {
-            main();
+            gameLoop();
         }
     }
 }
