@@ -68,6 +68,11 @@ void gameLoop()
     {
         newRound();
 
+        if (exitGameLoop == TRUE)
+        {
+            return;
+        }
+
         // remove old results from display
         print("                ", 0, 3);
         print("         ", 0, 7);
