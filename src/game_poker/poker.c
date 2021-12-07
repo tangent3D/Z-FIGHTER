@@ -15,6 +15,8 @@ unsigned char bet;
 unsigned char hand[5];
 unsigned char held[5];
 unsigned char cueWinSound;
+unsigned char restart;
+unsigned char exitGameLoop;
 
 #define CRED_INIT   20
 #define BET_INIT    1
@@ -22,11 +24,17 @@ unsigned char cueWinSound;
 
 void main()
 {
-    gameLoop();
+    for (;;)
+    {
+        init();
+        gameLoop();
+    }
 }
 
 void init()
 {
+    exitGameLoop = FALSE;
+
     cred = CRED_INIT;
     bet = BET_INIT;
 
@@ -57,8 +65,6 @@ void init()
 
 void gameLoop()
 {
-    init();
-
     for (;;)
     {
         newRound();
@@ -105,12 +111,19 @@ void newRound()
     if (cred >= 9999)
     {   
         gameWin();
+        exitGameLoop = TRUE;
     }
 
     // Check for game over
     if (cred == 0)
     {
         gameOver();
+        exitGameLoop = TRUE;
+    }
+
+    if (exitGameLoop == TRUE)
+    {
+        return;
     }
 
     // Display 'BET/DEAL' status text
@@ -340,7 +353,7 @@ void gameOver()
     {
         if (key(KEY_D))
         {
-            gameLoop();
+            return;
         }
     }
 }
@@ -356,7 +369,7 @@ void gameWin()
     {
         if (key(KEY_D))
         {
-            gameLoop();
+            return;
         }
     }
 }

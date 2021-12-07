@@ -30,6 +30,7 @@ extern unsigned char held[];
 extern struct card deck[];
 extern unsigned char holdPhase;
 extern unsigned char cueWinSound;
+extern unsigned char exitGameLoop;
 
 struct card
 {
