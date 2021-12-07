@@ -15,7 +15,6 @@ unsigned char bet;
 unsigned char hand[5];
 unsigned char held[5];
 unsigned char cueWinSound;
-unsigned char restart;
 unsigned char exitGameLoop;
 
 #define CRED_INIT   20
