@@ -10,6 +10,9 @@
 #define SCREEN_W 128
 #define SCREEN_H 64
 
+// there is no gfxInit()
+// init what you need: color=1; cls(); lcd(screen);
+
 // sets foreground color used by all zf_gfx functions
 // 0 means white, 1 means black (default)
 extern unsigned char color;
@@ -45,7 +48,7 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
 // overwrites a screen block (8x8 pixels)
 // on grid at blockX blockY
 // block pattern bits: 0 means background color, 1 means foreground color
-void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY);
+void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY);
 
 // block coordinates
 // blockX = 0 left ... blockX = 15 right
@@ -70,9 +73,5 @@ void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned 
 // each byte represents 8 horizontal pixels
 // 0 means white, 1 means black
 extern unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
-
-// used by lineFrom() and lineTo()
-extern unsigned char oldLineX;
-extern unsigned char oldLineY;
 
 #endif // ZF_GFX_H

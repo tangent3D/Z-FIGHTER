@@ -4,18 +4,11 @@
 #ifndef ZF_LCD_H
 #define ZF_LCD_H
 
-// Fill LCD GDRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx)
-// Contains primary LCD control routines used by other functions.
-// Always turns the LCD backlight on.
-void lcdBitmap(unsigned char *bitmap);
+// Fill LCD GDRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx).
+void lcd(unsigned char *bitmap) __z88dk_fastcall;
 
-// Turn LCD backlight on (1) or off (0).
-void lcdBacklight(unsigned char state);
-
-// Write LCD instruction (byte, 0 = basic instruction, 1 = extended instruction)
-void lcdInst(unsigned char i, unsigned char extended);
-
-// Write LCD data (byte)
-void lcdData(unsigned char d);
+// Set LCD backlight on (1) or off (0).
+// State of backlight will update upon next execution of lcd().
+extern unsigned char backlight;
 
 #endif

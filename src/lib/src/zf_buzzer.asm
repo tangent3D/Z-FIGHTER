@@ -1,9 +1,11 @@
 ; WT-1205 50mA electromagnetic buzzer implementation for Z-Fighter
 ; by Tangent 2021
 
-SECTION code_user
+EXTERN BUZZER_ON
+EXTERN BUZZER_OFF 
+EXTERN CTRL_ACC
 
-INCLUDE "zf_io.asm"
+SECTION code_user
 
 PUBLIC _buzzer
 _buzzer:
@@ -15,10 +17,10 @@ _buzzer:
     LD      B,(IY+3)      
 BLOOP:
     LD      A,BUZZER_ON
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
     CALL    DELAY
     LD      A,BUZZER_OFF
-    OUT     (CTRL),A
+    OUT     (CTRL_ACC),A
     CALL    DELAY
     DEC     BC
     LD      A,C

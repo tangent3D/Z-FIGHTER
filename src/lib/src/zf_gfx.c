@@ -5,7 +5,9 @@
 
 //#define ZF_GFX_SKIP_PARAM_CHECKS // faster but undefined behavior for out of bounds parameters
 
-unsigned char color;
+__at (SCREEN_W) void* screen_w;
+__at (SCREEN_H) void* screen_h;
+unsigned char color = 1;
 unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 unsigned char oldLineX;
 unsigned char oldLineY;
@@ -597,7 +599,8 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
     }
 }
 
-void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
+// replaced by .asm
+/*void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 {
 #ifndef ZF_GFX_SKIP_PARAM_CHECKS
     // skip if off screen
@@ -659,4 +662,4 @@ void putBlock(const unsigned char* blockPattern, unsigned char blockX, unsigned 
         blockPattern++;
         *(unsigned char*)screenPointer = ~(*blockPattern); // byte 8
     }
-}
+}*/
