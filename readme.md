@@ -22,6 +22,3 @@ Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Sea
 - 8x Cherry MX key switches
 - ST7920 128x64 LCD module with software-controllable backlight
 - Electromagnetic buzzer (CPU-controlled)
-
-### To-do
-- Assembly instructions
