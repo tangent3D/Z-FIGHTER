@@ -771,15 +771,15 @@ Decoupling capacitors\nUSB 2.0 standard specifies max of 10uF between Vbus and G
 $Comp
 L power:GND #PWR0133
 U 1 1 6018407B
-P 7450 8600
-F 0 "#PWR0133" H 7450 8350 50  0001 C CNN
-F 1 "GND" H 7455 8427 50  0000 C CNN
-F 2 "" H 7450 8600 50  0001 C CNN
-F 3 "" H 7450 8600 50  0001 C CNN
-	1    7450 8600
+P 7600 8600
+F 0 "#PWR0133" H 7600 8350 50  0001 C CNN
+F 1 "GND" H 7605 8427 50  0000 C CNN
+F 2 "" H 7600 8600 50  0001 C CNN
+F 3 "" H 7600 8600 50  0001 C CNN
+	1    7600 8600
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7150 8300
+NoConn ~ 7300 8300
 Text GLabel 1650 6800 0    50   Input ~ 0
 CLOCK
 Text GLabel 3150 6400 2    50   Input ~ 0
@@ -807,31 +807,31 @@ PATA29
 $Comp
 L Oscillator:CXO_DIP14 X2
 U 1 1 6016DD5D
-P 7450 8300
-F 0 "X2" H 7794 8346 50  0000 L BNN
-F 1 "SIO Ch.B Clock" H 7794 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 7900 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7350 8300 50  0001 C CNN
-	1    7450 8300
+P 7600 8300
+F 0 "X2" H 7944 8346 50  0000 L BNN
+F 1 "SIO Ch.B Clock" H 7944 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 8050 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7500 8300 50  0001 C CNN
+	1    7600 8300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7450 8000 7650 8000
+	7600 8000 7800 8000
 $Comp
 L power:VCC #PWR0134
 U 1 1 6019A931
-P 7650 8000
-F 0 "#PWR0134" H 7650 7850 50  0001 C CNN
-F 1 "VCC" V 7665 8128 50  0000 L CNN
-F 2 "" H 7650 8000 50  0001 C CNN
-F 3 "" H 7650 8000 50  0001 C CNN
-	1    7650 8000
+P 7800 8000
+F 0 "#PWR0134" H 7800 7850 50  0001 C CNN
+F 1 "VCC" V 7815 8128 50  0000 L CNN
+F 2 "" H 7800 8000 50  0001 C CNN
+F 3 "" H 7800 8000 50  0001 C CNN
+	1    7800 8000
 	0    1    1    0   
 $EndComp
-Text Notes 5600 7900 0    50   ~ 0
+Text Notes 5700 7900 0    50   ~ 0
 System/SIO clock oscillator
 $Comp
-L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
+L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
 U 1 1 5FCE6A42
 P 2350 6300
 F 0 "IC1" H 2400 7770 50  0000 C CNN
@@ -1215,84 +1215,82 @@ PA0U
 $Comp
 L Jumper:Jumper_3_Open JP3
 U 1 1 601A5EFF
-P 3700 8350
-F 0 "JP3" H 3700 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 3700 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3700 8350 50  0001 C CNN
-F 3 "~" H 3700 8350 50  0001 C CNN
-	1    3700 8350
+P 3850 8350
+F 0 "JP3" H 3850 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 3850 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3850 8350 50  0001 C CNN
+F 3 "~" H 3850 8350 50  0001 C CNN
+	1    3850 8350
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Jumper:Jumper_3_Open JP4
 U 1 1 601AD0E1
-P 4650 8350
-F 0 "JP4" H 4650 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 4650 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4650 8350 50  0001 C CNN
-F 3 "~" H 4650 8350 50  0001 C CNN
-	1    4650 8350
+P 4800 8350
+F 0 "JP4" H 4800 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 4800 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4800 8350 50  0001 C CNN
+F 3 "~" H 4800 8350 50  0001 C CNN
+	1    4800 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 4800 8350 2    50   Input ~ 0
+Text GLabel 4950 8350 2    50   Input ~ 0
 SIO_CTSB
-Text GLabel 3850 8350 2    50   Input ~ 0
+Text GLabel 4000 8350 2    50   Input ~ 0
 SIO_CTSA
 $Comp
 L power:GND #PWR0143
 U 1 1 601FF01A
-P 3850 8100
-F 0 "#PWR0143" H 3850 7850 50  0001 C CNN
-F 1 "GND" V 3855 7972 50  0000 R CNN
-F 2 "" H 3850 8100 50  0001 C CNN
-F 3 "" H 3850 8100 50  0001 C CNN
-	1    3850 8100
+P 4000 8100
+F 0 "#PWR0143" H 4000 7850 50  0001 C CNN
+F 1 "GND" V 4005 7972 50  0000 R CNN
+F 2 "" H 4000 8100 50  0001 C CNN
+F 3 "" H 4000 8100 50  0001 C CNN
+	1    4000 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3850 8600 3700 8600
+	4000 8600 3850 8600
 $Comp
 L power:GND #PWR0144
 U 1 1 6020DBBB
-P 4800 8100
-F 0 "#PWR0144" H 4800 7850 50  0001 C CNN
-F 1 "GND" V 4805 7972 50  0000 R CNN
-F 2 "" H 4800 8100 50  0001 C CNN
-F 3 "" H 4800 8100 50  0001 C CNN
-	1    4800 8100
+P 4950 8100
+F 0 "#PWR0144" H 4950 7850 50  0001 C CNN
+F 1 "GND" V 4955 7972 50  0000 R CNN
+F 2 "" H 4950 8100 50  0001 C CNN
+F 3 "" H 4950 8100 50  0001 C CNN
+	1    4950 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4650 8600 4800 8600
+	4800 8600 4950 8600
 Wire Wire Line
-	3850 8100 3700 8100
+	4000 8100 3850 8100
 Wire Wire Line
-	4800 8100 4650 8100
-Text GLabel 3850 8600 2    50   Input ~ 0
+	4950 8100 4800 8100
+Text GLabel 4000 8600 2    50   Input ~ 0
 CTSA
-Text GLabel 4800 8600 2    50   Input ~ 0
+Text GLabel 4950 8600 2    50   Input ~ 0
 CTSB
-Text Notes 3300 8000 0    50   ~ 0
+Text Notes 3450 8000 0    50   ~ 0
 JP3&JP4 1-1: CTS signal is honored on SIO Ch.A/B\nJP3&JP4 2-3: CTS signal is ignored on SIO Ch.A/B
-Text Notes 1200 8000 0    50   ~ 0
-JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
 $Comp
 L Jumper:Jumper_3_Open JP1
 U 1 1 601DCDA8
-P 1400 8350
-F 0 "JP1" H 1400 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 1400 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1400 8350 50  0001 C CNN
-F 3 "~" H 1400 8350 50  0001 C CNN
-	1    1400 8350
+P 1450 8350
+F 0 "JP1" H 1450 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 1450 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1450 8350 50  0001 C CNN
+F 3 "~" H 1450 8350 50  0001 C CNN
+	1    1450 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1550 8350 2    50   Input ~ 0
+Text GLabel 1600 8350 2    50   Input ~ 0
 CLOCK_Ch.B
 Wire Wire Line
-	1400 8100 1550 8100
+	1450 8100 1600 8100
 Wire Wire Line
-	1400 8600 1550 8600
+	1450 8600 1600 8600
 Text GLabel 12850 5300 2    50   Input ~ 0
 RESET
 Text Notes 11900 4850 0    50   ~ 0
@@ -1559,7 +1557,7 @@ $EndComp
 Wire Wire Line
 	4600 5600 4300 5600
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
 U 1 1 60200F61
 P 4600 5100
 F 0 "U5" H 5400 5365 50  0000 C CNN
@@ -1583,7 +1581,7 @@ Text Notes 7450 6100 0    50   ~ 0
 SIO/O Ch.A
 Text Notes 7550 7600 0    50   ~ 0
 SIO/O Ch.B
-Text GLabel 7950 8300 2    50   Input ~ 0
+Text GLabel 8100 8300 2    50   Input ~ 0
 CLOCK2
 Text GLabel 6200 5100 2    50   Input ~ 0
 CTSA
@@ -1592,31 +1590,31 @@ S1RX
 Text Notes 6950 7900 0    50   ~ 0
 User-provided internal oscillator for SIO Ch.B
 Wire Wire Line
-	7750 8300 7950 8300
+	7900 8300 8100 8300
 Wire Wire Line
-	6300 8300 6450 8300
+	6350 8300 6500 8300
 Wire Wire Line
-	6000 8000 6200 8000
+	6050 8000 6250 8000
 $Comp
 L power:VCC #PWR0155
 U 1 1 603ECF18
-P 6200 8000
-F 0 "#PWR0155" H 6200 7850 50  0001 C CNN
-F 1 "VCC" V 6217 8128 50  0000 L CNN
-F 2 "" H 6200 8000 50  0001 C CNN
-F 3 "" H 6200 8000 50  0001 C CNN
-	1    6200 8000
+P 6250 8000
+F 0 "#PWR0155" H 6250 7850 50  0001 C CNN
+F 1 "VCC" V 6267 8128 50  0000 L CNN
+F 2 "" H 6250 8000 50  0001 C CNN
+F 3 "" H 6250 8000 50  0001 C CNN
+	1    6250 8000
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0129
 U 1 1 603CFFAC
-P 6000 8600
-F 0 "#PWR0129" H 6000 8350 50  0001 C CNN
-F 1 "GND" H 6005 8427 50  0000 C CNN
-F 2 "" H 6000 8600 50  0001 C CNN
-F 3 "" H 6000 8600 50  0001 C CNN
-	1    6000 8600
+P 6050 8600
+F 0 "#PWR0129" H 6050 8350 50  0001 C CNN
+F 1 "GND" H 6055 8427 50  0000 C CNN
+F 2 "" H 6050 8600 50  0001 C CNN
+F 3 "" H 6050 8600 50  0001 C CNN
+	1    6050 8600
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -1648,7 +1646,7 @@ Wire Wire Line
 Wire Wire Line
 	4600 7500 4600 7650
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
 U 1 1 600F2768
 P 4600 6600
 F 0 "U6" H 5400 6865 50  0000 C CNN
@@ -1744,7 +1742,7 @@ $EndComp
 NoConn ~ 10200 10000
 NoConn ~ 10200 10100
 $Comp
-L Connector:USB_B J3
+L Z-FIGHTER_Mainboard-rescue:USB_B-Connector J3
 U 1 1 603B1E19
 P 9900 10000
 F 0 "J3" H 9957 10467 50  0000 C CNN
@@ -1893,7 +1891,7 @@ $EndComp
 Wire Wire Line
 	9450 5300 9250 5300
 $Comp
-L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
+L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
 U 1 1 60365A06
 P 9350 5100
 F 0 "U7" H 9900 5365 50  0000 C CNN
@@ -1961,7 +1959,7 @@ F 3 "" H 9600 7350 50  0001 C CNN
 	1    9600 7350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9650 8800 0    50   Input ~ 0
+Text GLabel 9650 8900 0    50   Input ~ 0
 #INT
 Wire Wire Line
 	7900 5000 7900 5350
@@ -2018,32 +2016,32 @@ $EndComp
 $Comp
 L power:GND #PWR0147
 U 1 1 61376857
-P 9450 8700
-F 0 "#PWR0147" H 9450 8450 50  0001 C CNN
-F 1 "GND" H 9455 8527 50  0000 C CNN
-F 2 "" H 9450 8700 50  0001 C CNN
-F 3 "" H 9450 8700 50  0001 C CNN
-	1    9450 8700
+P 9450 8800
+F 0 "#PWR0147" H 9450 8550 50  0001 C CNN
+F 1 "GND" H 9455 8627 50  0000 C CNN
+F 2 "" H 9450 8800 50  0001 C CNN
+F 3 "" H 9450 8800 50  0001 C CNN
+	1    9450 8800
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9450 8700 9650 8700
+	9450 8800 9650 8800
 Wire Wire Line
-	10150 8700 10350 8700
+	10150 8800 10350 8800
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J7
 U 1 1 61332756
-P 9850 8800
-F 0 "J7" H 9900 9117 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 9900 9026 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8800 50  0001 C CNN
-F 3 "~" H 9850 8800 50  0001 C CNN
-	1    9850 8800
+P 9850 8900
+F 0 "J7" H 9900 9217 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 9900 9126 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8900 50  0001 C CNN
+F 3 "~" H 9850 8900 50  0001 C CNN
+	1    9850 8900
 	1    0    0    -1  
 $EndComp
-Text GLabel 9650 8900 0    50   Input ~ 0
+Text GLabel 9650 9000 0    50   Input ~ 0
 CLOCK2_EXT
-Text GLabel 10150 8800 2    50   Input ~ 0
+Text GLabel 10150 8900 2    50   Input ~ 0
 #NMI
 Wire Wire Line
 	10200 7150 10950 7150
@@ -2054,16 +2052,16 @@ Wire Wire Line
 $Comp
 L power:VCC #PWR0150
 U 1 1 6137DFCB
-P 10350 8700
-F 0 "#PWR0150" H 10350 8550 50  0001 C CNN
-F 1 "VCC" V 10368 8827 50  0000 L CNN
-F 2 "" H 10350 8700 50  0001 C CNN
-F 3 "" H 10350 8700 50  0001 C CNN
-	1    10350 8700
+P 10350 8800
+F 0 "#PWR0150" H 10350 8650 50  0001 C CNN
+F 1 "VCC" V 10368 8927 50  0000 L CNN
+F 2 "" H 10350 8800 50  0001 C CNN
+F 3 "" H 10350 8800 50  0001 C CNN
+	1    10350 8800
 	0    1    1    0   
 $EndComp
 $Comp
-L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
+L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
 U 1 1 60045969
 P 11350 8850
 F 0 "U10" H 12550 9237 60  0000 C CNN
@@ -2188,7 +2186,7 @@ F 3 "" H 8400 4950 50  0001 C CNN
 $EndComp
 Text Notes 12150 8350 0    50   ~ 0
 Supervisory circuit
-Text Notes 9150 8400 0    50   ~ 0
+Text Notes 9150 8500 0    50   ~ 0
 External CPU interrupt & clock header
 Wire Notes Line
 	1050 8900 8800 8900
@@ -2365,60 +2363,62 @@ Wire Wire Line
 	2500 8100 2650 8100
 Wire Wire Line
 	2500 8600 2650 8600
-Text GLabel 2650 8100 2    50   Input ~ 0
-CLOCK2
 Text GLabel 2650 8600 2    50   Input ~ 0
-CLOCK2_EXT
-Text GLabel 6450 8300 2    50   Input ~ 0
+CLOCK2
+Text GLabel 6500 8300 2    50   Input ~ 0
 CLOCK
-Text GLabel 1550 8100 2    50   Input ~ 0
+Text GLabel 1600 8600 2    50   Input ~ 0
 CLOCK2_USER
 Text GLabel 2650 8350 2    50   Input ~ 0
 CLOCK2_USER
-Text GLabel 1550 8600 2    50   Input ~ 0
+Text GLabel 1600 8100 2    50   Input ~ 0
 CLOCK
 Text GLabel 1700 2650 0    50   Input ~ 0
 #WAIT
-Text GLabel 10150 8900 2    50   Input ~ 0
+Text GLabel 10150 9000 2    50   Input ~ 0
 #WAIT
-NoConn ~ 5700 8300
+NoConn ~ 5750 8300
 $Comp
 L Oscillator:CXO_DIP14 X1
 U 1 1 60022D06
-P 6000 8300
-F 0 "X1" H 6344 8346 50  0000 L BNN
-F 1 "Z80/SIO Ch.A Clock" H 6344 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 6450 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5900 8300 50  0001 C CNN
-	1    6000 8300
+P 6050 8300
+F 0 "X1" H 6394 8346 50  0000 L BNN
+F 1 "Z80/SIO Ch.A Clock" H 6394 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 6500 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5950 8300 50  0001 C CNN
+	1    6050 8300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Network03 RN1
 U 1 1 61A6227C
-P 4800 4150
-F 0 "RN1" V 5125 4150 50  0000 C CNN
-F 1 "4.7KΩ" V 5034 4150 50  0000 C CNN
-F 2 "Resistor_THT:R_Array_SIP4" V 5075 4150 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4800 4150 50  0001 C CNN
-	1    4800 4150
+P 9900 8200
+F 0 "RN1" V 10225 8200 50  0000 C CNN
+F 1 "4.7KΩ" V 10134 8200 50  0000 C CNN
+F 2 "Resistor_THT:R_Array_SIP4" V 10175 8200 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 9900 8200 50  0001 C CNN
+	1    9900 8200
 	0    -1   -1   0   
 $EndComp
-Text GLabel 5000 4150 2    50   Input ~ 0
+Text GLabel 10100 8200 2    50   Input ~ 0
 #NMI
-Text GLabel 5000 4050 2    50   Input ~ 0
+Text GLabel 10100 8100 2    50   Input ~ 0
 #INT
-Text GLabel 5000 4250 2    50   Input ~ 0
+Text GLabel 10100 8300 2    50   Input ~ 0
 #WAIT
 $Comp
 L power:VCC #PWR0112
 U 1 1 612070EB
-P 4600 4250
-F 0 "#PWR0112" H 4600 4100 50  0001 C CNN
-F 1 "VCC" V 4617 4378 50  0000 L CNN
-F 2 "" H 4600 4250 50  0001 C CNN
-F 3 "" H 4600 4250 50  0001 C CNN
-	1    4600 4250
+P 9700 8300
+F 0 "#PWR0112" H 9700 8150 50  0001 C CNN
+F 1 "VCC" V 9717 8428 50  0000 L CNN
+F 2 "" H 9700 8300 50  0001 C CNN
+F 3 "" H 9700 8300 50  0001 C CNN
+	1    9700 8300
 	0    -1   -1   0   
 $EndComp
+Text Notes 1350 8000 0    50   ~ 0
+JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
+Text GLabel 2650 8100 2    50   Input ~ 0
+CLOCK2_EXT
 $EndSCHEMATC
