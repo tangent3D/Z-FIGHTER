@@ -16,7 +16,8 @@ Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Sea
 - DS1233 supervisory circuit
 - Optional jumpers to supply +5V to pin 9 on RS-232 ports (non-standard, for use at user's own risk)
 - External CPU control header offering access to /INT, /NMI, /WAIT and SIO Ch. B clock signals
-- 
+
+
 ### Accessory board specifications
 - 8x Cherry MX key switches
 - ST7920 128x64 LCD module with software-controllable backlight
