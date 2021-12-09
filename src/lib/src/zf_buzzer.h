@@ -7,7 +7,7 @@
 // Note definitions (pulseWidth, waveCycles):
 // As defined here, waveCycles values will produce a tone for ~125ms (1/8 second).
 // For sustained notes, add a multiplier to the end of a note.
-// For rests, 'sleep' functions from zf_util can be used.
+// For rests, z80_delay_ms() functions from z80.h can be used.
 // Usage:       buzzer(NOTE_C4)     // Produce a middle C tone for ~125ms
 //              buzzer(NOTE_C4*4)   // Produce a middle C tone for ~500ms
 #define NOTE_C3     1171, 16
