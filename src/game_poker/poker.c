@@ -80,18 +80,15 @@ void gameLoop()
 
         dealDraw();
 
-        // check for winning hand (preview)
+        // check for winning hand notification
         const unsigned char* messageString = "";
         unsigned int addedCredit = getHandPoints(bet, &messageString);
         if(addedCredit>0)
         {
-            // display results
-            color=0;
-            print("                ", 0, 3);
-            print((unsigned char*)messageString, 0, 3);
-            color=1;
-
-            //cueNotificationSound = 1; // TODO
+            // TODO: good sound
+            buzzer(1105/2, 15);
+            z80_delay_ms(100);
+            buzzer(1105/2, 15);
         }
 
         hold();
