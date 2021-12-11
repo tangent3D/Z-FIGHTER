@@ -15,6 +15,7 @@ unsigned char bet;
 unsigned char hand[5];
 unsigned char held[5];
 unsigned char cueWinSound;
+unsigned char cueNotificationSound;
 unsigned char exitGameLoop;
 
 #define CRED_INIT   20
@@ -85,10 +86,7 @@ void gameLoop()
         unsigned int addedCredit = getHandPoints(bet, &messageString);
         if(addedCredit>0)
         {
-            // TODO: good sound
-            buzzer(1105/2, 15);
-            z80_delay_ms(100);
-            buzzer(1105/2, 15);
+            cueNotificationSound = 1;
         }
 
         hold();
@@ -263,6 +261,16 @@ void hold()
     holdPhase = TRUE;
     print("HOLD/DRAW", 0, 0);
     lcd(screen);
+
+    if (cueNotificationSound == 1)
+    {
+        // Play a notification sound if a winning hand was produced in previous round
+        // TODO: good sound
+        buzzer(1105/2, 15);
+        z80_delay_ms(100);
+        buzzer(1105/2, 15);
+        cueNotificationSound = 0;
+    }
 
     while (key(KEY_ANY));
     unsigned char keyOld[5]={0,0,0,0,0};
