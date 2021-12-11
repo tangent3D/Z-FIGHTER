@@ -13,68 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text GLabel 1600 1450 0    50   Input ~ 0
-#RESET
-Text GLabel 1400 2150 0    50   Input ~ 0
-#INT
-Text GLabel 1600 3250 0    50   Input ~ 0
-#WR
-Text GLabel 1600 2450 0    50   Input ~ 0
-#M1
-Text GLabel 1600 3450 0    50   Input ~ 0
-#IORQ
-Text GLabel 1600 3350 0    50   Input ~ 0
-#MREQ
-Text GLabel 1600 3150 0    50   Input ~ 0
-#RD
-Text GLabel 3000 2350 2    50   Input ~ 0
-A9
-Text GLabel 3000 2250 2    50   Input ~ 0
-A8
-Text GLabel 3000 2150 2    50   Input ~ 0
-A7
-Text GLabel 3000 2050 2    50   Input ~ 0
-A6
-Text GLabel 3000 1950 2    50   Input ~ 0
-A5
-Text GLabel 3000 1850 2    50   Input ~ 0
-A4
-Text GLabel 3000 1750 2    50   Input ~ 0
-A3
-Text GLabel 3000 1650 2    50   Input ~ 0
-A2
-Text GLabel 3000 1550 2    50   Input ~ 0
-A1
-Text GLabel 3000 1450 2    50   Input ~ 0
-A0
-Text GLabel 3000 2450 2    50   Input ~ 0
-A10
-Text GLabel 3000 2550 2    50   Input ~ 0
-A11
-Text GLabel 3000 2650 2    50   Input ~ 0
-A12
-Text GLabel 3000 2750 2    50   Input ~ 0
-A13
-Text GLabel 3000 2850 2    50   Input ~ 0
-A14
-Text GLabel 3000 2950 2    50   Input ~ 0
-A15
-Text GLabel 3000 3150 2    50   Input ~ 0
-D0
-Text GLabel 3000 3250 2    50   Input ~ 0
-D1
-Text GLabel 3000 3350 2    50   Input ~ 0
-D2
-Text GLabel 3000 3450 2    50   Input ~ 0
-D3
-Text GLabel 3000 3550 2    50   Input ~ 0
-D4
-Text GLabel 3000 3650 2    50   Input ~ 0
-D5
-Text GLabel 3000 3750 2    50   Input ~ 0
-D6
-Text GLabel 3000 3850 2    50   Input ~ 0
-D7
 Text GLabel 9150 3250 0    50   Input ~ 0
 D6
 Text GLabel 9150 3150 0    50   Input ~ 0
@@ -101,57 +39,57 @@ Text GLabel 9150 1450 0    50   Input ~ 0
 RESET
 Text GLabel 9150 3350 0    50   Input ~ 0
 D7
-Text GLabel 5250 2100 2    50   Input ~ 0
+Text GLabel 5300 2100 2    50   Input ~ 0
 D7
-Text GLabel 5250 2000 2    50   Input ~ 0
+Text GLabel 5300 2000 2    50   Input ~ 0
 D6
-Text GLabel 5250 1900 2    50   Input ~ 0
+Text GLabel 5300 1900 2    50   Input ~ 0
 D5
-Text GLabel 5250 1800 2    50   Input ~ 0
+Text GLabel 5300 1800 2    50   Input ~ 0
 D4
-Text GLabel 5250 1700 2    50   Input ~ 0
+Text GLabel 5300 1700 2    50   Input ~ 0
 D3
-Text GLabel 5250 1600 2    50   Input ~ 0
+Text GLabel 5300 1600 2    50   Input ~ 0
 D2
-Text GLabel 5250 1500 2    50   Input ~ 0
+Text GLabel 5300 1500 2    50   Input ~ 0
 D1
-Text GLabel 5250 1400 2    50   Input ~ 0
+Text GLabel 5300 1400 2    50   Input ~ 0
 D0
-Text GLabel 4250 2900 0    50   Input ~ 0
+Text GLabel 4300 2900 0    50   Input ~ 0
 A15
-Text GLabel 4250 2800 0    50   Input ~ 0
+Text GLabel 4300 2800 0    50   Input ~ 0
 A14
-Text GLabel 4250 2700 0    50   Input ~ 0
+Text GLabel 4300 2700 0    50   Input ~ 0
 A13
-Text GLabel 4250 2600 0    50   Input ~ 0
+Text GLabel 4300 2600 0    50   Input ~ 0
 A12
-Text GLabel 4250 2500 0    50   Input ~ 0
+Text GLabel 4300 2500 0    50   Input ~ 0
 A11
-Text GLabel 4250 2400 0    50   Input ~ 0
+Text GLabel 4300 2400 0    50   Input ~ 0
 A10
-Text GLabel 4250 1400 0    50   Input ~ 0
+Text GLabel 4300 1400 0    50   Input ~ 0
 A0
-Text GLabel 4250 1500 0    50   Input ~ 0
+Text GLabel 4300 1500 0    50   Input ~ 0
 A1
-Text GLabel 4250 1600 0    50   Input ~ 0
+Text GLabel 4300 1600 0    50   Input ~ 0
 A2
-Text GLabel 4250 1700 0    50   Input ~ 0
+Text GLabel 4300 1700 0    50   Input ~ 0
 A3
-Text GLabel 4250 1800 0    50   Input ~ 0
+Text GLabel 4300 1800 0    50   Input ~ 0
 A4
-Text GLabel 4250 1900 0    50   Input ~ 0
+Text GLabel 4300 1900 0    50   Input ~ 0
 A5
-Text GLabel 4250 2000 0    50   Input ~ 0
+Text GLabel 4300 2000 0    50   Input ~ 0
 A6
-Text GLabel 4250 2100 0    50   Input ~ 0
+Text GLabel 4300 2100 0    50   Input ~ 0
 A7
-Text GLabel 4250 2200 0    50   Input ~ 0
+Text GLabel 4300 2200 0    50   Input ~ 0
 A8
-Text GLabel 4250 2300 0    50   Input ~ 0
+Text GLabel 4300 2300 0    50   Input ~ 0
 A9
-Text GLabel 5250 2500 2    50   Input ~ 0
+Text GLabel 5300 2500 2    50   Input ~ 0
 #RD
-Text GLabel 5250 2600 2    50   Input ~ 0
+Text GLabel 5300 2600 2    50   Input ~ 0
 #WR
 Text GLabel 11850 3350 0    50   Input ~ 0
 D7
@@ -227,7 +165,7 @@ Text GLabel 10550 1550 2    50   Input ~ 0
 PA1S
 Text GLabel 10550 1450 2    50   Input ~ 0
 PA0S
-Text GLabel 5250 2400 2    50   Input ~ 0
+Text GLabel 5300 2400 2    50   Input ~ 0
 #RAMCS
 Text GLabel 9150 1750 0    50   Input ~ 0
 #PPIS_CS
@@ -401,24 +339,13 @@ $EndComp
 $Comp
 L power:GND #PWR0113
 U 1 1 5FD1E3FC
-P 4750 3400
-F 0 "#PWR0113" H 4750 3150 50  0001 C CNN
-F 1 "GND" H 4755 3227 50  0000 C CNN
-F 2 "" H 4750 3400 50  0001 C CNN
-F 3 "" H 4750 3400 50  0001 C CNN
-	1    4750 3400
+P 4800 3400
+F 0 "#PWR0113" H 4800 3150 50  0001 C CNN
+F 1 "GND" H 4805 3227 50  0000 C CNN
+F 2 "" H 4800 3400 50  0001 C CNN
+F 3 "" H 4800 3400 50  0001 C CNN
+	1    4800 3400
 	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0119
-U 1 1 5FD1D5DB
-P 2300 4150
-F 0 "#PWR0119" H 2300 3900 50  0001 C CNN
-F 1 "GND" H 2305 3977 50  0000 C CNN
-F 2 "" H 2300 4150 50  0001 C CNN
-F 3 "" H 2300 4150 50  0001 C CNN
-	1    2300 4150
-	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C C4
@@ -612,15 +539,6 @@ Text GLabel 6600 3050 0    50   Input ~ 0
 ROMA17
 Text GLabel 6600 2950 0    50   Input ~ 0
 ROMA16
-Wire Wire Line
-	1450 2150 1450 2250
-Wire Wire Line
-	1450 2150 1400 2150
-Wire Wire Line
-	1450 2150 1600 2150
-Connection ~ 1450 2150
-Wire Wire Line
-	1600 1950 1600 2050
 $Comp
 L Device:C C6
 U 1 1 6073032B
@@ -717,40 +635,18 @@ Text GLabel 1650 7000 0    50   Input ~ 0
 $Comp
 L power:GND #PWR0184
 U 1 1 610343E9
-P 4100 3200
-F 0 "#PWR0184" H 4100 2950 50  0001 C CNN
-F 1 "GND" H 4105 3027 50  0000 C CNN
-F 2 "" H 4100 3200 50  0001 C CNN
-F 3 "" H 4100 3200 50  0001 C CNN
-	1    4100 3200
+P 4150 3200
+F 0 "#PWR0184" H 4150 2950 50  0001 C CNN
+F 1 "GND" H 4155 3027 50  0000 C CNN
+F 2 "" H 4150 3200 50  0001 C CNN
+F 3 "" H 4150 3200 50  0001 C CNN
+	1    4150 3200
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4250 3000 4100 3000
+	4300 3000 4150 3000
 Wire Wire Line
-	4250 3200 4100 3200
-$Comp
-L power:VCC #PWR0177
-U 1 1 6110346F
-P 1600 3750
-F 0 "#PWR0177" H 1600 3600 50  0001 C CNN
-F 1 "VCC" V 1617 3878 50  0000 L CNN
-F 2 "" H 1600 3750 50  0001 C CNN
-F 3 "" H 1600 3750 50  0001 C CNN
-	1    1600 3750
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:VCC #PWR0178
-U 1 1 61114C62
-P 1600 1950
-F 0 "#PWR0178" H 1600 1800 50  0001 C CNN
-F 1 "VCC" V 1617 2078 50  0000 L CNN
-F 2 "" H 1600 1950 50  0001 C CNN
-F 3 "" H 1600 1950 50  0001 C CNN
-	1    1600 1950
-	0    -1   -1   0   
-$EndComp
+	4300 3200 4150 3200
 Wire Wire Line
 	1550 6100 1650 6100
 NoConn ~ 14800 7150
@@ -762,9 +658,6 @@ NoConn ~ 14800 6250
 NoConn ~ 15300 6050
 NoConn ~ 15300 5950
 NoConn ~ 15300 5850
-NoConn ~ 1600 2750
-NoConn ~ 1600 2550
-NoConn ~ 1600 3850
 NoConn ~ 3150 5500
 NoConn ~ 3150 6000
 NoConn ~ 3150 6600
@@ -823,56 +716,21 @@ F 3 "" H 3300 7200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3300 7200 3150 7200
-Connection ~ 4100 3200
+Connection ~ 4150 3200
 Text GLabel 3150 5800 2    50   Input ~ 0
 RTSA
 Wire Wire Line
-	4100 3000 4100 3100
+	4150 3000 4150 3100
 Wire Wire Line
-	4250 3100 4100 3100
-Connection ~ 4100 3100
+	4300 3100 4150 3100
+Connection ~ 4150 3100
 Wire Wire Line
-	4100 3100 4100 3200
-$Comp
-L power:VCC #PWR0112
-U 1 1 600B4D76
-P 1600 2650
-F 0 "#PWR0112" H 1600 2500 50  0001 C CNN
-F 1 "VCC" V 1615 2777 50  0000 L CNN
-F 2 "" H 1600 2650 50  0001 C CNN
-F 3 "" H 1600 2650 50  0001 C CNN
-	1    1600 2650
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:VCC #PWR0117
-U 1 1 600D9E30
-P 900 2250
-F 0 "#PWR0117" H 900 2100 50  0001 C CNN
-F 1 "VCC" H 915 2423 50  0000 C CNN
-F 2 "" H 900 2250 50  0001 C CNN
-F 3 "" H 900 2250 50  0001 C CNN
-	1    900  2250
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1450 2250 1200 2250
+	4150 3100 4150 3200
 NoConn ~ 3150 6700
 Wire Wire Line
 	4100 9850 4600 9850
 Wire Wire Line
 	4100 10150 4600 10150
-$Comp
-L Device:R R1
-U 1 1 600B6692
-P 1050 2250
-F 0 "R1" V 1257 2250 50  0000 C CNN
-F 1 "4.7KΩ" V 1166 2250 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 980 2250 50  0001 C CNN
-F 3 "~" H 1050 2250 50  0001 C CNN
-	1    1050 2250
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Device:C C5
 U 1 1 602EAF95
@@ -905,20 +763,6 @@ F 3 "~" H 8100 10000 50  0001 C CNN
 	1    8100 10000
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C13
-U 1 1 603D9D9B
-P 8600 10000
-F 0 "C13" H 8715 10046 50  0000 L CNN
-F 1 "0.1uF" H 8715 9955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8638 9850 50  0001 C CNN
-F 3 "~" H 8600 10000 50  0001 C CNN
-	1    8600 10000
-	1    0    0    -1  
-$EndComp
-Connection ~ 8100 9850
-Wire Wire Line
-	8100 9850 8600 9850
 Connection ~ 8100 10150
 Wire Wire Line
 	8100 10150 8600 10150
@@ -927,27 +771,25 @@ Decoupling capacitors\nUSB 2.0 standard specifies max of 10uF between Vbus and G
 $Comp
 L power:GND #PWR0133
 U 1 1 6018407B
-P 7450 8600
-F 0 "#PWR0133" H 7450 8350 50  0001 C CNN
-F 1 "GND" H 7455 8427 50  0000 C CNN
-F 2 "" H 7450 8600 50  0001 C CNN
-F 3 "" H 7450 8600 50  0001 C CNN
-	1    7450 8600
+P 7600 8600
+F 0 "#PWR0133" H 7600 8350 50  0001 C CNN
+F 1 "GND" H 7605 8427 50  0000 C CNN
+F 2 "" H 7600 8600 50  0001 C CNN
+F 3 "" H 7600 8600 50  0001 C CNN
+	1    7600 8600
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7150 8300
+NoConn ~ 7300 8300
 Text GLabel 1650 6800 0    50   Input ~ 0
-CLOCK1
-Text GLabel 1600 1750 0    50   Input ~ 0
-CLOCK1
+CLOCK
 Text GLabel 3150 6400 2    50   Input ~ 0
-SIOCLOCKB
+CLOCK_Ch.B
 Text GLabel 3150 5900 2    50   Input ~ 0
 SIO_CTSA
 Text GLabel 3150 7000 2    50   Input ~ 0
 SIO_CTSB
 Text GLabel 3500 5200 2    50   Input ~ 0
-CLOCK1
+CLOCK
 Text GLabel 14850 7900 0    50   Input ~ 0
 PATA29
 Text GLabel 14850 7800 0    50   Input ~ 0
@@ -965,31 +807,31 @@ PATA29
 $Comp
 L Oscillator:CXO_DIP14 X2
 U 1 1 6016DD5D
-P 7450 8300
-F 0 "X2" H 7794 8346 50  0000 L BNN
-F 1 "SIO Ch.B Clock" H 7794 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14" H 7900 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7350 8300 50  0001 C CNN
-	1    7450 8300
+P 7600 8300
+F 0 "X2" H 7944 8346 50  0000 L BNN
+F 1 "SIO Ch.B Clock" H 7944 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 8050 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 7500 8300 50  0001 C CNN
+	1    7600 8300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7450 8000 7650 8000
+	7600 8000 7800 8000
 $Comp
 L power:VCC #PWR0134
 U 1 1 6019A931
-P 7650 8000
-F 0 "#PWR0134" H 7650 7850 50  0001 C CNN
-F 1 "VCC" V 7665 8128 50  0000 L CNN
-F 2 "" H 7650 8000 50  0001 C CNN
-F 3 "" H 7650 8000 50  0001 C CNN
-	1    7650 8000
+P 7800 8000
+F 0 "#PWR0134" H 7800 7850 50  0001 C CNN
+F 1 "VCC" V 7815 8128 50  0000 L CNN
+F 2 "" H 7800 8000 50  0001 C CNN
+F 3 "" H 7800 8000 50  0001 C CNN
+	1    7800 8000
 	0    1    1    0   
 $EndComp
-Text Notes 5550 7900 0    50   ~ 0
+Text Notes 5700 7900 0    50   ~ 0
 System/SIO clock oscillator
 $Comp
-L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
+L Z-FIGHTER_Mainboard-rescue:Z80SIO-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue IC1
 U 1 1 5FCE6A42
 P 2350 6300
 F 0 "IC1" H 2400 7770 50  0000 C CNN
@@ -1001,10 +843,6 @@ F 3 "" H 2350 6300 50  0001 L BNN
 $EndComp
 Text Notes 1750 4750 0    50   ~ 0
 Z80 SIO/0 serial I/O peripheral
-Text Notes 1900 900  0    50   ~ 0
-Z80 Microprocessor
-Text Notes 4650 950  0    50   ~ 0
-RAM
 Text Notes 7000 1000 0    50   ~ 0
 512K ROM
 Text Notes 9500 900  0    50   ~ 0
@@ -1012,42 +850,18 @@ Accessory board PPI
 Text Notes 12400 900  0    50   ~ 0
 User PPI
 $Comp
-L CPU:Z80CPU U2
-U 1 1 5FCE363C
-P 2300 2650
-F 0 "U2" H 2300 4331 50  0000 C CNN
-F 1 "Z80CPU" H 2300 4240 50  0000 C CNN
-F 2 "Package_DIP:DIP-40_W15.24mm" H 2300 3050 50  0001 C CNN
-F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2300 3050 50  0001 C CNN
-	1    2300 2650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR0115
-U 1 1 5FDD6168
-P 2950 1150
-F 0 "#PWR0115" H 2950 1000 50  0001 C CNN
-F 1 "VCC" V 2967 1278 50  0000 L CNN
-F 2 "" H 2950 1150 50  0001 C CNN
-F 3 "" H 2950 1150 50  0001 C CNN
-	1    2950 1150
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	2950 1150 2300 1150
-$Comp
 L power:VCC #PWR0114
 U 1 1 5FDD2B4C
-P 5250 1200
-F 0 "#PWR0114" H 5250 1050 50  0001 C CNN
-F 1 "VCC" V 5267 1328 50  0000 L CNN
-F 2 "" H 5250 1200 50  0001 C CNN
-F 3 "" H 5250 1200 50  0001 C CNN
-	1    5250 1200
+P 5300 1200
+F 0 "#PWR0114" H 5300 1050 50  0001 C CNN
+F 1 "VCC" V 5317 1328 50  0000 L CNN
+F 2 "" H 5300 1200 50  0001 C CNN
+F 3 "" H 5300 1200 50  0001 C CNN
+	1    5300 1200
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5250 1200 4750 1200
+	5300 1200 4800 1200
 $Comp
 L Memory_Flash:SST39SF040 U4
 U 1 1 5FCEF7AC
@@ -1090,12 +904,12 @@ $EndComp
 $Comp
 L Memory_RAM:AS6C4008-55PCN U1
 U 1 1 5FCE5A8C
-P 4750 2300
-F 0 "U1" H 4750 3581 50  0000 C CNN
-F 1 "AS6C4008-55PCN" H 4750 3490 50  0000 C CNN
-F 2 "Package_DIP:DIP-32_W15.24mm" H 4750 2400 50  0001 C CNN
-F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 4750 2400 50  0001 C CNN
-	1    4750 2300
+P 4800 2300
+F 0 "U1" H 4800 3581 50  0000 C CNN
+F 1 "AS6C4008-55PCN" H 4800 3490 50  0000 C CNN
+F 2 "Package_DIP:DIP-32_W15.24mm" H 4800 2400 50  0001 C CNN
+F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 4800 2400 50  0001 C CNN
+	1    4800 2300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1399,90 +1213,84 @@ PA1U
 Text GLabel 13250 1450 2    50   Input ~ 0
 PA0U
 $Comp
-L Jumper:Jumper_3_Open JP2
+L Jumper:Jumper_3_Open JP3
 U 1 1 601A5EFF
-P 3550 8350
-F 0 "JP2" H 3550 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 3550 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3550 8350 50  0001 C CNN
-F 3 "~" H 3550 8350 50  0001 C CNN
-	1    3550 8350
+P 3850 8350
+F 0 "JP3" H 3850 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 3850 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3850 8350 50  0001 C CNN
+F 3 "~" H 3850 8350 50  0001 C CNN
+	1    3850 8350
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Jumper:Jumper_3_Open JP3
+L Jumper:Jumper_3_Open JP4
 U 1 1 601AD0E1
-P 4500 8350
-F 0 "JP3" H 4500 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 4500 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4500 8350 50  0001 C CNN
-F 3 "~" H 4500 8350 50  0001 C CNN
-	1    4500 8350
+P 4800 8350
+F 0 "JP4" H 4800 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 4800 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4800 8350 50  0001 C CNN
+F 3 "~" H 4800 8350 50  0001 C CNN
+	1    4800 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 4650 8350 2    50   Input ~ 0
+Text GLabel 4950 8350 2    50   Input ~ 0
 SIO_CTSB
-Text GLabel 3700 8350 2    50   Input ~ 0
+Text GLabel 4000 8350 2    50   Input ~ 0
 SIO_CTSA
 $Comp
 L power:GND #PWR0143
 U 1 1 601FF01A
-P 3700 8100
-F 0 "#PWR0143" H 3700 7850 50  0001 C CNN
-F 1 "GND" V 3705 7972 50  0000 R CNN
-F 2 "" H 3700 8100 50  0001 C CNN
-F 3 "" H 3700 8100 50  0001 C CNN
-	1    3700 8100
+P 4000 8100
+F 0 "#PWR0143" H 4000 7850 50  0001 C CNN
+F 1 "GND" V 4005 7972 50  0000 R CNN
+F 2 "" H 4000 8100 50  0001 C CNN
+F 3 "" H 4000 8100 50  0001 C CNN
+	1    4000 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3700 8600 3550 8600
+	4000 8600 3850 8600
 $Comp
 L power:GND #PWR0144
 U 1 1 6020DBBB
-P 4650 8100
-F 0 "#PWR0144" H 4650 7850 50  0001 C CNN
-F 1 "GND" V 4655 7972 50  0000 R CNN
-F 2 "" H 4650 8100 50  0001 C CNN
-F 3 "" H 4650 8100 50  0001 C CNN
-	1    4650 8100
+P 4950 8100
+F 0 "#PWR0144" H 4950 7850 50  0001 C CNN
+F 1 "GND" V 4955 7972 50  0000 R CNN
+F 2 "" H 4950 8100 50  0001 C CNN
+F 3 "" H 4950 8100 50  0001 C CNN
+	1    4950 8100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4500 8600 4650 8600
+	4800 8600 4950 8600
 Wire Wire Line
-	3700 8100 3550 8100
+	4000 8100 3850 8100
 Wire Wire Line
-	4650 8100 4500 8100
-Text GLabel 3700 8600 2    50   Input ~ 0
+	4950 8100 4800 8100
+Text GLabel 4000 8600 2    50   Input ~ 0
 CTSA
-Text GLabel 4650 8600 2    50   Input ~ 0
+Text GLabel 4950 8600 2    50   Input ~ 0
 CTSB
-Text Notes 3150 8000 0    50   ~ 0
-JP2&JP3 1-1: CTS signal is honored on SIO Ch.A/B\nJP2&JP3 2-3: CTS signal is ignored on SIO Ch.A/B
-Text Notes 1200 8000 0    50   ~ 0
-JP1 1-2: SIO Ch.B uses X1 as clock\nJP1 2-3: SIO Ch.B uses X2 as clock
+Text Notes 3450 8000 0    50   ~ 0
+JP3&JP4 1-1: CTS signal is honored on SIO Ch.A/B\nJP3&JP4 2-3: CTS signal is ignored on SIO Ch.A/B
 $Comp
 L Jumper:Jumper_3_Open JP1
 U 1 1 601DCDA8
-P 1700 8350
-F 0 "JP1" H 1700 8574 50  0000 C CNN
-F 1 "Jumper_3_Open" H 1700 8483 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1700 8350 50  0001 C CNN
-F 3 "~" H 1700 8350 50  0001 C CNN
-	1    1700 8350
+P 1450 8350
+F 0 "JP1" H 1450 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 1450 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1450 8350 50  0001 C CNN
+F 3 "~" H 1450 8350 50  0001 C CNN
+	1    1450 8350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1850 8350 2    50   Input ~ 0
-SIOCLOCKB
+Text GLabel 1600 8350 2    50   Input ~ 0
+CLOCK_Ch.B
 Wire Wire Line
-	1700 8100 1850 8100
+	1450 8100 1600 8100
 Wire Wire Line
-	1700 8600 1850 8600
-Text GLabel 1850 8100 2    50   Input ~ 0
-CLOCK2
-Text GLabel 1850 8600 2    50   Input ~ 0
-CLOCK1
+	1450 8600 1600 8600
 Text GLabel 12850 5300 2    50   Input ~ 0
 RESET
 Text Notes 11900 4850 0    50   ~ 0
@@ -1638,9 +1446,7 @@ S1RTS
 Text GLabel 7700 5350 1    50   Input ~ 0
 S1TX
 NoConn ~ 7300 6850
-NoConn ~ 8000 6850
 NoConn ~ 7300 5350
-NoConn ~ 8000 5350
 $Comp
 L power:GND #PWR0163
 U 1 1 6159F101
@@ -1666,24 +1472,11 @@ $EndComp
 Wire Wire Line
 	7400 5000 7900 5000
 Wire Wire Line
-	7900 5000 7900 5350
-Wire Wire Line
 	7900 6500 7900 6850
 Wire Wire Line
 	7400 6500 7400 6850
 Wire Wire Line
 	7400 6500 7900 6500
-$Comp
-L power:GND #PWR0108
-U 1 1 600E113D
-P 8100 5350
-F 0 "#PWR0108" H 8100 5100 50  0001 C CNN
-F 1 "GND" H 8105 5177 50  0000 C CNN
-F 2 "" H 8100 5350 50  0001 C CNN
-F 3 "" H 8100 5350 50  0001 C CNN
-	1    8100 5350
-	-1   0    0    1   
-$EndComp
 $Comp
 L power:GND #PWR0126
 U 1 1 601AA84E
@@ -1694,17 +1487,6 @@ F 2 "" H 8100 6850 50  0001 C CNN
 F 3 "" H 8100 6850 50  0001 C CNN
 	1    8100 6850
 	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:DB9_Male_MountingHoles J1
-U 1 1 6022A521
-P 7700 5650
-F 0 "J1" V 8017 5606 50  0000 C CNN
-F 1 "DB9_Male_MountingHoles" V 7926 5606 50  0000 C CNN
-F 2 "Connector_Dsub:DSUB-9_Male_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm" H 7700 5650 50  0001 C CNN
-F 3 " ~" H 7700 5650 50  0001 C CNN
-	1    7700 5650
-	0    1    1    0   
 $EndComp
 Text GLabel 7800 5350 1    50   Input ~ 0
 S1CTS
@@ -1743,17 +1525,6 @@ Wire Wire Line
 	6200 6000 6250 6000
 Wire Wire Line
 	6300 5400 6300 5900
-$Comp
-L power:VCC #PWR0132
-U 1 1 60200F88
-P 4600 5700
-F 0 "#PWR0132" H 4600 5550 50  0001 C CNN
-F 1 "VCC" V 4615 5827 50  0000 L CNN
-F 2 "" H 4600 5700 50  0001 C CNN
-F 3 "" H 4600 5700 50  0001 C CNN
-	1    4600 5700
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	6300 5400 6200 5400
 Wire Wire Line
@@ -1786,7 +1557,7 @@ $EndComp
 Wire Wire Line
 	4600 5600 4300 5600
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U5
 U 1 1 60200F61
 P 4600 5100
 F 0 "U5" H 5400 5365 50  0000 C CNN
@@ -1810,31 +1581,18 @@ Text Notes 7450 6100 0    50   ~ 0
 SIO/O Ch.A
 Text Notes 7550 7600 0    50   ~ 0
 SIO/O Ch.B
-Text GLabel 7950 8300 2    50   Input ~ 0
+Text GLabel 8100 8300 2    50   Input ~ 0
 CLOCK2
 Text GLabel 6200 5100 2    50   Input ~ 0
 CTSA
-Wire Wire Line
-	7400 5350 7400 5000
 Text GLabel 7500 5350 1    50   Input ~ 0
 S1RX
-Text Notes 7000 7900 0    50   ~ 0
-Optional clock oscillator for SIO Ch.B
+Text Notes 6950 7900 0    50   ~ 0
+User-provided internal oscillator for SIO Ch.B
 Wire Wire Line
-	7750 8300 7950 8300
+	7900 8300 8100 8300
 Wire Wire Line
 	6350 8300 6500 8300
-$Comp
-L Oscillator:CXO_DIP14 X1
-U 1 1 60022D06
-P 6050 8300
-F 0 "X1" H 6394 8346 50  0000 L BNN
-F 1 "Z80/SIO Ch.A Clock" H 6394 8255 50  0001 L CNN
-F 2 "Oscillator:Oscillator_DIP-14" H 6500 7950 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5950 8300 50  0001 C CNN
-	1    6050 8300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6050 8000 6250 8000
 $Comp
@@ -1848,9 +1606,6 @@ F 3 "" H 6250 8000 50  0001 C CNN
 	1    6250 8000
 	0    1    1    0   
 $EndComp
-NoConn ~ 5750 8300
-Text GLabel 6500 8300 2    50   Input ~ 0
-CLOCK1
 $Comp
 L power:GND #PWR0129
 U 1 1 603CFFAC
@@ -1864,10 +1619,6 @@ F 3 "" H 6050 8600 50  0001 C CNN
 $EndComp
 Wire Notes Line
 	1050 4600 1050 8900
-Wire Notes Line
-	1050 8900 8600 8900
-Wire Notes Line
-	8600 4600 1050 4600
 NoConn ~ 6200 7300
 NoConn ~ 4600 7300
 Text GLabel 6200 6600 2    50   Input ~ 0
@@ -1877,11 +1628,9 @@ S2RTS
 Text GLabel 6200 6700 2    50   Input ~ 0
 S2CTS
 Wire Wire Line
-	6350 7700 6350 7000
-Wire Wire Line
 	6200 7000 6350 7000
 Wire Wire Line
-	4600 7700 6350 7700
+	4600 7650 6350 7650
 Wire Wire Line
 	6250 6900 6200 6900
 Wire Wire Line
@@ -1895,9 +1644,9 @@ Wire Wire Line
 Wire Wire Line
 	6200 7500 6300 7500
 Wire Wire Line
-	4600 7500 4600 7700
+	4600 7500 4600 7650
 $Comp
-L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
+L Z-FIGHTER_Mainboard-rescue:MAX203-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U6
 U 1 1 600F2768
 P 4600 6600
 F 0 "U6" H 5400 6865 50  0000 C CNN
@@ -1955,149 +1704,56 @@ Text GLabel 4600 6600 0    50   Input ~ 0
 RTSB
 Text GLabel 4600 6700 0    50   Input ~ 0
 TXDB
-Text Notes 13500 8400 0    50   ~ 0
-Supervisory circuit
 $Comp
 L power:GND #PWR0135
 U 1 1 603D6FB0
-P 1050 10450
-F 0 "#PWR0135" H 1050 10200 50  0001 C CNN
-F 1 "GND" H 1055 10277 50  0000 C CNN
-F 2 "" H 1050 10450 50  0001 C CNN
-F 3 "" H 1050 10450 50  0001 C CNN
-	1    1050 10450
+P 9700 10400
+F 0 "#PWR0135" H 9700 10150 50  0001 C CNN
+F 1 "GND" H 9705 10227 50  0000 C CNN
+F 2 "" H 9700 10400 50  0001 C CNN
+F 3 "" H 9700 10400 50  0001 C CNN
+	1    9700 10400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR0104
 U 1 1 60EBD7C5
-P 1550 9850
-F 0 "#PWR0104" H 1550 9700 50  0001 C CNN
-F 1 "VCC" V 1567 9978 50  0000 L CNN
-F 2 "" H 1550 9850 50  0001 C CNN
-F 3 "" H 1550 9850 50  0001 C CNN
-	1    1550 9850
+P 10200 9800
+F 0 "#PWR0104" H 10200 9650 50  0001 C CNN
+F 1 "VCC" V 10217 9928 50  0000 L CNN
+F 2 "" H 10200 9800 50  0001 C CNN
+F 3 "" H 10200 9800 50  0001 C CNN
+	1    10200 9800
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1050 10450 1150 10450
+	9700 10400 9800 10400
 $Comp
 L power:GND #PWR0156
 U 1 1 603F6F2E
-P 1250 10450
-F 0 "#PWR0156" H 1250 10200 50  0001 C CNN
-F 1 "GND" H 1255 10277 50  0000 C CNN
-F 2 "" H 1250 10450 50  0001 C CNN
-F 3 "" H 1250 10450 50  0001 C CNN
-	1    1250 10450
+P 9900 10400
+F 0 "#PWR0156" H 9900 10150 50  0001 C CNN
+F 1 "GND" H 9905 10227 50  0000 C CNN
+F 2 "" H 9900 10400 50  0001 C CNN
+F 3 "" H 9900 10400 50  0001 C CNN
+	1    9900 10400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 1550 10050
-NoConn ~ 1550 10150
+NoConn ~ 10200 10000
+NoConn ~ 10200 10100
 $Comp
-L Connector:USB_B J3
+L Z-FIGHTER_Mainboard-rescue:USB_B-Connector J3
 U 1 1 603B1E19
-P 1250 10050
-F 0 "J3" H 1307 10517 50  0000 C CNN
-F 1 "USB_B" H 1307 10426 50  0000 C CNN
-F 2 "Connector_USB:USB_B_OST_USB-B1HSxx_Horizontal" H 1400 10000 50  0001 C CNN
-F 3 " ~" H 1400 10000 50  0001 C CNN
-	1    1250 10050
+P 9900 10000
+F 0 "J3" H 9957 10467 50  0000 C CNN
+F 1 "USB_B" H 9957 10376 50  0000 C CNN
+F 2 "Connector_USB:USB_B_OST_USB-B1HSxx_Horizontal" H 10050 9950 50  0001 C CNN
+F 3 " ~" H 10050 9950 50  0001 C CNN
+	1    9900 10000
 	1    0    0    -1  
 $EndComp
-Text Notes 950  9500 0    50   ~ 0
+Text Notes 9600 9450 0    50   ~ 0
 Power connector
-$Comp
-L power:GND #PWR0169
-U 1 1 6024447C
-P 12700 8850
-F 0 "#PWR0169" H 12700 8600 50  0001 C CNN
-F 1 "GND" H 12705 8677 50  0000 C CNN
-F 2 "" H 12700 8850 50  0001 C CNN
-F 3 "" H 12700 8850 50  0001 C CNN
-	1    12700 8850
-	0    1    1    0   
-$EndComp
-$Comp
-L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
-U 1 1 60045969
-P 12700 8850
-F 0 "U10" H 13900 9237 60  0000 C CNN
-F 1 "DS1233" H 13900 9131 60  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 13900 9090 60  0001 C CNN
-F 3 "" H 12700 8850 60  0000 C CNN
-	1    12700 8850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	15100 8850 15150 8850
-Wire Wire Line
-	15100 8950 15150 8950
-$Comp
-L Device:C C2
-U 1 1 600645E7
-P 15150 9350
-F 0 "C2" H 15265 9396 50  0000 L CNN
-F 1 "100pF" H 15265 9305 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 15188 9200 50  0001 C CNN
-F 3 "~" H 15150 9350 50  0001 C CNN
-	1    15150 9350
-	-1   0    0    1   
-$EndComp
-$Comp
-L Switch:SW_Push SW1
-U 1 1 600626AE
-P 15400 9350
-F 0 "SW1" V 15354 9498 50  0000 L CNN
-F 1 "SW_Push" V 15445 9498 50  0000 L CNN
-F 2 "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 15400 9550 50  0001 C CNN
-F 3 "~" H 15400 9550 50  0001 C CNN
-	1    15400 9350
-	0    1    1    0   
-$EndComp
-Text GLabel 15550 9050 2    50   Input ~ 0
-#RESET
-Wire Wire Line
-	15150 9550 15400 9550
-$Comp
-L power:GND #PWR0171
-U 1 1 60089A8B
-P 15400 9600
-F 0 "#PWR0171" H 15400 9350 50  0001 C CNN
-F 1 "GND" H 15405 9427 50  0000 C CNN
-F 2 "" H 15400 9600 50  0001 C CNN
-F 3 "" H 15400 9600 50  0001 C CNN
-	1    15400 9600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	15400 9550 15400 9600
-Connection ~ 15400 9550
-Wire Wire Line
-	15150 9500 15150 9550
-Wire Wire Line
-	15150 8950 15150 9050
-Connection ~ 15150 9050
-Wire Wire Line
-	15150 9050 15400 9050
-Wire Wire Line
-	15150 9050 15150 9200
-Wire Wire Line
-	15400 9150 15400 9050
-Connection ~ 15400 9050
-Wire Wire Line
-	15400 9050 15550 9050
-$Comp
-L power:VCC #PWR0170
-U 1 1 6004E6A0
-P 15150 8850
-F 0 "#PWR0170" H 15150 8700 50  0001 C CNN
-F 1 "VCC" H 15167 9023 50  0000 C CNN
-F 2 "" H 15150 8850 50  0001 C CNN
-F 3 "" H 15150 8850 50  0001 C CNN
-	1    15150 8850
-	0    1    1    0   
-$EndComp
 Wire Notes Line
 	11650 4600 11650 8050
 Wire Notes Line
@@ -2111,57 +1767,51 @@ Wire Notes Line
 Wire Notes Line
 	15750 4800 15750 8050
 Wire Notes Line
-	8600 8900 8600 4600
+	8800 8900 8800 4600
 Wire Wire Line
-	10850 7550 10850 7350
+	11150 7550 11150 7350
 Wire Wire Line
-	10750 7550 10750 7250
-Connection ~ 10650 7150
-Connection ~ 10750 7250
-Connection ~ 10850 7350
+	11050 7550 11050 7250
+Connection ~ 10950 7150
+Connection ~ 11050 7250
+Connection ~ 11150 7350
 Wire Wire Line
-	10850 7000 10850 7350
+	11150 7000 11150 7350
 $Comp
 L Device:R_Network03 RN2
 U 1 1 6066FC10
-P 10750 7750
-F 0 "RN2" H 10570 7704 50  0000 R CNN
-F 1 "10KΩ" H 10570 7795 50  0000 R CNN
-F 2 "Resistor_THT:R_Array_SIP4" V 11025 7750 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 10750 7750 50  0001 C CNN
-	1    10750 7750
+P 11050 7750
+F 0 "RN2" H 10870 7704 50  0000 R CNN
+F 1 "10KΩ" H 10870 7795 50  0000 R CNN
+F 2 "Resistor_THT:R_Array_SIP4" V 11325 7750 50  0001 C CNN
+F 3 "" H 11050 7750 50  0001 C CNN
+	1    11050 7750
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR0175
 U 1 1 606741CF
-P 10850 7950
-F 0 "#PWR0175" H 10850 7700 50  0001 C CNN
-F 1 "GND" V 10855 7822 50  0000 R CNN
-F 2 "" H 10850 7950 50  0001 C CNN
-F 3 "" H 10850 7950 50  0001 C CNN
-	1    10850 7950
+P 11150 7950
+F 0 "#PWR0175" H 11150 7700 50  0001 C CNN
+F 1 "GND" V 11155 7822 50  0000 R CNN
+F 2 "" H 11150 7950 50  0001 C CNN
+F 3 "" H 11150 7950 50  0001 C CNN
+	1    11150 7950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10850 7350 10300 7350
+	10950 7550 10950 7150
 Wire Wire Line
-	10750 7250 10300 7250
+	10950 7000 10950 7150
 Wire Wire Line
-	10650 7550 10650 7150
-Wire Wire Line
-	10650 7150 10300 7150
-Wire Wire Line
-	10650 7000 10650 7150
-Wire Wire Line
-	10750 7000 10750 7250
-Text Notes 9350 6950 0    50   ~ 0
+	11050 7000 11050 7250
+Text Notes 9300 6950 0    50   ~ 0
 DIP-3 for manual ROM paging
-Text GLabel 10850 7000 1    50   Input ~ 0
+Text GLabel 11150 7000 1    50   Input ~ 0
 ROMA16
-Text GLabel 10750 7000 1    50   Input ~ 0
+Text GLabel 11050 7000 1    50   Input ~ 0
 ROMA17
-Text GLabel 10650 7000 1    50   Input ~ 0
+Text GLabel 10950 7000 1    50   Input ~ 0
 ROMA18
 Text GLabel 10350 5400 2    50   Input ~ 0
 #ROMCS
@@ -2241,7 +1891,7 @@ $EndComp
 Wire Wire Line
 	9450 5300 9250 5300
 $Comp
-L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
+L Z-FIGHTER_Mainboard-rescue:ATF22V10C-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U7
 U 1 1 60365A06
 P 9350 5100
 F 0 "U7" H 9900 5365 50  0000 C CNN
@@ -2268,45 +1918,507 @@ SPLD address decoder
 $Comp
 L Switch:SW_DIP_x03 SW2
 U 1 1 604CB70A
-P 10000 7350
-F 0 "SW2" H 10000 7083 50  0000 C CNN
-F 1 "SW_DIP_x03" H 10000 7174 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_DIP_SPSTx03_Piano_10.8x9.18mm_W7.62mm_P2.54mm" H 10000 7350 50  0001 C CNN
-F 3 "~" H 10000 7350 50  0001 C CNN
-	1    10000 7350
+P 9900 7350
+F 0 "SW2" H 9900 7083 50  0000 C CNN
+F 1 "SW_DIP_x03" H 9900 7174 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_DIP_SPSTx03_Piano_10.8x9.18mm_W7.62mm_P2.54mm" H 9900 7350 50  0001 C CNN
+F 3 "~" H 9900 7350 50  0001 C CNN
+	1    9900 7350
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR0176
 U 1 1 60755C28
-P 9700 7150
-F 0 "#PWR0176" H 9700 7000 50  0001 C CNN
-F 1 "VCC" V 9717 7278 50  0000 L CNN
-F 2 "" H 9700 7150 50  0001 C CNN
-F 3 "" H 9700 7150 50  0001 C CNN
-	1    9700 7150
+P 9600 7150
+F 0 "#PWR0176" H 9600 7000 50  0001 C CNN
+F 1 "VCC" V 9617 7278 50  0000 L CNN
+F 2 "" H 9600 7150 50  0001 C CNN
+F 3 "" H 9600 7150 50  0001 C CNN
+	1    9600 7150
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:VCC #PWR0182
 U 1 1 6075CFCD
-P 9700 7250
-F 0 "#PWR0182" H 9700 7100 50  0001 C CNN
-F 1 "VCC" V 9717 7378 50  0000 L CNN
-F 2 "" H 9700 7250 50  0001 C CNN
-F 3 "" H 9700 7250 50  0001 C CNN
-	1    9700 7250
+P 9600 7250
+F 0 "#PWR0182" H 9600 7100 50  0001 C CNN
+F 1 "VCC" V 9617 7378 50  0000 L CNN
+F 2 "" H 9600 7250 50  0001 C CNN
+F 3 "" H 9600 7250 50  0001 C CNN
+	1    9600 7250
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:VCC #PWR0183
 U 1 1 607642BF
-P 9700 7350
-F 0 "#PWR0183" H 9700 7200 50  0001 C CNN
-F 1 "VCC" V 9717 7478 50  0000 L CNN
-F 2 "" H 9700 7350 50  0001 C CNN
-F 3 "" H 9700 7350 50  0001 C CNN
-	1    9700 7350
+P 9600 7350
+F 0 "#PWR0183" H 9600 7200 50  0001 C CNN
+F 1 "VCC" V 9617 7478 50  0000 L CNN
+F 2 "" H 9600 7350 50  0001 C CNN
+F 3 "" H 9600 7350 50  0001 C CNN
+	1    9600 7350
 	0    -1   -1   0   
 $EndComp
+Text GLabel 9650 8900 0    50   Input ~ 0
+#INT
+Wire Wire Line
+	7900 5000 7900 5350
+Wire Wire Line
+	7400 5350 7400 5000
+$Comp
+L Connector:DB9_Male_MountingHoles J1
+U 1 1 6022A521
+P 7700 5650
+F 0 "J1" V 8017 5606 50  0000 C CNN
+F 1 "DB9_Male_MountingHoles" V 7926 5606 50  0000 C CNN
+F 2 "Connector_Dsub:DSUB-9_Male_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm" H 7700 5650 50  0001 C CNN
+F 3 " ~" H 7700 5650 50  0001 C CNN
+	1    7700 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 600E113D
+P 8100 5350
+F 0 "#PWR0108" H 8100 5100 50  0001 C CNN
+F 1 "GND" H 8105 5177 50  0000 C CNN
+F 2 "" H 8100 5350 50  0001 C CNN
+F 3 "" H 8100 5350 50  0001 C CNN
+	1    8100 5350
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VCC #PWR0132
+U 1 1 60200F88
+P 4600 5700
+F 0 "#PWR0132" H 4600 5550 50  0001 C CNN
+F 1 "VCC" V 4615 5827 50  0000 L CNN
+F 2 "" H 4600 5700 50  0001 C CNN
+F 3 "" H 4600 5700 50  0001 C CNN
+	1    4600 5700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8000 4950 8000 5350
+Wire Wire Line
+	8000 6450 8000 6850
+$Comp
+L power:VCC #PWR0146
+U 1 1 6128848F
+P 8400 6450
+F 0 "#PWR0146" H 8400 6300 50  0001 C CNN
+F 1 "VCC" V 8418 6577 50  0000 L CNN
+F 2 "" H 8400 6450 50  0001 C CNN
+F 3 "" H 8400 6450 50  0001 C CNN
+	1    8400 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0147
+U 1 1 61376857
+P 9450 8800
+F 0 "#PWR0147" H 9450 8550 50  0001 C CNN
+F 1 "GND" H 9455 8627 50  0000 C CNN
+F 2 "" H 9450 8800 50  0001 C CNN
+F 3 "" H 9450 8800 50  0001 C CNN
+	1    9450 8800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9450 8800 9650 8800
+Wire Wire Line
+	10150 8800 10350 8800
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J7
+U 1 1 61332756
+P 9850 8900
+F 0 "J7" H 9900 9217 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 9900 9126 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8900 50  0001 C CNN
+F 3 "~" H 9850 8900 50  0001 C CNN
+	1    9850 8900
+	1    0    0    -1  
+$EndComp
+Text GLabel 9650 9000 0    50   Input ~ 0
+CLOCK2_EXT
+Text GLabel 10150 8900 2    50   Input ~ 0
+#NMI
+Wire Wire Line
+	10200 7150 10950 7150
+Wire Wire Line
+	10200 7250 11050 7250
+Wire Wire Line
+	10200 7350 11150 7350
+$Comp
+L power:VCC #PWR0150
+U 1 1 6137DFCB
+P 10350 8800
+F 0 "#PWR0150" H 10350 8650 50  0001 C CNN
+F 1 "VCC" V 10368 8927 50  0000 L CNN
+F 2 "" H 10350 8800 50  0001 C CNN
+F 3 "" H 10350 8800 50  0001 C CNN
+	1    10350 8800
+	0    1    1    0   
+$EndComp
+$Comp
+L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
+U 1 1 60045969
+P 11350 8850
+F 0 "U10" H 12550 9237 60  0000 C CNN
+F 1 "DS1233" H 12550 9131 60  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 12550 9090 60  0001 C CNN
+F 3 "" H 11350 8850 60  0000 C CNN
+	1    11350 8850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0169
+U 1 1 6024447C
+P 11350 8850
+F 0 "#PWR0169" H 11350 8600 50  0001 C CNN
+F 1 "GND" H 11355 8677 50  0000 C CNN
+F 2 "" H 11350 8850 50  0001 C CNN
+F 3 "" H 11350 8850 50  0001 C CNN
+	1    11350 8850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13750 8850 13800 8850
+Wire Wire Line
+	13750 8950 13800 8950
+$Comp
+L Device:C C2
+U 1 1 600645E7
+P 13800 9350
+F 0 "C2" H 13915 9396 50  0000 L CNN
+F 1 "100pF" H 13915 9305 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 13838 9200 50  0001 C CNN
+F 3 "~" H 13800 9350 50  0001 C CNN
+	1    13800 9350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_Push SW1
+U 1 1 600626AE
+P 14050 9350
+F 0 "SW1" V 14004 9498 50  0000 L CNN
+F 1 "SW_Push" V 14095 9498 50  0000 L CNN
+F 2 "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 14050 9550 50  0001 C CNN
+F 3 "~" H 14050 9550 50  0001 C CNN
+	1    14050 9350
+	0    1    1    0   
+$EndComp
+Text GLabel 14200 9050 2    50   Input ~ 0
+#RESET
+Wire Wire Line
+	13800 9550 14050 9550
+$Comp
+L power:GND #PWR0171
+U 1 1 60089A8B
+P 14050 9600
+F 0 "#PWR0171" H 14050 9350 50  0001 C CNN
+F 1 "GND" H 14055 9427 50  0000 C CNN
+F 2 "" H 14050 9600 50  0001 C CNN
+F 3 "" H 14050 9600 50  0001 C CNN
+	1    14050 9600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14050 9550 14050 9600
+Connection ~ 14050 9550
+Wire Wire Line
+	13800 9500 13800 9550
+Wire Wire Line
+	13800 8950 13800 9050
+Connection ~ 13800 9050
+Wire Wire Line
+	13800 9050 14050 9050
+Wire Wire Line
+	13800 9050 13800 9200
+Wire Wire Line
+	14050 9150 14050 9050
+Connection ~ 14050 9050
+Wire Wire Line
+	14050 9050 14200 9050
+$Comp
+L power:VCC #PWR0170
+U 1 1 6004E6A0
+P 13800 8850
+F 0 "#PWR0170" H 13800 8700 50  0001 C CNN
+F 1 "VCC" H 13817 9023 50  0000 C CNN
+F 2 "" H 13800 8850 50  0001 C CNN
+F 3 "" H 13800 8850 50  0001 C CNN
+	1    13800 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Jumper:Jumper_2_Open JP6
+U 1 1 61288488
+P 8200 6450
+F 0 "JP6" H 8200 6378 50  0000 C TNN
+F 1 "Jumper_2_Open" H 8200 6594 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 6450 50  0001 C CNN
+F 3 "~" H 8200 6450 50  0001 C CNN
+	1    8200 6450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Jumper:Jumper_2_Open JP5
+U 1 1 6121EA98
+P 8200 4950
+F 0 "JP5" H 8200 4878 50  0000 C TNN
+F 1 "Jumper_2_Open" H 8200 5094 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8200 4950 50  0001 C CNN
+F 3 "~" H 8200 4950 50  0001 C CNN
+	1    8200 4950
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VCC #PWR0145
+U 1 1 6122487F
+P 8400 4950
+F 0 "#PWR0145" H 8400 4800 50  0001 C CNN
+F 1 "VCC" V 8418 5077 50  0000 L CNN
+F 2 "" H 8400 4950 50  0001 C CNN
+F 3 "" H 8400 4950 50  0001 C CNN
+	1    8400 4950
+	0    1    1    0   
+$EndComp
+Text Notes 12150 8350 0    50   ~ 0
+Supervisory circuit
+Text Notes 9150 8500 0    50   ~ 0
+External CPU interrupt & clock header
+Wire Notes Line
+	1050 8900 8800 8900
+Wire Notes Line
+	1050 4600 8800 4600
+Text Notes 7950 4750 0    50   ~ 0
+Pin 9 +5V Jumper
+Text Notes 7950 6250 0    50   ~ 0
+Pin 9 +5V Jumper
+Wire Wire Line
+	6350 7650 6350 7000
+NoConn ~ 1700 2750
+Text GLabel 1700 1750 0    50   Input ~ 0
+CLOCK
+$Comp
+L CPU:Z80CPU U2
+U 1 1 5FCE363C
+P 2400 2650
+F 0 "U2" H 2400 4331 50  0000 C CNN
+F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
+F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
+F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
+	1    2400 2650
+	1    0    0    -1  
+$EndComp
+Text GLabel 1700 2050 0    50   Input ~ 0
+#NMI
+Wire Wire Line
+	3050 1150 2400 1150
+$Comp
+L power:VCC #PWR0115
+U 1 1 5FDD6168
+P 3050 1150
+F 0 "#PWR0115" H 3050 1000 50  0001 C CNN
+F 1 "VCC" V 3067 1278 50  0000 L CNN
+F 2 "" H 3050 1150 50  0001 C CNN
+F 3 "" H 3050 1150 50  0001 C CNN
+	1    3050 1150
+	0    1    1    0   
+$EndComp
+Text Notes 2000 900  0    50   ~ 0
+Z80 Microprocessor
+NoConn ~ 1700 3850
+NoConn ~ 1700 2550
+$Comp
+L power:VCC #PWR0177
+U 1 1 6110346F
+P 1700 3750
+F 0 "#PWR0177" H 1700 3600 50  0001 C CNN
+F 1 "VCC" V 1717 3878 50  0000 L CNN
+F 2 "" H 1700 3750 50  0001 C CNN
+F 3 "" H 1700 3750 50  0001 C CNN
+	1    1700 3750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0119
+U 1 1 5FD1D5DB
+P 2400 4150
+F 0 "#PWR0119" H 2400 3900 50  0001 C CNN
+F 1 "GND" H 2405 3977 50  0000 C CNN
+F 2 "" H 2400 4150 50  0001 C CNN
+F 3 "" H 2400 4150 50  0001 C CNN
+	1    2400 4150
+	0    -1   -1   0   
+$EndComp
+Text GLabel 3100 3850 2    50   Input ~ 0
+D7
+Text GLabel 3100 3750 2    50   Input ~ 0
+D6
+Text GLabel 3100 3650 2    50   Input ~ 0
+D5
+Text GLabel 3100 3550 2    50   Input ~ 0
+D4
+Text GLabel 3100 3450 2    50   Input ~ 0
+D3
+Text GLabel 3100 3350 2    50   Input ~ 0
+D2
+Text GLabel 3100 3250 2    50   Input ~ 0
+D1
+Text GLabel 3100 3150 2    50   Input ~ 0
+D0
+Text GLabel 3100 2950 2    50   Input ~ 0
+A15
+Text GLabel 3100 2850 2    50   Input ~ 0
+A14
+Text GLabel 3100 2750 2    50   Input ~ 0
+A13
+Text GLabel 3100 2650 2    50   Input ~ 0
+A12
+Text GLabel 3100 2550 2    50   Input ~ 0
+A11
+Text GLabel 3100 2450 2    50   Input ~ 0
+A10
+Text GLabel 3100 1450 2    50   Input ~ 0
+A0
+Text GLabel 3100 1550 2    50   Input ~ 0
+A1
+Text GLabel 3100 1650 2    50   Input ~ 0
+A2
+Text GLabel 3100 1750 2    50   Input ~ 0
+A3
+Text GLabel 3100 1850 2    50   Input ~ 0
+A4
+Text GLabel 3100 1950 2    50   Input ~ 0
+A5
+Text GLabel 3100 2050 2    50   Input ~ 0
+A6
+Text GLabel 3100 2150 2    50   Input ~ 0
+A7
+Text GLabel 3100 2250 2    50   Input ~ 0
+A8
+Text GLabel 3100 2350 2    50   Input ~ 0
+A9
+Text GLabel 1700 3150 0    50   Input ~ 0
+#RD
+Text GLabel 1700 3350 0    50   Input ~ 0
+#MREQ
+Text GLabel 1700 3450 0    50   Input ~ 0
+#IORQ
+Text GLabel 1700 2450 0    50   Input ~ 0
+#M1
+Text GLabel 1700 3250 0    50   Input ~ 0
+#WR
+Text GLabel 1700 2150 0    50   Input ~ 0
+#INT
+Text GLabel 1700 1450 0    50   Input ~ 0
+#RESET
+Text Notes 4700 950  0    50   ~ 0
+SRAM
+Connection ~ 8100 9850
+Wire Wire Line
+	8100 9850 8600 9850
+$Comp
+L Device:C C13
+U 1 1 603D9D9B
+P 8600 10000
+F 0 "C13" H 8715 10046 50  0000 L CNN
+F 1 "0.1uF" H 8715 9955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8638 9850 50  0001 C CNN
+F 3 "~" H 8600 10000 50  0001 C CNN
+	1    8600 10000
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C14
+U 1 1 614E6A45
+P 9100 10000
+F 0 "C14" H 9215 10046 50  0000 L CNN
+F 1 "0.1uF" H 9215 9955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9138 9850 50  0001 C CNN
+F 3 "~" H 9100 10000 50  0001 C CNN
+	1    9100 10000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 9850 9100 9850
+Connection ~ 8600 9850
+Wire Wire Line
+	8600 10150 9100 10150
+Connection ~ 8600 10150
+$Comp
+L Jumper:Jumper_3_Open JP2
+U 1 1 6198ED49
+P 2500 8350
+F 0 "JP2" H 2500 8574 50  0000 C CNN
+F 1 "Jumper_3_Open" H 2500 8483 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2500 8350 50  0001 C CNN
+F 3 "~" H 2500 8350 50  0001 C CNN
+	1    2500 8350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2500 8100 2650 8100
+Wire Wire Line
+	2500 8600 2650 8600
+Text GLabel 2650 8600 2    50   Input ~ 0
+CLOCK2
+Text GLabel 6500 8300 2    50   Input ~ 0
+CLOCK
+Text GLabel 1600 8600 2    50   Input ~ 0
+CLOCK2_USER
+Text GLabel 2650 8350 2    50   Input ~ 0
+CLOCK2_USER
+Text GLabel 1600 8100 2    50   Input ~ 0
+CLOCK
+Text GLabel 1700 2650 0    50   Input ~ 0
+#WAIT
+Text GLabel 10150 9000 2    50   Input ~ 0
+#WAIT
+NoConn ~ 5750 8300
+$Comp
+L Oscillator:CXO_DIP14 X1
+U 1 1 60022D06
+P 6050 8300
+F 0 "X1" H 6394 8346 50  0000 L BNN
+F 1 "Z80/SIO Ch.A Clock" H 6394 8255 50  0001 L CNN
+F 2 "Oscillator:Oscillator_DIP-14_LargePads" H 6500 7950 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 5950 8300 50  0001 C CNN
+	1    6050 8300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Network03 RN1
+U 1 1 61A6227C
+P 9900 8200
+F 0 "RN1" V 10225 8200 50  0000 C CNN
+F 1 "4.7KΩ" V 10134 8200 50  0000 C CNN
+F 2 "Resistor_THT:R_Array_SIP4" V 10175 8200 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 9900 8200 50  0001 C CNN
+	1    9900 8200
+	0    -1   -1   0   
+$EndComp
+Text GLabel 10100 8200 2    50   Input ~ 0
+#NMI
+Text GLabel 10100 8100 2    50   Input ~ 0
+#INT
+Text GLabel 10100 8300 2    50   Input ~ 0
+#WAIT
+$Comp
+L power:VCC #PWR0112
+U 1 1 612070EB
+P 9700 8300
+F 0 "#PWR0112" H 9700 8150 50  0001 C CNN
+F 1 "VCC" V 9717 8428 50  0000 L CNN
+F 2 "" H 9700 8300 50  0001 C CNN
+F 3 "" H 9700 8300 50  0001 C CNN
+	1    9700 8300
+	0    -1   -1   0   
+$EndComp
+Text Notes 1350 8000 0    50   ~ 0
+JP1 1-2: SIO Ch.B uses system clock\nJP1 2-3: SIO Ch.B uses user-provided clock
+Text GLabel 2650 8100 2    50   Input ~ 0
+CLOCK2_EXT
 $EndSCHEMATC
