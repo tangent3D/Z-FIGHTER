@@ -23,6 +23,8 @@ unsigned char exitGameLoop;
 
 void main()
 {
+	bet = BET_INIT;
+
     for (;;)
     {
         init();
@@ -35,7 +37,6 @@ void init()
     exitGameLoop = FALSE;
 
     cred = CRED_INIT;
-    bet = BET_INIT;
 
     // Display credit value
     printChar('$', 11, 0);
