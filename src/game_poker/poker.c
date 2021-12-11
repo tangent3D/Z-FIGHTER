@@ -80,12 +80,25 @@ void gameLoop()
 
         dealDraw();
 
+        // check for winning hand (preview)
+        const unsigned char* messageString = "";
+        unsigned int addedCredit = getHandPoints(bet, &messageString);
+        if(addedCredit>0)
+        {
+            // display results
+            color=0;
+            print("                ", 0, 3);
+            print((unsigned char*)messageString, 0, 3);
+            color=1;
+
+            //cueNotificationSound = 1; // TODO
+        }
+
         hold();
         dealDraw();
 
         // check for winning hand
-        const unsigned char* messageString = "";
-        unsigned int addedCredit = getHandPoints(bet, &messageString);
+        addedCredit = getHandPoints(bet, &messageString);
         if(addedCredit>0)
         {
             cred += addedCredit;
