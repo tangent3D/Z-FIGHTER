@@ -24,5 +24,4 @@ _autosave-*
 *.xml
 *.csv
 
-# Compiled binaries
 *.bin
