@@ -3,6 +3,8 @@ Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Sea
 
 ![Z-FIGHTER](img/IO.jpg "Z-FIGHTER")
 
+![Poker game](src/game_poker/img/screenshot_1.png "Z-Fighter poker game")
+
 ### Specifications
 - Z80 CPU @ 7.3728MHz
 - CompactFlash interface for CP/M 2.2 operating system and file storage
