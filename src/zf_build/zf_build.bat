@@ -62,7 +62,7 @@ IF %ext% == .lst (
     SET source=
 )
 
-zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% -clib=sdcc_iy -compiler=sdcc -I%INC% %pragma% %include% %lib% %arg% %init% %source% -o %output% -m %appmake% %list%
+zcc +z80 -vn %startup% %optimization% %asmopt% %linkopt% -clib=sdcc_iy -compiler=sdcc -I%INC% %pragma% %lib% %arg% %init% %source% -o %output% -m %appmake% %list%
 
 :check_errors
 IF %errorlevel% NEQ 0 GOTO error_compile
