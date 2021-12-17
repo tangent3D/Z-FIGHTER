@@ -7,8 +7,7 @@
 #include <zf_buzzer.h>
 #include <zf_text.h>
 #include "poker.h"
-#include "points.c"
-#include "rnd.c"
+#include "points.h"
 
 unsigned int cred;
 unsigned char bet;
