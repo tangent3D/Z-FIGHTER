@@ -25,3 +25,6 @@ _autosave-*
 *.csv
 
 *.bin
+*.o
+*.map
+*.env
