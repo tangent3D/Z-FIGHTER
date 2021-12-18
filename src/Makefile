@@ -78,8 +78,8 @@ endif
 
 SRC = $(wildcard *.c)
 ASM = $(wildcard *.asm)
-OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 HDR = $(wildcard *.h)
+OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf)/lib
@@ -118,7 +118,7 @@ endif
 endif
 endif
 
-# Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
+# Open an interactive terminal for serial I/O with Z-FIGHTER.
 term:
 	@echo Opening terminal for serial I/O with Z-FIGHTER.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
