@@ -47,7 +47,7 @@ inc= 	-I$(zf)/lib $\
 		-Ca-l$(zf)/lib/zf_lib -Ca-I=$(zf)/lib $\
 		-Cl-l$(zf)/lib/zf_lib -Cl-I=$(zf)/lib
 
-init=$(zf)/lib/zf_init.asm
+init=	$(zf)/lib/zf_init.asm
 
 # Assign base name of directory as program name if no name is specified.
 ifeq ($(name),)
@@ -62,7 +62,6 @@ else
 endif
 
 # Disable startup code if specified.
-startup := $(startup)
 ifeq ($(startup),false)
 	crt := --no-crt
 	pragma=
@@ -71,7 +70,7 @@ ifeq ($(startup),false)
 	init=
 else
 	output=$(name)
-	appmake=-create-app
+	appmake=-create-app -m
 endif
 
 # Enable optimization if specified.
@@ -94,7 +93,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build program binary for Z-FIGHTER.
 bin: $(OBJ)
-	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(optimization) $(init) $(appmake) -m
+	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(init) $(optimization) $(appmake)
 
 # Build Z-FIGHTER library.
 lib: $(OBJ)
