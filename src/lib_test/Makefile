@@ -1,2 +1,2 @@
 default:
-	@make -f $(zf)/Makefile send clean
+	@make -s -f $(zf)/Makefile bin send clean
