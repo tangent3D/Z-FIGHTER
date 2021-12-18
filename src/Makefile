@@ -32,6 +32,11 @@ ifneq (,$(wildcard ./.env))
     export
 endif
 
+# Assign base name of directory as program name if no name is specified.
+ifeq ($(name),)
+	name=$(notdir $(CURDIR))
+endif
+
 # Compiler settings. Uses z88dk/SDCC.
 cc=		zcc +z80 -vn $\
 		-clib=sdcc_iy -compiler=sdcc
@@ -49,9 +54,9 @@ inc= 	-I$(zf)/lib $\
 
 init=	$(zf)/lib/zf_init.asm
 
-# Assign base name of directory as program name if no name is specified.
-ifeq ($(name),)
-	name=$(notdir $(CURDIR))
+# Use maximum optimization if specified.
+ifeq ($(opt),true)
+	optimization= -SO3 --max-allocs-per-node200000
 endif
 
 # Use compressed ROM model if specified. Otherwise, use uncompressed ROM model.
@@ -73,27 +78,21 @@ else
 	appmake=-create-app -m
 endif
 
-# Enable optimization if specified.
-ifeq ($(opt),true)
-	optimization=-opt=-SO3 --max-allocs-per-node200000
-endif
-
+# Get sources and define rules.
 SRC = $(wildcard *.c)
 ASM = $(wildcard *.asm)
 HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
-# Targets
-
 %.o: %.c $(HDR)
-	@$(cc) -c -o $@ $< -I$(zf)/lib
+	@$(cc) $(optimization) -c -o $@ $< -I$(zf)/lib
 
 %_asm.o: %.asm $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf)/lib
 
 # Build program binary for Z-FIGHTER.
 bin: $(OBJ)
-	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(init) $(optimization) $(appmake)
+	@$(cc) $(crt) $(pragma) $(inc) $(init) $(appmake) -o $(output) $^
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
@@ -101,7 +100,7 @@ libs:
 
 # Build Z-FIGHTER library. Used by Makefile in $(zf)/lib.
 library: $(OBJ)
-	@$(cc) -o zf_lib $^ -x -I$(zf)/lib $(optimization)
+	@$(cc) $^ -x -I$(zf)/lib -o zf_lib
 
 # Disassemble and display output.
 dis:
