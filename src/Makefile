@@ -1,10 +1,10 @@
-# Makefile for Z-FIGHTER projects
+# Global Makefile for Z-FIGHTER projects
 # by Tangent 2021
 
 # Targets:
 #
 # bin 		Build Z-FIGHTER binary from .C and .ASM sources.
-# lib		Build Z-FIGHTER library.
+# libs		Build Z-FIGHTER library.
 # dis 		Output diassembly of .BIN to console.
 # send 		Transfer .BIN to zf_loader.
 # term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
@@ -16,7 +16,7 @@
 # com_port 	COM port of your serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
 # startup 	Use startup code. Default='true'
 # compress 	Use compressed ROM model. Default='false'
-# optimize 	Enable optimization. Default='false'
+# opt 		Enable optimization. Default='false'
 # con 		Transfer to zf_loader and maintain serial connection for console output from Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break. Default='false'
 # dis 		Output disassembly. Skips transfer. Default='false'
 
@@ -95,9 +95,13 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 bin: $(OBJ)
 	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(init) $(optimization) $(appmake)
 
-# Build Z-FIGHTER library.
-lib: $(OBJ)
-	@$(cc) -o zf_lib $^ -x -I$(zf)/lib
+# Make Z-FIGHTER library from another Makefile.
+libs:
+	@make -s -C $(zf)/lib
+
+# Build Z-FIGHTER library. Used by Makefile in $(zf)/lib.
+library: $(OBJ)
+	@$(cc) -o zf_lib $^ -x -I$(zf)/lib $(optimization)
 
 # Disassemble and display output.
 dis:
