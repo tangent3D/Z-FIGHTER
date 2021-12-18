@@ -82,16 +82,16 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 HDR = $(wildcard *.h)
 
 %.o: %.c $(HDR)
-	$(cc) -c -o $@ $< -I$(zf)/lib
+	@$(cc) -c -o $@ $< -I$(zf)/lib
 
 %_asm.o: %.asm $(HDR)
-	$(cc) -c -o $@ $< -I$(zf)/lib
+	@$(cc) -c -o $@ $< -I$(zf)/lib
 
 bin: $(OBJ)
-	$(cc) -o $(name) $^ $(crt) $(pragma) $(inc) $(optimization) $(appmake)
+	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(optimization) $(init) $(appmake) -m
 
 lib: $(OBJ)
-	$(cc) -o zf_lib $^ -x -I$(zf)/lib
+	@$(cc) -o zf_lib $^ -x -I$(zf)/lib
 
 dis:
 	@z88dk-dis -o 0x0000 -x $(name).map $(name).bin
