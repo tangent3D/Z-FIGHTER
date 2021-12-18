@@ -2,6 +2,7 @@
 # by Tangent 2021
 
 # Targets:
+#
 # bin 		Build Z-FIGHTER binary from .C and .ASM sources.
 # lib		Build Z-FIGHTER library.
 # dis 		Output diassembly of .BIN to console.
@@ -9,6 +10,8 @@
 # term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
 
 # Environment variables:
+#
+# zf 		Absolute path to /Z-FIGHTER/src.
 # name 		Desired of output binary. Defaults to project directory base name if unspecified.
 # com_port 	COM port of your serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
 # startup 	Use startup code. Default='true'
@@ -81,32 +84,38 @@ ASM = $(wildcard *.asm)
 HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
+# Targets
+
 %.o: %.c $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf)/lib
 
 %_asm.o: %.asm $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf)/lib
 
+# Build ROM model binary for Z-FIGHTER.
 bin: $(OBJ)
 	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(optimization) $(init) $(appmake) -m
 
+# Build Z-FIGHTER library.
 lib: $(OBJ)
 	@$(cc) -o zf_lib $^ -x -I$(zf)/lib
 
+# Disassemble and display output.
 dis:
 	@z88dk-dis -o 0x0000 -x $(name).map $(name).bin
 
+# Send binary to Z-FIGHTER serial loader (zf_loader).
 send:
-# Error if COM port (com_port) is not defined.
+# Exit if COM port (com_port) is not defined.
 ifeq (,$(com_port))
 	@echo Cannot send to zf_loader. COM port (com_port) not specified.
 else
-# Send binary to zf_loader and maintain serial connection.
+# Send binary to Z-FIGHTER and maintain serial connection.
 ifeq ($(console),true)
 	@echo Sending $(name).bin to Z-FIGHTER via $(com_port). Console ouput enabled.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N < $(name).bin
 else
-# Send binary to zf_loader and close serial connection.
+# Send binary to Z-FIGHTER and close serial connection.
 	@echo Sending $(name).bin to Z-FIGHTER via $(com_port).
 ifeq ($(OS),Windows_NT)
 	@MODE $(com_port): BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
