@@ -1,2 +1,2 @@
 default:
-	@make -s -f $(zf)/Makefile bin send clean name=poker
+	@make -s -f $(zf)/Makefile bin send clean
