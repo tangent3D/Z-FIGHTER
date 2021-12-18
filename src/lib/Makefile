@@ -1,2 +1,2 @@
 default:
-	@make -f $(zf)/Makefile lib
+	@make -s -f $(zf)/Makefile lib
