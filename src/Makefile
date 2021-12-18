@@ -32,7 +32,7 @@ ifneq (,$(wildcard ./.env))
     export
 endif
 
-# Defaults
+# Compiler settings. Uses z88dk/SDCC.
 cc=		zcc +z80 -vn $\
 		-clib=sdcc_iy -compiler=sdcc
 
@@ -92,7 +92,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 %_asm.o: %.asm $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf)/lib
 
-# Build ROM model binary for Z-FIGHTER.
+# Build program binary for Z-FIGHTER.
 bin: $(OBJ)
 	@$(cc) -o $(output) $^ $(crt) $(pragma) $(inc) $(optimization) $(init) $(appmake) -m
 
