@@ -5,7 +5,7 @@
 #
 # bin 		Build Z-FIGHTER binary from .C and .ASM sources.
 # libs		Build Z-FIGHTER library.
-# dis 		Output diassembly of .BIN to console.
+# dis 		Output disassembly of .BIN to console.
 # send 		Transfer .BIN to zf_loader.
 # term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
 
