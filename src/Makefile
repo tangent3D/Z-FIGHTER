@@ -1,4 +1,4 @@
-# Global Makefile for Z-FIGHTER projects
+# Makefile for Z-FIGHTER projects
 # by Tangent 2021
 
 # Targets:
@@ -7,20 +7,18 @@
 # libs		Build Z-FIGHTER library.
 # dis 		Output disassembly of .BIN to console.
 # send 		Transfer .BIN to zf_loader.
-# term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
+# term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY).
 # clean 	Recursively clean intermediate files.
 # cleaner 	Recursively clean binaries, libraries, intermediate files.
 
 # Environment variables:
 #
-# zf 		Absolute path to /Z-FIGHTER/src.
-# name 		Desired of output binary. Defaults to project directory base name if unspecified.
+# name 		Desired name of output binary. Defaults to current directory base name if unspecified.
 # com_port 	COM port of your serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
 # startup 	Use startup code. Default='true'
 # compress 	Use compressed ROM model. Default='false'
 # opt 		Enable optimization. Default='false'
-# con 		Transfer to zf_loader and maintain serial connection for console output from Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break. Default='false'
-# dis 		Output disassembly. Skips transfer. Default='false'
+# con 		After transfer, maintain serial connection with Z-FIGHTER to receive console output. Uses plink (PuTTY). Default='false'
 
 # Import local environment variables from .env file.
 ifneq (,$(wildcard $(zf_dir)/.env))
