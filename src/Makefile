@@ -33,9 +33,7 @@ ifneq (,$(wildcard ./.env))
 endif
 
 # Assign base name of directory as program name if no name is specified.
-ifeq ($(name),)
-	name=$(notdir $(CURDIR))
-endif
+name?=$(notdir $(CURDIR))
 
 # Compiler settings. Uses z88dk/SDCC.
 cc=		zcc +z80 -vn $\
@@ -149,8 +147,4 @@ term:
 
 # Clean up intermediate files.
 clean:
-ifeq ($(OS),Windows_NT)
-	@DEL *.o *.map *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *_disassembled.txt >nul 2>&1
-else
-	@$(RM) *.o *.map *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *_disassembled.txt
-endif
+	@$(RM) *.o *.map *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.err
