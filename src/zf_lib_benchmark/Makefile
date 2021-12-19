@@ -1,5 +1,4 @@
-name=zf_loader
-startup=false
+name=lib_benchmark
 zf_dir=..
 export
 

@@ -1,5 +1,4 @@
-name=zf_loader
-startup=false
+name=poker
 zf_dir=..
 export
 

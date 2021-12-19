@@ -21,15 +21,15 @@
 # dis 		Output disassembly. Skips transfer. Default='false'
 
 # Import local environment variables from .env file.
-ifneq (,$(wildcard $(zf)/.env))
-	include $(zf)/.env
+ifneq (,$(wildcard $(zf_dir)/.env))
+	include $(zf_dir)/.env
 	export
 endif
 
 # Import project environment variables from .env file if existent.
 ifneq (,$(wildcard ./.env))
-    include .env
-    export
+	include .env
+	export
 endif
 
 # Assign base name of directory as program name if no name is specified.
@@ -47,12 +47,12 @@ pragma=	-pragma-define:CRT_ORG_CODE=0 $\
 		-pragma-define:CRT_ENABLE_STDIO=0 $\
 		-pragma-define:CLIB_STDIO_HEAP_SIZE=0 $\
 
-inc= 	-I$(zf)/lib $\
-		-l$(zf)/lib/zf_lib $\
-		-Ca-l$(zf)/lib/zf_lib -Ca-I=$(zf)/lib $\
-		-Cl-l$(zf)/lib/zf_lib -Cl-I=$(zf)/lib
+inc= 	-I$(zf_dir)/zf_lib $\
+		-l$(zf_dir)/zf_lib/zf_lib $\
+		-Ca-l$(zf_dir)/zf_lib/zf_lib -Ca-I=$(zf_dir)/zf_lib $\
+		-Cl-l$(zf_dir)/zf_lib/zf_lib -Cl-I=$(zf_dir)/zf_lib
 
-init=	$(zf)/lib/zf_init.asm
+init=	$(zf_dir)/zf_lib/zf_init.asm
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
@@ -78,6 +78,19 @@ else
 	appmake=-create-app -m
 endif
 
+SUBDIRS := $(wildcard zf_*/.)
+.PHONY: all $(SUBDIRS)
+.PHONY: libs
+.PHONY: dis
+.PHONY: send
+.PHONY: term
+.PHONY: clean
+
+# Call Makefiles in all /zf_* directories.
+all: libs $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -s -C $@
+
 # Get sources and define rules.
 SRC = $(wildcard *.c)
 ASM = $(wildcard *.asm)
@@ -85,10 +98,10 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
-	@$(cc) $(optimization) -c -o $@ $< -I$(zf)/lib
+	@$(cc) $(optimization) -c -o $@ $< -I$(zf_dir)/zf_lib
 
 %_asm.o: %.asm $(HDR)
-	@$(cc) -c -o $@ $< -I$(zf)/lib
+	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib
 
 # Build program binary for Z-FIGHTER.
 bin: $(OBJ)
@@ -96,11 +109,11 @@ bin: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	@make -s -C $(zf)/lib
+	make -s -C $(zf_dir)zf_lib/.
 
-# Build Z-FIGHTER library. Used by Makefile in $(zf)/lib.
+# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
 library: $(OBJ)
-	@$(cc) $^ -x -I$(zf)/lib -o zf_lib
+	@$(cc) $^ -x -I$(zf_dir)/zf_lib -o zf_lib
 
 # Disassemble and display output.
 dis:
