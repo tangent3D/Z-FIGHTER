@@ -1,6 +1,10 @@
 // unit tests for z-fighter library
 // by xrrawva 2021
 
+#include <zf_gfx.h>
+#include <zf_lcd.h>
+#include "test_gfx.h"
+
 void testGfxPositions()
 {
     const unsigned char spBoxW[]={16,16,255,240,255,248,255,252,255,254,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,127,255,63,255,31,255,15,255};

@@ -1,0 +1,6 @@
+zf_lib.lib
+*.bin
+*.o
+*.map
+*.env
+*.err

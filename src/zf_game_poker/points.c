@@ -2,6 +2,9 @@
 // by xrrawva 2021
 
 #include "points.h"
+#include "poker.h"
+#define FALSE 0
+#define TRUE 1
 
 unsigned char isFlush();
 void getCardCountByValue(unsigned char* cardCountByValue);

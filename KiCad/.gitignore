@@ -23,5 +23,3 @@ _autosave-*
 # Exported BOM files
 *.xml
 *.csv
-
-*.bin
