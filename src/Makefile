@@ -8,6 +8,8 @@
 # dis 		Output disassembly of .BIN to console.
 # send 		Transfer .BIN to zf_loader.
 # term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY). Press Ctrl+C to break.
+# clean 	Recursively clean intermediate files.
+# cleaner 	Recursively clean binaries, libraries, intermediate files.
 
 # Environment variables:
 #
@@ -96,7 +98,7 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
-	@$(cc) $(optimization) -c -o $@ $< -I$(zf_dir)/zf_lib
+	@$(cc) $(optimization) -c -I$(zf_dir)/zf_lib -o $@ $<
 
 %_asm.o: %.asm $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib
@@ -145,6 +147,18 @@ term:
 	@echo Opening terminal for serial I/O with Z-FIGHTER.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 
-# Clean up intermediate files.
+# Recursively clean intermediate files.
 clean:
-	@$(RM) *.o *.map *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.err
+ifeq ($(OS),Windows_NT)
+	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.o *.map *.sym *.err >nul 2>&1
+else
+	find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+endif
+
+# Recursively clean everything.
+cleaner:
+ifeq ($(OS),Windows_NT)
+	@DEL /S /Q zf_lib.lib *.bin *.o *.map *.sym *.err >nul 2>&1
+else
+	find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+endif
