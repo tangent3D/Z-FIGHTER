@@ -28,3 +28,4 @@ _autosave-*
 *.o
 *.map
 *.env
+*.err

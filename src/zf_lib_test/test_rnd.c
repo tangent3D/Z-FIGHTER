@@ -1,6 +1,13 @@
 // unit tests for z-fighter library
 // by xrrawva 2021
 
+#include <stdlib.h>
+#include <zf_gfx.h>
+#include <zf_lcd.h>
+#include "test.h"
+#include "test_rnd.h"
+#include "rnd.h"
+
 void testRndReturnValueCount(unsigned char useRndImprove)
 {
     color = 1;

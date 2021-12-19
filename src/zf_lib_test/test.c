@@ -1,21 +1,14 @@
 // unit tests for z-fighter library
 // by xrrawva 2021
 
+#include <stdlib.h>
 #include <zf_gfx.h>
 #include <zf_keypad.h>
 #include <zf_lcd.h>
 #include <zf_text.h>
-#include "rnd.c"
-#define FALSE 0
-#define TRUE 1
-
-void showInfoPage(const unsigned char* testName);
-void showProgress(unsigned char percent);
-void showResult(unsigned char isOk);
-void pressAnyKey();
-
-#include "test_rnd.c"
-#include "test_gfx.c"
+#include "test.h"
+#include "test_rnd.h"
+#include "test_gfx.h"
 
 void main()
 {
