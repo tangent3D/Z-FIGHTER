@@ -111,7 +111,7 @@ libs:
 
 # Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
 library: $(OBJ)
-	@$(cc) $^ -x -I$(zf_dir)/zf_lib -o zf_lib
+	@$(cc) -x -I$(zf_dir)/zf_lib -o zf_lib $^
 
 # Disassemble and display output.
 dis:
