@@ -98,12 +98,10 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
-	mkdir -p ./obj
-	@$(cc) $(optimization) -c -o ./obj/$@ $< -I$(zf_dir)/zf_lib
+	@$(cc) $(optimization) -c -o $@ $< -I$(zf_dir)/zf_lib
 
 %_asm.o: %.asm $(HDR)
-	mkdir -p ./obj
-	@$(cc) -c -o ./obj/$@ $< -I$(zf_dir)zf_lib
+	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib
 
 # Build program binary for Z-FIGHTER.
 bin: $(OBJ)
