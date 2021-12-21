@@ -1,11 +1,11 @@
 #include <stdlib.h>
-#include <z80.h>
 #include <string.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
 #include <zf_keypad.h>
 #include <zf_buzzer.h>
 #include <zf_text.h>
+#include <zf_sleep.h>
 #include "poker.h"
 #include "points.h"
 #include "rnd.h"
@@ -267,7 +267,7 @@ void hold()
         // Play a notification sound if a winning hand was produced in previous round
         // TODO: good sound
         buzzer(1105/2, 15);
-        z80_delay_ms(100);
+        sleep(100);
         buzzer(1105/2, 15);
         cueNotificationSound = 0;
     }
