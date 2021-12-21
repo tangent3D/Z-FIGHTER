@@ -107,7 +107,7 @@ bin: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	make -s -C $(zf_dir)zf_lib/.
+	make -s -C $(zf_dir)/zf_lib/.
 
 # Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
 library: $(OBJ)
