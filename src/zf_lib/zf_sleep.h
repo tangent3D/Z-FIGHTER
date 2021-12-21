@@ -6,6 +6,6 @@
 
 // Sleep an approximate number of milliseconds.
 // Assumes a system clock frequency of 7.3728 MHz.
-void sleep(int ms) __z88dk_fastcall;
+void sleep(unsigned int ms) __z88dk_fastcall;
 
 #endif
