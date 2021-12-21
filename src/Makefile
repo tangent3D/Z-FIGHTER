@@ -18,11 +18,10 @@
 # startup 	Use startup code. Default='true'
 # compress 	Use compressed ROM model. Default='false'
 # opt 		Enable optimization. Default='false'
-# con 		After transfer, maintain serial connection with Z-FIGHTER to receive console output. Uses plink (PuTTY). Default='false'
 
 # Import local environment variables from .env file.
-ifneq (,$(wildcard $(zf_dir)/.env))
-	include $(zf_dir)/.env
+ifneq (,$(wildcard $(zf_dir).env))
+	include $(zf_dir).env
 	export
 endif
 
@@ -45,12 +44,12 @@ pragma=	-pragma-define:CRT_ORG_CODE=0 $\
 		-pragma-define:CRT_ENABLE_STDIO=0 $\
 		-pragma-define:CLIB_STDIO_HEAP_SIZE=0 $\
 
-inc= 	-I$(zf_dir)/zf_lib $\
-		-l$(zf_dir)/zf_lib/zf_lib $\
-		-Ca-l$(zf_dir)/zf_lib/zf_lib -Ca-I=$(zf_dir)/zf_lib $\
-		-Cl-l$(zf_dir)/zf_lib/zf_lib -Cl-I=$(zf_dir)/zf_lib
+inc= 	-I$(zf_dir)zf_lib $\
+		-l$(zf_dir)zf_lib/zf_lib $\
+		-Ca-l$(zf_dir)zf_lib/zf_lib -Ca-I=$(zf_dir)zf_lib $\
+		-Cl-l$(zf_dir)zf_lib/zf_lib -Cl-I=$(zf_dir)zf_lib
 
-init=	$(zf_dir)/zf_lib/zf_init.asm
+init=	$(zf_dir)zf_lib/zf_init.asm
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
@@ -96,7 +95,7 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
-	@$(cc) $(optimization) -c -I$(zf_dir)/zf_lib -o $@ $<
+	@$(cc) $(optimization) -c -I$(zf_dir)zf_lib -o $@ $<
 
 %_asm.o: %.asm $(HDR)
 	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib
@@ -107,11 +106,11 @@ bin: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	make -s -C $(zf_dir)/zf_lib/.
+	make -s -C $(zf_dir)zf_lib/.
 
-# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)/zf_lib.
+# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
 library: $(OBJ)
-	@$(cc) -x -I$(zf_dir)/zf_lib -o zf_lib $^
+	@$(cc) -x -I$(zf_dir)zf_lib -o zf_lib $^
 
 # Disassemble and display output.
 dis:
@@ -123,12 +122,6 @@ send:
 ifeq (,$(com_port))
 	@echo Cannot send to zf_loader. COM port (com_port) not specified.
 else
-# Send binary to Z-FIGHTER and maintain serial connection.
-ifeq ($(console),true)
-	@echo Sending $(name).bin to Z-FIGHTER via $(com_port). Console ouput enabled.
-	@plink -serial $(com_port) -sercfg 115200,8,n,1,N < $(name).bin
-else
-# Send binary to Z-FIGHTER and close serial connection.
 	@echo Sending $(name).bin to Z-FIGHTER via $(com_port).
 ifeq ($(OS),Windows_NT)
 	@MODE $(com_port): BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
@@ -136,7 +129,6 @@ ifeq ($(OS),Windows_NT)
 else
 	@stty -F $(com_port) 115200
 	@cat $(name).bin > $(com_port)
-endif
 endif
 endif
 
@@ -150,7 +142,7 @@ clean:
 ifeq ($(OS),Windows_NT)
 	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.o *.map *.sym *.err >nul 2>&1
 else
-	find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
 endif
 
 # Recursively clean everything.
@@ -158,5 +150,5 @@ cleaner:
 ifeq ($(OS),Windows_NT)
 	@DEL /S /Q zf_lib.lib *.bin *.o *.map *.sym *.err >nul 2>&1
 else
-	find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
 endif
