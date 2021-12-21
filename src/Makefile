@@ -109,7 +109,7 @@ bin: $(OBJ)
 libs:
 	make -s -C $(zf_dir)/zf_lib/.
 
-# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
+# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)/zf_lib.
 library: $(OBJ)
 	@$(cc) -x -I$(zf_dir)/zf_lib -o zf_lib $^
 
