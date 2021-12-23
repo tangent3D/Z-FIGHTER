@@ -29,12 +29,6 @@ ifneq (,$(wildcard $(zf_dir).env))
 	export
 endif
 
-# Import project environment variables from .env file if existent.
-ifneq (,$(wildcard ./.env))
-	include .env
-	export
-endif
-
 # Assign base name of directory as program name if no name is specified.
 name?=$(notdir $(CURDIR))
 
