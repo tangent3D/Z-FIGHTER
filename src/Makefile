@@ -19,6 +19,10 @@
 # compress 	Use compressed ROM model. Default='false'
 # opt 		Enable optimization. Default='false'
 
+# Get path to this Makefile.
+makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+zf_dir := $(dir $(makefile_path))
+
 # Import local environment variables from .env file.
 ifneq (,$(wildcard $(zf_dir).env))
 	include $(zf_dir).env
@@ -86,7 +90,7 @@ SUBDIRS := $(wildcard zf_*/.)
 # Call Makefiles in all /zf_* directories.
 all: libs $(SUBDIRS)
 $(SUBDIRS):
-	$(MAKE) -s -C $@
+	@$(MAKE) -s -C $@
 
 # Get sources and define rules.
 SRC = $(wildcard *.c)
@@ -106,11 +110,11 @@ bin: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	make -s -C $(zf_dir)zf_lib/.
+	@make -s -C $(zf_dir)zf_lib/.
 
 # Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
 library: $(OBJ)
-	@$(cc) -x -I$(zf_dir)zf_lib -o zf_lib $^
+	@$(cc) -x  -I$(zf_dir)zf_lib -o zf_lib $^
 
 # Disassemble and display output.
 dis:
