@@ -4,3 +4,6 @@ zf_lib.lib
 *.map
 *.env
 *.err
+*.lis
+*.def
+.ticks_history.txt
