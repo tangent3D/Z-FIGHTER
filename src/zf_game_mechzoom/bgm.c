@@ -14,17 +14,33 @@
 #define PATTERN_N 4          // setting
 #define PATTERN_SONG_END 255 // enum
 
-#define STYLE_PAUSE    0 // enum
-#define STYLE_SHORT    1 // enum
-#define STYLE_LONG     2 // enum
-#define STYLE_FADE     3 // enum
-#define STYLE_UP       4 // enum
-#define STYLE_DOWN     5 // enum
-#define STYLE_RND      6 // enum
+#define STYLE_PAUSE 0 // enum
+#define STYLE_SHORT 1 // enum
+#define STYLE_LONG  2 // enum
+#define STYLE_FADE  3 // enum
+#define STYLE_UP    4 // enum
+#define STYLE_DOWN  5 // enum
+#define STYLE_RND   6 // enum
 
-#define NOTE_XX 0,0               // enum
-#define NOTE_PARAM_0_MAX (1171*8) // setting
-#define NOTE_PARAM_1_MAX 16000    // setting
+#define NOTE_XX 0,0 // enum
+
+unsigned char buzzerParamsBad(unsigned int noteParam0, unsigned int noteParam1)
+{
+    // hardware buzzer wt-1205 "rated frequency hz 2400"
+    // c6:  3520   hz =  143 noteParam0
+    // (ignored)
+
+    // "the generally accepted standard hearing range for humans is 20 to 20 000 hz"
+    // c0:    27.5 hz = 9328 noteParam0
+    // c9: 14080   hz =   18 noteParam0
+    if(noteParam0<  18)return TRUE;
+    if(noteParam0>9328)return TRUE;
+
+    if(noteParam1<    1)return TRUE;
+    if(noteParam1>32000)return TRUE;
+
+    return FALSE;
+}
 
 void bgmPlaySubsound(unsigned char style, unsigned char step, unsigned int noteParam0, unsigned int noteParam1)
 {
@@ -54,7 +70,7 @@ void bgmPlaySubsound(unsigned char style, unsigned char step, unsigned int noteP
     {
         noteParam1>>=SUBSOUND_LENGTH+step;
         fillerPause=((unsigned char)250-((unsigned char)250>>step))>>SUBSOUND_LENGTH;
-        if(noteParam1<1||noteParam1>NOTE_PARAM_1_MAX)
+        if(buzzerParamsBad(noteParam0,noteParam1))
         {
             noteParam1=0;
             fillerPause=250>>SUBSOUND_LENGTH;
@@ -64,8 +80,7 @@ void bgmPlaySubsound(unsigned char style, unsigned char step, unsigned int noteP
     {
         noteParam0>>=step;
         noteParam1<<=step;
-        if(noteParam0<1||noteParam0>NOTE_PARAM_0_MAX||
-           noteParam1<1||noteParam1>NOTE_PARAM_1_MAX)
+        if(buzzerParamsBad(noteParam0,noteParam1))
         {
             noteParam1=0;
             fillerPause=250>>SUBSOUND_LENGTH;
@@ -75,8 +90,7 @@ void bgmPlaySubsound(unsigned char style, unsigned char step, unsigned int noteP
     {
         noteParam0<<=step;
         noteParam1>>=step;
-        if(noteParam0<1||noteParam0>NOTE_PARAM_0_MAX||
-           noteParam1<1||noteParam1>NOTE_PARAM_1_MAX)
+        if(buzzerParamsBad(noteParam0,noteParam1))
         {
             noteParam1=0;
             fillerPause=250>>SUBSOUND_LENGTH;
@@ -94,15 +108,14 @@ void bgmPlaySubsound(unsigned char style, unsigned char step, unsigned int noteP
         // param1 fade
         noteParam1>>=SUBSOUND_LENGTH+step;
         fillerPause=((unsigned char)250-((unsigned char)250>>step))>>SUBSOUND_LENGTH;
-        if(noteParam0<1||noteParam0>NOTE_PARAM_0_MAX||
-           noteParam1<1||noteParam1>NOTE_PARAM_1_MAX)
+        if(buzzerParamsBad(noteParam0,noteParam1))
         {
             noteParam1=0;
             fillerPause=250>>SUBSOUND_LENGTH;
         }
     }
 
-    if(noteParam0<1||noteParam1<1)buzzer(noteParam0,noteParam1);
+    if(noteParam0>0&&noteParam1>0)buzzer(noteParam0,noteParam1);
     if(fillerPause>0)sleep(fillerPause);
 }
 
