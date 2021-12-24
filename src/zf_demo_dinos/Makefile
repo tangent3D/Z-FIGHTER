@@ -2,4 +2,7 @@ name=demo_dinos
 export
 
 default:
-	@make -f ../Makefile bin
+	@make -s -f ../Makefile bin
+
+send:
+	@make -s -f ../Makefile send
