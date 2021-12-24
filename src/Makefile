@@ -47,7 +47,9 @@ inc= 	-I$(zf_dir)zf_lib $\
 		-Ca-l$(zf_dir)zf_lib/zf_lib -Ca-I=$(zf_dir)zf_lib $\
 		-Cl-l$(zf_dir)zf_lib/zf_lib -Cl-I=$(zf_dir)zf_lib
 
-init=	$(zf_dir)zf_lib/zf_init.asm
+init=$(zf_dir)zf_lib/zf_init.asm
+appmake=-create-app
+map=-gen-map-file
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
@@ -58,19 +60,19 @@ endif
 ifeq ($(compress),true)
 	crt := -startup=2
 else
-	crt := -startup=1
+	crt= -startup=1
 endif
 
 # Disable startup code if specified.
 ifeq ($(startup),false)
 	crt := --no-crt
 	pragma=
-	output=$(name).bin
-	appmake=
 	init=
+	appmake=
+	map=
+	ext=.bin
 else
-	output=$(name)
-	appmake=-create-app -m
+
 endif
 
 SUBDIRS := $(wildcard zf_*/.)
@@ -93,26 +95,22 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
-	@$(cc) $(optimization) -c -I$(zf_dir)zf_lib -o $@ $<
+	@$(cc) $(optimization) -c -I$(zf_dir)zf_lib --list --c-code-in-asm -o $@ $<
 
 %_asm.o: %.asm $(HDR)
-	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib
+	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib --list
 
-# Build program binary for Z-FIGHTER.
+# Build a binary from source files.
 bin: $(OBJ)
-	@$(cc) $(crt) $(pragma) $(inc) $(init) $(appmake) -o $(output) $^
+	@$(cc) $(crt) $(pragma) $(inc) $(init) $(appmake) $(map) -o $(name)$(ext) $^
+
+# Build a library from source files.
+lib: $(OBJ)
+	@$(cc) -x -o $(name) $^
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
 	@make -s -C $(zf_dir)zf_lib/.
-
-# Build Z-FIGHTER library. Used by Makefile in $(zf_dir)zf_lib.
-library: $(OBJ)
-	@$(cc) -x  -I$(zf_dir)zf_lib -o zf_lib $^
-
-# Disassemble and display output.
-dis:
-	@z88dk-dis -o 0x0000 -x $(name).map $(name).bin
 
 # Send binary to Z-FIGHTER serial loader (zf_loader).
 send:
@@ -135,18 +133,18 @@ term:
 	@echo Opening terminal for serial I/O with Z-FIGHTER.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 
-# Recursively clean intermediate files.
+# Recursively clean intermediate binaries, assembly listings and symbol tables.
 clean:
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.o *.map *.sym *.err >nul 2>&1
+	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.sym *.err .ticks_history.txt >nul 2>&1
 else
-	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.lis' -o -name '*.map' -o -name '*.sym' -o -name '*.err' -o -name '.ticks_history.txt'\) -delete
 endif
 
 # Recursively clean everything.
 cleaner:
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q zf_lib.lib *.bin *.o *.map *.sym *.err >nul 2>&1
+	@DEL /S /Q zf_lib.lib *.bin *.o *.lis *.map *.sym *.err .ticks_history.txt >nul 2>&1
 else
-	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.map' -o -name '*.sym' -o -name '*.err' \) -delete
+	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.lis' -o -name '*.map' -o -name '*.sym' -o -name '*.err' -o -name '.ticks_history.txt' \) -delete
 endif
