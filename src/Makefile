@@ -5,11 +5,10 @@
 #
 # bin 		Build Z-FIGHTER binary from .C and .ASM sources.
 # libs		Build Z-FIGHTER library.
-# dis 		Output disassembly of .BIN to console.
 # send 		Transfer .BIN to zf_loader.
 # term 		Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY).
-# clean 	Recursively clean intermediate files.
-# cleaner 	Recursively clean binaries, libraries, intermediate files.
+# clean 	Recursively clean intermediate binaries, assembly listings and symbol tables.
+# cleaner 	Recursively clean everything.
 
 # Environment variables:
 #
@@ -30,7 +29,7 @@ ifneq (,$(wildcard $(zf_dir).env))
 endif
 
 # Assign base name of directory as program name if no name is specified.
-name?=$(notdir $(CURDIR))
+name?:=$(notdir $(CURDIR))
 
 # Compiler settings. Uses z88dk/SDCC.
 cc=		zcc +z80 -vn $\
@@ -47,9 +46,9 @@ inc= 	-I$(zf_dir)zf_lib $\
 		-Ca-l$(zf_dir)zf_lib/zf_lib -Ca-I=$(zf_dir)zf_lib $\
 		-Cl-l$(zf_dir)zf_lib/zf_lib -Cl-I=$(zf_dir)zf_lib
 
-init=$(zf_dir)zf_lib/zf_init.asm
-appmake=-create-app
-map=-gen-map-file
+init= $(zf_dir)zf_lib/zf_init.asm
+appmake= -create-app
+map= -gen-map-file
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
@@ -58,30 +57,29 @@ endif
 
 # Use compressed ROM model if specified. Otherwise, use uncompressed ROM model.
 ifeq ($(compress),true)
-	crt := -startup=2
+	crt= -startup=2
 else
 	crt= -startup=1
 endif
 
 # Disable startup code if specified.
 ifeq ($(startup),false)
+	name := $(name).bin
 	crt := --no-crt
 	pragma=
 	init=
 	appmake=
 	map=
-	ext=.bin
 else
-
 endif
 
 SUBDIRS := $(wildcard zf_*/.)
 .PHONY: all $(SUBDIRS)
 .PHONY: libs
-.PHONY: dis
 .PHONY: send
 .PHONY: term
 .PHONY: clean
+.PHONY: cleaner
 
 # Call Makefiles in all /zf_* directories.
 all: libs $(SUBDIRS)
@@ -102,7 +100,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build a binary from source files.
 bin: $(OBJ)
-	@$(cc) $(crt) $(pragma) $(inc) $(init) $(appmake) $(map) -o $(name)$(ext) $^
+	@$(cc) $(crt) $(pragma) $(inc) $(init) $(appmake) $(map) -o $(name) $^
 
 # Build a library from source files.
 lib: $(OBJ)
@@ -136,15 +134,15 @@ term:
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
 clean:
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.sym *.err .ticks_history.txt >nul 2>&1
+	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err .ticks_history.txt >nul 2>&1
 else
-	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.lis' -o -name '*.map' -o -name '*.sym' -o -name '*.err' -o -name '.ticks_history.txt'\) -delete
+	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.lis' -o -name '*.map' o -name '*.def' -o -name '*.err' -o -name '.ticks_history.txt'\) -delete
 endif
 
 # Recursively clean everything.
 cleaner:
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q zf_lib.lib *.bin *.o *.lis *.map *.sym *.err .ticks_history.txt >nul 2>&1
+	@DEL /S /Q zf_lib.lib *.bin *.o *.lis *.map *.def *.err .ticks_history.txt >nul 2>&1
 else
-	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.lis' -o -name '*.map' -o -name '*.sym' -o -name '*.err' -o -name '.ticks_history.txt' \) -delete
+	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.lis' -o -name '*.map' -o -name '*.def' -o -name '*.err' -o -name '.ticks_history.txt' \) -delete
 endif
