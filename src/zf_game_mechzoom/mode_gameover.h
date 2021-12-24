@@ -5,6 +5,5 @@
 #define MECHZOOM_MODEGAMEOVER_H
 
 void modeGameOver();
-unsigned char getPoint(unsigned char x, unsigned char y);
 
 #endif // MECHZOOM_MODEGAMEOVER_H

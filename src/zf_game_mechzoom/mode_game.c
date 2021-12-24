@@ -11,6 +11,19 @@
 #define TRUE 1
 #define FALSE 0
 
+// tileset values
+#define EMPTY        0
+#define WALL_PIECES  1
+#define WALL_BROKEN  2
+#define WALL         3
+#define MECH_NONE    4
+#define MECH         5
+#define MECH_ARMORED 6
+#define BULLET       7
+#define ALIEN        8
+#define METAL        9
+
+// tileset frames
 const unsigned char tileset0[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,32,48,0,0,12,28,0,              // WALL_PIECES  0
                                 0,57,115,7,175,63,255,126,        // WALL_BROKEN  0
@@ -21,7 +34,6 @@ const unsigned char tileset0[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,0,0,255,255,0,0,0,              // BULLET
                                 14,108,200,48,56,40,46,2,         // ALIEN        0
                                 175,143,255,6,240,246,6,175};     // METAL        0
-
 const unsigned char tileset1[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,16,48,0,12,28,0,0,              // WALL_PIECES  1
                                 0,57,115,7,175,63,255,126,        // WALL_BROKEN  0
@@ -32,7 +44,6 @@ const unsigned char tileset1[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,0,0,255,255,0,0,0,              // BULLET
                                 0,110,204,48,56,40,46,2,          // ALIEN        1
                                 175,141,255,6,240,246,6,175};     // METAL        1
-
 const unsigned char tileset2[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,48,16,0,6,14,0,0,               // WALL_PIECES  2
                                 0,113,227,7,175,63,255,126,       // WALL_BROKEN  1
@@ -43,7 +54,6 @@ const unsigned char tileset2[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,0,0,255,255,0,0,0,              // BULLET
                                 0,96,206,48,56,40,46,2,           // ALIEN        2
                                 175,143,255,6,240,246,6,175};     // METAL        0
-
 const unsigned char tileset3[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 0,48,32,0,0,6,14,0,               // WALL_PIECES  3
                                 0,113,227,7,175,63,255,126,       // WALL_BROKEN  1
@@ -56,6 +66,8 @@ const unsigned char tileset3[]={0,0,0,0,0,0,0,0,                  // EMPTY
                                 175,139,255,6,240,246,6,175};     // METAL        3
 
 // world
+#define SCROLL_POS_MAX 200 // max 240 (or less?) because used in 8bit additions
+#define LANDING_ZONE_LENGTH 16
 unsigned char scrollDelay;
 unsigned char scrollDelayCounter;
 unsigned char scrollPos;
@@ -66,12 +78,170 @@ unsigned char playerTile;
 unsigned char playerX;
 unsigned char playerY;
 
+// score
 unsigned char scoreMech;
 unsigned char scoreJunk;
 unsigned char scoreAlien;
 unsigned char scoreMaxMech;
 unsigned char scoreMaxJunk;
 unsigned char scoreMaxAlien;
+
+// returns TRUE to push back
+unsigned char playerCollision()
+{
+    unsigned char tile=tilemap[(playerY<<4)+playerX];
+    if(tile==EMPTY)return FALSE; // nothing?
+    if(tile==BULLET)return FALSE; // bullet?
+    if(tile<WALL+1)return TRUE; // space junk?
+    if(tile<MECH_ARMORED+1) // item?
+    {
+        if(playerTile<tile || tile==MECH_ARMORED) // item: collectable?
+        {
+            soundEnterMech();
+            playerTile=tile;
+            tilemap[(playerY<<4)+playerX]=EMPTY;
+            if(tile==MECH_ARMORED&&scoreMech<255)scoreMech++;
+            return FALSE;
+        }
+        else // item: not collectable?
+        {
+            return TRUE;
+        }
+    }
+    if(tile==ALIEN) // hazard?
+    {
+        tilemap[(playerY<<4)+playerX]=EMPTY;
+        color=1; // flash screen
+        playerTile--;
+        if(playerTile<MECH_NONE)playerTile=EMPTY;
+        else                    soundLoseMech();
+        if(scoreAlien<255)scoreAlien++;
+        return FALSE;
+    }
+    return TRUE; // other: metal?
+}
+
+void scroll()
+{
+    // scroll
+    unsigned char* tilemapPointerTo=(interlaceY<<4)+tilemap;
+    unsigned char* tilemapPointerFrom=tilemapPointerTo+1;
+    for(unsigned char x=0;x<15;x++)
+    {
+        (*tilemapPointerTo)=(*tilemapPointerFrom);
+        tilemapPointerTo++;
+        tilemapPointerFrom++;
+    }
+
+    // generate new world tiles
+    unsigned char newTile=EMPTY;
+    if(scrollPos>3) // away from starting zone gate?
+    {
+        if(scrollPos<SCROLL_POS_MAX) // not landing zone?
+        {
+            if(rnd(128)==0)
+            {
+                newTile=MECH_ARMORED;
+                if(scoreMaxMech<255)scoreMaxMech++;
+            }
+            else if((scrollPos&(unsigned char)(1+2+4+8))<4 && rnd(1)==0)
+            {
+                newTile=WALL;
+                if(scoreMaxJunk<255)scoreMaxJunk++;
+            }
+            else if(rnd(16)==0)
+            {
+                newTile=ALIEN;
+                if(scoreMaxAlien<255)scoreMaxAlien++;
+            }
+        }
+        else // landing zone?
+        {
+            if(scrollPos==SCROLL_POS_MAX)
+            {
+                if(interlaceY!=3&&interlaceY!=4)newTile=METAL;
+            }
+            else if(scrollPos<SCROLL_POS_MAX+LANDING_ZONE_LENGTH-1)
+            {
+                if(interlaceY==0||interlaceY==7)newTile=METAL;
+            }
+            else
+            {
+                newTile=METAL;
+            }
+        }
+    }
+    (*tilemapPointerTo)=newTile;
+}
+
+void sim()
+{
+    // interlace and scroll
+    interlaceY+=2;
+    if     (interlaceY==8)interlaceY=1;
+    else if(interlaceY==9)
+    {
+        interlaceY=0;
+        if(scrollDelayCounter==0)
+        {
+            scrollDelayCounter=scrollDelay;
+            scrollPos++;
+        }
+        scrollDelayCounter--;
+    }
+    if(!scrollDelayCounter)scroll();
+
+    // sim
+    unsigned char* tilemapPointer=(interlaceY<<4)+tilemap+15;
+    for(unsigned char x=15;x<16;x--)
+    {
+        unsigned char tile=(*tilemapPointer);
+        if(tile==BULLET)
+        {
+            (*tilemapPointer)=EMPTY;
+            if(x<15)
+            {
+                unsigned char* tilemapPointer2=tilemapPointer+1;
+                unsigned char tile=(*tilemapPointer2);
+                if(tile==EMPTY)
+                {
+                    (*tilemapPointer2)=BULLET;
+                }
+                else if(tile<WALL+1)
+                {
+                    (*tilemapPointer2)=tile-1;
+                    if(tile==WALL_PIECES)
+                    {
+                        if(scrollPos+x>15)
+                        {
+                            if(scoreJunk<255)scoreJunk++;
+                        }
+                    }
+                }
+                else if(tile==ALIEN)
+                {
+                    soundAlienDeath();
+                    (*tilemapPointer2)=EMPTY;
+                    if(scoreAlien<255)scoreAlien++;
+                }
+                else if(tile<MECH_ARMORED+1)
+                {
+                    (*tilemapPointer2)=WALL_PIECES;
+                }
+            }
+        }
+        else if(tile==ALIEN)
+        {
+            (*tilemapPointer)=EMPTY;
+            unsigned char* tilemapPointer2=tilemapPointer;
+            if((x&(unsigned char)(1+2+4))<4)tilemapPointer2-=16;
+            else                            tilemapPointer2+=16;
+            if(tilemapPointer2<tilemap||tilemapPointer2>tilemap+16*8-1||(*tilemapPointer2)!=EMPTY)tilemapPointer2=tilemapPointer;
+            (*tilemapPointer2)=ALIEN;
+        }
+        tilemapPointer--;
+    }
+}
 
 unsigned char modeGame()
 {
@@ -180,160 +350,4 @@ unsigned char modeGame()
         color=0;
     }
     return FALSE;
-}
-
-void sim()
-{
-    // interlace and scroll
-    interlaceY+=2;
-    if     (interlaceY==8)interlaceY=1;
-    else if(interlaceY==9)
-    {
-        interlaceY=0;
-        if(scrollDelayCounter==0)
-        {
-            scrollDelayCounter=scrollDelay;
-            scrollPos++;
-        }
-        scrollDelayCounter--;
-    }
-    if(!scrollDelayCounter)scroll();
-
-    // sim
-    unsigned char* tilemapPointer=(interlaceY<<4)+tilemap+15;
-    for(unsigned char x=15;x<16;x--)
-    {
-        unsigned char tile=(*tilemapPointer);
-        if(tile==BULLET)
-        {
-            (*tilemapPointer)=EMPTY;
-            if(x<15)
-            {
-                unsigned char* tilemapPointer2=tilemapPointer+1;
-                unsigned char tile=(*tilemapPointer2);
-                if(tile==EMPTY)
-                {
-                    (*tilemapPointer2)=BULLET;
-                }
-                else if(tile<WALL+1)
-                {
-                    (*tilemapPointer2)=tile-1;
-                    if(tile==WALL_PIECES)
-                    {
-                        if(scrollPos+x>15)
-                        {
-                            if(scoreJunk<255)scoreJunk++;
-                        }
-                    }
-                }
-                else if(tile==ALIEN)
-                {
-                    soundAlienDeath();
-                    (*tilemapPointer2)=EMPTY;
-                    if(scoreAlien<255)scoreAlien++;
-                }
-                else if(tile<MECH_ARMORED+1)
-                {
-                    (*tilemapPointer2)=WALL_PIECES;
-                }
-            }
-        }
-        else if(tile==ALIEN)
-        {
-            (*tilemapPointer)=EMPTY;
-            unsigned char* tilemapPointer2=tilemapPointer;
-            if((x&(unsigned char)(1+2+4))<4)tilemapPointer2-=16;
-            else                            tilemapPointer2+=16;
-            if(tilemapPointer2<tilemap||tilemapPointer2>tilemap+16*8-1||(*tilemapPointer2)!=EMPTY)tilemapPointer2=tilemapPointer;
-            (*tilemapPointer2)=ALIEN;
-        }
-        tilemapPointer--;
-    }
-}
-
-void scroll()
-{
-    // scroll
-    unsigned char* tilemapPointerTo=(interlaceY<<4)+tilemap;
-    unsigned char* tilemapPointerFrom=tilemapPointerTo+1;
-    for(unsigned char x=0;x<15;x++)
-    {
-        (*tilemapPointerTo)=(*tilemapPointerFrom);
-        tilemapPointerTo++;
-        tilemapPointerFrom++;
-    }
-
-    // generate new world tiles
-    unsigned char newTile=EMPTY;
-    if(scrollPos>3) // away from starting zone gate?
-    {
-        if(scrollPos<SCROLL_POS_MAX) // not landing zone?
-        {
-            if(rnd(128)==0)
-            {
-                newTile=MECH_ARMORED;
-                if(scoreMaxMech<255)scoreMaxMech++;
-            }
-            else if((scrollPos&(unsigned char)(1+2+4+8))<4 && rnd(1)==0)
-            {
-                newTile=WALL;
-                if(scoreMaxJunk<255)scoreMaxJunk++;
-            }
-            else if(rnd(16)==0)
-            {
-                newTile=ALIEN;
-                if(scoreMaxAlien<255)scoreMaxAlien++;
-            }
-        }
-        else // landing zone?
-        {
-            if(scrollPos==SCROLL_POS_MAX)
-            {
-                if(interlaceY!=3&&interlaceY!=4)newTile=METAL;
-            }
-            else if(scrollPos<SCROLL_POS_MAX+LANDING_ZONE_LENGTH-1)
-            {
-                if(interlaceY==0||interlaceY==7)newTile=METAL;
-            }
-            else
-            {
-                newTile=METAL;
-            }
-        }
-    }
-    (*tilemapPointerTo)=newTile;
-}
-
-unsigned char playerCollision()
-{
-    unsigned char tile=tilemap[(playerY<<4)+playerX];
-    if(tile==EMPTY)return FALSE; // nothing?
-    if(tile==BULLET)return FALSE; // bullet?
-    if(tile<WALL+1)return TRUE; // space junk?
-    if(tile<MECH_ARMORED+1) // item?
-    {
-        if(playerTile<tile || tile==MECH_ARMORED) // item: collectable?
-        {
-            soundEnterMech();
-            playerTile=tile;
-            tilemap[(playerY<<4)+playerX]=EMPTY;
-            if(tile==MECH_ARMORED&&scoreMech<255)scoreMech++;
-            return FALSE;
-        }
-        else // item: not collectable?
-        {
-            return TRUE;
-        }
-    }
-    if(tile==ALIEN) // hazard?
-    {
-        tilemap[(playerY<<4)+playerX]=EMPTY;
-        color=1; // flash screen
-        playerTile--;
-        if(playerTile<MECH_NONE)playerTile=EMPTY;
-        else                    soundLoseMech();
-        if(scoreAlien<255)scoreAlien++;
-        return FALSE;
-    }
-    return TRUE; // other: metal?
 }

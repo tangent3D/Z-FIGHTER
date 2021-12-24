@@ -10,6 +10,19 @@
 #define TRUE 1
 #define FALSE 0
 
+unsigned char getPoint(unsigned char x, unsigned char y)
+{
+    unsigned char xByte=x>>3; // /8
+    unsigned char xBit=x&(1+2+4); // %8
+    unsigned char xBitSelector=128>>xBit;
+    int screenPointer=y;
+    screenPointer<<=4; // *(SCREEN_W/8)
+    screenPointer+=xByte;
+    screenPointer+=(int)screen;
+    if(*(unsigned char*)screenPointer&xBitSelector)return 1;
+    else                                           return 0;
+}
+
 void modeGameOver()
 {
     const unsigned char bpExplosion[]={133,110,60,255,62,124,110,137};
@@ -61,17 +74,4 @@ void modeGameOver()
         }
         lcd(screen);
     }
-}
-
-unsigned char getPoint(unsigned char x, unsigned char y)
-{
-    unsigned char xByte=x>>3; // /8
-    unsigned char xBit=x&(1+2+4); // %8
-    unsigned char xBitSelector=128>>xBit;
-    int screenPointer=y;
-    screenPointer<<=4; // *(SCREEN_W/8)
-    screenPointer+=xByte;
-    screenPointer+=(int)screen;
-    if(*(unsigned char*)screenPointer&xBitSelector)return 1;
-    else                                           return 0;
 }
