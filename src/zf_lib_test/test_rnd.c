@@ -1,12 +1,12 @@
-// unit tests for z-fighter library
+// unit tests for z-fighter library rnd
 // by xrrawva 2021
 
 #include <stdlib.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
-#include "test.h"
-#include "test_rnd.h"
 #include "rnd.h"
+#include "test_rnd.h"
+#include "test.h"
 
 void testRndReturnValueCount(unsigned char useRndImprove)
 {

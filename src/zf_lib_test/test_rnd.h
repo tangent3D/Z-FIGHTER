@@ -1,4 +1,4 @@
-// 
+// unit tests for z-fighter library rnd
 // by xrrawva 2021
 
 #ifndef TEST_RND_H
