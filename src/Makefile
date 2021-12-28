@@ -93,9 +93,11 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
+	@echo Making $<.
 	@$(cc) $(optimization) -c -I$(zf_dir)zf_lib --list --c-code-in-asm -o $@ $<
 
 %_asm.o: %.asm $(HDR)
+	@echo Making $<.
 	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib --list
 
 # Build a binary from source files.
