@@ -93,9 +93,11 @@ HDR = $(wildcard *.h)
 OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
+	@echo Making $<.
 	@$(cc) $(optimization) -c -I$(zf_dir)zf_lib --list --c-code-in-asm -o $@ $<
 
 %_asm.o: %.asm $(HDR)
+	@echo Making $<.
 	@$(cc) -c -o $@ $< -I$(zf_dir)zf_lib --list
 
 # Build a binary from source files.
@@ -131,18 +133,23 @@ term:
 	@echo Opening terminal for serial I/O with Z-FIGHTER.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 
+ext_clean   =	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
+ext_cleaner = 	zf_lib.lib *.bin *.o
+
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
-clean:
+clean: $(ext_clean)
+$(ext_clean):
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err .ticks_history.txt >nul 2>&1
+	DEL /S /Q $@ >nul 2>&1
 else
-	@find . -type f \( -name '*_CODE.bin' -o -name '*_DATA.bin' -o -name '*_BSS.bin' -o -name '*_UNASSIGNED.bin' -o -name '*.lis' -o -name '*.map' o -name '*.def' -o -name '*.err' -o -name '.ticks_history.txt'\) -delete
+	find . -type f -name $@ -delete
 endif
 
 # Recursively clean everything.
-cleaner:
+cleaner: clean $(ext_cleaner)
+$(ext_cleaner):
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q zf_lib.lib *.bin *.o *.lis *.map *.def *.err .ticks_history.txt >nul 2>&1
+	DEL /S /Q $@ >nul 2>&1
 else
-	@find . -type f \( -name 'zf_lib.lib' -o -name '*.bin' -o -name '*.o' -o -name '*.lis' -o -name '*.map' -o -name '*.def' -o -name '*.err' -o -name '.ticks_history.txt' \) -delete
+	find . -type f -name $@ -delete
 endif
