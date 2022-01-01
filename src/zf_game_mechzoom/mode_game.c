@@ -1,9 +1,11 @@
 // module implementation for z-fighter game "mechzoom"
 // by xrrawva 2021
 
+#include <stdlib.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
 #include "mode_game.h"
+#include "mode_pause.h"
 #include "rnd.h"
 #include "sound.h"
 #include "tilemap.h"
