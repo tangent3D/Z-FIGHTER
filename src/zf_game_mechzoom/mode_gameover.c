@@ -3,6 +3,7 @@
 
 #include <zf_gfx.h>
 #include <zf_lcd.h>
+#include "mode_game.h"
 #include "mode_gameover.h"
 #include "rnd.h"
 #include "sound.h"
