@@ -84,7 +84,7 @@ SUBDIRS := $(wildcard zf_*/.)
 # Call Makefiles in all /zf_* directories.
 all: libs $(SUBDIRS)
 $(SUBDIRS):
-	@$(MAKE) -s -C $@
+	@$(MAKE) -s --directory=$@
 
 # Get sources and define rules.
 SRC = $(wildcard *.c)
@@ -110,7 +110,7 @@ lib: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	@make -s -C $(zf_dir)zf_lib/.
+	@make -s --directory=$(zf_dir)zf_lib/.
 
 # Send binary to Z-FIGHTER serial loader (zf_loader).
 send:
@@ -130,26 +130,30 @@ endif
 
 # Open an interactive terminal for serial I/O with Z-FIGHTER.
 term:
+ifeq (,$(com_port))
+	@echo Cannot open terminal. COM port (com_port) not specified.
+else
 	@echo Opening terminal for serial I/O with Z-FIGHTER.
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
-
-ext_clean   =	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
-ext_cleaner = 	zf_lib.lib *.bin *.o
+endif
 
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
 clean: $(ext_clean)
 $(ext_clean):
 ifeq ($(OS),Windows_NT)
-	DEL /S /Q $@ >nul 2>&1
+	@DEL /S /Q $@ >nul 2>&1
 else
-	find . -type f -name $@ -delete
+	@find . -type f -name $@ -delete
 endif
+
+ext_clean   :=	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
+ext_cleaner := 	zf_lib.lib *.bin *.o
 
 # Recursively clean everything.
 cleaner: clean $(ext_cleaner)
 $(ext_cleaner):
 ifeq ($(OS),Windows_NT)
-	DEL /S /Q $@ >nul 2>&1
+	@DEL /S /Q $@ >nul 2>&1
 else
-	find . -type f -name $@ -delete
+	@find . -type f -name $@ -delete
 endif
