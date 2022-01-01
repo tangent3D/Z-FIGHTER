@@ -97,6 +97,7 @@ unsigned char playerCollision()
     if(tile<WALL+1)return TRUE; // space junk?
     if(tile<MECH_ARMORED+1) // item?
     {
+        if(playerTile==EMPTY)return FALSE; // skip if player already dead
         if(playerTile<tile || tile==MECH_ARMORED) // item: collectable?
         {
             soundEnterMech();
@@ -112,6 +113,7 @@ unsigned char playerCollision()
     }
     if(tile==ALIEN) // hazard?
     {
+        if(playerTile==EMPTY)return FALSE; // skip if player already dead
         tilemap[(playerY<<4)+playerX]=EMPTY;
         color=1; // flash screen
         playerTile--;
