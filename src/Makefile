@@ -137,6 +137,9 @@ else
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 endif
 
+ext_clean   :=	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
+ext_cleaner := 	zf_lib.lib *.bin *.o
+
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
 clean: $(ext_clean)
 $(ext_clean):
@@ -145,9 +148,6 @@ ifeq ($(OS),Windows_NT)
 else
 	@find . -type f -name $@ -delete
 endif
-
-ext_clean   :=	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
-ext_cleaner := 	zf_lib.lib *.bin *.o
 
 # Recursively clean everything.
 cleaner: clean $(ext_cleaner)
