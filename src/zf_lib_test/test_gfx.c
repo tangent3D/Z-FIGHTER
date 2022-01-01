@@ -1,4 +1,4 @@
-// unit tests for z-fighter library
+// unit tests for z-fighter library gfx
 // by xrrawva 2021
 
 #include <zf_gfx.h>
