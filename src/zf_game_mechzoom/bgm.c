@@ -2,8 +2,10 @@
 // by xrrawva 2021
 
 #include <zf_buzzer.h>
+#include <zf_sleep.h>
 #include "bgm.h"
 #include "rnd.h"
+#include "sound.h"
 #include "ui.h"
 #define FALSE 0
 #define TRUE 1
