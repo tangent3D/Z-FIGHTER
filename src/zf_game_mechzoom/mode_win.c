@@ -6,7 +6,9 @@
 #include <zf_lcd.h>
 #include <zf_sleep.h>
 #include "bgm.h"
+#include "mode_game.h"
 #include "mode_win.h"
+#include "sound.h"
 #include "tilemap.h"
 #include "ui.h"
 #define TRUE 1
