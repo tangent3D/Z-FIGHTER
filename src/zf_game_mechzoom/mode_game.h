@@ -4,6 +4,11 @@
 #ifndef MECHZOOM_MODEGAME_H
 #define MECHZOOM_MODEGAME_H
 
+// player
+extern unsigned char playerTile;
+extern unsigned char playerX;
+extern unsigned char playerY;
+
 // score
 extern unsigned char scoreMech;
 extern unsigned char scoreJunk;
