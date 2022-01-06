@@ -110,7 +110,7 @@ lib: $(OBJ)
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
-	@make -s --directory=$(zf_dir)zf_lib/.
+	@$(MAKE) -s --directory=$(zf_dir)zf_lib/.
 
 # Send binary to Z-FIGHTER serial loader (zf_loader).
 send:
