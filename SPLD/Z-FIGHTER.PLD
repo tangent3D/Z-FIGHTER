@@ -40,7 +40,7 @@ PIN 20  = PPIUCS;  /* 8255 (User port) */
 
 !ROMCS = !MREQ & IORQ & WR & ROMD_IN & !A15 & !A14; /* 0000-3FFFh on initial boot */
 
-!RAMCS = (!MREQ & IORQ & (A15#A14))#(!MREQ & IORQ & !ROMD_IN); /* 4000-FFFh on initial boot */
+!RAMCS = (!MREQ & IORQ & (A15#A14))#(!MREQ & IORQ & !ROMD_IN); /* 4000-FFFFh on initial boot */
 
 !SIOCS = MREQ & !IORQ & !A7 & !A6 & !A5 & !A4 & !A3; /* 00h */
 !CFCS  = MREQ & !IORQ & !A7 & !A6 & !A5 & A4 & !A3; /* 10-17h */
