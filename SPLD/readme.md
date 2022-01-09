@@ -1,4 +1,4 @@
-An Atmel ATF22V10C-15PU SPLD is responsible for producing all chip select logic for Z-FIGHTER.
+An Atmel ATF22V10C-15PU SPLD is responsible for producing all chip select logic for Z-FIGHTER. An EEPROM burner is required to program the SPLD with a fuse map.
 
 By default, Z-FIGHTER's memory map is configured as 16K ROM (0000h-3FFFh) and 48K RAM (4000h-FFFFh) for compatibility with Grant Searle's CP/M BIOS and Z-FIGHTER's serial loader. ROM is disabled when an I/O write is executed on port 38h. RAM will thereafter use the entire 64K memory map until system reset.
 
