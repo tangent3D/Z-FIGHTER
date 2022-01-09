@@ -11,7 +11,7 @@ Device   g22v10 ;
 /* Input pins */
 PIN 1   = A14;
 PIN 2   = A15;
-PIN 3   = NC;
+PIN 3   = A13;
 PIN 4   = A7;
 PIN 5   = A6;
 PIN 6   = A5;
