@@ -3,7 +3,7 @@ Z-FIGHTER uses a cross-platform build system using z88dk/zsdcc and GNU Make.
 ### Getting Started
 1. Install z88dk for your platform according to these [instructions](https://github.com/z88dk/z88dk/wiki/installation). If applicable, follow any additional instructions for zsdcc. If using Windows, install a port of GNU Make, e.g. [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) or MinGW. Add the location of `make.exe` to your PATH.
 2. Navigate your shell to the Z-FIGHTER software directory (the location of this readme) and execute `make`. Z-FIGHTER's development library and software will immediately begin compiling!
-3. To simplify serial communication with Z-FIGHTER, it is highly recommended that you create a text file named `.env` in this directory containing a definition for the `com_port` environment variable for Z-FIGHTER's build system according to the address of your serial communications device, e.g. `com_port=COM1`, `com_port=/dev/ttyS1`, or `com_port=/dev/ttyUSB1`.
+3. To simplify serial communication with Z-FIGHTER, it is highly recommended that text file named `.env` be created in this directory containing a definition for the `com_port` environment variable for Z-FIGHTER's build system according to the address of your serial communications device, e.g. `com_port=COM1`, `com_port=/dev/ttyS1`, or `com_port=/dev/ttyUSB1`.
 4. Optionally, install [PuTTY/Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and add the location of its installed binaries to your PATH.
 
 ### Preparing for Serial Communication with Z-FIGHTER
