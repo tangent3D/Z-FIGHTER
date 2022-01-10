@@ -141,19 +141,17 @@ ext_clean   :=	*_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.de
 ext_cleaner := 	zf_lib.lib *.bin *.o
 
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
-clean: $(ext_clean)
-$(ext_clean):
+clean:
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q $@ >nul 2>&1
+	@DEL /S /Q $(ext_clean) >nul 2>&1
 else
-	@find . -type f -name $@ -delete
+	@rm -f $(foreach ext,$(ext_clean),./**/$(ext))
 endif
 
 # Recursively clean everything.
-cleaner: clean $(ext_cleaner)
-$(ext_cleaner):
+cleaner: clean
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q $@ >nul 2>&1
+	@DEL /S /Q $(ext_clean) >nul 2>&1
 else
-	@find . -type f -name $@ -delete
+	@rm -f $(foreach ext,$(ext_cleaner),./**/$(ext))
 endif
