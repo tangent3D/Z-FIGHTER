@@ -1,4 +1,4 @@
-## Z-FIGHTER's Programmable Logic Device
+### Z-FIGHTER's Programmable Logic Device
 
 An Atmel ATF22V10C-15PU SPLD is responsible for producing all chip select logic for Z-FIGHTER. An EEPROM burner is required to program the SPLD with a fuse map.
 
