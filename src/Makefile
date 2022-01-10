@@ -151,7 +151,7 @@ endif
 # Recursively clean everything.
 cleaner: clean
 ifeq ($(OS),Windows_NT)
-	@DEL /S /Q $(ext_clean) >nul 2>&1
+	@DEL /S /Q $(ext_cleaner) >nul 2>&1
 else
 	@rm -f $(foreach ext,$(ext_cleaner),./**/$(ext))
 endif
