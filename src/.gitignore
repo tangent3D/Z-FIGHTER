@@ -6,4 +6,5 @@ zf_lib.lib
 *.err
 *.lis
 *.def
+*.com
 .ticks_history.txt
