@@ -11,3 +11,11 @@ SECTION code_crt_init
 ZF_INIT:
     LD      A,90h           ; Set accessory PPI Simple I/O, PA in, PB,C out
     OUT     (CTRL_ACC),A
+
+SECTION code_user
+
+PUBLIC _zf_init
+_zf_init:
+    LD      A,90h           ; Set accessory PPI Simple I/O, PA in, PB,C out
+    OUT     (CTRL_ACC),A
+    RET

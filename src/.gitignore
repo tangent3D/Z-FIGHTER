@@ -1,9 +1,11 @@
 zf_lib.lib
 *.bin
+*.rom
 *.o
 *.map
 *.env
 *.err
 *.lis
 *.def
+*.com
 .ticks_history.txt
