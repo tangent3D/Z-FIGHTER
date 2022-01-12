@@ -4,11 +4,10 @@
 # Uses z88dk/zsdcc, GNU Make
 
 # Targets:
-#
 # bin       Build Z-FIGHTER binary from C/ASM source(s).
-# cpm 		Build CP/M COM file from C/ASM source(s).
-# bare 		Build binary from C/ASM source(s). with no startup code.
-# asm 		Assemble a standalone ASM project from ASM source(s).
+# cpm       Build CP/M COM file from C/ASM source(s).
+# bare      Build binary from C/ASM source(s). with no startup code.
+# asm       Assemble a standalone ASM project from ASM source(s).
 # libs      Build Z-FIGHTER library.
 # lib       Build a library from source files.
 # send      Transfer output to zf_loader.
@@ -17,12 +16,14 @@
 # cleaner   Recursively clean everything.
 
 # Environment variables:
-#
 # name      Desired name of output. Defaults to current directory base name if unspecified.
-# ext       Desired extension of ASM project output.
 # com_port  COM port of serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
 # compress  Use compressed ROM model with +z80 target. Enable with 'true'
 # opt       Enable optimization. Enable with 'true'
+
+# ASM (asm) target environment variables:
+# file      First module to assemble, e.g. "file=program.asm" (required)
+# ext       Desired extension of output, e.g. "ext=.COM" (optional, defaults to .ROM)
 
 # Get path to this Makefile.
 makefile_path :=    $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -109,8 +110,6 @@ bare: $(OBJ)
 	@zcc +z80 $(clib) --no-crt $(inc) -o $(name).rom $^
 
 # Assemble a standalone ASM project.
-# Specify first module with "file" environment variable, e.g. "file=file.asm"
-# Optionally specify output extension with "ext" environment variable, e.g. "ext=.com"
 asm:
 	@z80asm -b -m $(inc) -o$(name)$(ext) $(file)
 
