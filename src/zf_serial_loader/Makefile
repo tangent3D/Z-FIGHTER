@@ -1,6 +1,5 @@
 name=zf_loader
-startup=false
 export
 
 default:
-	@make -s -f ../Makefile bin
+	@make -s -f ../Makefile asm file=zf_loader.asm

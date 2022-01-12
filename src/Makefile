@@ -1,10 +1,16 @@
 # Makefile for Z-FIGHTER projects
 # by Tangent 2021
 
+# Uses z88dk/zsdcc, GNU Make
+
 # Targets:
 #
-# bin       Build Z-FIGHTER binary from .C and .ASM sources.
+# bin       Build Z-FIGHTER binary from C/ASM source(s).
+# cpm 		Build CP/M COM file from C/ASM source(s).
+# bare 		Build binary from C/ASM source(s). with no startup code.
+# asm 		Assemble a standalone ASM project from ASM source(s).
 # libs      Build Z-FIGHTER library.
+# lib       Build a library from source files.
 # send      Transfer .BIN to zf_loader.
 # term      Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY).
 # clean     Recursively clean intermediate binaries, assembly listings and symbol tables.
@@ -12,16 +18,15 @@
 
 # Environment variables:
 #
-# name      Desired name of output binary. Defaults to current directory base name if unspecified.
-# com_port  COM port of your serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
-# startup   Use startup code. Default='true'
-# compress  Use compressed ROM model with +z80 target. Default='false'
-# opt       Enable optimization. Default='false'
-# cpm       Build CP/M COM file with +cpm target. 
+# name      Desired name of output. Defaults to current directory base name if unspecified.
+# ext       Desired extension of ASM project output.
+# com_port  COM port of serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
+# compress  Use compressed ROM model with +z80 target. Enable with 'true'
+# opt       Enable optimization. Enable with 'true'
 
 # Get path to this Makefile.
-makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
-zf_dir := $(dir $(makefile_path))
+makefile_path :=    $(abspath $(lastword $(MAKEFILE_LIST)))
+zf_dir :=           $(dir $(makefile_path))
 
 # Import local environment variables from .env file.
 ifneq (,$(wildcard $(zf_dir).env))
@@ -30,62 +35,38 @@ ifneq (,$(wildcard $(zf_dir).env))
 endif
 
 # Assign base name of directory as program name if no name is specified.
-name?:=             $(notdir $(CURDIR))
+name ?=             $(notdir $(CURDIR))
 
-# Compiler settings. Uses z88dk/SDCC.
-cc=                 zcc
+# Use .bin extension for ASM project output if no extension is specified.
+ext ?=              .bin
 
-target=             +z80
+# Use z88dk/zsdcc newlib.
+clib =              -clib=sdcc_iy
 
-options=            -vn -clib=sdcc_iy -compiler=sdcc
+# Pragmas for +z80 target for compatibility with zf_loader.
+pragma =            -pragma-define:CRT_ORG_CODE=0 $\
+                    -pragma-define:REGISTER_SP=-1 $\
+                    -pragma-define:CRT_ON_EXIT=0x10002 $\
+                    -pragma-define:CRT_ENABLE_STDIO=0 $\
+                    -pragma-define:CLIB_STDIO_HEAP_SIZE=0 $\
 
-pragma=             -pragma-define:CRT_ORG_CODE=0 $\
-					-pragma-define:REGISTER_SP=-1 $\
-					-pragma-define:CRT_ON_EXIT=0x10002 $\
-					-pragma-define:CRT_ENABLE_STDIO=0 $\
-					-pragma-define:CLIB_STDIO_HEAP_SIZE=0 $\
+# Include Z-FIGHTER library in all targets.
+inc =               -I$(zf_dir)zf_lib $\
+                    -l$(zf_dir)zf_lib/zf_lib
 
-inc=                -I$(zf_dir)zf_lib $\
-					-l$(zf_dir)zf_lib/zf_lib $\
-					-Ca-l$(zf_dir)zf_lib/zf_lib -Ca-I=$(zf_dir)zf_lib $\
-					-Cl-l$(zf_dir)zf_lib/zf_lib -Cl-I=$(zf_dir)zf_lib
-
-init=               $(zf_dir)zf_lib/zf_init.asm
-appmake=            -create-app
-map=                -gen-map-file
-output= 			$(name)
+# Path to Z-FIGHTER peripheral initialization code for use in +z80 CRT startup code.
+init =              $(zf_dir)zf_lib/zf_init.asm
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
-	optimization=   -SO3 --max-allocs-per-node200000
+	optimization =  -SO3 --max-allocs-per-node200000
 endif
 
 # Use +z80 compressed ROM model if specified. Otherwise, use uncompressed ROM model.
 ifeq ($(compress),true)
-	crt=            -startup=2
+	crt =           -startup=2
 else
-	crt=            -startup=1
-endif
-
-# Disable startup code if specified.
-ifeq ($(startup),false)
-	output:=		$(name).bin
-	init=
-	appmake=
-	map=
-endif
-
-# Build +cpm COM file if specified.
-ifeq ($(cpm),true)
-	target=         +cpm
-	output:=		$(name).com
-	crt=
-	pragma=
-	appmake= 		-create-app
-endif
-
-ifeq ($(startup),false)
-	crt= 			--no-crt
+	crt =           -startup=1
 endif
 
 SUBDIRS := $(wildcard zf_*/.)
@@ -109,19 +90,33 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
 	@echo Making $<.
-	@$(cc) $(target) $(options) $(optimization) -c -I$(zf_dir)zf_lib --list --c-code-in-asm -o $@ $<
+	@zcc +z80 $(clib) $(optimization) $(inc) --c-code-in-asm --list -c -o $@ $<
 
 %_asm.o: %.asm $(HDR)
 	@echo Making $<.
-	@$(cc) $(target) $(options) -c -o $@ $< -I$(zf_dir)zf_lib --list
+	@zcc +z80 $(inc) --list -c -o $@ $<
 
-# Build a binary from source files.
+# Build binary from source files.
 bin: $(OBJ)
-	@$(cc) $(target) $(options) $(crt) $(pragma) $(inc) $(init) $(appmake) $(map) -o $(output) $^
+	@zcc +z80 $(clib) $(crt) $(pragma) $(inc) $(init) -create-app -m -o $(name) $^
+
+# Build CP/M COM file from source files. Uses newlib.
+cpm: $(OBJ)
+	@zcc +cpm $(clib) $(inc) -create-app -m -o $(name).com $^
+
+# Build binary from source files with no startup code.
+bare: $(OBJ)
+	@zcc +z80 $(clib) --no-crt $(inc) -o $(name).bin $^
+
+# Assemble a standalone ASM project.
+# Specify first module with "file" environment variable, e.g. "file=file.asm"
+# Optionally specify output extension with "ext" environment variable, e.g. "ext=.com"
+asm:
+	@z80asm -b -m $(inc) -o$(name)$(ext) $(file)
 
 # Build a library from source files.
 lib: $(OBJ)
-	@$(cc) $(target) $(options) -x -o $(output) $^
+	@zcc +z80 $(clib) -x -o $(name) $^
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
@@ -152,8 +147,8 @@ else
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 endif
 
-ext_clean   :=  *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
-ext_cleaner :=  zf_lib.lib *.bin *.rom  *.com *.o
+ext_clean =    *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
+ext_cleaner =  zf_lib.lib *.bin *.rom  *.com *.o
 
 # Recursively clean intermediate binaries, assembly listings and symbol tables.
 clean:
