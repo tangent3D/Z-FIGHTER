@@ -38,7 +38,7 @@ endif
 # Assign base name of directory as program name if no name is specified.
 name ?=             $(notdir $(CURDIR))
 
-# Use .rom extension for ASM project output if no extension is specified.
+# Use .ROM extension for ASM project output if no extension is specified.
 ext ?=              .rom
 
 # Use z88dk/zsdcc newlib.
