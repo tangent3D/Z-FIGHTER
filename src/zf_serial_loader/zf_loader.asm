@@ -158,7 +158,7 @@ GREETING:
     DB      "[Z-Fighter Serial Boot Loader v0.1]",0
 
 REQUEST:
-    DB      "Ready to load .BIN at 0000h.",0
+    DB      "Ready to load binary at 0000h.",0
 
 CONFIRM:
     DB      "Transfer complete.",0
