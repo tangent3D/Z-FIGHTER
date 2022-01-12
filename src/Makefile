@@ -48,7 +48,7 @@ pragma =            -pragma-define:CRT_ORG_CODE=0 $\
                     -pragma-define:REGISTER_SP=-1 $\
                     -pragma-define:CRT_ON_EXIT=0x10002 $\
                     -pragma-define:CRT_ENABLE_STDIO=0 $\
-                    -pragma-define:CLIB_STDIO_HEAP_SIZE=0 $\
+                    -pragma-define:CLIB_STDIO_HEAP_SIZE=0
 
 # Include Z-FIGHTER library in all targets.
 inc =               -I$(zf_dir)zf_lib $\
