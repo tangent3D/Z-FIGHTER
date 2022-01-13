@@ -12,5 +12,5 @@ Z-FIGHTER's build system is configured to work with a serial loader ROM, `zf_ser
 ### Transferring Programs to Z-FIGHTER
 No additional software is required to transfer programs to Z-FIGHTER. Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER's memory and executed. Upon program exit or system reset, Z-FIGHTER will return to the serial loader, ready to load another program into memory.
 
-[^1]: If you've compiled z88dk from source and `z80.lib` is not found when linking, `cd z88dk/libsrc/_DEVELOPMENT` and execute `make` to build the z80 libraries separately.
+[^1]: If you've compiled z88dk from source and `z80.lib` is not found when linking, navigate to `z88dk/libsrc/_DEVELOPMENT` and execute `make` to build the z80 libraries separately.
 [^2]: If `.env` file is not present, `com_port` will need to be specified on the command line or in your project's Makefile when `send` and `term` operations are performed.
