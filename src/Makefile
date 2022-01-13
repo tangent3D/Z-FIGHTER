@@ -4,9 +4,9 @@
 # Uses z88dk/zsdcc, GNU Make
 
 # Targets:
-# bin       Build Z-FIGHTER binary from C/ASM source(s).
+# rom       Build Z-FIGHTER binary from C/ASM source(s).
 # cpm       Build CP/M COM file from C/ASM source(s).
-# bare      Build binary from C/ASM source(s). with no startup code.
+# bare      Build binary from C/ASM source(s) without startup code.
 # asm       Assemble a standalone ASM project from ASM source(s).
 # libs      Build Z-FIGHTER library.
 # lib       Build a library from source files.
@@ -98,8 +98,12 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 	@zcc +z80 $(inc) --list -c -o $@ $<
 
 # Build binary from source files.
-bin: $(OBJ)
+rom: $(OBJ)
 	@zcc +z80 $(clib) $(crt) $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app
+# Rename .bin to .rom to match win32 behavior.
+ifneq ($(OS),Windows_NT)
+	@-mv -f $(name).bin $(name).rom 2>/dev/null
+endif
 
 # Build CP/M COM file from source files. Uses newlib.
 cpm: $(OBJ)
@@ -147,20 +151,22 @@ else
 endif
 
 ext_clean =    *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
-ext_cleaner =  zf_lib.lib *.bin *.rom *.com *.o
+ext_cleaner =  zf_lib.lib *.bin *.rom *.com *.COM *.o
 
-# Recursively clean intermediate binaries, assembly listings and symbol tables.
+# Clean intermediate binaries, assembly listings and symbol tables.
 clean:
 ifeq ($(OS),Windows_NT)
 	@DEL /S /Q $(ext_clean) >nul 2>&1
 else
+	@rm -f $(ext_clean)
 	@rm -f $(foreach ext,$(ext_clean),./**/$(ext))
 endif
 
-# Recursively clean everything.
+# Clean everything.
 cleaner: clean
 ifeq ($(OS),Windows_NT)
 	@DEL /S /Q $(ext_cleaner) >nul 2>&1
 else
+	@rm -f $(ext_cleaner)
 	@rm -f $(foreach ext,$(ext_cleaner),./**/$(ext))
 endif
