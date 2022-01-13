@@ -34,10 +34,10 @@ ifneq (,$(wildcard $(zf_dir).env))
 	export
 endif
 
-# Assign base name of directory as program name if no name is specified.
+# Assign base name of directory as output name if no name is specified.
 name ?=             $(notdir $(CURDIR))
 
-# Use .ROM extension for ASM project output if no extension is specified.
+# Use .rom extension for ASM project output if no extension is specified.
 ext ?=              .rom
 
 # Use z88dk/zsdcc newlib.
