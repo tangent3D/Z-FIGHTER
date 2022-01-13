@@ -2,8 +2,8 @@ Z-FIGHTER uses a cross-platform build system using z88dk/zsdcc and GNU Make.
 
 ### Getting Started
 1. Install z88dk for your platform according to these [instructions](https://github.com/z88dk/z88dk/wiki/installation). If applicable, follow any additional instructions for zsdcc. If using Windows, install a port of GNU Make, e.g. [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) or MinGW. Add the location of `make.exe` to your PATH.
-2. Navigate your shell to the Z-FIGHTER software directory (the location of this readme) and execute `make`. Z-FIGHTER's development library and software will immediately begin compiling!
-3. Create a text file named `.env` in this directory containing a definition for the `com_port` environment variable for Z-FIGHTER's build system specifying the address of your serial communications device, e.g. `com_port=COM1`, `com_port=/dev/ttyS1`, or `com_port=/dev/ttyUSB1`.[^1]
+2. Navigate your shell to the Z-FIGHTER software directory (the location of this readme) and execute `make`. Z-FIGHTER's development library and software will immediately begin compiling![^1]
+3. Create a text file named `.env` in this directory containing a definition for the `com_port` environment variable for Z-FIGHTER's build system specifying the address of your serial communications device, e.g. `com_port=COM1`, `com_port=/dev/ttyS1`, or `com_port=/dev/ttyUSB1`.[^2]
 4. Optionally, install [PuTTY/Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and add the location of its installed binaries to your PATH.
 
 ### Preparing for Serial Communication with Z-FIGHTER
@@ -12,4 +12,5 @@ Z-FIGHTER's build system is configured to work with a serial loader ROM, `zf_ser
 ### Transferring Programs to Z-FIGHTER
 No additional software is required to transfer programs to Z-FIGHTER. Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER's memory and executed. Upon program exit or system reset, Z-FIGHTER will return to the serial loader, ready to load another program into memory.
 
-[^1]: If `.env` file is not present, `com_port` will need to be specified on the command line or in your project's Makefile when `send` and `term` operations are performed.
+[^1]: If you've compiled z88dk from source and `z80.lib` is not found when linking, navigate to `../z88dk/libsrc/_DEVELOPMENT` and execute `make` to build the z80 libraries separately.
+[^2]: If `.env` file is not present, `com_port` will need to be specified on the command line or in your project's Makefile when `send` and `term` operations are performed.
