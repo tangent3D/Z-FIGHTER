@@ -1,7 +1,10 @@
 name=mechzoom
 export
 
-default:
+ram:
+	@make -s -f ../Makefile ram
+
+rom:
 	@make -s -f ../Makefile rom
 	
 send:

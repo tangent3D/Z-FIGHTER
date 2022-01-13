@@ -4,12 +4,13 @@
 # Uses z88dk/zsdcc, GNU Make
 
 # Targets:
-# rom       Build Z-FIGHTER binary from C/ASM source(s).
+# ram 		Build RAM model Z-FIGHTER binary from C/ASM source(s).
+# rom       Build ROM model Z-FIGHTER binary from C/ASM source(s).
 # cpm       Build CP/M COM file from C/ASM source(s).
 # asm       Assemble a standalone ASM project.
 # libs      Build Z-FIGHTER library.
 # lib       Build a library from source files.
-# send      Transfer output to zf_loader.
+# send      Transfer output to zf_loader. To be used with 'ram' target.
 # term      Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY).
 # clean     Recursively clean intermediate binaries, assembly listings and symbol tables.
 # cleaner   Recursively clean everything.
@@ -43,7 +44,7 @@ ext ?=              .rom
 # Use z88dk/zsdcc newlib.
 clib =              -clib=sdcc_iy
 
-# Pragmas for +z80 target for compatibility with zf_loader.
+# Pragmas for RAM model 'ram' target (don't move stack pointer, return to caller on exit).
 pragma =            -pragma-define:REGISTER_SP=-1 $\
                     -pragma-define:CRT_ON_EXIT=0x10002
 
@@ -59,7 +60,7 @@ ifeq ($(opt),true)
 	optimization =  -SO3 --max-allocs-per-node200000
 endif
 
-# Use +z80 compressed ROM model if specified. Otherwise, use uncompressed ROM model.
+# Use compressed ROM model if specified. Otherwise, use uncompressed ROM model.
 ifeq ($(compress),true)
 	crt =           -startup=2
 else
@@ -93,9 +94,17 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 	@echo Making $<.
 	@zcc +z80 $(inc) --list -c -o $@ $<
 
-# Build binary from source files.
+# Build RAM model binary from source files.
+ram: $(OBJ)
+	@zcc +z80 $(clib) -startup=0 $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list
+# Rename .bin to .rom to match win32 behavior.
+ifneq ($(OS),Windows_NT)
+	@-mv -f $(name).bin $(name).rom 2>/dev/null
+endif
+
+# Build ROM model binary from source files.
 rom: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list
+	@zcc +z80 $(clib) $(crt) $(inc) $(init) -m -o $(name) $^ -create-app --list
 # Rename .bin to .rom to match win32 behavior.
 ifneq ($(OS),Windows_NT)
 	@-mv -f $(name).bin $(name).rom 2>/dev/null
