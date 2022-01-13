@@ -6,8 +6,7 @@
 # Targets:
 # rom       Build Z-FIGHTER binary from C/ASM source(s).
 # cpm       Build CP/M COM file from C/ASM source(s).
-# bare      Build binary from C/ASM source(s) without startup code.
-# asm       Assemble a standalone ASM project from ASM source(s).
+# asm       Assemble a standalone ASM project.
 # libs      Build Z-FIGHTER library.
 # lib       Build a library from source files.
 # send      Transfer output to zf_loader.
@@ -96,7 +95,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build binary from source files.
 rom: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app
+	@zcc +z80 $(clib) $(crt) $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list
 # Rename .bin to .rom to match win32 behavior.
 ifneq ($(OS),Windows_NT)
 	@-mv -f $(name).bin $(name).rom 2>/dev/null
@@ -105,10 +104,6 @@ endif
 # Build CP/M COM file from source files. Uses newlib.
 cpm: $(OBJ)
 	@zcc +cpm $(clib) $(inc) -m -o $(name).com $^ -create-app
-
-# Build binary from source files with no startup code.
-bare: $(OBJ)
-	@zcc +z80 $(clib) --no-crt $(inc) -o $(name).rom $^
 
 # Assemble a standalone ASM project.
 asm:
