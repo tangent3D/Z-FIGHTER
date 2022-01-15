@@ -3,6 +3,7 @@ zf_lib.lib
 *.rom
 *.o
 *.map
+*.sym
 *.env
 *.err
 *.lis

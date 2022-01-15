@@ -23,7 +23,7 @@
 
 # ASM (asm) target environment variables:
 # file      First module to assemble, e.g. "file=program.asm" (required)
-# ext       Desired extension of output, e.g. "ext=.COM" (optional, defaults to .ROM)
+# ext       Desired extension of output, e.g. "ext=.com" (optional, defaults to .bin)
 
 # Get path to this Makefile.
 makefile_path :=    $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -38,8 +38,8 @@ endif
 # Assign base name of directory as output name if no name is specified.
 name ?=             $(notdir $(CURDIR))
 
-# Use .rom extension for ASM project output if no extension is specified.
-ext ?=              .rom
+# Use .bin extension for ASM project output if no extension is specified.
+ext ?=              .bin
 
 # Use z88dk/zsdcc newlib.
 clib =              -clib=sdcc_iy
@@ -96,19 +96,11 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build RAM model binary from source files.
 ram: $(OBJ)
-	@zcc +z80 $(clib) -startup=0 $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list
-# Rename .bin to .rom to match win32 behavior.
-ifneq ($(OS),Windows_NT)
-	@-mv -f $(name).bin $(name).rom 2>/dev/null
-endif
+	@zcc +z80 $(clib) -startup=0 $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbol-file
 
 # Build ROM model binary from source files.
 rom: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(inc) $(init) -m -o $(name) $^ -create-app --list
-# Rename .bin to .rom to match win32 behavior.
-ifneq ($(OS),Windows_NT)
-	@-mv -f $(name).bin $(name).rom 2>/dev/null
-endif
+	@zcc +z80 $(clib) $(crt) $(inc) $(init) -m -o $(name) $^ -create-app --list -Cz--romsize=16384
 
 # Build CP/M COM file from source files. Uses newlib.
 cpm: $(OBJ)
@@ -132,13 +124,13 @@ send:
 ifeq (,$(com_port))
 	@echo Cannot send to zf_loader. COM port (com_port) not specified.
 else
-	@echo Sending $(name).rom to Z-FIGHTER via $(com_port).
+	@echo Sending $(name).bin to Z-FIGHTER via $(com_port).
 ifeq ($(OS),Windows_NT)
 	@MODE $(com_port): BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
-	@COPY $(name).rom \\.\$(com_port) >nul 2>&1
+	@COPY $(name).bin \\.\$(com_port) >nul 2>&1
 else
 	@stty -F $(com_port) 115200
-	@cat $(name).rom > $(com_port)
+	@cat $(name).bin > $(com_port)
 endif
 endif
 
@@ -151,7 +143,7 @@ else
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 endif
 
-ext_clean =    *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt
+ext_clean =    *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt *.sym
 ext_cleaner =  zf_lib.lib *.bin *.rom *.com *.COM *.o
 
 # Clean intermediate binaries, assembly listings and symbol tables.
