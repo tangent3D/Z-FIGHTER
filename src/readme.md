@@ -29,6 +29,6 @@ An example of a project assembled with this target is [`zf_loader`](https://gith
 
 [^1]:If you've compiled z88dk from source and `z80.lib` is not found when linking, navigate to `z88dk/libsrc/_DEVELOPMENT` and execute `make` to build the z80 libraries separately.
 [^2]:If `.env` file is not present, `com_port` will need to be specified on the command line or in your project's Makefile when `send` and `term` operations are performed.
-[^3]:Uses z88dk's [`Embedded_Z80`](https://github.com/z88dk/z88dk/wiki/NewLib--Platform--Embedded#the-importance-of-const) target. 
+[^3]:Uses z88dk's [`Embedded_Z80`](https://github.com/z88dk/z88dk/wiki/NewLib--Platform--Embedded) target.
 [^5]:While this practice is not discouraged, it should be considered a stopgap measure until a system ROM that loads software into RAM from the CompactFlash card is created.
 [^5]:Refer to [this](https://github.com/tangent3D/Z-FIGHTER/blob/main/SPLD/readme.md) page for information about modifying Z-FIGHTER's memory map.
