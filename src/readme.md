@@ -14,7 +14,7 @@ No additional software is required to transfer programs to Z-FIGHTER. Navigate y
 
 ### Make Targets
 #### 'ram' (RAM Model) Target
-Produces a '.bin' file intended to be loaded into Z-FIGHTER RAM. Programs have full use of the 64K memory space minus any space at the top of RAM reserved for a boot loader (e.g. 512 bytes for `zf_loader`.)
+Produces a '.bin' file intended to be loaded into Z-FIGHTER RAM. Programs have full use of the 64K memory space minus any space at the top of RAM reserved for a boot loader (approximately 512 bytes for `zf_loader`.)
 
 #### 'rom' (ROM Model) Target
 Produces a 16K '.rom' file intended for burning to Z-FIGHTER's EEPROM for immediate execution.[^3] This target is configured to generate ROM files for Z-FIGHTER's default memory map (16K ROM, 48K RAM).[^4] Compression can be enabled when using this target by specifying `compress=true`.
