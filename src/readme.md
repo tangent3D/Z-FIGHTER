@@ -1,3 +1,5 @@
+# Building and Loading Z-FIGHTER Software
+
 Z-FIGHTER uses a cross-platform build system using z88dk/zsdcc and GNU Make. 
 
 ### Getting Started
@@ -11,6 +13,8 @@ Z-FIGHTER's build system is configured to work with a boot loader ROM, `zf_seria
 
 ### Transferring Programs to Z-FIGHTER
 No additional software is required to transfer programs to Z-FIGHTER. Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER RAM and executed. Upon program exit or system reset, Z-FIGHTER will return to the boot loader, ready to load another program into memory.
+
+# Developing Z-FIGHTER Software
 
 ### Make Targets
 #### 'ram' (RAM Model) Target[^3]
