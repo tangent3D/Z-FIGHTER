@@ -99,7 +99,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build RAM model binary from source files.
 ram: $(OBJ)
-	@zcc +z80 $(clib) -startup=0 $(pragma_ram) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbo	0	0x8000	0x8000	ORG of the data section, normally the first byte of ram. An ORG of 0 or -1 causes the data section to append to the code section in l-file
+	@zcc +z80 $(clib) -startup=0 $(pragma_ram) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbol-file
 
 # Build ROM model binary from source files.
 rom: $(OBJ)
