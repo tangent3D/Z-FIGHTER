@@ -13,10 +13,10 @@ Z-FIGHTER's build system is configured to work with a boot loader ROM, `zf_seria
 No additional software is required to transfer programs to Z-FIGHTER. Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER RAM and executed. Upon program exit or system reset, Z-FIGHTER will return to the boot loader, ready to load another program into memory.
 
 ### Make Targets
-#### 'ram' (RAM Model) Target
+#### 'ram' (RAM Model) Target[^3]
 Produces a '.bin' file intended to be loaded into Z-FIGHTER RAM. Programs have full use of the 64K memory space minus any space at the top of RAM reserved for a boot loader (approximately 512 bytes for `zf_loader`.)
 
-#### 'rom' (ROM Model) Target
+#### 'rom' (ROM Model) Target[^3]
 Produces a 16K '.rom' file intended for burning to Z-FIGHTER's EEPROM for immediate execution.[^4] This target is configured to generate ROM files for Z-FIGHTER's default memory map (16K ROM, 48K RAM).[^5] Compression can be enabled when using this target by specifying `compress=true`.
 
 #### 'cpm' (CP/M) Target
