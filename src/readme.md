@@ -20,7 +20,7 @@ Produces a '.bin' file intended to be loaded into Z-FIGHTER RAM. Programs have f
 Produces a 16K '.rom' file intended for burning to Z-FIGHTER's EEPROM for immediate execution.[^3] This target is configured to generate ROM files for Z-FIGHTER's default memory map (16K ROM, 48K RAM).[^4] Compression can be enabled when using this target by specifying `compress=true`.
 
 #### 'cpm' (CP/M) Target
-Produces a CP/M COM file for use with CP/M. Programs can be uploaded to Z-FIGHTER via serial using protocols like Xmodem and Telnet.
+Produces a COM file for use with CP/M. Programs can be uploaded to a CP/M installation via serial using protocols like Xmodem and Telnet.
 
 #### 'asm' (Standalone ASM Project) Target
 Assembles a standalone ASM project using `z80asm`. The first module to be assembled must be specified with the `file` environment variable, e.g. `file=program.asm`. Additional source files can be included with `INCLUDE` and `INCBIN` directives. Code and data sections should be located with `ORG` directives. Reference to Z-FIGHTER library components is supported via `EXTERN` directives. The output file extension (default .bin) can optionally be specified with the `ext` environment variable, e.g. `ext=.com`.
