@@ -44,9 +44,12 @@ ext ?=              .bin
 # Use z88dk/zsdcc newlib.
 clib =              -clib=sdcc_iy
 
-# Pragmas for RAM model 'ram' target (don't move stack pointer, return to caller on exit).
-pragma =            -pragma-define:REGISTER_SP=-1 $\
+# Pragmas for RAM model ('ram') target (don't move stack pointer, return to caller on exit).
+pragma_ram =        -pragma-define:REGISTER_SP=-1 $\
                     -pragma-define:CRT_ON_EXIT=0x10002
+
+# Pragmas for ROM model ('rom') target (originate DATA section at 4000h).
+pragma_rom =        -pragma-define:CRT_ORG_DATA=0x4000
 
 # Include Z-FIGHTER library in all targets.
 inc =               -I$(zf_dir)zf_lib $\
@@ -96,11 +99,11 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build RAM model binary from source files.
 ram: $(OBJ)
-	@zcc +z80 $(clib) -startup=0 $(pragma) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbol-file
+	@zcc +z80 $(clib) -startup=0 $(pragma_ram) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbo	0	0x8000	0x8000	ORG of the data section, normally the first byte of ram. An ORG of 0 or -1 causes the data section to append to the code section in l-file
 
 # Build ROM model binary from source files.
 rom: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(inc) $(init) -m -o $(name) $^ -create-app --list -Cz--romsize=16384
+	@zcc +z80 $(clib) $(crt) $(pragma_rom) $(inc) $(init) -m -o $(name) $^ -create-app --list -Cz--romsize=16384
 
 # Build CP/M COM file from source files. Uses newlib.
 cpm: $(OBJ)
