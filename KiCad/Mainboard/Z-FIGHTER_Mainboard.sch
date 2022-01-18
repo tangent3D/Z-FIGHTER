@@ -1946,8 +1946,6 @@ F 3 "" H 9600 7350 50  0001 C CNN
 	1    9600 7350
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9650 8900 0    50   Input ~ 0
-#INT
 Wire Wire Line
 	7900 5000 7900 5350
 Wire Wire Line
@@ -2000,53 +1998,12 @@ F 3 "" H 8400 6450 50  0001 C CNN
 	1    8400 6450
 	0    1    1    0   
 $EndComp
-$Comp
-L power:GND #PWR0147
-U 1 1 61376857
-P 9450 8800
-F 0 "#PWR0147" H 9450 8550 50  0001 C CNN
-F 1 "GND" H 9455 8627 50  0000 C CNN
-F 2 "" H 9450 8800 50  0001 C CNN
-F 3 "" H 9450 8800 50  0001 C CNN
-	1    9450 8800
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	9450 8800 9650 8800
-Wire Wire Line
-	10150 8800 10350 8800
-$Comp
-L Connector_Generic:Conn_02x03_Odd_Even J7
-U 1 1 61332756
-P 9850 8900
-F 0 "J7" H 9900 9217 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 9900 9126 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 9850 8900 50  0001 C CNN
-F 3 "~" H 9850 8900 50  0001 C CNN
-	1    9850 8900
-	1    0    0    -1  
-$EndComp
-Text GLabel 9650 9000 0    50   Input ~ 0
-CLOCK2_EXT
-Text GLabel 10150 8900 2    50   Input ~ 0
-#NMI
 Wire Wire Line
 	10200 7150 10950 7150
 Wire Wire Line
 	10200 7250 11050 7250
 Wire Wire Line
 	10200 7350 11150 7350
-$Comp
-L power:VCC #PWR0150
-U 1 1 6137DFCB
-P 10350 8800
-F 0 "#PWR0150" H 10350 8650 50  0001 C CNN
-F 1 "VCC" V 10368 8927 50  0000 L CNN
-F 2 "" H 10350 8800 50  0001 C CNN
-F 3 "" H 10350 8800 50  0001 C CNN
-	1    10350 8800
-	0    1    1    0   
-$EndComp
 $Comp
 L Z-FIGHTER_Mainboard-rescue:DS1233-Z-FIGHTER_Mainboard-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue-Z-FIGHTER_Mainboard-rescue U10
 U 1 1 60045969
@@ -2173,7 +2130,7 @@ F 3 "" H 8400 4950 50  0001 C CNN
 $EndComp
 Text Notes 12150 8350 0    50   ~ 0
 Supervisory circuit
-Text Notes 9150 8500 0    50   ~ 0
+Text Notes 9150 8550 0    50   ~ 0
 External CPU interrupt & clock header
 Wire Notes Line
 	1050 8900 8800 8900
@@ -2185,20 +2142,8 @@ Text Notes 7950 6250 0    50   ~ 0
 Pin 9 +5V Jumper
 Wire Wire Line
 	6350 7650 6350 7000
-NoConn ~ 1700 2750
 Text GLabel 1700 1750 0    50   Input ~ 0
 CLOCK
-$Comp
-L CPU:Z80CPU U2
-U 1 1 5FCE363C
-P 2400 2650
-F 0 "U2" H 2400 4331 50  0000 C CNN
-F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
-F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
-F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
-	1    2400 2650
-	1    0    0    -1  
-$EndComp
 Text GLabel 1700 2050 0    50   Input ~ 0
 #NMI
 Wire Wire Line
@@ -2362,8 +2307,6 @@ Text GLabel 1600 8100 2    50   Input ~ 0
 CLOCK
 Text GLabel 1700 2650 0    50   Input ~ 0
 #WAIT
-Text GLabel 10150 9000 2    50   Input ~ 0
-#WAIT
 NoConn ~ 5750 8300
 $Comp
 L Oscillator:CXO_DIP14 X1
@@ -2379,29 +2322,29 @@ $EndComp
 $Comp
 L Device:R_Network03 RN1
 U 1 1 61A6227C
-P 9900 8200
-F 0 "RN1" V 10225 8200 50  0000 C CNN
-F 1 "4.7KΩ" V 10134 8200 50  0000 C CNN
-F 2 "Resistor_THT:R_Array_SIP4" V 10175 8200 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 9900 8200 50  0001 C CNN
-	1    9900 8200
+P 9900 8150
+F 0 "RN1" V 10225 8150 50  0000 C CNN
+F 1 "4.7KΩ" V 10134 8150 50  0000 C CNN
+F 2 "Resistor_THT:R_Array_SIP4" V 10175 8150 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 9900 8150 50  0001 C CNN
+	1    9900 8150
 	0    -1   -1   0   
 $EndComp
-Text GLabel 10100 8200 2    50   Input ~ 0
+Text GLabel 10100 8150 2    50   Input ~ 0
 #NMI
-Text GLabel 10100 8100 2    50   Input ~ 0
+Text GLabel 10100 8050 2    50   Input ~ 0
 #INT
-Text GLabel 10100 8300 2    50   Input ~ 0
+Text GLabel 10100 8250 2    50   Input ~ 0
 #WAIT
 $Comp
 L power:VCC #PWR0112
 U 1 1 612070EB
-P 9700 8300
-F 0 "#PWR0112" H 9700 8150 50  0001 C CNN
-F 1 "VCC" V 9717 8428 50  0000 L CNN
-F 2 "" H 9700 8300 50  0001 C CNN
-F 3 "" H 9700 8300 50  0001 C CNN
-	1    9700 8300
+P 9700 8250
+F 0 "#PWR0112" H 9700 8100 50  0001 C CNN
+F 1 "VCC" V 9717 8378 50  0000 L CNN
+F 2 "" H 9700 8250 50  0001 C CNN
+F 3 "" H 9700 8250 50  0001 C CNN
+	1    9700 8250
 	0    -1   -1   0   
 $EndComp
 Text Notes 1350 8000 0    50   ~ 0
@@ -2410,4 +2353,66 @@ Text GLabel 2650 8100 2    50   Input ~ 0
 CLOCK2_EXT
 Text GLabel 9450 5300 0    50   Input ~ 0
 A13
+$Comp
+L CPU:Z80CPU U2
+U 1 1 5FCE363C
+P 2400 2650
+F 0 "U2" H 2400 4331 50  0000 C CNN
+F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
+F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
+F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
+	1    2400 2650
+	1    0    0    -1  
+$EndComp
+Text GLabel 1700 2750 0    50   Input ~ 0
+HALT
+Text GLabel 10150 9150 2    50   Input ~ 0
+#RESET
+Text GLabel 9650 9150 0    50   Input ~ 0
+HALT
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J7
+U 1 1 61332756
+P 9850 8950
+F 0 "J7" H 9900 9267 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 9900 9176 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x04_P2.54mm_Horizontal" H 9850 8950 50  0001 C CNN
+F 3 "~" H 9850 8950 50  0001 C CNN
+	1    9850 8950
+	1    0    0    -1  
+$EndComp
+Text GLabel 10150 9050 2    50   Input ~ 0
+#WAIT
+$Comp
+L power:VCC #PWR0150
+U 1 1 6137DFCB
+P 10350 8850
+F 0 "#PWR0150" H 10350 8700 50  0001 C CNN
+F 1 "VCC" V 10368 8977 50  0000 L CNN
+F 2 "" H 10350 8850 50  0001 C CNN
+F 3 "" H 10350 8850 50  0001 C CNN
+	1    10350 8850
+	0    1    1    0   
+$EndComp
+Text GLabel 10150 8950 2    50   Input ~ 0
+#NMI
+Text GLabel 9650 9050 0    50   Input ~ 0
+CLOCK2_EXT
+Wire Wire Line
+	10150 8850 10350 8850
+Wire Wire Line
+	9450 8850 9650 8850
+$Comp
+L power:GND #PWR0147
+U 1 1 61376857
+P 9450 8850
+F 0 "#PWR0147" H 9450 8600 50  0001 C CNN
+F 1 "GND" H 9455 8677 50  0000 C CNN
+F 2 "" H 9450 8850 50  0001 C CNN
+F 3 "" H 9450 8850 50  0001 C CNN
+	1    9450 8850
+	0    1    1    0   
+$EndComp
+Text GLabel 9650 8950 0    50   Input ~ 0
+#INT
 $EndSCHEMATC
