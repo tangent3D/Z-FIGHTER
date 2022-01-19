@@ -72,6 +72,7 @@ endif
 
 SUBDIRS := $(wildcard zf_*/.)
 .PHONY: all $(SUBDIRS)
+.PHONY: asm
 .PHONY: libs
 .PHONY: send
 .PHONY: term
