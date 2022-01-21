@@ -1,1 +1,1 @@
-![Screenshot](../../media/screenshot_mechzoom_.png)
+![Screenshot](../../media/screenshot_mechzoom.png)
