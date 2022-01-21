@@ -1,9 +1,9 @@
 ### Description
 Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Searle's CP/M on breadboard](http://searle.x10host.com/cpm/index.html "Grant Searle's CP/M on breadboard") project. As a fully assembled unit in its custom 3D-printed enclosure, Z-FIGHTER has a handheld-style form factor with front panel accessories intended for user-created software and games. Connected via serial to a computer or terminal, Z-FIGHTER can be used to enjoy a full CP/M 2.2 environment or Microsoft BASIC in ROM. Finally, a parallel port and external CPU control pins are provided to the user for hardware hacking and expansion.
 
-![Z-FIGHTER](hardware/img/IO.jpg "Z-FIGHTER")
+![Z-FIGHTER](media/case_io.jpg "Z-FIGHTER")
 
-![Poker game](software/zf_game_poker/img/screenshot_1.png "Z-Fighter poker game")
+![Poker game](media/screenshot_poker_1.png "Z-Fighter poker game")
 
 ### Specifications
 - Z80 CPU @ 7.3728MHz
