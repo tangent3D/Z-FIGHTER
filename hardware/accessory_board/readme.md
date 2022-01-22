@@ -5,7 +5,7 @@
 [PCB layout](../../media/layout_accessory_board.pdf)
 
 ## Bill of Materials
-|Part|Quantity|Mouser #|Link
+|Part Description|Quantity|Mouser #|Link
 |--|--|--|--|
 |Cherry MX switches (PCB mount)|8|540-MX1A-G1NW|[Mouser](https://www.mouser.com/ProductDetail/?qs=F5EMLAvA7IAf8LDkSr80OA%3D%3D)
 |Resistor network 8x 10Kohms bussed|1|652-4609H-1LF-10K|[Mouser](https://www.mouser.com/ProductDetail/Bourns/4609H-101-103LF?qs=sGAEpiMZZMujMHSoaAZeGdkD0yBqu0zL)
