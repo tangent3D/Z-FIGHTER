@@ -19,5 +19,5 @@
 |20mm vertical double row breakaway header|1||[Amazon](https://www.amazon.com/uxcell-Straight-Connector-Arduino-Prototype/dp/B07DJY3FRJ/ref=sr_1_5?keywords=20mm+header+pins&qid=1637700921&sr=8-5)
 |Right-angle header (female)|1||[Amazon](https://www.amazon.com/Yohii-Female-Header-2-54mm-Connector/dp/B07P1R9CGT/ref=sr_1_4?keywords=right+angle+female+header&qid=1637701159&sr=8-4)
 |DSA profile 2U keycap|2||[Pimp My Keyboard](https://pimpmykeyboard.com/dsa-2-space-pack-of-4/)
-|DSA profile 1U keycaps|6||[Pimp My Keyboard](https://pimpmykeyboard.com/dsa-1-space-pack-of-10/)
+|DSA profile 1U keycap|6||[Pimp My Keyboard](https://pimpmykeyboard.com/dsa-1-space-pack-of-10/)
 |Cherry PCB snap-in 2U stabilizer|2||[Amazon](https://www.amazon.com/dp/B085T8QZJC/ref=cm_sw_r_tw_dp_V3VNQRQ0CPQBPXNV3A6B?_encoding=UTF8&psc=1)
