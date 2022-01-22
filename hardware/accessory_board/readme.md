@@ -1,6 +1,6 @@
-[PCB schematic](../../../media/schematic_accessory_board.pdf)
+[PCB schematic](../../media/schematic_accessory_board.pdf)
 
-[PCB layout](../../../media/layout_accessory_board.pdf)
+[PCB layout](../../media/layout_accessory_board.pdf)
 
 ## Bill of Materials
 |Part|Quantity|Mouser #|Link
