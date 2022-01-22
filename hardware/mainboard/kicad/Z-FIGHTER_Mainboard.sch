@@ -2353,19 +2353,6 @@ Text GLabel 2650 8100 2    50   Input ~ 0
 CLOCK2_EXT
 Text GLabel 9450 5300 0    50   Input ~ 0
 A13
-$Comp
-L CPU:Z80CPU U2
-U 1 1 5FCE363C
-P 2400 2650
-F 0 "U2" H 2400 4331 50  0000 C CNN
-F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
-F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
-F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
-	1    2400 2650
-	1    0    0    -1  
-$EndComp
-Text GLabel 1700 2750 0    50   Input ~ 0
-HALT
 Text GLabel 10150 9150 2    50   Input ~ 0
 #RESET
 $Comp
@@ -2415,4 +2402,16 @@ Text GLabel 9650 8950 0    50   Input ~ 0
 #INT
 Text GLabel 9650 9150 0    50   Input ~ 0
 CLOCK
+$Comp
+L CPU:Z80CPU U2
+U 1 1 5FCE363C
+P 2400 2650
+F 0 "U2" H 2400 4331 50  0000 C CNN
+F 1 "Z80CPU" H 2400 4240 50  0000 C CNN
+F 2 "Package_DIP:DIP-40_W15.24mm" H 2400 3050 50  0001 C CNN
+F 3 "www.zilog.com/manage_directlink.php?filepath=docs/z80/um0080" H 2400 3050 50  0001 C CNN
+	1    2400 2650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1700 2750
 $EndSCHEMATC
