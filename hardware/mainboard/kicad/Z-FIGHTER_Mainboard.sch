@@ -2368,8 +2368,6 @@ Text GLabel 1700 2750 0    50   Input ~ 0
 HALT
 Text GLabel 10150 9150 2    50   Input ~ 0
 #RESET
-Text GLabel 9650 9150 0    50   Input ~ 0
-HALT
 $Comp
 L Connector_Generic:Conn_02x04_Odd_Even J7
 U 1 1 61332756
@@ -2415,4 +2413,6 @@ F 3 "" H 9450 8850 50  0001 C CNN
 $EndComp
 Text GLabel 9650 8950 0    50   Input ~ 0
 #INT
+Text GLabel 9650 9150 0    50   Input ~ 0
+CLOCK
 $EndSCHEMATC
