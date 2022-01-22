@@ -9,3 +9,10 @@
 |1/4W 820 Ohm 5% resistor|1|603-CFR-25JT-52-820R|[Mouser](https://www.mouser.com/ProductDetail/?qs=KUIzHt%2Fe91nf0zePCO9VQg%3D%3D)
 |1/4W 680 Ohm 5% resistor|1|603-CFR-25JB-52-680R|[Mouser](https://www.mouser.com/ProductDetail/?qs=oypCK0zG327gSAdGYp%2FJTg%3D%3D)
 |1x20 right angle header|1|649-1012937992002BLF|[Mouser](https://www.mouser.com/ProductDetail/?qs=0lQeLiL1qybxcF3pstck9w%3D%3D)
+
+|ST7920 128x64 Graphic LCD|1||[Link](https://www.buydisplay.com/3-3v-5v-graphic-display-128x64-serial-lcd-display-st7920)
+|20mm vertical double row breakaway header (used to connect accessory board to mainboard)|1||[Link](https://www.amazon.com/uxcell-Straight-Connector-Arduino-Prototype/dp/B07DJY3FRJ/ref=sr_1_5?keywords=20mm+header+pins&qid=1637700921&sr=8-5)
+|Right-angle header (female) (used to connect accessory board to LCD)|1|||[Link](https://www.amazon.com/Yohii-Female-Header-2-54mm-Connector/dp/B07P1R9CGT/ref=sr_1_4?keywords=right+angle+female+header&qid=1637701159&sr=8-4)
+|DSA profile 2U keycap|2||[Link](https://pimpmykeyboard.com/dsa-2-space-pack-of-4/)
+|DSA profile 1U keycaps|6||[Link](https://pimpmykeyboard.com/dsa-1-space-pack-of-10/)
+|Cherry PCB snap-in 2U stabilizer|2||[Amazon](https://www.amazon.com/dp/B085T8QZJC/ref=cm_sw_r_tw_dp_V3VNQRQ0CPQBPXNV3A6B?_encoding=UTF8&psc=1)
