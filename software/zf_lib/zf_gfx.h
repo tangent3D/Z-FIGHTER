@@ -13,11 +13,12 @@
 // there is no gfxInit()
 // init what you need: color=1; cls(); lcd(screen);
 
-// sets foreground color used by all zf_gfx functions
-// 0 means white, 1 means black (default)
+// used by all zf_gfx functions
+// 0 turns pixels off, 1 turns pixels on (suggested default)
 extern unsigned char color;
 
-// fills screen with background color (inverted foreground color)
+// if color is set to 1: sets all screen pixels to off
+// if color is set to 0: sets all screen pixels to on
 void cls();
 
 // draws vector graphic
@@ -28,9 +29,11 @@ void rect(unsigned char x, unsigned char y, unsigned char w, unsigned char h);
 
 // draws sprite
 // with top left corner at x y
-// sprite pattern bits: 0 means background color, 1 means foreground color
+// sprite pattern bits if color is set to 1: 0 means pixel off, 1 means pixel on
+// sprite pattern bits if color is set to 0: 1 means pixel off, 0 means pixel on
 void sprite(const unsigned char* spritePattern, unsigned char x, unsigned char y);
-// sprite pattern bits: 0 means transparent, 1 means foreground color
+// sprite pattern bits if color is set to 1: 0 means transparent, 1 means pixel on
+// sprite pattern bits if color is set to 0: 0 means transparent, 1 means pixel off
 void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsigned char y);
 
 // sprite pattern example
@@ -47,7 +50,8 @@ void spriteTransparent(const unsigned char* spritePattern, unsigned char x, unsi
 
 // overwrites a screen block (8x8 pixels)
 // on grid at blockX blockY
-// block pattern bits: 0 means background color, 1 means foreground color
+// block pattern bits if color is set to 1: 0 means pixel off, 1 means pixel on
+// block pattern bits if color is set to 0: 1 means pixel off, 0 means pixel on
 void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY);
 
 // block coordinates
@@ -71,7 +75,7 @@ void block(const unsigned char* blockPattern, unsigned char blockX, unsigned cha
 
 // the bitmap all zf_gfx functions draw onto
 // each byte represents 8 horizontal pixels
-// 0 means white, 1 means black
+// 0 means pixel off, 1 means pixel on
 extern unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 
 #endif // ZF_GFX_H
