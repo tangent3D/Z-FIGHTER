@@ -1,14 +1,16 @@
 ; ST7920 LCD controller implementation for Z-Fighter
 ; by Tangent 2021
 
-EXTERN PORTB_ACC
-EXTERN CTRL_ACC
-EXTERN LCD_E_LO
-EXTERN LCD_WR
-EXTERN LCD_RD
-EXTERN LCD_INST
-EXTERN LCD_DATA
-EXTERN LCD_BL_OFF
+#define INVERT 0                ; Invert all LCD graphics data output. Enable with '1'
+
+EXTERN  PORTB_ACC
+EXTERN  CTRL_ACC
+EXTERN  LCD_E_LO
+EXTERN  LCD_WR
+EXTERN  LCD_RD
+EXTERN  LCD_INST
+EXTERN  LCD_DATA
+EXTERN  LCD_BL_OFF
 
 SECTION code_user
 
@@ -75,9 +77,18 @@ DRLOOP:
     CALL    WAITBSY
     LD      A,LCD_DATA          ; Set LCD D
     OUT     (CTRL_ACC),A
-
     LD      C,PORTB_ACC
-    OUTI                        ; OUT contents of HL to (C), DEC B
+
+    IF INVERT
+        LD      A,(HL)
+        XOR     0FFh            ; Invert all bits in A
+        OUT     (C),A
+        INC     HL
+        DEC     B
+    ELSE
+        OUTI                    ; OUT contents of HL to (C), DEC B
+    ENDIF
+
     CALL    ENABLE
     OR      B                   ; Check if loop is complete
     JR      NZ,DRLOOP
