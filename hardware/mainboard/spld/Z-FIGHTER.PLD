@@ -1,49 +1,29 @@
-Name     Z-FIGHTER ;
-PartNo   00 ;
-Date     1/19/2021 ;
-Revision 01 ;
-Designer @tangent3D ;
-Company   ;
-Assembly None ;
-Location  ;
-Device   g22v10 ;
+GAL22V10 
 
-/* Input pins */
-PIN 1   = A14;
-PIN 2   = A15;
-PIN 3   = A13;
-PIN 4   = A7;
-PIN 5   = A6;
-PIN 6   = A5;
-PIN 7   = A4;
-PIN 8   = A3;
-PIN 9   = WR;
-PIN 10  = MREQ;
-PIN 11  = IORQ;
-PIN 13  = ROMD_IN; /* "ROM disable" input from 74HC00 */
-PIN 21  = ROMA17;
-PIN 22  = ROMA16;
-PIN 23  = ROMA18;
+A14 A15 A13 A7 A6 A5 A4 A3 WR MREQ IORQ GND
+ROMDIN ROMDOUT ROMCS RAMCS SIOCS CFCS PPISCS PPIUCS ROMA17 ROMA16 ROMA18 VCC
 
-/* Output pins */
-PIN 14  = ROMD_OUT; /* "ROM disable" output to 74HC00 */ 
-PIN 15  = ROMCS;
-PIN 16  = RAMCS;
-PIN 17  = SIOCS; /* Z80 SIO/0 */
-PIN 18  = CFCS; /* Compact Flash card */
-PIN 19  = PPIACS; /* 8255 (Accessory port) */
-PIN 20  = PPIUCS;  /* 8255 (User port) */
+; 38h & /WR
+/ROMDOUT = MREQ * /IORQ * /WR * /A7 * /A6 * A5 * A4 * A3
 
-/* Equations */
+; 0000-3FFFh on initial boot
+/ROMCS = /MREQ * IORQ * WR * ROMDIN * /A15 * /A14
 
-!ROMD_OUT = MREQ & !IORQ & !WR & !A7 & !A6 & A5 & A4 & A3; /* 38h + /WR */
+; 4000-FFFFh on initial boot
+/RAMCS  = /MREQ * IORQ * A15
+        + /MREQ * IORQ * A14
+        + /MREQ * IORQ * /ROMDIN
 
-!ROMCS = !MREQ & IORQ & WR & ROMD_IN & !A15 & !A14; /* 0000-3FFFh on initial boot */
+; 00h
+/SIOCS = MREQ * /IORQ * /A7 * /A6 * /A5 * /A4 * /A3
 
-!RAMCS = (!MREQ & IORQ & (A15#A14))#(!MREQ & IORQ & !ROMD_IN); /* 4000-FFFFh on initial boot */
+; 10-17h
+/CFCS  = MREQ * /IORQ * /A7 * /A6 * /A5 * A4 * /A3
 
-!SIOCS = MREQ & !IORQ & !A7 & !A6 & !A5 & !A4 & !A3; /* 00h */
-!CFCS  = MREQ & !IORQ & !A7 & !A6 & !A5 & A4 & !A3; /* 10-17h */
+; 80h
+/PPIUCS = MREQ * /IORQ * A7 * /A6 * /A5 * /A4 * /A3
 
-!PPIUCS = MREQ & !IORQ & A7 & !A6 & !A5 & !A4 & !A3; /* 80h */
-!PPIACS = MREQ & !IORQ & !A7 & A6 & !A5 & !A4 & !A3; /* 40h */
+; 40h
+/PPISCS = MREQ * /IORQ * /A7 * A6 * /A5 * /A4 * /A3
+
+DESCRIPTION

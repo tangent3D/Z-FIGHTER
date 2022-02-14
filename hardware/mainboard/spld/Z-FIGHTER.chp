@@ -1,0 +1,29 @@
+
+
+                                GAL22V10
+
+                          -------\___/-------
+                      A14 |  1           24 | VCC
+                          |                 |
+                      A15 |  2           23 | ROMA18
+                          |                 |
+                      A13 |  3           22 | ROMA16
+                          |                 |
+                       A7 |  4           21 | ROMA17
+                          |                 |
+                       A6 |  5           20 | PPIUCS
+                          |                 |
+                       A5 |  6           19 | PPISCS
+                          |                 |
+                       A4 |  7           18 | CFCS
+                          |                 |
+                       A3 |  8           17 | SIOCS
+                          |                 |
+                       WR |  9           16 | RAMCS
+                          |                 |
+                     MREQ | 10           15 | ROMCS
+                          |                 |
+                     IORQ | 11           14 | ROMDOUT
+                          |                 |
+                      GND | 12           13 | ROMDIN
+                          -------------------
