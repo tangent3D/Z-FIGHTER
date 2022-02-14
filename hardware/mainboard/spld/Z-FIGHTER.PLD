@@ -10,9 +10,9 @@ ROMDIN ROMDOUT ROMCS RAMCS SIOCS CFCS PPISCS PPIUCS ROMA17 ROMA16 ROMA18 VCC
 /ROMCS = /MREQ * IORQ * WR * ROMDIN * /A15 * /A14
 
 ; 4000-FFFFh on initial boot
-/RAMCS  = /MREQ * IORQ * A15
-        + /MREQ * IORQ * A14
-        + /MREQ * IORQ * /ROMDIN
+/RAMCS =   /MREQ * IORQ * A15
+         + /MREQ * IORQ * A14
+         + /MREQ * IORQ * /ROMDIN
 
 ; 00h
 /SIOCS = MREQ * /IORQ * /A7 * /A6 * /A5 * /A4 * /A3
