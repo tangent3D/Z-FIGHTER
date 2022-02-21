@@ -1,0 +1,25 @@
+
+
+ Pin # | Name     | Pin Type
+-----------------------------
+   1   | Clock    | Clock
+   2   | H0       | Input
+   3   | H1       | Input
+   4   | H2       | Input
+   5   | H3       | Input
+   6   | H4       | Input
+   7   | H5       | Input
+   8   | H6       | Input
+   9   | H7       | Input
+  10   | GND      | GND
+  11   | /OE      | /OE
+  12   | H8       | Input
+  13   | H9       | Input
+  14   | RESET    | Output
+  15   | LINETICK | Output
+  16   | SYNCTICK | Output
+  17   | Q0       | Output
+  18   | NC       | NC
+  19   | NC       | NC
+  20   | VCC      | VCC
+

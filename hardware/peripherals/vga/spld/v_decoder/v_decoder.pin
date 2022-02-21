@@ -1,0 +1,25 @@
+
+
+ Pin # | Name     | Pin Type
+-----------------------------
+   1   | Clock    | Input
+   2   | V0       | Input
+   3   | V1       | Input
+   4   | V2       | Input
+   5   | V3       | Input
+   6   | V4       | Input
+   7   | V5       | Input
+   8   | V6       | Input
+   9   | V7       | Input
+  10   | GND      | GND
+  11   | /OE      | Input
+  12   | V8       | Input
+  13   | V9       | Input
+  14   | RESET    | Output
+  15   | SCRNTICK | Output
+  16   | VSYNC    | Output
+  17   | NC       | NC
+  18   | NC       | NC
+  19   | NC       | NC
+  20   | VCC      | VCC
+
