@@ -6,6 +6,7 @@ Z-FIGHTER is a minimal chip-count Z80 hobby computer loosely based on [Grant Sea
 ![Poker](media/screenshot_poker_1.png "Z-FIGHTER poker game")
 
 ![Mechzoom](media/screenshot_mechzoom_1.png "Z-FIGHTER 'Mechzoom' game")
+
 ![Mechzoom](media/screenshot_mechzoom_2.png "Z-FIGHTER 'Mechzoom' game")
 
 ### Specifications
