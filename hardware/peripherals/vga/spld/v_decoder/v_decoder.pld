@@ -1,15 +1,14 @@
 GAL16V8
 VDECODER
 
-Clock V0 V1 V2 V3 V4 V5 V6 V7 GND
-/OE V8 V9 RESET SCRNTICK VSYNC NC NC NC VCC
+L0 L1 L2 L3 L4 L5 L6 L7 L8 GND
+L9 NC NC NC NC NC NC VSYNC LRESET VCC
 
-/RESET = V9 * V3 * V2 * /V1 *  V0
+; Line 525
+/LRESET = L9 * L3 * L2 * /L1 *  L0
 
-SCRNTICK = V9 * V3 * V2 * /V1 *  V0
-
-/VSYNC =		/V9 * V8 * V7 * V6 * V5 * /V4 * V3 * /V2 * V1 * /V0
-			+	/V9 * V8 * V7 * V6 * V5 * /V4 * V3 * /V2 * V1 * V0
-			;+	/V9 * V8 * V7 * V6 * V5 * /V4 * V3 * V2 * /V1 * /V0
+; Lines 490-491
+/VSYNC =        /L9 * L8 * L7 * L6 * L5 * /L4 * L3 * /L2 * L1 * /L0
+            +   /L9 * L8 * L7 * L6 * L5 * /L4 * L3 * /L2 * L1 * L0
 
 DESCRIPTION

@@ -1,17 +1,19 @@
 GAL16V8
 HDECODER
 
-Clock H0 H1 H2 H3 H4 H5 H6 H7 GND
-/OE H8 H9 RESET LINETICK SYNCTICK Q0 NC NC VCC
+Clock P0 P1 P2 P3 P4 P5 P6 P7 GND
+/OE P8 P9 NC NC LOAD HSTICK HSYNC PRESET VCC
 
-/RESET = H9 * H8 * H5
+; Pixel 800
+/PRESET =    P9 * P8 * P5
 
-LINETICK = H9 * H8 * H5
+; Pixels 656 and 752
+HSTICK =    P9 * /P8 * P7 * /P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
+         +  P9 * /P8 * P7 * P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
 
-SYNCTICK =		H9 * /H8 * H7 * /H6 * /H5 * H4 * /H3 * /H2 * /H1 * /H0
-			+	H9 * /H8 * H7 * H6 * H5 * H4 * /H3 * /H2 * /H1 * /H0
+; Registered output, clocked with HSTICK
+HSYNC.R =   /HSYNC
 
-Q0.R = /Q0
-
+/LOAD =     /P0 * /P1 * /P2 * /P3 * /P4
 
 DESCRIPTION
