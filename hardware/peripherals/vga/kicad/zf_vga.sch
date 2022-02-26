@@ -14,17 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L 74xx:74HC165 U?
-U 1 1 622A653B
-P 6850 1650
-F 0 "U?" H 6850 2731 50  0000 C CNN
-F 1 "74HC165" H 6850 2640 50  0000 C CNN
-F 2 "" H 6850 1650 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf" H 6850 1650 50  0001 C CNN
-	1    6850 1650
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0124
 U 1 1 622AB81D
 P 6850 2650
@@ -39,7 +28,6 @@ Wire Wire Line
 	6850 2650 6350 2650
 Wire Wire Line
 	6350 2650 6350 2350
-Connection ~ 6850 2650
 Text GLabel 1850 1050 2    50   Input ~ 0
 P0
 Text GLabel 1850 1150 2    50   Input ~ 0
@@ -178,8 +166,6 @@ Wire Wire Line
 	1050 3450 1050 3850
 Wire Wire Line
 	1050 3850 1450 3850
-Text GLabel 1050 3250 0    50   Input ~ 0
-#LRESET
 Wire Wire Line
 	1050 2950 1050 3000
 Wire Wire Line
@@ -644,4 +630,155 @@ F 3 "" H 3100 4950 50  0001 C CNN
 $EndComp
 Text GLabel 5550 1700 2    50   Input ~ 0
 SHIFT
+$Comp
+L 74xx:74HC590 U?
+U 1 1 62199935
+P 8550 1550
+F 0 "U?" H 8550 2431 50  0000 C CNN
+F 1 "74HC590" H 8550 2340 50  0000 C CNN
+F 2 "" H 8550 1600 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC590.pdf" H 8550 1600 50  0001 C CNN
+	1    8550 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 850  8550 850 
+$Comp
+L power:VCC #PWR?
+U 1 1 6219AD3B
+P 8800 850
+F 0 "#PWR?" H 8800 700 50  0001 C CNN
+F 1 "VCC" H 8815 1023 50  0000 C CNN
+F 2 "" H 8800 850 50  0001 C CNN
+F 3 "" H 8800 850 50  0001 C CNN
+	1    8800 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC590 U?
+U 1 1 6219DA0D
+P 10250 1550
+F 0 "U?" H 10250 2431 50  0000 C CNN
+F 1 "74HC590" H 10250 2340 50  0000 C CNN
+F 2 "" H 10250 1600 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC590.pdf" H 10250 1600 50  0001 C CNN
+	1    10250 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 850  10250 850 
+$Comp
+L power:VCC #PWR?
+U 1 1 6219DA14
+P 10500 850
+F 0 "#PWR?" H 10500 700 50  0001 C CNN
+F 1 "VCC" H 10515 1023 50  0000 C CNN
+F 2 "" H 10500 850 50  0001 C CNN
+F 3 "" H 10500 850 50  0001 C CNN
+	1    10500 850 
+	1    0    0    -1  
+$EndComp
+Text GLabel 8950 1050 2    50   Input ~ 0
+A0
+Text GLabel 8950 1150 2    50   Input ~ 0
+A1
+Text GLabel 8950 1250 2    50   Input ~ 0
+A2
+Text GLabel 8950 1450 2    50   Input ~ 0
+ALRESET
+Text GLabel 4450 2200 0    50   Input ~ 0
+ALRESET
+Text GLabel 5550 2200 2    50   Input ~ 0
+#ALRESET
+Text GLabel 8150 1550 0    50   Input ~ 0
+#ALRESET
+Text GLabel 10650 1050 2    50   Input ~ 0
+A4
+Text GLabel 10650 1150 2    50   Input ~ 0
+A5
+Text GLabel 10650 1250 2    50   Input ~ 0
+A6
+Text GLabel 10650 1350 2    50   Input ~ 0
+A7
+Text GLabel 10650 1450 2    50   Input ~ 0
+A8
+Text GLabel 10650 1550 2    50   Input ~ 0
+A9
+Text GLabel 8950 1350 2    50   Input ~ 0
+A3
+NoConn ~ 10650 1650
+NoConn ~ 10650 1750
+NoConn ~ 8950 1750
+NoConn ~ 8950 1650
+NoConn ~ 8950 1550
+$Comp
+L power:GND #PWR?
+U 1 1 621B7085
+P 8550 2150
+F 0 "#PWR?" H 8550 1900 50  0001 C CNN
+F 1 "GND" H 8555 1977 50  0000 C CNN
+F 2 "" H 8550 2150 50  0001 C CNN
+F 3 "" H 8550 2150 50  0001 C CNN
+	1    8550 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 621B7A12
+P 10250 2150
+F 0 "#PWR?" H 10250 1900 50  0001 C CNN
+F 1 "GND" H 10255 1977 50  0000 C CNN
+F 2 "" H 10250 2150 50  0001 C CNN
+F 3 "" H 10250 2150 50  0001 C CNN
+	1    10250 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 1250 8150 1300
+Wire Wire Line
+	8150 1300 8100 1300
+Connection ~ 8150 1300
+Wire Wire Line
+	8150 1300 8150 1350
+Wire Wire Line
+	9850 1250 9850 1300
+Wire Wire Line
+	9850 1300 9800 1300
+Connection ~ 9850 1300
+Wire Wire Line
+	9850 1300 9850 1350
+Text GLabel 4450 3200 0    50   Input ~ 0
+L1
+Text GLabel 5550 3200 2    50   Input ~ 0
+#L1
+Text GLabel 9800 1300 0    50   Input ~ 0
+#L1
+Text GLabel 4450 2700 0    50   Input ~ 0
+P4
+Text GLabel 5550 2700 2    50   Input ~ 0
+#P4
+Text GLabel 8100 1300 0    50   Input ~ 0
+#P4
+Text Notes 8600 2150 0    50   ~ 0
+Lower Address Counter
+Text Notes 10300 2150 0    50   ~ 0
+Upper Address Counter
+Connection ~ 6850 2650
+Text Notes 6900 2600 0    50   ~ 0
+Video Output
+$Comp
+L 74xx:74HC165 U?
+U 1 1 622A653B
+P 6850 1650
+F 0 "U?" H 6850 2731 50  0000 C CNN
+F 1 "74HC165" H 6850 2640 50  0000 C CNN
+F 2 "" H 6850 1650 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf" H 6850 1650 50  0001 C CNN
+	1    6850 1650
+	1    0    0    -1  
+$EndComp
+Text GLabel 1050 3250 0    50   Input ~ 0
+#LRESET
+Text GLabel 9850 1550 0    50   Input ~ 0
+#LRESET
 $EndSCHEMATC
