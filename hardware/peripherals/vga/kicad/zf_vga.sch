@@ -86,8 +86,6 @@ Wire Wire Line
 	1050 1650 1050 2050
 Wire Wire Line
 	1050 2050 1450 2050
-Text GLabel 1050 1450 0    50   Input ~ 0
-#PRESET
 Wire Wire Line
 	1050 1150 1050 1200
 Text GLabel 1000 1200 0    50   Input ~ 0
@@ -144,21 +142,12 @@ Text GLabel 3500 1050 2    50   Input ~ 0
 P9
 Text GLabel 3500 950  2    50   Input ~ 0
 P8
-Text GLabel 950  6300 0    50   Input ~ 0
-HSTICK
-Connection ~ 1450 7500
-Wire Wire Line
-	950  7500 1450 7500
-Wire Wire Line
-	950  7200 950  7500
 Text GLabel 2600 7200 0    50   Input ~ 0
 L9
-Text GLabel 1950 6500 2    50   Input ~ 0
-HSTICK
+Text GLabel 1950 6400 2    50   Input ~ 0
+HSET
 Text GLabel 1950 6600 2    50   Input ~ 0
 #LOAD
-Text GLabel 1950 6400 2    50   Input ~ 0
-#HSYNC
 Text GLabel 1950 6300 2    50   Input ~ 0
 #PRESET
 Text GLabel 2600 7100 0    50   Input ~ 0
@@ -179,20 +168,9 @@ Text GLabel 2600 6400 0    50   Input ~ 0
 L1
 Text GLabel 2600 6300 0    50   Input ~ 0
 L0
-$Comp
-L Logic_Programmable:GAL16V8 U?
-U 1 1 62173FE1
-P 1450 6800
-F 0 "U?" H 1450 7681 50  0000 C CNN
-F 1 "GAL16V8" H 1450 7590 50  0000 C CNN
-F 2 "" H 1450 6800 50  0001 C CNN
-F 3 "" H 1450 6800 50  0001 C CNN
-	1    1450 6800
-	1    0    0    -1  
-$EndComp
-Text GLabel 1950 6900 2    50   Input ~ 0
+Text GLabel 950  7200 0    50   Input ~ 0
 P9
-Text GLabel 1950 7000 2    50   Input ~ 0
+Text GLabel 950  7100 0    50   Input ~ 0
 P8
 $Comp
 L power:VCC #PWR0113
@@ -267,8 +245,6 @@ $EndComp
 Connection ~ 2700 2050
 Wire Wire Line
 	2050 950  2700 950 
-Text GLabel 2700 1450 0    50   Input ~ 0
-#PRESET
 $Comp
 L power:VCC #PWR0115
 U 1 1 621DFC25
@@ -296,29 +272,23 @@ $EndComp
 Wire Wire Line
 	3350 750  3100 750 
 Connection ~ 1050 2050
-Text GLabel 3600 6300 2    50   Input ~ 0
-#LRESET
-Text GLabel 3600 6400 2    50   Input ~ 0
-#VSYNC
-Text GLabel 4350 1100 0    50   Input ~ 0
-#PRESET
 Text GLabel 5450 1100 2    50   Input ~ 0
 PRESET
-Text GLabel 950  6400 0    50   Input ~ 0
+Text GLabel 950  6300 0    50   Input ~ 0
 P0
-Text GLabel 950  6500 0    50   Input ~ 0
+Text GLabel 950  6400 0    50   Input ~ 0
 P1
-Text GLabel 950  6600 0    50   Input ~ 0
+Text GLabel 950  6500 0    50   Input ~ 0
 P2
-Text GLabel 950  6700 0    50   Input ~ 0
+Text GLabel 950  6600 0    50   Input ~ 0
 P3
-Text GLabel 950  6800 0    50   Input ~ 0
+Text GLabel 950  6700 0    50   Input ~ 0
 P4
-Text GLabel 950  6900 0    50   Input ~ 0
+Text GLabel 950  6800 0    50   Input ~ 0
 P5
-Text GLabel 950  7000 0    50   Input ~ 0
+Text GLabel 950  6900 0    50   Input ~ 0
 P6
-Text GLabel 950  7100 0    50   Input ~ 0
+Text GLabel 950  7000 0    50   Input ~ 0
 P7
 Text Notes 1500 2050 0    50   ~ 0
 Pixel Counter
@@ -422,17 +392,6 @@ $EndComp
 Connection ~ 950  4700
 $Comp
 L 74xx:74HC00 U?
-U 1 1 6222CFFF
-P 4900 4850
-F 0 "U?" H 4900 5175 50  0000 C CNN
-F 1 "74HC00" H 4900 5084 50  0000 C CNN
-F 2 "" H 4900 4850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4850 50  0001 C CNN
-	1    4900 4850
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U?
 U 3 1 62236D7F
 P 4900 5550
 F 0 "U?" H 4900 5875 50  0001 C CNN
@@ -510,10 +469,6 @@ F 3 "" H 4900 1100 50  0001 C CNN
 	1    4900 1100
 	1    0    0    -1  
 $EndComp
-Text GLabel 5450 1600 2    50   Input ~ 0
-#P1
-Text GLabel 4350 1600 0    50   Input ~ 0
-P1
 $Comp
 L power:VCC #PWR0118
 U 1 1 62188C3D
@@ -618,8 +573,6 @@ F 3 "" H 1700 4000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1700 4000 1450 4000
-Text GLabel 1050 3100 0    50   Input ~ 0
-#LRESET
 Text Notes 1500 3700 0    50   ~ 0
 Line Counter
 Connection ~ 2700 3700
@@ -695,8 +648,6 @@ Wire Wire Line
 	2700 3300 2700 3700
 Wire Wire Line
 	2700 3700 3100 3700
-Text GLabel 2700 3100 0    50   Input ~ 0
-#LRESET
 Wire Wire Line
 	2700 2800 2700 2850
 Wire Wire Line
@@ -790,66 +741,60 @@ Text GLabel 6350 1750 0    50   Input ~ 0
 D6
 Text GLabel 6350 1850 0    50   Input ~ 0
 D7
-Text GLabel 7350 3350 2    50   Input ~ 0
+Text GLabel 7350 3300 2    50   Input ~ 0
 D0
-Text GLabel 7350 3450 2    50   Input ~ 0
+Text GLabel 7350 3400 2    50   Input ~ 0
 D1
-Text GLabel 7350 3550 2    50   Input ~ 0
+Text GLabel 7350 3500 2    50   Input ~ 0
 D2
-Text GLabel 7350 3650 2    50   Input ~ 0
+Text GLabel 7350 3600 2    50   Input ~ 0
 D3
-Text GLabel 7350 3750 2    50   Input ~ 0
+Text GLabel 7350 3700 2    50   Input ~ 0
 D4
-Text GLabel 7350 3850 2    50   Input ~ 0
+Text GLabel 7350 3800 2    50   Input ~ 0
 D5
-Text GLabel 7350 3950 2    50   Input ~ 0
+Text GLabel 7350 3900 2    50   Input ~ 0
 D6
-Text GLabel 7350 4050 2    50   Input ~ 0
+Text GLabel 7350 4000 2    50   Input ~ 0
 D7
 Wire Wire Line
-	6350 4450 6350 4500
+	6350 4400 6350 4450
 $Comp
 L power:GND #PWR0129
 U 1 1 622758B5
-P 6850 4950
-F 0 "#PWR0129" H 6850 4700 50  0001 C CNN
-F 1 "GND" H 6855 4777 50  0000 C CNN
-F 2 "" H 6850 4950 50  0001 C CNN
-F 3 "" H 6850 4950 50  0001 C CNN
-	1    6850 4950
+P 6850 4900
+F 0 "#PWR0129" H 6850 4650 50  0001 C CNN
+F 1 "GND" H 6855 4727 50  0000 C CNN
+F 2 "" H 6850 4900 50  0001 C CNN
+F 3 "" H 6850 4900 50  0001 C CNN
+	1    6850 4900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7350 4550 7400 4550
-Wire Wire Line
-	7500 4550 7500 4450
-Wire Wire Line
-	7500 4450 7350 4450
 Text GLabel 6350 2250 0    50   Input ~ 0
 #P1
 Text GLabel 6350 2050 0    50   Input ~ 0
 #LOAD
-Text GLabel 6350 3550 0    50   Input ~ 0
+Text GLabel 6350 3500 0    50   Input ~ 0
 A2
-Text GLabel 6350 3450 0    50   Input ~ 0
+Text GLabel 6350 3400 0    50   Input ~ 0
 A1
-Text GLabel 6350 3350 0    50   Input ~ 0
+Text GLabel 6350 3300 0    50   Input ~ 0
 A0
-Text GLabel 6350 4250 0    50   Input ~ 0
+Text GLabel 6350 4200 0    50   Input ~ 0
 A9
-Text GLabel 6350 4350 0    50   Input ~ 0
+Text GLabel 6350 4300 0    50   Input ~ 0
 A10
-Text GLabel 6350 4150 0    50   Input ~ 0
+Text GLabel 6350 4100 0    50   Input ~ 0
 A8
-Text GLabel 6350 4050 0    50   Input ~ 0
+Text GLabel 6350 4000 0    50   Input ~ 0
 A7
-Text GLabel 6350 3950 0    50   Input ~ 0
+Text GLabel 6350 3900 0    50   Input ~ 0
 A6
-Text GLabel 6350 3850 0    50   Input ~ 0
+Text GLabel 6350 3800 0    50   Input ~ 0
 A5
-Text GLabel 6350 3750 0    50   Input ~ 0
+Text GLabel 6350 3700 0    50   Input ~ 0
 A4
-Text GLabel 6350 3650 0    50   Input ~ 0
+Text GLabel 6350 3600 0    50   Input ~ 0
 A3
 $Comp
 L power:VCC #PWR0131
@@ -911,46 +856,24 @@ Text Notes 1500 5500 0    50   ~ 0
 Pixel Address Buffer
 Text Notes 3150 5500 0    50   ~ 0
 Line Address Buffer
-Text Notes 6900 4950 0    50   ~ 0
+Text Notes 6900 4900 0    50   ~ 0
 SRAM
-$Comp
-L power:GND #PWR0132
-U 1 1 622C61D2
-P 7400 4600
-F 0 "#PWR0132" H 7400 4350 50  0001 C CNN
-F 1 "GND" H 7405 4427 50  0000 C CNN
-F 2 "" H 7400 4600 50  0001 C CNN
-F 3 "" H 7400 4600 50  0001 C CNN
-	1    7400 4600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7100 750  6850 750 
 Text Notes 8700 2250 0    50   ~ 0
 Write Data Buffer
 $Comp
-L power:GND #PWR0133
-U 1 1 621F0C8A
-P 8650 2350
-F 0 "#PWR0133" H 8650 2100 50  0001 C CNN
-F 1 "GND" H 8655 2177 50  0000 C CNN
-F 2 "" H 8650 2350 50  0001 C CNN
-F 3 "" H 8650 2350 50  0001 C CNN
-	1    8650 2350
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0135
 U 1 1 622D4D53
-P 10200 5050
-F 0 "#PWR0135" H 10200 4800 50  0001 C CNN
-F 1 "GND" H 10205 4877 50  0000 C CNN
-F 2 "" H 10200 5050 50  0001 C CNN
-F 3 "" H 10200 5050 50  0001 C CNN
-	1    10200 5050
+P 10200 4900
+F 0 "#PWR0135" H 10200 4650 50  0001 C CNN
+F 1 "GND" H 10205 4727 50  0000 C CNN
+F 2 "" H 10200 4900 50  0001 C CNN
+F 3 "" H 10200 4900 50  0001 C CNN
+	1    10200 4900
 	1    0    0    -1  
 $EndComp
-Text Notes 10250 4950 0    50   ~ 0
+Text Notes 10250 4750 0    50   ~ 0
 Write Address Latch (Hi)
 Text Notes 5250 6400 0    50   ~ 0
 NAND Gate
@@ -958,17 +881,12 @@ Text Notes 3150 3700 0    50   ~ 0
 Line Counter
 Text Notes 3150 2050 0    50   ~ 0
 Pixel Counter
-Text GLabel 10700 3750 2    50   Input ~ 0
+Text GLabel 10700 3550 2    50   Input ~ 0
 A8
-Text GLabel 10700 3950 2    50   Input ~ 0
+Text GLabel 10700 3750 2    50   Input ~ 0
 A10
-Text GLabel 10700 3850 2    50   Input ~ 0
+Text GLabel 10700 3650 2    50   Input ~ 0
 A9
-NoConn ~ 10700 4050
-NoConn ~ 10700 4150
-NoConn ~ 10700 4250
-NoConn ~ 10700 4350
-NoConn ~ 10700 4450
 Text GLabel 10450 1700 2    50   Input ~ 0
 WD0
 Text GLabel 10450 1800 2    50   Input ~ 0
@@ -1020,12 +938,12 @@ D0
 $Comp
 L power:GND #PWR0136
 U 1 1 6230BCE6
-P 10450 2900
-F 0 "#PWR0136" H 10450 2650 50  0001 C CNN
-F 1 "GND" H 10455 2727 50  0000 C CNN
-F 2 "" H 10450 2900 50  0001 C CNN
-F 3 "" H 10450 2900 50  0001 C CNN
-	1    10450 2900
+P 10800 2900
+F 0 "#PWR0136" H 10800 2650 50  0001 C CNN
+F 1 "GND" H 10805 2727 50  0000 C CNN
+F 2 "" H 10800 2900 50  0001 C CNN
+F 3 "" H 10800 2900 50  0001 C CNN
+	1    10800 2900
 	1    0    0    -1  
 $EndComp
 Connection ~ 3100 5600
@@ -1053,44 +971,44 @@ F 3 "" H 3350 4000 50  0001 C CNN
 	1    3350 4000
 	1    0    0    -1  
 $EndComp
-Connection ~ 6850 4950
+Connection ~ 6850 4900
 Wire Wire Line
-	6250 4950 6850 4950
+	6250 4900 6850 4900
 Wire Wire Line
-	6350 4500 6250 4500
+	6350 4450 6250 4450
 $Comp
 L power:VCC #PWR0137
 U 1 1 62317BEF
-P 7100 3150
-F 0 "#PWR0137" H 7100 3000 50  0001 C CNN
-F 1 "VCC" H 7115 3323 50  0000 C CNN
-F 2 "" H 7100 3150 50  0001 C CNN
-F 3 "" H 7100 3150 50  0001 C CNN
-	1    7100 3150
+P 7100 3100
+F 0 "#PWR0137" H 7100 2950 50  0001 C CNN
+F 1 "VCC" H 7115 3273 50  0000 C CNN
+F 2 "" H 7100 3100 50  0001 C CNN
+F 3 "" H 7100 3100 50  0001 C CNN
+	1    7100 3100
 	1    0    0    -1  
 $EndComp
 $Comp
 L Memory_RAM:AS6C6264 U?
 U 1 1 62268A82
-P 6850 4050
-F 0 "U?" H 6850 5131 50  0000 C CNN
-F 1 "AS6C6264" H 6850 5040 50  0000 C CNN
-F 2 "Package_DIP:DIP-28_W15.24mm" H 6850 3950 50  0001 C CNN
-F 3 "https://www.futurlec.com/Datasheet/Memory/62256.pdf" H 6850 3950 50  0001 C CNN
-	1    6850 4050
+P 6850 4000
+F 0 "U?" H 6850 5081 50  0000 C CNN
+F 1 "AS6C6264" H 6850 4990 50  0000 C CNN
+F 2 "Package_DIP:DIP-28_W15.24mm" H 6850 3900 50  0001 C CNN
+F 3 "https://www.futurlec.com/Datasheet/Memory/62256.pdf" H 6850 3900 50  0001 C CNN
+	1    6850 4000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6850 3150 7100 3150
+	6850 3100 7100 3100
 $Comp
 L power:VCC #PWR0138
 U 1 1 6231FF13
-P 10450 3450
-F 0 "#PWR0138" H 10450 3300 50  0001 C CNN
-F 1 "VCC" H 10465 3623 50  0000 C CNN
-F 2 "" H 10450 3450 50  0001 C CNN
-F 3 "" H 10450 3450 50  0001 C CNN
-	1    10450 3450
+P 10450 3250
+F 0 "#PWR0138" H 10450 3100 50  0001 C CNN
+F 1 "VCC" H 10465 3423 50  0000 C CNN
+F 2 "" H 10450 3250 50  0001 C CNN
+F 3 "" H 10450 3250 50  0001 C CNN
+	1    10450 3250
 	1    0    0    -1  
 $EndComp
 Text GLabel 10450 2800 2    50   Input ~ 0
@@ -1104,12 +1022,12 @@ WA2
 $Comp
 L 74xx:74LS573 U?
 U 1 1 622882D1
-P 10200 4250
-F 0 "U?" H 10200 5231 50  0000 C CNN
-F 1 "74HC573" H 10200 5140 50  0000 C CNN
-F 2 "" H 10200 4250 50  0001 C CNN
-F 3 "74xx/74hc573.pdf" H 10200 4250 50  0001 C CNN
-	1    10200 4250
+P 10200 4050
+F 0 "U?" H 10200 5031 50  0000 C CNN
+F 1 "74HC573" H 10200 4940 50  0000 C CNN
+F 2 "" H 10200 4050 50  0001 C CNN
+F 3 "74xx/74hc573.pdf" H 10200 4050 50  0001 C CNN
+	1    10200 4050
 	1    0    0    -1  
 $EndComp
 Text GLabel 9950 2500 0    50   Input ~ 0
@@ -1120,25 +1038,25 @@ Text GLabel 9950 2700 0    50   Input ~ 0
 WA5
 Text GLabel 9950 2600 0    50   Input ~ 0
 WA6
-Text GLabel 9700 4350 0    50   Input ~ 0
-WA6
-Text GLabel 9700 4250 0    50   Input ~ 0
-WA5
 Text GLabel 9700 4150 0    50   Input ~ 0
-WA4
-Text GLabel 9700 4450 0    50   Input ~ 0
-WA7
+WA6
 Text GLabel 9700 4050 0    50   Input ~ 0
-WA3
-Text GLabel 9700 3750 0    50   Input ~ 0
-WA0
-Text GLabel 9700 3850 0    50   Input ~ 0
-WA1
+WA5
 Text GLabel 9700 3950 0    50   Input ~ 0
+WA4
+Text GLabel 9700 4250 0    50   Input ~ 0
+WA7
+Text GLabel 9700 3850 0    50   Input ~ 0
+WA3
+Text GLabel 9700 3550 0    50   Input ~ 0
+WA0
+Text GLabel 9700 3650 0    50   Input ~ 0
+WA1
+Text GLabel 9700 3750 0    50   Input ~ 0
 WA2
-Text GLabel 9800 1800 0    50   Input ~ 0
+Text GLabel 9950 1800 0    50   Input ~ 0
 LL
-Text GLabel 9800 1700 0    50   Input ~ 0
+Text GLabel 9950 1700 0    50   Input ~ 0
 LU
 $Comp
 L power:VCC #PWR0139
@@ -1188,41 +1106,21 @@ F 3 "" H 9600 1300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9950 1300 9600 1300
-Text GLabel 3750 7000 2    50   Input ~ 0
-P9
-Text GLabel 3750 6900 2    50   Input ~ 0
-ACTVID
-Text GLabel 1950 6800 2    50   Input ~ 0
-ACTVID
-Connection ~ 7500 4450
-Wire Wire Line
-	7500 4450 7500 4350
-$Comp
-L power:VCC #PWR0130
-U 1 1 62277C38
-P 7500 4350
-F 0 "#PWR0130" H 7500 4200 50  0001 C CNN
-F 1 "VCC" H 7515 4523 50  0000 C CNN
-F 2 "" H 7500 4350 50  0001 C CNN
-F 3 "" H 7500 4350 50  0001 C CNN
-	1    7500 4350
-	1    0    0    -1  
-$EndComp
-Text GLabel 3750 6700 2    50   Input ~ 0
+Text GLabel 3600 6500 2    50   Input ~ 0
+LACTIVE
+Text GLabel 4600 5650 0    50   Input ~ 0
 LL
-Text GLabel 9700 4650 0    50   Input ~ 0
+Text GLabel 9700 4450 0    50   Input ~ 0
 LU
-Text GLabel 3750 6800 2    50   Input ~ 0
+Text GLabel 4600 5450 0    50   Input ~ 0
 LU
-Text GLabel 3750 6600 2    50   Input ~ 0
-#WRDY
-Text GLabel 9800 1900 0    50   Input ~ 0
+Text GLabel 9950 1900 0    50   Input ~ 0
 CC
-Text GLabel 9800 2000 0    50   Input ~ 0
+Text GLabel 9950 2000 0    50   Input ~ 0
 CL
-Text GLabel 9800 2100 0    50   Input ~ 0
+Text GLabel 9950 2100 0    50   Input ~ 0
 CD1
-Text GLabel 9800 2200 0    50   Input ~ 0
+Text GLabel 9950 2200 0    50   Input ~ 0
 CD2
 $Comp
 L 74xx:74HC541 U?
@@ -1235,75 +1133,75 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 8650 1550 50  0001 C CNN
 	1    8650 1550
 	1    0    0    -1  
 $EndComp
-Text GLabel 8150 4650 0    50   Input ~ 0
-LL
 Text GLabel 8150 4450 0    50   Input ~ 0
-WA7
-Text GLabel 8150 4150 0    50   Input ~ 0
-WA4
+LL
 Text GLabel 8150 4250 0    50   Input ~ 0
-WA5
-Text GLabel 8150 4350 0    50   Input ~ 0
-WA6
+WA7
 Text GLabel 8150 3950 0    50   Input ~ 0
-WA2
-Text GLabel 8150 3850 0    50   Input ~ 0
-WA1
-Text GLabel 8150 3750 0    50   Input ~ 0
-WA0
+WA4
 Text GLabel 8150 4050 0    50   Input ~ 0
+WA5
+Text GLabel 8150 4150 0    50   Input ~ 0
+WA6
+Text GLabel 8150 3750 0    50   Input ~ 0
+WA2
+Text GLabel 8150 3650 0    50   Input ~ 0
+WA1
+Text GLabel 8150 3550 0    50   Input ~ 0
+WA0
+Text GLabel 8150 3850 0    50   Input ~ 0
 WA3
 $Comp
 L power:VCC #PWR0142
 U 1 1 6231A022
-P 8900 3450
-F 0 "#PWR0142" H 8900 3300 50  0001 C CNN
-F 1 "VCC" H 8915 3623 50  0000 C CNN
-F 2 "" H 8900 3450 50  0001 C CNN
-F 3 "" H 8900 3450 50  0001 C CNN
-	1    8900 3450
+P 8900 3250
+F 0 "#PWR0142" H 8900 3100 50  0001 C CNN
+F 1 "VCC" H 8915 3423 50  0000 C CNN
+F 2 "" H 8900 3250 50  0001 C CNN
+F 3 "" H 8900 3250 50  0001 C CNN
+	1    8900 3250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8650 3450 8900 3450
-Text GLabel 9150 3950 2    50   Input ~ 0
-A2
-Text GLabel 9150 3850 2    50   Input ~ 0
-A1
+	8650 3250 8900 3250
 Text GLabel 9150 3750 2    50   Input ~ 0
+A2
+Text GLabel 9150 3650 2    50   Input ~ 0
+A1
+Text GLabel 9150 3550 2    50   Input ~ 0
 A0
-Text GLabel 9150 4450 2    50   Input ~ 0
-A7
-Text GLabel 9150 4350 2    50   Input ~ 0
-A6
 Text GLabel 9150 4250 2    50   Input ~ 0
-A5
+A7
 Text GLabel 9150 4150 2    50   Input ~ 0
-A4
+A6
 Text GLabel 9150 4050 2    50   Input ~ 0
+A5
+Text GLabel 9150 3950 2    50   Input ~ 0
+A4
+Text GLabel 9150 3850 2    50   Input ~ 0
 A3
 $Comp
 L power:GND #PWR0134
 U 1 1 622D3D47
-P 8650 5050
-F 0 "#PWR0134" H 8650 4800 50  0001 C CNN
-F 1 "GND" H 8655 4877 50  0000 C CNN
-F 2 "" H 8650 5050 50  0001 C CNN
-F 3 "" H 8650 5050 50  0001 C CNN
-	1    8650 5050
+P 8650 4900
+F 0 "#PWR0134" H 8650 4650 50  0001 C CNN
+F 1 "GND" H 8655 4727 50  0000 C CNN
+F 2 "" H 8650 4900 50  0001 C CNN
+F 3 "" H 8650 4900 50  0001 C CNN
+	1    8650 4900
 	1    0    0    -1  
 $EndComp
-Text Notes 8700 4950 0    50   ~ 0
+Text Notes 8700 4750 0    50   ~ 0
 Write Address Latch (Lo)
 $Comp
 L 74xx:74LS573 U?
 U 1 1 622253F3
-P 8650 4250
-F 0 "U?" H 8650 5231 50  0000 C CNN
-F 1 "74HC573" H 8650 5140 50  0000 C CNN
-F 2 "" H 8650 4250 50  0001 C CNN
-F 3 "74xx/74hc573.pdf" H 8650 4250 50  0001 C CNN
-	1    8650 4250
+P 8650 4050
+F 0 "U?" H 8650 5031 50  0000 C CNN
+F 1 "74HC573" H 8650 4940 50  0000 C CNN
+F 2 "" H 8650 4050 50  0001 C CNN
+F 3 "74xx/74hc573.pdf" H 8650 4050 50  0001 C CNN
+	1    8650 4050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1314,24 +1212,10 @@ Connection ~ 8150 2000
 Wire Wire Line
 	8150 2000 8150 2050
 Wire Wire Line
-	6250 4500 6250 4950
-Connection ~ 6350 4500
+	6250 4450 6250 4900
+Connection ~ 6350 4450
 Wire Wire Line
-	6350 4500 6350 4550
-Connection ~ 7400 4550
-Wire Wire Line
-	7400 4550 7500 4550
-Wire Wire Line
-	7350 4250 7350 4300
-Wire Wire Line
-	7400 4300 7350 4300
-Wire Wire Line
-	7400 4300 7400 4550
-Connection ~ 7350 4300
-Wire Wire Line
-	7350 4300 7350 4350
-Text Notes 9250 3000 0    50   ~ 0
-Z-Fighter Connectors
+	6350 4450 6350 4500
 $Comp
 L Connector_Generic:Conn_02x13_Odd_Even J?
 U 1 1 621FEB7B
@@ -1384,4 +1268,162 @@ F 3 "" H 4900 3600 50  0001 C CNN
 	6    4900 3600
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	10800 2900 10450 2900
+$Comp
+L power:GND #PWR0133
+U 1 1 621F0C8A
+P 8650 2650
+F 0 "#PWR0133" H 8650 2400 50  0001 C CNN
+F 1 "GND" H 8655 2477 50  0000 C CNN
+F 2 "" H 8650 2650 50  0001 C CNN
+F 3 "" H 8650 2650 50  0001 C CNN
+	1    8650 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10200 3250 10450 3250
+Wire Wire Line
+	8650 4900 8650 4850
+Wire Wire Line
+	10200 4850 10200 4900
+Wire Wire Line
+	8650 2350 8650 2650
+NoConn ~ 10700 3850
+NoConn ~ 10700 3950
+NoConn ~ 10700 4050
+NoConn ~ 10700 4150
+NoConn ~ 10700 4250
+$Comp
+L 74xx:74HC00 U?
+U 1 1 6222CFFF
+P 4900 4700
+F 0 "U?" H 4900 5025 50  0000 C CNN
+F 1 "74HC00" H 4900 4934 50  0000 C CNN
+F 2 "" H 4900 4700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4700 50  0001 C CNN
+	1    4900 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 5000 4600 5100
+Wire Wire Line
+	4600 4800 4600 4900
+Wire Wire Line
+	4600 4900 5200 4900
+Wire Wire Line
+	5200 4900 5200 5200
+Wire Wire Line
+	5300 5000 4600 5000
+Wire Wire Line
+	5200 4700 5300 4700
+Wire Wire Line
+	5300 4700 5300 5000
+Text GLabel 4600 4600 0    50   Input ~ 0
+HSET
+Text GLabel 4600 5300 0    50   Input ~ 0
+HRESET
+Text GLabel 1950 7000 2    50   Input ~ 0
+LACTIVE
+$Comp
+L Logic_Programmable:GAL16V8 U?
+U 1 1 62173FE1
+P 1450 6800
+F 0 "U?" H 1450 7681 50  0000 C CNN
+F 1 "GAL16V8" H 1450 7590 50  0000 C CNN
+F 2 "" H 1450 6800 50  0001 C CNN
+F 3 "" H 1450 6800 50  0001 C CNN
+	1    1450 6800
+	1    0    0    -1  
+$EndComp
+Text GLabel 1950 6500 2    50   Input ~ 0
+HRESET
+Wire Wire Line
+	5400 4700 5300 4700
+Connection ~ 5300 4700
+Text GLabel 1950 6900 2    50   Input ~ 0
+#WRDY
+Text Notes 5050 6050 0    50   ~ 0
+CE2 low during address transitions
+Wire Wire Line
+	7350 4200 7400 4200
+Wire Wire Line
+	7400 4200 7400 4600
+$Comp
+L power:GND #PWR?
+U 1 1 6227127D
+P 7400 4600
+F 0 "#PWR?" H 7400 4350 50  0001 C CNN
+F 1 "GND" H 7405 4427 50  0000 C CNN
+F 2 "" H 7400 4600 50  0001 C CNN
+F 3 "" H 7400 4600 50  0001 C CNN
+	1    7400 4600
+	1    0    0    -1  
+$EndComp
+Text GLabel 3600 6400 2    50   Input ~ 0
+#VSYNC
+Text GLabel 3600 6300 2    50   Input ~ 0
+#LRESET
+Text GLabel 5200 5550 2    50   Input ~ 0
+#WRDY
+Text GLabel 5400 4700 2    50   Input ~ 0
+#HSYNC
+Text GLabel 4350 1100 0    50   Input ~ 0
+#PRESET
+Text GLabel 1050 1450 0    50   Input ~ 0
+#PRESET
+Text GLabel 2700 1450 0    50   Input ~ 0
+#PRESET
+Text GLabel 2700 3100 0    50   Input ~ 0
+#LRESET
+Text GLabel 1050 3100 0    50   Input ~ 0
+#LRESET
+Text GLabel 5450 1600 2    50   Input ~ 0
+#P1
+Text GLabel 850  5250 0    50   Input ~ 0
+P1
+Text GLabel 2500 5250 0    50   Input ~ 0
+P1
+Text GLabel 8150 4550 0    50   Input ~ 0
+#P1
+Text GLabel 9700 4550 0    50   Input ~ 0
+#P1
+Text GLabel 8100 2000 0    50   Input ~ 0
+#P1
+Text GLabel 7450 4300 2    50   Input ~ 0
+P1
+Wire Wire Line
+	7450 4300 7350 4300
+Text GLabel 7450 4400 2    50   Input ~ 0
+#WE
+Text GLabel 7450 4500 2    50   Input ~ 0
+CE2
+Wire Wire Line
+	7450 4400 7350 4400
+Wire Wire Line
+	7450 4500 7350 4500
+Text GLabel 1950 6700 2    50   Input ~ 0
+#WE
+Text GLabel 4600 5800 0    50   Input ~ 0
+#P0
+Text GLabel 4600 6000 0    50   Input ~ 0
+P1
+Text GLabel 5200 5900 2    50   Input ~ 0
+CE2
+Text Notes 5050 5700 0    50   ~ 0
+Valid data on write address latches
+Text Notes 5950 5450 0    50   ~ 0
+Read Cycle: /OE low, /CE low, /WE high, CE2 high\nWrite Cycle: /CE low, /WE low, CE2 high\n"WE#, CE# must be high or CE2 must be low\nduring all address transitions."
+Text GLabel 5450 2100 2    50   Input ~ 0
+#P0
+Text GLabel 4350 2100 0    50   Input ~ 0
+P0
+Text Notes 5050 5350 0    50   ~ 0
+#HSYNC latch
+Text GLabel 4350 1600 0    50   Input ~ 0
+P1
+Text Notes 9250 3000 0    50   ~ 0
+Z-Fighter Connectors
+NoConn ~ 9950 2300
+NoConn ~ 9950 2400
 $EndSCHEMATC
