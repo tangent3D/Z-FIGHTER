@@ -144,8 +144,8 @@ Text GLabel 3500 950  2    50   Input ~ 0
 P8
 Text GLabel 2600 7200 0    50   Input ~ 0
 L9
-Text GLabel 1950 6400 2    50   Input ~ 0
-HSET
+Text GLabel 1950 6500 2    50   Input ~ 0
+#HSET
 Text GLabel 1950 6600 2    50   Input ~ 0
 #LOAD
 Text GLabel 1950 6300 2    50   Input ~ 0
@@ -1294,35 +1294,10 @@ NoConn ~ 10700 3950
 NoConn ~ 10700 4050
 NoConn ~ 10700 4150
 NoConn ~ 10700 4250
-$Comp
-L 74xx:74HC00 U?
-U 1 1 6222CFFF
-P 4900 4700
-F 0 "U?" H 4900 5025 50  0000 C CNN
-F 1 "74HC00" H 4900 4934 50  0000 C CNN
-F 2 "" H 4900 4700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4700 50  0001 C CNN
-	1    4900 4700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4600 5000 4600 5100
-Wire Wire Line
-	4600 4800 4600 4900
-Wire Wire Line
-	4600 4900 5200 4900
-Wire Wire Line
-	5200 4900 5200 5200
-Wire Wire Line
-	5300 5000 4600 5000
-Wire Wire Line
-	5200 4700 5300 4700
-Wire Wire Line
-	5300 4700 5300 5000
 Text GLabel 4600 4600 0    50   Input ~ 0
-HSET
+#HSET
 Text GLabel 4600 5300 0    50   Input ~ 0
-HRESET
+#HRESET
 Text GLabel 1950 7000 2    50   Input ~ 0
 LACTIVE
 $Comp
@@ -1336,11 +1311,8 @@ F 3 "" H 1450 6800 50  0001 C CNN
 	1    1450 6800
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 6500 2    50   Input ~ 0
-HRESET
-Wire Wire Line
-	5400 4700 5300 4700
-Connection ~ 5300 4700
+Text GLabel 1950 6400 2    50   Input ~ 0
+#HRESET
 Text GLabel 1950 6900 2    50   Input ~ 0
 #WRDY
 Text Notes 5050 6050 0    50   ~ 0
@@ -1366,7 +1338,7 @@ Text GLabel 3600 6300 2    50   Input ~ 0
 #LRESET
 Text GLabel 5200 5550 2    50   Input ~ 0
 #WRDY
-Text GLabel 5400 4700 2    50   Input ~ 0
+Text GLabel 5300 4700 2    50   Input ~ 0
 #HSYNC
 Text GLabel 4350 1100 0    50   Input ~ 0
 #PRESET
@@ -1418,12 +1390,38 @@ Text GLabel 5450 2100 2    50   Input ~ 0
 #P0
 Text GLabel 4350 2100 0    50   Input ~ 0
 P0
-Text Notes 5050 5350 0    50   ~ 0
-#HSYNC latch
 Text GLabel 4350 1600 0    50   Input ~ 0
 P1
 Text Notes 9250 3000 0    50   ~ 0
 Z-Fighter Connectors
 NoConn ~ 9950 2300
 NoConn ~ 9950 2400
+$Comp
+L 74xx:74HC00 U?
+U 1 1 6222CFFF
+P 4900 4700
+F 0 "U?" H 4900 5025 50  0000 C CNN
+F 1 "74HC00" H 4900 4934 50  0000 C CNN
+F 2 "" H 4900 4700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4700 50  0001 C CNN
+	1    4900 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 4900 5200 4700
+Wire Wire Line
+	5200 5000 5200 5200
+Wire Wire Line
+	4600 5000 5200 4900
+Wire Wire Line
+	4600 5000 4600 5100
+Wire Wire Line
+	4600 4900 5200 5000
+Wire Wire Line
+	4600 4800 4600 4900
+Text Notes 5050 5350 0    50   ~ 0
+#HSYNC latch
+Wire Wire Line
+	5300 4700 5200 4700
+Connection ~ 5200 4700
 $EndSCHEMATC

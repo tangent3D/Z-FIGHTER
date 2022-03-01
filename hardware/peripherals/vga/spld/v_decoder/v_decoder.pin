@@ -18,7 +18,7 @@
   14   | NC       | NC
   15   | NC       | NC
   16   | NC       | NC
-  17   | NC       | NC
+  17   | LACTIVE  | Output
   18   | VSYNC    | Output
   19   | LRESET   | Output
   20   | VCC      | VCC

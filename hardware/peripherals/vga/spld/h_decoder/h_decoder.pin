@@ -2,24 +2,24 @@
 
  Pin # | Name     | Pin Type
 -----------------------------
-   1   | Clock    | Clock
-   2   | P0       | Input
-   3   | P1       | Input
-   4   | P2       | Input
-   5   | P3       | Input
-   6   | P4       | Input
-   7   | P5       | Input
-   8   | P6       | Input
-   9   | P7       | Input
+   1   | P0       | Input
+   2   | P1       | Input
+   3   | P2       | Input
+   4   | P3       | Input
+   5   | P4       | Input
+   6   | P5       | Input
+   7   | P6       | Input
+   8   | P7       | Input
+   9   | P8       | Input
   10   | GND      | GND
-  11   | /OE      | /OE
-  12   | P8       | Input
-  13   | P9       | Input
+  11   | P9       | Input
+  12   | LACTIVE  | Input
+  13   | NC       | NC
   14   | NC       | NC
   15   | NC       | NC
   16   | LOAD     | Output
-  17   | HSTICK   | Output
-  18   | HSYNC    | Output
+  17   | HSET     | Output
+  18   | HRESET   | Output
   19   | PRESET   | Output
   20   | VCC      | VCC
 

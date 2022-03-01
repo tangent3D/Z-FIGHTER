@@ -2,13 +2,17 @@ GAL16V8
 VDECODER
 
 L0 L1 L2 L3 L4 L5 L6 L7 L8 GND
-L9 NC NC NC NC NC NC VSYNC LRESET VCC
+L9 NC NC NC NC NC LACTIVE VSYNC LRESET VCC
 
 ; Line 525
 /LRESET = L9 * L3 * L2 * /L1 *  L0
 
-; Lines 490-491
-/VSYNC =        /L9 * L8 * L7 * L6 * L5 * /L4 * L3 * /L2 * L1 * /L0
-            +   /L9 * L8 * L7 * L6 * L5 * /L4 * L3 * /L2 * L1 * L0
+; Lines 442-443 (Centered timings)
+/VSYNC =        /L9 * L8 * L7 * /L6 * L5 * L4 * L3 * /L2 * L1 * /L0
+            +   /L9 * L8 * L7 * /L6 * L5 * L4 * L3 * /L2 * L1 * L1
+
+; Lines <384
+/LACTIVE =      L9
+            +   L8 * L7
 
 DESCRIPTION

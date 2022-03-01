@@ -3,23 +3,23 @@
                                 GAL16V8
 
                           -------\___/-------
-                    Clock |  1           20 | VCC
+                       P0 |  1           20 | VCC
                           |                 |
-                       P0 |  2           19 | PRESET
+                       P1 |  2           19 | PRESET
                           |                 |
-                       P1 |  3           18 | HSYNC
+                       P2 |  3           18 | HRESET
                           |                 |
-                       P2 |  4           17 | HSTICK
+                       P3 |  4           17 | HSET
                           |                 |
-                       P3 |  5           16 | LOAD
+                       P4 |  5           16 | LOAD
                           |                 |
-                       P4 |  6           15 | NC
+                       P5 |  6           15 | NC
                           |                 |
-                       P5 |  7           14 | NC
+                       P6 |  7           14 | NC
                           |                 |
-                       P6 |  8           13 | P9
+                       P7 |  8           13 | NC
                           |                 |
-                       P7 |  9           12 | P8
+                       P8 |  9           12 | LACTIVE
                           |                 |
-                      GND | 10           11 | /OE
+                      GND | 10           11 | P9
                           -------------------

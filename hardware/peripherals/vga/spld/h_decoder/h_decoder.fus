@@ -1,8 +1,8 @@
 
 
-Pin 19 = PRESET       XOR = 0   AC1 = 1
-  0  ---- ---- ---- ---- ---- ---- ---- ----
-  1  ---- ---- ---- ---- ---- x--- --x- --x-
+Pin 19 = PRESET       XOR = 0   AC1 = 0
+  0  ---- ---- ---- ---- x--- ---- ---- x-x-
+  1  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   2  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   3  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   4  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -10,8 +10,8 @@ Pin 19 = PRESET       XOR = 0   AC1 = 1
   6  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   7  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 18 = HSYNC        XOR = 1   AC1 = 0
-  8  ---- ---x ---- ---- ---- ---- ---- ----
+Pin 18 = HRESET       XOR = 0   AC1 = 0
+  8  -x-x -x-- -x-- x--- -x-- x--- -x-- -xx-
   9  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  10  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  11  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -20,19 +20,19 @@ Pin 18 = HSYNC        XOR = 1   AC1 = 0
  14  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  15  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 17 = HSTICK       XOR = 1   AC1 = 1
- 16  ---- ---- ---- ---- ---- ---- ---- ----
- 17  -x-- -x-- -x-- -x-- x--- -x-- -xx- x--x
- 18  -x-- -x-- -x-- -x-- x--- x--- x-x- x--x
+Pin 17 = HSET         XOR = 0   AC1 = 0
+ 16  -x-x -x-- -x-- x--- x--- -x-- x--- -xx-
+ 17  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+ 18  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  19  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  20  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  21  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 16 = LOAD         XOR = 0   AC1 = 1
- 24  ---- ---- ---- ---- ---- ---- ---- ----
- 25  -x-- -x-- -x-- -x-- -x-- ---- ---- ----
+Pin 16 = LOAD         XOR = 0   AC1 = 0
+ 24  -x-x -x-- -x-- -x-- ---- ---- --x- ---x
+ 25  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  26  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  27  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  28  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -60,7 +60,7 @@ Pin 14 = NC           XOR = 0   AC1 = 0
  46  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  47  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 13 = P9           XOR = 0   AC1 = 1
+Pin 13 = NC           XOR = 0   AC1 = 0
  48  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  49  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  50  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -70,7 +70,7 @@ Pin 13 = P9           XOR = 0   AC1 = 1
  54  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  55  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 12 = P8           XOR = 0   AC1 = 1
+Pin 12 = LACTIVE      XOR = 0   AC1 = 1
  56  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  57  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  58  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
