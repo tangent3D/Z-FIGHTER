@@ -32,41 +32,41 @@ P7
 $Comp
 L power:VCC #PWR0101
 U 1 1 6204084C
-P 10200 5550
-F 0 "#PWR0101" H 10200 5400 50  0001 C CNN
-F 1 "VCC" H 10215 5723 50  0000 C CNN
-F 2 "" H 10200 5550 50  0001 C CNN
-F 3 "" H 10200 5550 50  0001 C CNN
-	1    10200 5550
+P 10200 5450
+F 0 "#PWR0101" H 10200 5300 50  0001 C CNN
+F 1 "VCC" H 10215 5623 50  0000 C CNN
+F 2 "" H 10200 5450 50  0001 C CNN
+F 3 "" H 10200 5450 50  0001 C CNN
+	1    10200 5450
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0102
 U 1 1 62042787
-P 10200 6150
-F 0 "#PWR0102" H 10200 5900 50  0001 C CNN
-F 1 "GND" H 10205 5977 50  0000 C CNN
-F 2 "" H 10200 6150 50  0001 C CNN
-F 3 "" H 10200 6150 50  0001 C CNN
-	1    10200 6150
+P 10200 6050
+F 0 "#PWR0102" H 10200 5800 50  0001 C CNN
+F 1 "GND" H 10205 5877 50  0000 C CNN
+F 2 "" H 10200 6050 50  0001 C CNN
+F 3 "" H 10200 6050 50  0001 C CNN
+	1    10200 6050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Oscillator:CXO_DIP14 X?
 U 1 1 6203895A
-P 10200 5850
-F 0 "X?" H 10544 5896 50  0000 L CNN
-F 1 "CXO_DIP14" H 10544 5805 50  0000 L CNN
-F 2 "Oscillator:Oscillator_DIP-14" H 10650 5500 50  0001 C CNN
-F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 10100 5850 50  0001 C CNN
-	1    10200 5850
+P 10200 5750
+F 0 "X?" H 10544 5796 50  0000 L CNN
+F 1 "CXO_DIP14" H 10544 5705 50  0000 L CNN
+F 2 "Oscillator:Oscillator_DIP-14" H 10650 5400 50  0001 C CNN
+F 3 "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf" H 10100 5750 50  0001 C CNN
+	1    10200 5750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10500 5850 10500 6050
+	10500 5750 10500 5950
 Wire Wire Line
-	10500 6050 10600 6050
-Text GLabel 10600 6050 2    50   Input ~ 0
+	10500 5950 10600 5950
+Text GLabel 10600 5950 2    50   Input ~ 0
 CLOCK
 $Comp
 L 74xx:74HC590 U?
@@ -378,15 +378,14 @@ NoConn ~ 3600 5000
 $Comp
 L power:GND #PWR0123
 U 1 1 622538F3
-P 4400 5300
-F 0 "#PWR0123" H 4400 5050 50  0001 C CNN
-F 1 "GND" H 4405 5127 50  0000 C CNN
-F 2 "" H 4400 5300 50  0001 C CNN
-F 3 "" H 4400 5300 50  0001 C CNN
-	1    4400 5300
+P 4400 5350
+F 0 "#PWR0123" H 4400 5100 50  0001 C CNN
+F 1 "GND" H 4405 5177 50  0000 C CNN
+F 2 "" H 4400 5350 50  0001 C CNN
+F 3 "" H 4400 5350 50  0001 C CNN
+	1    4400 5350
 	1    0    0    -1  
 $EndComp
-Connection ~ 950  4700
 $Comp
 L 74xx:74HC00 U?
 U 3 1 62236D7F
@@ -401,47 +400,45 @@ $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 4 1 622384DB
-P 4900 4900
-F 0 "U?" H 4900 5225 50  0001 C CNN
-F 1 "74HC00" H 4900 5133 50  0001 C CNN
-F 2 "" H 4900 4900 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4900 50  0001 C CNN
-	4    4900 4900
+P 4900 4950
+F 0 "U?" H 4900 5275 50  0001 C CNN
+F 1 "74HC00" H 4900 5183 50  0001 C CNN
+F 2 "" H 4900 4950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4950 50  0001 C CNN
+	4    4900 4950
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 5 1 6223A0D4
-P 4900 5300
-F 0 "U?" V 4625 5300 50  0001 C CNN
-F 1 "74HC00" V 4624 5300 50  0001 C CNN
-F 2 "" H 4900 5300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5300 50  0001 C CNN
-	5    4900 5300
+P 4900 5350
+F 0 "U?" V 4625 5350 50  0001 C CNN
+F 1 "74HC00" V 4624 5350 50  0001 C CNN
+F 2 "" H 4900 5350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5350 50  0001 C CNN
+	5    4900 5350
 	0    1    1    0   
 $EndComp
 $Comp
 L power:VCC #PWR0125
 U 1 1 62254857
-P 5400 5300
-F 0 "#PWR0125" H 5400 5150 50  0001 C CNN
-F 1 "VCC" H 5415 5473 50  0000 C CNN
-F 2 "" H 5400 5300 50  0001 C CNN
-F 3 "" H 5400 5300 50  0001 C CNN
-	1    5400 5300
+P 5400 5350
+F 0 "#PWR0125" H 5400 5200 50  0001 C CNN
+F 1 "VCC" H 5415 5523 50  0000 C CNN
+F 2 "" H 5400 5350 50  0001 C CNN
+F 3 "" H 5400 5350 50  0001 C CNN
+	1    5400 5350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	950  4700 800  4700
 $Comp
 L power:GND #PWR0126
 U 1 1 6221B23E
-P 800 4700
-F 0 "#PWR0126" H 800 4450 50  0001 C CNN
-F 1 "GND" H 805 4527 50  0000 C CNN
-F 2 "" H 800 4700 50  0001 C CNN
-F 3 "" H 800 4700 50  0001 C CNN
-	1    800  4700
+P 800 4800
+F 0 "#PWR0126" H 800 4550 50  0001 C CNN
+F 1 "GND" H 805 4627 50  0000 C CNN
+F 2 "" H 800 4800 50  0001 C CNN
+F 3 "" H 800 4800 50  0001 C CNN
+	1    800  4800
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1025,12 +1022,8 @@ $EndComp
 Wire Wire Line
 	9950 1300 9600 1300
 Text GLabel 3600 6500 2    50   Input ~ 0
-#ACTVID
-Text GLabel 4600 4650 0    50   Input ~ 0
-LL
+VIDACT
 Text GLabel 9700 4450 0    50   Input ~ 0
-LU
-Text GLabel 4600 4450 0    50   Input ~ 0
 LU
 Text GLabel 9950 1900 0    50   Input ~ 0
 CC
@@ -1216,19 +1209,17 @@ F 3 "" H 1450 6800 50  0001 C CNN
 $EndComp
 Text GLabel 1950 6400 2    50   Input ~ 0
 #HRESET
-Text GLabel 1950 7000 2    50   Input ~ 0
-#WRDY
-Text Notes 5050 5050 0    50   ~ 0
-CE2 low during addr. transitions
+Text Notes 5050 7200 0    50   ~ 0
+CE2 low during addr. transitions (write)
 Wire Wire Line
 	7350 4200 7400 4200
 Wire Wire Line
 	7400 4200 7400 4600
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0130
 U 1 1 6227127D
 P 7400 4600
-F 0 "#PWR?" H 7400 4350 50  0001 C CNN
+F 0 "#PWR0130" H 7400 4350 50  0001 C CNN
 F 1 "GND" H 7405 4427 50  0000 C CNN
 F 2 "" H 7400 4600 50  0001 C CNN
 F 3 "" H 7400 4600 50  0001 C CNN
@@ -1239,7 +1230,7 @@ Text GLabel 3600 6400 2    50   Input ~ 0
 #VSYNC
 Text GLabel 3600 6300 2    50   Input ~ 0
 #LRESET
-Text GLabel 5200 4550 2    50   Input ~ 0
+Text GLabel 5300 6700 2    50   Input ~ 0
 #WRDY
 Text GLabel 5300 3700 2    50   Input ~ 0
 #HSYNC
@@ -1277,22 +1268,14 @@ Wire Wire Line
 	7450 4400 7350 4400
 Wire Wire Line
 	7450 4500 7350 4500
-Text GLabel 1950 6700 2    50   Input ~ 0
+Text GLabel 2050 6600 2    50   Input ~ 0
 #WE
-Text GLabel 4600 4800 0    50   Input ~ 0
-#P0
-Text GLabel 4600 5000 0    50   Input ~ 0
-P1
-Text GLabel 5200 4900 2    50   Input ~ 0
+Text GLabel 5300 7050 2    50   Input ~ 0
 CE2
-Text Notes 5050 4700 0    50   ~ 0
+Text Notes 5050 6850 0    50   ~ 0
 Write ready
-Text Notes 5950 5500 0    50   ~ 0
+Text Notes 5900 5500 0    50   ~ 0
 Read Cycle: /OE low, /CE low, /WE high, CE2 high\nWrite Cycle: /CE low, /WE low, CE2 high\n"WE#, CE# must be high or CE2 must be low\nduring all address transitions."
-Text GLabel 5200 1600 2    50   Input ~ 0
-#P0
-Text GLabel 4600 1600 0    50   Input ~ 0
-P0
 Text GLabel 4600 1250 0    50   Input ~ 0
 P1
 Text Notes 9250 3000 0    50   ~ 0
@@ -1396,17 +1379,6 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 265
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74HC04 U?
-U 7 1 6223AE39
-P 4900 3050
-F 0 "U?" V 4625 3050 50  0001 C CNN
-F 1 "74HC04" V 4624 3050 50  0001 C CNN
-F 2 "" H 4900 3050 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 3050 50  0001 C CNN
-	7    4900 3050
-	0    1    1    0   
-$EndComp
-$Comp
 L power:VCC #PWR0118
 U 1 1 62188C3D
 P 5400 3050
@@ -1419,81 +1391,185 @@ F 3 "" H 5400 3050 50  0001 C CNN
 $EndComp
 $Comp
 L 74xx:74HC00 U?
-U 3 1 622E29EA
-P 4900 6650
-F 0 "U?" H 4900 6975 50  0001 C CNN
-F 1 "74HC00" H 4900 6883 50  0001 C CNN
-F 2 "" H 4900 6650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 6650 50  0001 C CNN
-	3    4900 6650
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U?
-U 4 1 622E29F0
-P 4900 7000
-F 0 "U?" H 4900 7325 50  0001 C CNN
-F 1 "74HC00" H 4900 7233 50  0001 C CNN
-F 2 "" H 4900 7000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 7000 50  0001 C CNN
-	4    4900 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR?
-U 1 1 622E29FC
-P 5400 7400
-F 0 "#PWR?" H 5400 7250 50  0001 C CNN
-F 1 "VCC" H 5415 7573 50  0000 C CNN
-F 2 "" H 5400 7400 50  0001 C CNN
-F 3 "" H 5400 7400 50  0001 C CNN
-	1    5400 7400
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U?
 U 2 1 622E2A03
-P 4900 6300
-F 0 "U?" H 4900 6533 50  0001 C CNN
-F 1 "74HC00" H 4900 6534 50  0001 C CNN
-F 2 "" H 4900 6300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 6300 50  0001 C CNN
-	2    4900 6300
+P 4900 6350
+F 0 "U?" H 4900 6583 50  0001 C CNN
+F 1 "74HC00" H 4900 6584 50  0001 C CNN
+F 2 "" H 4900 6350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 6350 50  0001 C CNN
+	2    4900 6350
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 1 1 622E2A14
-P 4900 5950
-F 0 "U?" H 4900 6275 50  0000 C CNN
-F 1 "74HC00" H 4900 6184 50  0000 C CNN
-F 2 "" H 4900 5950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5950 50  0001 C CNN
-	1    4900 5950
+P 4900 6000
+F 0 "U?" H 4900 6325 50  0000 C CNN
+F 1 "74HC00" H 4900 6234 50  0000 C CNN
+F 2 "" H 4900 6000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 6000 50  0001 C CNN
+	1    4900 6000
+	1    0    0    -1  
+$EndComp
+Text GLabel 4600 4650 0    50   Input ~ 0
+VIDACT
+Text GLabel 4600 4450 0    50   Input ~ 0
+SERIAL
+NoConn ~ 9900 5750
+Wire Wire Line
+	5200 4550 5200 4750
+Wire Wire Line
+	5200 4750 4500 4750
+Wire Wire Line
+	4500 4750 4500 4950
+Wire Wire Line
+	4500 4950 4600 4950
+Wire Wire Line
+	4600 4950 4600 4850
+Wire Wire Line
+	4600 5050 4600 4950
+Connection ~ 4600 4950
+Text GLabel 5200 4950 2    50   Input ~ 0
+VIDOUT
+Text Notes 5050 5100 0    50   ~ 0
+Gate video output
+Wire Wire Line
+	950  4800 800  4800
+$Comp
+L 74xx:74HC04 U?
+U 7 1 6223AE39
+P 4900 3050
+F 0 "U?" V 4625 3050 50  0001 C CNN
+F 1 "74HC04" V 4624 3050 50  0001 C CNN
+F 2 "" H 4900 3050 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 3050 50  0001 C CNN
+	7    4900 3050
+	0    1    1    0   
+$EndComp
+Text GLabel 4500 7150 0    50   Input ~ 0
+P1
+Text GLabel 4500 6950 0    50   Input ~ 0
+#P0
+Text GLabel 4500 6600 0    50   Input ~ 0
+LU
+Text GLabel 4500 6800 0    50   Input ~ 0
+LL
+Text GLabel 4600 6100 0    50   Input ~ 0
+P4
+$Comp
+L power:VCC #PWR0132
+U 1 1 622E29FC
+P 5400 7450
+F 0 "#PWR0132" H 5400 7300 50  0001 C CNN
+F 1 "VCC" H 5415 7623 50  0000 C CNN
+F 2 "" H 5400 7450 50  0001 C CNN
+F 3 "" H 5400 7450 50  0001 C CNN
+	1    5400 7450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 623D8172
+P 5700 6200
+F 0 "#PWR?" H 5700 5950 50  0001 C CNN
+F 1 "GND" H 5705 6027 50  0000 C CNN
+F 2 "" H 5700 6200 50  0001 C CNN
+F 3 "" H 5700 6200 50  0001 C CNN
+	1    5700 6200
+	1    0    0    -1  
+$EndComp
+Text GLabel 5800 6000 2    50   Input ~ 0
+P4MS
+Text GLabel 4600 1600 0    50   Input ~ 0
+P4MS
+Text GLabel 5200 1600 2    50   Input ~ 0
+#P4MS
+Text GLabel 4600 5900 0    50   Input ~ 0
+#P4MS
+Text Notes 5050 6150 0    50   ~ 0
+#LOAD pulse
+$Comp
+L Device:R_Small_US R?
+U 1 1 623E1086
+P 5700 6100
+F 0 "R?" V 5813 6100 50  0001 C CNN
+F 1 "R_Small_US" V 5814 6100 50  0001 C CNN
+F 2 "" H 5700 6100 50  0001 C CNN
+F 3 "~" H 5700 6100 50  0001 C CNN
+	1    5700 6100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 623D14EC
+P 5300 6000
+F 0 "C?" V 5529 6000 50  0001 C CNN
+F 1 "C_Small" V 5437 6000 50  0001 C CNN
+F 2 "" H 5300 6000 50  0001 C CNN
+F 3 "~" H 5300 6000 50  0001 C CNN
+	1    5300 6000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5800 6000 5700 6000
+Connection ~ 5700 6000
+Text GLabel 5200 1750 2    50   Input ~ 0
+#LOAD
+$Comp
+L 74xx:74HC00 U?
+U 4 1 622E29F0
+P 4900 7050
+F 0 "U?" H 4900 7375 50  0001 C CNN
+F 1 "74HC00" H 4900 7283 50  0001 C CNN
+F 2 "" H 4900 7050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 7050 50  0001 C CNN
+	4    4900 7050
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 5 1 622E29F6
-P 4900 7400
-F 0 "U?" V 4625 7400 50  0001 C CNN
-F 1 "74HC00" V 4624 7400 50  0001 C CNN
-F 2 "" H 4900 7400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 7400 50  0001 C CNN
-	5    4900 7400
+P 4900 7450
+F 0 "U?" V 4625 7450 50  0001 C CNN
+F 1 "74HC00" V 4624 7450 50  0001 C CNN
+F 2 "" H 4900 7450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 7450 50  0001 C CNN
+	5    4900 7450
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0143
 U 1 1 622E29E4
-P 4400 7400
-F 0 "#PWR?" H 4400 7150 50  0001 C CNN
-F 1 "GND" H 4405 7227 50  0000 C CNN
-F 2 "" H 4400 7400 50  0001 C CNN
-F 3 "" H 4400 7400 50  0001 C CNN
-	1    4400 7400
+P 4400 7450
+F 0 "#PWR0143" H 4400 7200 50  0001 C CNN
+F 1 "GND" H 4405 7277 50  0000 C CNN
+F 2 "" H 4400 7450 50  0001 C CNN
+F 3 "" H 4400 7450 50  0001 C CNN
+	1    4400 7450
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 6600 2    50   Input ~ 0
-#LOAD
+Wire Wire Line
+	5100 1600 5100 1750
+Wire Wire Line
+	5100 1750 5200 1750
+$Comp
+L 74xx:74HC00 U?
+U 3 1 622E29EA
+P 4900 6700
+F 0 "U?" H 4900 7025 50  0001 C CNN
+F 1 "74HC00" H 4900 6933 50  0001 C CNN
+F 2 "" H 4900 6700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 6700 50  0001 C CNN
+	3    4900 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 6000 5700 6000
+Text GLabel 2050 7000 2    50   Input ~ 0
+LU
+Text GLabel 2050 6900 2    50   Input ~ 0
+LL
+Text GLabel 2050 6700 2    50   Input ~ 0
+CE2
+NoConn ~ 7350 1150
 $EndSCHEMATC

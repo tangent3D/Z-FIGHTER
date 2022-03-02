@@ -2,7 +2,7 @@ GAL16V8
 VDECODER
 
 L0 L1 L2 L3 L4 L5 L6 L7 L8 GND
-L9 NC NC NC NC NC LACTIVE VSYNC LRESET VCC
+L9 P9 NC NC NC LACTIVE VIDACT VSYNC LRESET VCC
 
 ; Line 525
 /LRESET = L9 * L3 * L2 * /L1 *  L0
@@ -12,6 +12,11 @@ L9 NC NC NC NC NC LACTIVE VSYNC LRESET VCC
             +   /L9 * L8 * L7 * /L6 * L5 * L4 * L3 * /L2 * L1 * L1
 
 ; Lines <384
+/VIDACT  =      P9
+            +   L9
+            +   L8 * L7
+
+; Delete this after reimplementing /LOAD
 /LACTIVE =      L9
             +   L8 * L7
 

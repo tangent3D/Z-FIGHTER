@@ -20,19 +20,19 @@ Pin 18 = VSYNC        XOR = 0   AC1 = 0
  14  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  15  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 17 = LACTIVE      XOR = 0   AC1 = 0
- 16  ---- ---- ---- ---- ---- ---- ---- --x-
- 17  ---- ---- ---- ---- ---- ---- x--- x---
- 18  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+Pin 17 = VIDACT       XOR = 0   AC1 = 0
+ 16  ---- ---- ---- ---- ---- ---- --x- ----
+ 17  ---- ---- ---- ---- ---- ---- ---- --x-
+ 18  ---- ---- ---- ---- ---- ---- x--- x---
  19  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  20  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  21  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 16 = NC           XOR = 0   AC1 = 0
- 24  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
- 25  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+Pin 16 = LACTIVE      XOR = 0   AC1 = 0
+ 24  ---- ---- ---- ---- ---- ---- ---- --x-
+ 25  ---- ---- ---- ---- ---- ---- x--- x---
  26  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  27  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  28  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -70,7 +70,7 @@ Pin 13 = NC           XOR = 0   AC1 = 0
  54  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  55  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 12 = NC           XOR = 0   AC1 = 0
+Pin 12 = P9           XOR = 0   AC1 = 1
  56  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  57  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  58  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
