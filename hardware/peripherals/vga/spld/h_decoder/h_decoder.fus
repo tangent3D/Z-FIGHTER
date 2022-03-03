@@ -30,8 +30,8 @@ Pin 17 = HSET         XOR = 0   AC1 = 0
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 16 = NC           XOR = 0   AC1 = 0
- 24  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+Pin 16 = WE           XOR = 0   AC1 = 0
+ 24  ---- x--- ---- ---- ---- --x- --x- ----
  25  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  26  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  27  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -40,8 +40,8 @@ Pin 16 = NC           XOR = 0   AC1 = 0
  30  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  31  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 15 = NC           XOR = 0   AC1 = 0
- 32  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+Pin 15 = CE2          XOR = 0   AC1 = 0
+ 32  -x-- x--- ---- ---- ---- ---- ---- ----
  33  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  34  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  35  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -60,7 +60,7 @@ Pin 14 = NC           XOR = 0   AC1 = 0
  46  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  47  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 13 = NC           XOR = 0   AC1 = 0
+Pin 13 = LL           XOR = 0   AC1 = 1
  48  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  49  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  50  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -70,7 +70,7 @@ Pin 13 = NC           XOR = 0   AC1 = 0
  54  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  55  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 12 = NC           XOR = 0   AC1 = 0
+Pin 12 = LU           XOR = 0   AC1 = 1
  56  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  57  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  58  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

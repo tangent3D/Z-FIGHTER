@@ -30,9 +30,9 @@ Pin 17 = VIDACT       XOR = 0   AC1 = 0
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 16 = LACTIVE      XOR = 0   AC1 = 0
- 24  ---- ---- ---- ---- ---- ---- ---- --x-
- 25  ---- ---- ---- ---- ---- ---- x--- x---
+Pin 16 = NC           XOR = 0   AC1 = 0
+ 24  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+ 25  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  26  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  27  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  28  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

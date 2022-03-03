@@ -17,7 +17,7 @@
   13   | NC       | NC
   14   | NC       | NC
   15   | NC       | NC
-  16   | LACTIVE  | Output
+  16   | NC       | NC
   17   | VIDACT   | Output
   18   | VSYNC    | Output
   19   | LRESET   | Output

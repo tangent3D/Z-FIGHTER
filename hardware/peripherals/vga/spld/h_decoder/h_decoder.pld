@@ -2,15 +2,21 @@ GAL16V8
 HDECODER
 
 P0 P1 P2 P3 P4 P5 P6 P7 P8 GND
-P9 NC NC NC NC NC HSET HRESET PRESET VCC
+P9 LU LL NC CE2 WE HSET HRESET PRESET VCC
 
 ; Pixel 800
 /PRESET =       P9 * P8 * P5
 
-; Pixels 592 and 688
+; Pixels 592 and 688 (Centered timings)
 
 /HRESET =       P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
 
-/HSET =         P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0     
+/HSET =         P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
+
+; Writing
+
+/CE2 =          /P1 * P2
+
+/WE  =          P2 * LU * LL
 
 DESCRIPTION
