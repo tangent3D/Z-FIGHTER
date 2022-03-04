@@ -143,10 +143,6 @@ Text GLabel 3500 950  2    50   Input ~ 0
 P8
 Text GLabel 2600 7200 0    50   Input ~ 0
 L9
-Text GLabel 1950 6500 2    50   Input ~ 0
-#HSET
-Text GLabel 1950 6300 2    50   Input ~ 0
-#PRESET
 Text GLabel 2600 7100 0    50   Input ~ 0
 L8
 Text GLabel 2600 7000 0    50   Input ~ 0
@@ -285,25 +281,12 @@ Text GLabel 950  6800 0    50   Input ~ 0
 P5
 Text GLabel 950  6900 0    50   Input ~ 0
 P6
-Text GLabel 950  7000 0    50   Input ~ 0
-P7
 Text Notes 1500 2050 0    50   ~ 0
 Pixel Counter
 Text Notes 1500 7450 0    50   ~ 0
-Pixel Decoder
+H Decoder
 Text Notes 3150 7450 0    50   ~ 0
-Line Decoder
-$Comp
-L Logic_Programmable:GAL16V8 U?
-U 1 1 62262924
-P 3100 6800
-F 0 "U?" H 3100 7681 50  0000 C CNN
-F 1 "GAL16V8" H 3100 7590 50  0000 C CNN
-F 2 "" H 3100 6800 50  0001 C CNN
-F 3 "" H 3100 6800 50  0001 C CNN
-	1    3100 6800
-	1    0    0    -1  
-$EndComp
+V Decoder
 $Comp
 L power:GND #PWR0119
 U 1 1 621EA37A
@@ -378,56 +361,34 @@ NoConn ~ 3600 5000
 $Comp
 L power:GND #PWR0123
 U 1 1 622538F3
-P 4400 5350
-F 0 "#PWR0123" H 4400 5100 50  0001 C CNN
-F 1 "GND" H 4405 5177 50  0000 C CNN
-F 2 "" H 4400 5350 50  0001 C CNN
-F 3 "" H 4400 5350 50  0001 C CNN
-	1    4400 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U?
-U 3 1 62236D7F
-P 4900 4550
-F 0 "U?" H 4900 4875 50  0001 C CNN
-F 1 "74HC00" H 4900 4783 50  0001 C CNN
-F 2 "" H 4900 4550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4550 50  0001 C CNN
-	3    4900 4550
+P 4400 5250
+F 0 "#PWR0123" H 4400 5000 50  0001 C CNN
+F 1 "GND" H 4405 5077 50  0000 C CNN
+F 2 "" H 4400 5250 50  0001 C CNN
+F 3 "" H 4400 5250 50  0001 C CNN
+	1    4400 5250
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 4 1 622384DB
-P 4900 4950
-F 0 "U?" H 4900 5275 50  0001 C CNN
-F 1 "74HC00" H 4900 5183 50  0001 C CNN
-F 2 "" H 4900 4950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4950 50  0001 C CNN
-	4    4900 4950
+P 4900 4850
+F 0 "U?" H 4900 5175 50  0001 C CNN
+F 1 "74HC00" H 4900 5083 50  0001 C CNN
+F 2 "" H 4900 4850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4850 50  0001 C CNN
+	4    4900 4850
 	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U?
-U 5 1 6223A0D4
-P 4900 5350
-F 0 "U?" V 4625 5350 50  0001 C CNN
-F 1 "74HC00" V 4624 5350 50  0001 C CNN
-F 2 "" H 4900 5350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5350 50  0001 C CNN
-	5    4900 5350
-	0    1    1    0   
 $EndComp
 $Comp
 L power:VCC #PWR0125
 U 1 1 62254857
-P 5400 5350
-F 0 "#PWR0125" H 5400 5200 50  0001 C CNN
-F 1 "VCC" H 5415 5523 50  0000 C CNN
-F 2 "" H 5400 5350 50  0001 C CNN
-F 3 "" H 5400 5350 50  0001 C CNN
-	1    5400 5350
+P 5400 5250
+F 0 "#PWR0125" H 5400 5100 50  0001 C CNN
+F 1 "VCC" H 5415 5423 50  0000 C CNN
+F 2 "" H 5400 5250 50  0001 C CNN
+F 3 "" H 5400 5250 50  0001 C CNN
+	1    5400 5250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -644,10 +605,6 @@ F 3 "" H 6850 2650 50  0001 C CNN
 	1    6850 2650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6850 2650 6350 2650
-Wire Wire Line
-	6350 2650 6350 2350
 Text GLabel 6350 1450 0    50   Input ~ 0
 D3
 Text GLabel 6350 1550 0    50   Input ~ 0
@@ -687,8 +644,6 @@ F 3 "" H 6850 4900 50  0001 C CNN
 	1    6850 4900
 	1    0    0    -1  
 $EndComp
-Text GLabel 6350 2050 0    50   Input ~ 0
-#LOAD
 Text GLabel 6350 3500 0    50   Input ~ 0
 A2
 Text GLabel 6350 3400 0    50   Input ~ 0
@@ -728,21 +683,6 @@ Text GLabel 6350 1350 0    50   Input ~ 0
 D2
 Text GLabel 6350 1250 0    50   Input ~ 0
 D1
-$Comp
-L power:GND #PWR0104
-U 1 1 62221546
-P 6200 1050
-F 0 "#PWR0104" H 6200 800 50  0001 C CNN
-F 1 "GND" H 6205 877 50  0000 C CNN
-F 2 "" H 6200 1050 50  0001 C CNN
-F 3 "" H 6200 1050 50  0001 C CNN
-	1    6200 1050
-	0    1    1    0   
-$EndComp
-Text GLabel 6350 1150 0    50   Input ~ 0
-D0
-Wire Wire Line
-	6200 1050 6350 1050
 $Comp
 L power:VCC #PWR0103
 U 1 1 621BD50A
@@ -996,12 +936,12 @@ $EndComp
 $Comp
 L 74xx:74HC00 U?
 U 2 1 62235607
-P 4900 4200
-F 0 "U?" H 4900 4433 50  0001 C CNN
-F 1 "74HC00" H 4900 4434 50  0001 C CNN
-F 2 "" H 4900 4200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4200 50  0001 C CNN
-	2    4900 4200
+P 4900 4150
+F 0 "U?" H 4900 4383 50  0001 C CNN
+F 1 "74HC00" H 4900 4384 50  0001 C CNN
+F 2 "" H 4900 4150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4150 50  0001 C CNN
+	2    4900 4150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1018,7 +958,7 @@ $EndComp
 Wire Wire Line
 	9950 1300 9600 1300
 Text GLabel 3600 6500 2    50   Input ~ 0
-VIDACT
+#LD
 Text GLabel 9700 4450 0    50   Input ~ 0
 LU
 Text GLabel 9950 1900 0    50   Input ~ 0
@@ -1116,7 +1056,6 @@ F 3 "~" H 10150 2300 50  0001 C CNN
 	1    10150 2300
 	1    0    0    -1  
 $EndComp
-Connection ~ 6850 2650
 Text Notes 6900 2600 0    50   ~ 0
 Video Output
 $Comp
@@ -1145,10 +1084,6 @@ NoConn ~ 10700 3950
 NoConn ~ 10700 4050
 NoConn ~ 10700 4150
 NoConn ~ 10700 4250
-Text GLabel 4600 3600 0    50   Input ~ 0
-#HSET
-Text GLabel 4600 4300 0    50   Input ~ 0
-#HRESET
 $Comp
 L Logic_Programmable:GAL16V8 U?
 U 1 1 62173FE1
@@ -1160,8 +1095,6 @@ F 3 "" H 1450 6800 50  0001 C CNN
 	1    1450 6800
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 6400 2    50   Input ~ 0
-#HRESET
 Wire Wire Line
 	7350 4200 7400 4200
 Wire Wire Line
@@ -1179,10 +1112,6 @@ F 3 "" H 7400 4600 50  0001 C CNN
 $EndComp
 Text GLabel 3600 6400 2    50   Input ~ 0
 #VSYNC
-Text GLabel 3600 6300 2    50   Input ~ 0
-#LRESET
-Text GLabel 5300 3700 2    50   Input ~ 0
-#HSYNC
 Text GLabel 4600 900  0    50   Input ~ 0
 #PRESET
 Text GLabel 1050 1450 0    50   Input ~ 0
@@ -1193,16 +1122,8 @@ Text GLabel 2700 3100 0    50   Input ~ 0
 #LRESET
 Text GLabel 1050 3100 0    50   Input ~ 0
 #LRESET
-Text GLabel 5200 1250 2    50   Input ~ 0
-#P1
-Text GLabel 850  5200 0    50   Input ~ 0
-P2
-Text GLabel 2500 5200 0    50   Input ~ 0
-P2
-Text GLabel 9700 4550 0    50   Input ~ 0
-#P2
 Text GLabel 7450 4300 2    50   Input ~ 0
-P2
+#OE
 Wire Wire Line
 	7450 4300 7350 4300
 Text GLabel 7450 4400 2    50   Input ~ 0
@@ -1213,12 +1134,6 @@ Wire Wire Line
 	7450 4400 7350 4400
 Wire Wire Line
 	7450 4500 7350 4500
-Text GLabel 1950 6600 2    50   Input ~ 0
-#WE
-Text Notes 5900 5500 0    50   ~ 0
-Read Cycle: /OE low, /CE low, /WE high, CE2 high\nWrite Cycle: /CE low, /WE low, CE2 high\n"WE#, CE# must be high or CE2 must be low\nduring all address transitions."
-Text GLabel 4600 1250 0    50   Input ~ 0
-P1
 Text Notes 9250 3000 0    50   ~ 0
 Z-Fighter Connectors
 NoConn ~ 9950 2300
@@ -1226,33 +1141,14 @@ NoConn ~ 9950 2400
 $Comp
 L 74xx:74HC00 U?
 U 1 1 6222CFFF
-P 4900 3700
-F 0 "U?" H 4900 4025 50  0000 C CNN
-F 1 "74HC00" H 4900 3934 50  0000 C CNN
-F 2 "" H 4900 3700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 3700 50  0001 C CNN
-	1    4900 3700
+P 4900 3800
+F 0 "U?" H 4900 4125 50  0000 C CNN
+F 1 "74HC00" H 4900 4034 50  0000 C CNN
+F 2 "" H 4900 3800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 3800 50  0001 C CNN
+	1    4900 3800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5200 3900 5200 3700
-Wire Wire Line
-	5200 4000 5200 4200
-Wire Wire Line
-	4600 4000 5200 3900
-Wire Wire Line
-	4600 4000 4600 4100
-Wire Wire Line
-	4600 3900 5200 4000
-Wire Wire Line
-	4600 3800 4600 3900
-Text Notes 5050 4350 0    50   ~ 0
-#HSYNC latch
-Wire Wire Line
-	5300 3700 5200 3700
-Connection ~ 5200 3700
-Text GLabel 3600 7000 2    50   Input ~ 0
-P9
 $Comp
 L 74xx:74HC04 U?
 U 1 1 62230D93
@@ -1319,11 +1215,7 @@ F 3 "" H 5400 3050 50  0001 C CNN
 	1    5400 3050
 	1    0    0    -1  
 $EndComp
-Text GLabel 4600 4650 0    50   Input ~ 0
-VIDACT
 NoConn ~ 9900 5750
-Text Notes 5050 4700 0    50   ~ 0
-Gate video output
 Wire Wire Line
 	950  4800 800  4800
 $Comp
@@ -1337,18 +1229,12 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 305
 	7    4900 3050
 	0    1    1    0   
 $EndComp
-Text GLabel 4600 5050 0    50   Input ~ 0
-P4
-Text GLabel 4600 1950 0    50   Input ~ 0
+Text GLabel 4600 1250 0    50   Input ~ 0
 P4MS
-Text GLabel 5200 1950 2    50   Input ~ 0
-#LOAD
-Text GLabel 1950 7000 2    50   Input ~ 0
+Text GLabel 4600 4050 0    50   Input ~ 0
 LU
-Text GLabel 1950 6900 2    50   Input ~ 0
+Text GLabel 4600 4250 0    50   Input ~ 0
 LL
-Text GLabel 1950 6700 2    50   Input ~ 0
-CE2
 $Comp
 L 74xx:74HC04 U?
 U 3 1 62234980
@@ -1360,62 +1246,6 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 160
 	3    4900 1600
 	1    0    0    -1  
 $EndComp
-Connection ~ 5650 4950
-Wire Wire Line
-	5650 4950 5400 4950
-$Comp
-L power:GND #PWR0144
-U 1 1 623D8172
-P 5650 5150
-F 0 "#PWR0144" H 5650 4900 50  0001 C CNN
-F 1 "GND" H 5655 4977 50  0000 C CNN
-F 2 "" H 5650 5150 50  0001 C CNN
-F 3 "" H 5650 5150 50  0001 C CNN
-	1    5650 5150
-	1    0    0    -1  
-$EndComp
-Text GLabel 5750 4950 2    50   Input ~ 0
-P4MS
-$Comp
-L Device:R_Small_US R?
-U 1 1 623E1086
-P 5650 5050
-F 0 "R?" V 5763 5050 50  0001 C CNN
-F 1 "R_Small_US" V 5764 5050 50  0001 C CNN
-F 2 "" H 5650 5050 50  0001 C CNN
-F 3 "~" H 5650 5050 50  0001 C CNN
-	1    5650 5050
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5750 4950 5650 4950
-$Comp
-L Device:C_Small C?
-U 1 1 623D14EC
-P 5300 4950
-F 0 "C?" V 5529 4950 50  0001 C CNN
-F 1 "C_Small" V 5437 4950 50  0001 C CNN
-F 2 "" H 5300 4950 50  0001 C CNN
-F 3 "~" H 5300 4950 50  0001 C CNN
-	1    5300 4950
-	0    -1   -1   0   
-$EndComp
-Text Notes 5050 5100 0    50   ~ 0
-#LOAD pulse
-Text GLabel 4600 1600 0    50   Input ~ 0
-P2
-Text GLabel 5200 1600 2    50   Input ~ 0
-#P2
-NoConn ~ 5200 2650
-Wire Wire Line
-	4600 2650 4400 2650
-Wire Wire Line
-	4400 2650 4400 3050
-Connection ~ 4400 3050
-Text GLabel 8150 4550 0    50   Input ~ 0
-#P2
-Text GLabel 6350 2250 0    50   Input ~ 0
-#P1
 $Comp
 L power:GND #PWR0133
 U 1 1 621F0C8A
@@ -1455,24 +1285,290 @@ Wire Wire Line
 Wire Wire Line
 	8150 2350 8650 2350
 Connection ~ 8650 2350
-Text GLabel 8150 1950 0    50   Input ~ 0
-#P2
-NoConn ~ 1950 6800
-NoConn ~ 3600 6900
-NoConn ~ 3600 6800
-NoConn ~ 3600 6700
-NoConn ~ 3600 6600
-Text GLabel 4600 4850 0    50   Input ~ 0
-#LOAD
-Text GLabel 5200 4550 2    50   Input ~ 0
-#VIDOUT
-Text GLabel 4600 4450 0    50   Input ~ 0
-SERIAL
 NoConn ~ 7350 1150
 Text GLabel 7350 1050 2    50   Input ~ 0
-SERIAL
-Text GLabel 5200 2300 2    50   Input ~ 0
 VIDOUT
-Text GLabel 4600 2300 0    50   Input ~ 0
-#VIDOUT
+Text GLabel 4600 1600 0    50   Input ~ 0
+BUS
+Text GLabel 5200 1600 2    50   Input ~ 0
+#BUS
+Text GLabel 850  5200 0    50   Input ~ 0
+BUS
+Text GLabel 2500 5200 0    50   Input ~ 0
+BUS
+Text GLabel 8150 4550 0    50   Input ~ 0
+#BUS
+Text GLabel 9700 4550 0    50   Input ~ 0
+#BUS
+Text GLabel 8150 1950 0    50   Input ~ 0
+#BUS
+Text GLabel 4600 3900 0    50   Input ~ 0
+#LDPULSE
+Text Notes 5050 3950 0    50   ~ 0
+#LOAD pulse
+$Comp
+L Device:C_Small C?
+U 1 1 623D14EC
+P 5300 3800
+F 0 "C?" V 5529 3800 50  0001 C CNN
+F 1 "C_Small" V 5437 3800 50  0001 C CNN
+F 2 "" H 5300 3800 50  0001 C CNN
+F 3 "~" H 5300 3800 50  0001 C CNN
+	1    5300 3800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5750 3800 5650 3800
+$Comp
+L Device:R_Small_US R?
+U 1 1 623E1086
+P 5650 3900
+F 0 "R?" V 5763 3900 50  0001 C CNN
+F 1 "R_Small_US" V 5764 3900 50  0001 C CNN
+F 2 "" H 5650 3900 50  0001 C CNN
+F 3 "~" H 5650 3900 50  0001 C CNN
+	1    5650 3900
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0144
+U 1 1 623D8172
+P 5650 4000
+F 0 "#PWR0144" H 5650 3750 50  0001 C CNN
+F 1 "GND" H 5655 3827 50  0000 C CNN
+F 2 "" H 5650 4000 50  0001 C CNN
+F 3 "" H 5650 4000 50  0001 C CNN
+	1    5650 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 3800 5400 3800
+Connection ~ 5650 3800
+Text GLabel 3600 6300 2    50   Input ~ 0
+#LRESET
+$Comp
+L 74xx:74HC00 U?
+U 3 1 62236D7F
+P 4900 4500
+F 0 "U?" H 4900 4825 50  0001 C CNN
+F 1 "74HC00" H 4900 4733 50  0001 C CNN
+F 2 "" H 4900 4500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4500 50  0001 C CNN
+	3    4900 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC00 U?
+U 5 1 6223A0D4
+P 4900 5250
+F 0 "U?" V 4625 5250 50  0001 C CNN
+F 1 "74HC00" V 4624 5250 50  0001 C CNN
+F 2 "" H 4900 5250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5250 50  0001 C CNN
+	5    4900 5250
+	0    1    1    0   
+$EndComp
+NoConn ~ 4600 2650
+NoConn ~ 5200 2650
+Connection ~ 6850 2650
+Wire Wire Line
+	6850 2650 6350 2650
+Wire Wire Line
+	6350 2650 6350 2350
+Text GLabel 5200 4150 2    50   Input ~ 0
+#LULL
+Text GLabel 6350 2050 0    50   Input ~ 0
+#LDPULSE
+Text GLabel 5750 3800 2    50   Input ~ 0
+P4MS
+Text GLabel 4600 3700 0    50   Input ~ 0
+#LD
+Text GLabel 5200 1250 2    50   Input ~ 0
+#LDPULSE
+$Comp
+L power:GND #PWR0104
+U 1 1 62221546
+P 6050 1050
+F 0 "#PWR0104" H 6050 800 50  0001 C CNN
+F 1 "GND" H 6055 877 50  0000 C CNN
+F 2 "" H 6050 1050 50  0001 C CNN
+F 3 "" H 6050 1050 50  0001 C CNN
+	1    6050 1050
+	1    0    0    -1  
+$EndComp
+Text GLabel 6350 1150 0    50   Input ~ 0
+D0
+Wire Wire Line
+	6050 1050 6350 1050
+NoConn ~ 4600 2300
+NoConn ~ 5200 2300
+$Comp
+L Logic_Programmable:GAL16V8 U?
+U 1 1 62262924
+P 3100 6800
+F 0 "U?" H 3100 7681 50  0000 C CNN
+F 1 "GAL16V8" H 3100 7590 50  0000 C CNN
+F 2 "" H 3100 6800 50  0001 C CNN
+F 3 "" H 3100 6800 50  0001 C CNN
+	1    3100 6800
+	1    0    0    -1  
+$EndComp
+Text GLabel 3600 6800 2    50   Input ~ 0
+P9
+Text GLabel 1950 6700 2    50   Input ~ 0
+CE2
+Text GLabel 1950 6600 2    50   Input ~ 0
+#WE
+Text GLabel 1950 6500 2    50   Input ~ 0
+#OE
+Text GLabel 1950 6800 2    50   Input ~ 0
+BUS
+Text GLabel 1950 6400 2    50   Input ~ 0
+HPULSE
+Text GLabel 6350 2250 0    50   Input ~ 0
+SCLOCK
+NoConn ~ 4600 1950
+NoConn ~ 5200 1950
+NoConn ~ 3500 3500
+NoConn ~ 3500 1850
+Text GLabel 1950 7000 2    50   Input ~ 0
+#WRDY
+Text GLabel 3600 6600 2    50   Input ~ 0
+SCLOCK
+$Comp
+L 74xx:74HC74 U?
+U 3 1 6243E965
+P 4900 7450
+F 0 "U?" V 4625 7450 50  0001 C CNN
+F 1 "74HC74" V 4624 7450 50  0001 C CNN
+F 2 "" H 4900 7450 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 7450 50  0001 C CNN
+	3    4900 7450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0132
+U 1 1 6244E28C
+P 4450 7450
+F 0 "#PWR0132" H 4450 7200 50  0001 C CNN
+F 1 "GND" H 4455 7277 50  0000 C CNN
+F 2 "" H 4450 7450 50  0001 C CNN
+F 3 "" H 4450 7450 50  0001 C CNN
+	1    4450 7450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 7450 4450 7450
+Text GLabel 4600 6850 0    50   Input ~ 0
+P2
+Text GLabel 4600 6750 0    50   Input ~ 0
+#LULL
+Text GLabel 5200 6750 2    50   Input ~ 0
+#WRDY
+Text GLabel 1950 6300 2    50   Input ~ 0
+#PRESET
+$Comp
+L 74xx:74HC74 U?
+U 2 1 6243AADD
+P 4900 6850
+F 0 "U?" H 4900 7331 50  0001 C CNN
+F 1 "74HC74" H 4900 7239 50  0001 C CNN
+F 2 "" H 4900 6850 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 6850 50  0001 C CNN
+	2    4900 6850
+	1    0    0    -1  
+$EndComp
+Text GLabel 3600 7000 2    50   Input ~ 0
+P1
+Text GLabel 950  7000 0    50   Input ~ 0
+P7
+Text GLabel 3600 6900 2    50   Input ~ 0
+P4
+NoConn ~ 3600 6700
+Wire Wire Line
+	5650 6550 4900 6550
+Wire Wire Line
+	5650 6550 5650 7150
+Wire Wire Line
+	5300 7450 5650 7450
+$Comp
+L power:VCC #PWR0143
+U 1 1 6244F9AC
+P 5650 5850
+F 0 "#PWR0143" H 5650 5700 50  0001 C CNN
+F 1 "VCC" H 5665 6023 50  0000 C CNN
+F 2 "" H 5650 5850 50  0001 C CNN
+F 3 "" H 5650 5850 50  0001 C CNN
+	1    5650 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 5850 5650 6550
+Connection ~ 5650 5850
+Connection ~ 5650 6550
+Wire Wire Line
+	4900 6450 4900 6550
+Connection ~ 4900 6550
+Wire Wire Line
+	4900 7150 5650 7150
+Connection ~ 5650 7150
+Wire Wire Line
+	5650 7150 5650 7450
+NoConn ~ 5200 6950
+Wire Wire Line
+	5650 5850 4900 5850
+$Comp
+L 74xx:74HC74 U?
+U 1 1 62437D41
+P 4900 6150
+F 0 "U?" H 4900 6631 50  0000 C CNN
+F 1 "74HC74" H 4900 6540 50  0000 C CNN
+F 2 "" H 4900 6150 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 6150 50  0001 C CNN
+	1    4900 6150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 6250 5200 6500
+Wire Wire Line
+	4500 6050 4500 6500
+Wire Wire Line
+	4500 6050 4600 6050
+Wire Wire Line
+	4500 6500 5200 6500
+Text GLabel 4400 6150 0    50   Input ~ 0
+HPULSE
+Wire Wire Line
+	4600 6150 4400 6150
+Wire Wire Line
+	4400 5250 4400 4950
+Wire Wire Line
+	4400 4400 4600 4400
+Connection ~ 4400 5250
+Wire Wire Line
+	4400 4600 4600 4600
+Connection ~ 4400 4600
+Wire Wire Line
+	4400 4600 4400 4400
+Wire Wire Line
+	4400 4750 4600 4750
+Connection ~ 4400 4750
+Wire Wire Line
+	4400 4750 4400 4600
+Wire Wire Line
+	4400 4950 4600 4950
+Connection ~ 4400 4950
+Wire Wire Line
+	4400 4950 4400 4750
+NoConn ~ 5200 4500
+NoConn ~ 5200 4850
+Text Notes 5050 4300 0    50   ~ 0
+Data ready
+Text Notes 5200 7100 0    50   ~ 0
+Write ready
+Text Notes 5250 6500 0    50   ~ 0
+~HSYNC
+Text GLabel 5200 6050 2    50   Input ~ 0
+#HSYNC
+NoConn ~ 1950 6900
 $EndSCHEMATC

@@ -2,21 +2,24 @@ GAL16V8
 HDECODER
 
 P0 P1 P2 P3 P4 P5 P6 P7 P8 GND
-P9 LU LL NC CE2 WE HSET HRESET PRESET VCC
+P9 WRDY NC BUS CE2 WE OE HPULSE PRESET VCC
 
-; Pixel 800
+; Horizontal sync pulses, pixels 592 and 688 (centered timings)
+HPULSE =        P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
+            +   P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
+
+; Reset pixel counter at pixel 800 or line 525
 /PRESET =       P9 * P8 * P5
 
-; Pixels 592 and 688 (Centered timings)
+; SRAM control
+OE  =           P2 * /WRDY
 
-/HRESET =       P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
+WE =            /P2
+            +   WRDY
 
-/HSET =         P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
+/CE2 =          /P1 * P2 * /WRDY
 
-; Writing
-
-/CE2 =          /P1 * P2
-
-/WE  =          P2 * LU * LL
+; VRAM sharing
+BUS =           P2 * /WRDY
 
 DESCRIPTION

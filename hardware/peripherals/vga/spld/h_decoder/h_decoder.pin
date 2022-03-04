@@ -13,13 +13,13 @@
    9   | P8       | Input
   10   | GND      | GND
   11   | P9       | Input
-  12   | LU       | Input
-  13   | LL       | Input
-  14   | NC       | NC
+  12   | WRDY     | Input
+  13   | NC       | NC
+  14   | BUS      | Output
   15   | CE2      | Output
   16   | WE       | Output
-  17   | HSET     | Output
-  18   | HRESET   | Output
+  17   | OE       | Output
+  18   | HPULSE   | Output
   19   | PRESET   | Output
   20   | VCC      | VCC
 
