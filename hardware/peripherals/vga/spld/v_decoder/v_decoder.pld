@@ -13,6 +13,7 @@ L9 P1 P4 P9 NC SCLOCK LD VSYNC LRESET VCC
 
 ; Shift register control
 SCLOCK =        /P1
+
 LD =            P4
             +   P9
             +   L9
