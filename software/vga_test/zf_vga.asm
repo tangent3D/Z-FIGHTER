@@ -12,7 +12,7 @@ LD		DE,0 		;Initialize destination address
 LD 		BC,1530h 	;Initialize byte counter
 
 LOOP:
-	LD		A,255h		;Byte to write to screen
+	LD		A,00h		;Byte to write to screen
 	OUT		(PORTA),A
 
 	LD 		A,D
