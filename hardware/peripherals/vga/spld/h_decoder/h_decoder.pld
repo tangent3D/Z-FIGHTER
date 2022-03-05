@@ -12,14 +12,14 @@ HPULSE =        P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
 /PRESET =       P9 * P8 * P5
 
 ; SRAM control
-OE  =           P2 * /WRDY
+OE  =           P2 * WRDY
 
 WE =            /P2
-            +   WRDY
+            +   /WRDY
 
-/CE2 =          /P1 * P2 * /WRDY
+/CE2 =          /P1 * P2 * WRDY
 
 ; VRAM sharing
-BUS =           P2 * /WRDY
+BUS =           P2 * WRDY
 
 DESCRIPTION
