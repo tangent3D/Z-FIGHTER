@@ -958,8 +958,6 @@ Text GLabel 1950 3900 2    50   Input ~ 0
 BUS
 Text GLabel 1950 3500 2    50   Input ~ 0
 HPULSE
-Text GLabel 6350 2250 0    50   Input ~ 0
-SCLOCK
 Text GLabel 1950 4100 2    50   Input ~ 0
 WRDY
 Text GLabel 3600 3700 2    50   Input ~ 0
@@ -1072,7 +1070,7 @@ Text Notes 5200 7100 0    50   ~ 0
 Write ready
 Text Notes 5250 6500 0    50   ~ 0
 ~HSYNC
-Text GLabel 5200 6050 2    50   Input ~ 0
+Text GLabel 5250 6250 2    50   Input ~ 0
 #HSYNC
 NoConn ~ 1950 4000
 $Comp
@@ -1175,8 +1173,6 @@ F 3 "" H 3100 2550 50  0001 C CNN
 	1    3100 2550
 	1    0    0    -1  
 $EndComp
-Text GLabel 2600 1150 0    50   Input ~ 0
-PRESET
 Text GLabel 3600 1850 2    50   Input ~ 0
 L7
 Text GLabel 3600 1750 2    50   Input ~ 0
@@ -1273,8 +1269,6 @@ Text GLabel 1950 1250 2    50   Input ~ 0
 P1
 Text GLabel 1950 1150 2    50   Input ~ 0
 P0
-Text GLabel 4600 4400 0    50   Input ~ 0
-#LRESET
 $Comp
 L Device:R_Small_US R?
 U 1 1 623E1086
@@ -1288,46 +1282,8 @@ F 3 "~" H 5700 3900 50  0001 C CNN
 $EndComp
 Text GLabel 4600 4050 0    50   Input ~ 0
 #PRESET
-Text Notes 5050 4300 0    50   ~ 0
-#PRESET pulse
-$Comp
-L Device:C_Small C?
-U 1 1 6235FCD8
-P 5300 4150
-F 0 "C?" V 5529 4150 50  0001 C CNN
-F 1 "C_Small" V 5437 4150 50  0001 C CNN
-F 2 "" H 5300 4150 50  0001 C CNN
-F 3 "~" H 5300 4150 50  0001 C CNN
-	1    5300 4150
-	0    -1   -1   0   
-$EndComp
 Text GLabel 5800 4500 2    50   Input ~ 0
 LRMS
-Connection ~ 5700 4150
-$Comp
-L power:GND #PWR?
-U 1 1 6235FCE1
-P 5700 4350
-F 0 "#PWR?" H 5700 4100 50  0001 C CNN
-F 1 "GND" H 5705 4177 50  0000 C CNN
-F 2 "" H 5700 4350 50  0001 C CNN
-F 3 "" H 5700 4350 50  0001 C CNN
-	1    5700 4350
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 6235FCE7
-P 5700 4250
-F 0 "R?" V 5813 4250 50  0001 C CNN
-F 1 "R_Small_US" V 5814 4250 50  0001 C CNN
-F 2 "" H 5700 4250 50  0001 C CNN
-F 3 "~" H 5700 4250 50  0001 C CNN
-	1    5700 4250
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5800 4150 5700 4150
 Text Notes 5050 4650 0    50   ~ 0
 #LRESET pulse
 $Comp
@@ -1341,8 +1297,6 @@ F 3 "~" H 5300 4500 50  0001 C CNN
 	1    5300 4500
 	0    -1   -1   0   
 $EndComp
-Text GLabel 5800 4150 2    50   Input ~ 0
-PRMS
 Connection ~ 5700 4500
 $Comp
 L power:GND #PWR?
@@ -1368,7 +1322,6 @@ F 3 "~" H 5700 4600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5800 4500 5700 4500
-NoConn ~ 5200 2650
 Text GLabel 5200 1950 2    50   Input ~ 0
 #LRPULSE
 Text GLabel 4600 1950 0    50   Input ~ 0
@@ -1400,8 +1353,6 @@ Text GLabel 4600 2300 0    50   Input ~ 0
 #LRPULSE
 Text GLabel 5200 2300 2    50   Input ~ 0
 LRESET
-Text GLabel 4600 4250 0    50   Input ~ 0
-#PRPULSE
 Text GLabel 4600 4600 0    50   Input ~ 0
 #LRPULSE
 Connection ~ 5700 3800
@@ -1421,8 +1372,6 @@ $EndComp
 Text GLabel 5800 3800 2    50   Input ~ 0
 P4MS
 Wire Wire Line
-	5400 4150 5700 4150
-Wire Wire Line
 	5400 4500 5700 4500
 Wire Wire Line
 	5400 3800 5700 3800
@@ -1440,4 +1389,61 @@ Wire Wire Line
 	4400 4950 4400 5250
 Text Notes 5750 5500 0    100  ~ 0
 Get rid of BUS/#BUS and use #OE and #WE instead.
+Text GLabel 4600 2650 0    50   Input ~ 0
+P1
+Text GLabel 5200 2650 2    50   Input ~ 0
+#P1
+Text GLabel 6350 2250 0    50   Input ~ 0
+#P1
+Text GLabel 5800 4150 2    50   Input ~ 0
+PRMS
+Wire Wire Line
+	5800 4150 5700 4150
+$Comp
+L Device:R_Small_US R?
+U 1 1 6235FCE7
+P 5700 4250
+F 0 "R?" V 5813 4250 50  0001 C CNN
+F 1 "R_Small_US" V 5814 4250 50  0001 C CNN
+F 2 "" H 5700 4250 50  0001 C CNN
+F 3 "~" H 5700 4250 50  0001 C CNN
+	1    5700 4250
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6235FCE1
+P 5700 4350
+F 0 "#PWR?" H 5700 4100 50  0001 C CNN
+F 1 "GND" H 5705 4177 50  0000 C CNN
+F 2 "" H 5700 4350 50  0001 C CNN
+F 3 "" H 5700 4350 50  0001 C CNN
+	1    5700 4350
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5700 4150
+Wire Wire Line
+	5400 4150 5700 4150
+$Comp
+L Device:C_Small C?
+U 1 1 6235FCD8
+P 5300 4150
+F 0 "C?" V 5529 4150 50  0001 C CNN
+F 1 "C_Small" V 5437 4150 50  0001 C CNN
+F 2 "" H 5300 4150 50  0001 C CNN
+F 3 "~" H 5300 4150 50  0001 C CNN
+	1    5300 4150
+	0    -1   -1   0   
+$EndComp
+Text Notes 5050 4300 0    50   ~ 0
+#PRESET pulse
+Text GLabel 2600 1150 0    50   Input ~ 0
+#PRESET
+Text GLabel 4600 4250 0    50   Input ~ 0
+#PRPULSE
+Text GLabel 4600 4400 0    50   Input ~ 0
+#LRESET
+Wire Wire Line
+	5250 6250 5200 6250
+Connection ~ 5200 6250
 $EndSCHEMATC

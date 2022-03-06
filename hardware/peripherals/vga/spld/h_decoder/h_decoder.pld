@@ -8,7 +8,7 @@ P9 WRDY NC BUS CE2 WE OE HPULSE PRESET VCC
 HPULSE =        P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
             +   P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
 
-; Reset pixel counter at pixel 800 or line 525
+; Reset pixel counter at pixel 800
 /PRESET =       P9 * P8 * P5
 
 ; SRAM control

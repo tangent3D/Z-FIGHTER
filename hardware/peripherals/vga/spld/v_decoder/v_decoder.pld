@@ -2,7 +2,7 @@ GAL16V8
 VDECODER
 
 L0 L1 L2 L3 L4 L5 L6 L7 L8 GND
-L9 P1 P4 P9 NC SCLOCK LD VSYNC LRESET VCC
+L9 P5 P4 P9 NC SCLOCK LD VSYNC LRESET VCC
 
 ; Vertical sync pulse, Lines 442-443 (centered timings)
 /VSYNC =        /L9 * L8 * L7 * /L6 * L5 * L4 * L3 * /L2 * L1 * /L0
@@ -11,12 +11,12 @@ L9 P1 P4 P9 NC SCLOCK LD VSYNC LRESET VCC
 ; Reset line counter at line 525
 /LRESET =       L9 * L3 * L2 * L0
 
-; Shift register control
-SCLOCK =        /P1
-
-LD =            P4
+/LD =           P4 * /P5
+            +   P4 * P5
             +   P9
             +   L9
-            +   L8 * L7
+;            +   L8 * L7
+            +   L7
+
 
 DESCRIPTION
