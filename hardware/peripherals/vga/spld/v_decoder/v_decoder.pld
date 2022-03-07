@@ -15,8 +15,6 @@ L9 P5 P4 P9 NC SCLOCK LD VSYNC LRESET VCC
             +   P4 * P5
             +   P9
             +   L9
-;            +   L8 * L7
-            +   L7
-
+            +   L8 * L7
 
 DESCRIPTION
