@@ -15,11 +15,11 @@
   11   | P9       | Input
   12   | WRDY     | Input
   13   | NC       | NC
-  14   | BUS      | Output
-  15   | CE2      | Output
+  14   | HRESET   | Output
+  15   | CE2      | NC
   16   | WE       | Output
   17   | OE       | Output
-  18   | HPULSE   | Output
+  18   | HSET     | Output
   19   | PRESET   | Output
   20   | VCC      | VCC
 
