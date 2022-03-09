@@ -11,6 +11,11 @@ L9 P4 P5 P9 NC NC LD VSYNC LRESET VCC
 ; Reset line counter at line 525
 /LRESET =       L9 * L3 * L2 * L0
 
+;/LD =           P4
+;            +   P9
+;            +   L9
+;            +   L8 * L7
+
 /LD =           P4 * /P5
             +   P4 * P5
             +   P9

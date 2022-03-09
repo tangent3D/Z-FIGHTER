@@ -16,7 +16,7 @@
   12   | WRDY     | Input
   13   | NC       | NC
   14   | HRESET   | Output
-  15   | CE2      | NC
+  15   | CE2      | Output
   16   | WE       | Output
   17   | OE       | Output
   18   | HSET     | Output
