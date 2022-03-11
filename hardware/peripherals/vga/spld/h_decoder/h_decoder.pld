@@ -13,13 +13,13 @@ P9 WRDY NC HRESET CE2 WE OE HSET PRESET VCC
 /PRESET =       P9 * P8 * P5
 
 ; SRAM control
-OE  =           P3 * WRDY
+OE  =           P4 * WRDY
 
-/WE =           /P1 * P2 * P3 * WRDY
-            +   P1 * /P2 * P3 * WRDY
+/WE =           /P2 * P3 * P4 * WRDY
+            +   P2 * /P3 * P4 * WRDY
 
-CE2 =           P2
-            +   /P3
+CE2 =           P3
+            +   /P4
             +   /WRDY
 
 DESCRIPTION

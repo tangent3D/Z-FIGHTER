@@ -14,7 +14,7 @@
   10   | GND      | GND
   11   | L9       | Input
   12   | P4       | Input
-  13   | P5       | Input
+  13   | P5       | NC
   14   | P9       | Input
   15   | NC       | NC
   16   | NC       | NC

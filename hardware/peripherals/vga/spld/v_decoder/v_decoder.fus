@@ -21,11 +21,11 @@ Pin 18 = VSYNC        XOR = 0   AC1 = 0
  15  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 Pin 17 = LD           XOR = 0   AC1 = 0
- 16  ---- ---- ---- ---- ---- ---x --x- ----
- 17  ---- ---- ---- ---- ---- --x- --x- ----
- 18  ---- ---- ---- ---- --x- ---- ---- ----
- 19  ---- ---- ---- ---- ---- ---- ---- --x-
- 20  ---- ---- ---- ---- ---- ---- x--- x---
+ 16  ---- ---- ---- ---- ---- ---- --x- ----
+ 17  ---- ---- ---- ---- --x- ---- ---- ----
+ 18  ---- ---- ---- ---- ---- ---- ---- --x-
+ 19  ---- ---- ---- ---- ---- ---- x--- x---
+ 20  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  21  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -60,7 +60,7 @@ Pin 14 = P9           XOR = 0   AC1 = 1
  46  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  47  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 13 = P5           XOR = 0   AC1 = 1
+Pin 13 = P5           XOR = 0   AC1 = 0
  48  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  49  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  50  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
