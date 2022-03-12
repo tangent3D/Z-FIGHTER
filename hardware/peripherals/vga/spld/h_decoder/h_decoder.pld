@@ -2,7 +2,7 @@ GAL16V8
 HDECODER
 
 P0 P1 P2 P3 P4 P5 P6 P7 P8 GND
-P9 WRDY NC HRESET CE2 WE OE HSET PRESET VCC
+P9 WRDY RESET HRESET CE2 WE OE HSET PRESET VCC
 
 ; Horizontal sync pulses, pixels 592 and 688 (centered timings)
 /HSET =         P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
@@ -11,6 +11,7 @@ P9 WRDY NC HRESET CE2 WE OE HSET PRESET VCC
 
 ; Reset pixel counter at pixel 800
 /PRESET =       P9 * P8 * P5
+            +   /RESET
 
 ; SRAM control
 OE  =           P4 * WRDY

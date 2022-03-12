@@ -2,7 +2,7 @@
 
 Pin 19 = PRESET       XOR = 0   AC1 = 0
   0  ---- ---- ---- ---- x--- ---- ---- x-x-
-  1  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+  1  ---- ---- ---- ---- ---- ---x ---- ----
   2  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   3  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   4  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -60,7 +60,7 @@ Pin 14 = HRESET       XOR = 0   AC1 = 0
  46  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  47  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
-Pin 13 = NC           XOR = 0   AC1 = 0
+Pin 13 = RESET        XOR = 0   AC1 = 1
  48  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  49  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  50  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

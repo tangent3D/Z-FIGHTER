@@ -14,7 +14,7 @@
   10   | GND      | GND
   11   | P9       | Input
   12   | WRDY     | Input
-  13   | NC       | NC
+  13   | RESET    | Input
   14   | HRESET   | Output
   15   | CE2      | Output
   16   | WE       | Output
