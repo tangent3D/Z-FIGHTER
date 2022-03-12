@@ -196,7 +196,7 @@ U 2 1 6243AADD
 P 4900 7000
 F 0 "U9" H 4900 7481 50  0001 C CNN
 F 1 "74HC74" H 4900 7389 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 7000 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7000 50  0001 C CNN
 F 3 "74xx/74hc_hct74.pdf" H 4900 7000 50  0001 C CNN
 	2    4900 7000
 	1    0    0    -1  
@@ -395,7 +395,7 @@ U 3 1 6243E965
 P 4900 7600
 F 0 "U9" V 4625 7600 50  0001 C CNN
 F 1 "74HC74" V 4624 7600 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 7600 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7600 50  0001 C CNN
 F 3 "74xx/74hc_hct74.pdf" H 4900 7600 50  0001 C CNN
 	3    4900 7600
 	0    1    1    0   
@@ -568,7 +568,7 @@ U 1 1 62437D41
 P 4900 6300
 F 0 "U9" H 4900 6781 50  0000 C CNN
 F 1 "74HC74" H 4900 6690 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 6300 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 6300 50  0001 C CNN
 F 3 "74xx/74hc_hct74.pdf" H 4900 6300 50  0001 C CNN
 	1    4900 6300
 	1    0    0    -1  
@@ -639,38 +639,36 @@ F 3 "" H 8400 5850 50  0001 C CNN
 	1    8400 5850
 	1    0    0    -1  
 $EndComp
-Text GLabel 10700 2400 2    50   Input ~ 0
-PC6
-Text GLabel 10700 2500 2    50   Input ~ 0
-PC5
-NoConn ~ 10700 2300
-Text GLabel 10700 3000 2    50   Input ~ 0
-PC0
-Text GLabel 10700 2900 2    50   Input ~ 0
-PC1
-Text GLabel 10700 2800 2    50   Input ~ 0
-PC2
-Text GLabel 10200 2200 0    50   Input ~ 0
-PB0
 Text GLabel 10200 2100 0    50   Input ~ 0
-PB1
+PC6
 Text GLabel 10200 2000 0    50   Input ~ 0
+PC5
+Text GLabel 10200 1500 0    50   Input ~ 0
+PC0
+Text GLabel 10200 1600 0    50   Input ~ 0
+PC1
+Text GLabel 10200 1700 0    50   Input ~ 0
+PC2
+Text GLabel 10700 2300 2    50   Input ~ 0
+PB0
+Text GLabel 10700 2400 2    50   Input ~ 0
+PB1
+Text GLabel 10700 2500 2    50   Input ~ 0
 PB2
-Text GLabel 10200 1900 0    50   Input ~ 0
+Text GLabel 10700 2600 2    50   Input ~ 0
 PB3
 $Comp
 L power:GND #PWR0114
 U 1 1 622D7A61
-P 9850 1850
-F 0 "#PWR0114" H 9850 1600 50  0001 C CNN
-F 1 "GND" H 9855 1677 50  0000 C CNN
-F 2 "" H 9850 1850 50  0001 C CNN
-F 3 "" H 9850 1850 50  0001 C CNN
-	1    9850 1850
+P 11050 2700
+F 0 "#PWR0114" H 11050 2450 50  0001 C CNN
+F 1 "GND" H 11055 2527 50  0000 C CNN
+F 2 "" H 11050 2700 50  0001 C CNN
+F 3 "" H 11050 2700 50  0001 C CNN
+	1    11050 2700
 	1    0    0    -1  
 $EndComp
-NoConn ~ 10700 2700
-Text GLabel 10700 2600 2    50   Input ~ 0
+Text GLabel 10200 1900 0    50   Input ~ 0
 DATARDY
 Text GLabel 10950 3950 2    50   Input ~ 0
 A8
@@ -730,29 +728,29 @@ Text GLabel 8300 3950 0    50   Input ~ 0
 PB5
 Text GLabel 8300 4050 0    50   Input ~ 0
 PB4
-Text GLabel 10700 1900 2    50   Input ~ 0
-PB4
-Text GLabel 10700 2000 2    50   Input ~ 0
-PB5
-Text GLabel 10700 2100 2    50   Input ~ 0
-PB6
-Text GLabel 10700 2200 2    50   Input ~ 0
-PB7
-Text GLabel 10200 2300 0    50   Input ~ 0
-PA7
-Text GLabel 10200 2400 0    50   Input ~ 0
-PA6
-Text GLabel 10200 2500 0    50   Input ~ 0
-PA5
 Text GLabel 10200 2600 0    50   Input ~ 0
+PB4
+Text GLabel 10200 2500 0    50   Input ~ 0
+PB5
+Text GLabel 10200 2400 0    50   Input ~ 0
+PB6
+Text GLabel 10200 2300 0    50   Input ~ 0
+PB7
+Text GLabel 10700 2200 2    50   Input ~ 0
+PA7
+Text GLabel 10700 2100 2    50   Input ~ 0
+PA6
+Text GLabel 10700 2000 2    50   Input ~ 0
+PA5
+Text GLabel 10700 1900 2    50   Input ~ 0
 PA4
-Text GLabel 10200 2700 0    50   Input ~ 0
+Text GLabel 10700 1800 2    50   Input ~ 0
 PA3
-Text GLabel 10200 2800 0    50   Input ~ 0
+Text GLabel 10700 1700 2    50   Input ~ 0
 PA2
-Text GLabel 10200 2900 0    50   Input ~ 0
+Text GLabel 10700 1600 2    50   Input ~ 0
 PA1
-Text GLabel 10200 3000 0    50   Input ~ 0
+Text GLabel 10700 1500 2    50   Input ~ 0
 PA0
 $Comp
 L power:GND #PWR0105
@@ -773,17 +771,6 @@ Wire Wire Line
 	8800 5100 8800 5050
 Text Notes 10050 3150 0    50   ~ 0
 Z-Fighter Connectors
-$Comp
-L Connector_Generic:Conn_02x13_Odd_Even J2
-U 1 1 621FEB7B
-P 10400 2400
-F 0 "J2" H 10450 3217 50  0000 C CNN
-F 1 "Conn_02x13_Odd_Even" H 10450 3126 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 10400 2400 50  0001 C CNN
-F 3 "~" H 10400 2400 50  0001 C CNN
-	1    10400 2400
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR0134
 U 1 1 622D3D47
@@ -1156,14 +1143,14 @@ L8
 Text GLabel 2600 3400 0    50   Input ~ 0
 L9
 Wire Wire Line
-	9850 1800 10200 1800
+	11050 2700 10700 2700
 $Comp
 L 74xx:74HC04 U8
 U 1 1 62230D93
 P 4900 1050
 F 0 "U8" H 4900 1367 50  0000 C CNN
 F 1 "74HC04" H 4900 1276 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 1050 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 1050 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 1050 50  0001 C CNN
 	1    4900 1050
 	1    0    0    -1  
@@ -1174,7 +1161,7 @@ U 6 1 622397DE
 P 4900 2800
 F 0 "U8" H 4900 3025 50  0001 C CNN
 F 1 "74HC04" H 4900 3026 50  0001 C CNN
-F 2 "" H 4900 2800 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 2800 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 2800 50  0001 C CNN
 	6    4900 2800
 	1    0    0    -1  
@@ -1185,7 +1172,7 @@ U 5 1 62237D89
 P 4900 2450
 F 0 "U8" H 4900 2767 50  0001 C CNN
 F 1 "74HC04" H 4900 2676 50  0001 C CNN
-F 2 "" H 4900 2450 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 2450 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 2450 50  0001 C CNN
 	5    4900 2450
 	1    0    0    -1  
@@ -1196,7 +1183,7 @@ U 4 1 62235EDC
 P 4900 2100
 F 0 "U8" H 4900 2417 50  0001 C CNN
 F 1 "74HC04" H 4900 2326 50  0001 C CNN
-F 2 "" H 4900 2100 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 2100 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 2100 50  0001 C CNN
 	4    4900 2100
 	1    0    0    -1  
@@ -1207,7 +1194,7 @@ U 3 1 62234980
 P 4900 1750
 F 0 "U8" H 4900 2067 50  0001 C CNN
 F 1 "74HC04" H 4900 1976 50  0001 C CNN
-F 2 "" H 4900 1750 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 1750 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 1750 50  0001 C CNN
 	3    4900 1750
 	1    0    0    -1  
@@ -1218,7 +1205,7 @@ U 2 1 622331B8
 P 4900 1400
 F 0 "U8" H 4900 1717 50  0001 C CNN
 F 1 "74HC04" H 4900 1626 50  0001 C CNN
-F 2 "" H 4900 1400 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 1400 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 1400 50  0001 C CNN
 	2    4900 1400
 	1    0    0    -1  
@@ -1229,7 +1216,7 @@ U 7 1 6223AE39
 P 4900 3200
 F 0 "U8" V 4625 3200 50  0001 C CNN
 F 1 "74HC04" V 4624 3200 50  0001 C CNN
-F 2 "" H 4900 3200 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 3200 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 3200 50  0001 C CNN
 	7    4900 3200
 	0    1    1    0   
@@ -1248,7 +1235,7 @@ U 1 1 6222CFFF
 P 4900 3950
 F 0 "U7" H 4900 4275 50  0000 C CNN
 F 1 "74HC00" H 4900 4184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 3950 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 3950 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 3950 50  0001 C CNN
 	1    4900 3950
 	1    0    0    -1  
@@ -1259,7 +1246,7 @@ U 2 1 62235607
 P 4900 4300
 F 0 "U7" H 4900 4533 50  0001 C CNN
 F 1 "74HC00" H 4900 4534 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 4300 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 4300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4300 50  0001 C CNN
 	2    4900 4300
 	1    0    0    -1  
@@ -1270,7 +1257,7 @@ U 5 1 6223A0D4
 P 4900 5400
 F 0 "U7" V 4625 5400 50  0001 C CNN
 F 1 "74HC00" V 4624 5400 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 5400 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 5400 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5400 50  0001 C CNN
 	5    4900 5400
 	0    1    1    0   
@@ -1281,7 +1268,7 @@ U 3 1 62236D7F
 P 4900 4650
 F 0 "U7" H 4900 4975 50  0001 C CNN
 F 1 "74HC00" H 4900 4883 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 4650 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 4650 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4650 50  0001 C CNN
 	3    4900 4650
 	1    0    0    -1  
@@ -1292,7 +1279,7 @@ U 4 1 622384DB
 P 4900 5000
 F 0 "U7" H 4900 5325 50  0001 C CNN
 F 1 "74HC00" H 4900 5233 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4900 5000 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 5000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5000 50  0001 C CNN
 	4    4900 5000
 	1    0    0    -1  
@@ -1351,8 +1338,6 @@ Wire Wire Line
 	10450 5600 10450 5650
 Wire Wire Line
 	3350 5150 3350 5200
-Wire Wire Line
-	9850 1800 9850 1850
 Wire Wire Line
 	1700 5150 1700 5200
 Wire Wire Line
@@ -1440,16 +1425,14 @@ PA7
 $Comp
 L power:VCC #PWR0112
 U 1 1 622CC803
-P 11000 1800
-F 0 "#PWR0112" H 11000 1650 50  0001 C CNN
-F 1 "VCC" H 11015 1973 50  0000 C CNN
-F 2 "" H 11000 1800 50  0001 C CNN
-F 3 "" H 11000 1800 50  0001 C CNN
-	1    11000 1800
+P 9750 1400
+F 0 "#PWR0112" H 9750 1250 50  0001 C CNN
+F 1 "VCC" H 9765 1573 50  0000 C CNN
+F 2 "" H 9750 1400 50  0001 C CNN
+F 3 "" H 9750 1400 50  0001 C CNN
+	1    9750 1400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	11000 1800 10700 1800
 Connection ~ 10450 5050
 Connection ~ 8800 5050
 Connection ~ 9950 4350
@@ -2076,4 +2059,35 @@ F 3 "~" H 12150 3000 50  0001 C CNN
 	1    12150 3000
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector_Generic:Conn_02x17_Odd_Even J2
+U 1 1 621FEB7B
+P 10500 1900
+F 0 "J2" H 10550 2835 50  0000 C CNN
+F 1 "Z-FIGHTER Expansion Port" H 10550 2626 50  0001 C CNN
+F 2 "Z-FIGHTER:Z-FIGHTER_Expansion_Port" H 10500 1900 50  0001 C CNN
+F 3 "~" H 10500 1900 50  0001 C CNN
+	1    10500 1900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	11050 2700 11050 1400
+Wire Wire Line
+	11050 1400 10700 1400
+Connection ~ 11050 2700
+Wire Wire Line
+	9750 1400 9750 2700
+Connection ~ 9750 1400
+Wire Wire Line
+	9750 1400 10200 1400
+Wire Wire Line
+	9750 2700 10200 2700
+NoConn ~ 10200 1100
+NoConn ~ 10200 1200
+NoConn ~ 10200 1300
+NoConn ~ 10700 1300
+NoConn ~ 10700 1200
+NoConn ~ 10700 1100
+NoConn ~ 10200 2200
+NoConn ~ 10200 1800
 $EndSCHEMATC
