@@ -2,7 +2,7 @@ GAL16V8
 VDECODER
 
 L0 L1 L2 L3 L4 L5 L6 L7 L8 GND
-L9 P4 P5 P9 RESET NC LD VSYNC LRESET VCC
+L9 NC P4 P5 P9 RESET LD VSYNC LRESET VCC
 
 ; Vertical sync pulse, Lines 442-443 (centered timings)
 /VSYNC =        /L9 * L8 * L7 * /L6 * L5 * L4 * L3 * /L2 * L1 * /L0

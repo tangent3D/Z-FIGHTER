@@ -720,14 +720,6 @@ Text GLabel 8300 4250 0    50   Input ~ 0
 PB2
 Text GLabel 8300 4150 0    50   Input ~ 0
 PB3
-Text GLabel 8300 3750 0    50   Input ~ 0
-PB7
-Text GLabel 8300 3850 0    50   Input ~ 0
-PB6
-Text GLabel 8300 3950 0    50   Input ~ 0
-PB5
-Text GLabel 8300 4050 0    50   Input ~ 0
-PB4
 Text GLabel 10200 2600 0    50   Input ~ 0
 PB4
 Text GLabel 10200 2500 0    50   Input ~ 0
@@ -834,21 +826,16 @@ Text GLabel 2500 6400 0    50   Input ~ 0
 #OE
 Text GLabel 850  6400 0    50   Input ~ 0
 #OE
-NoConn ~ 1950 4000
 Text GLabel 1950 3900 2    50   Input ~ 0
 #HRESET
-NoConn ~ 3600 3700
-NoConn ~ 3600 3800
-Text GLabel 3600 4000 2    50   Input ~ 0
+Text GLabel 3600 3900 2    50   Input ~ 0
 P5
-Text GLabel 3600 4100 2    50   Input ~ 0
+Text GLabel 3600 4000 2    50   Input ~ 0
 P4
 Text GLabel 950  3600 0    50   Input ~ 0
 P7
 Text GLabel 1950 3400 2    50   Input ~ 0
 #PRESET
-Text GLabel 1950 4100 2    50   Input ~ 0
-WRDY
 Text GLabel 1950 3500 2    50   Input ~ 0
 #HSET
 Text GLabel 1950 3600 2    50   Input ~ 0
@@ -857,7 +844,7 @@ Text GLabel 1950 3700 2    50   Input ~ 0
 #WE
 Text GLabel 1950 3800 2    50   Input ~ 0
 CE2
-Text GLabel 3600 3900 2    50   Input ~ 0
+Text GLabel 3600 3800 2    50   Input ~ 0
 P9
 $Comp
 L Logic_Programmable:GAL16V8 U4
@@ -888,17 +875,6 @@ Wire Wire Line
 	950  6000 800  6000
 Text GLabel 3600 3500 2    50   Input ~ 0
 #VSYNC
-$Comp
-L Logic_Programmable:GAL16V8 U3
-U 1 1 62173FE1
-P 1450 3900
-F 0 "U3" H 1450 4781 50  0000 C CNN
-F 1 "GAL16V8" H 1450 4690 50  0000 C CNN
-F 2 "Package_DIP:DIP-20_W7.62mm_LongPads" H 1450 3900 50  0001 C CNN
-F 3 "" H 1450 3900 50  0001 C CNN
-	1    1450 3900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	950  6400 850  6400
 Text GLabel 3600 3600 2    50   Input ~ 0
@@ -1493,14 +1469,6 @@ NoConn ~ 10950 4150
 NoConn ~ 10950 4050
 Text GLabel 9300 4150 2    50   Input ~ 0
 A3
-Text GLabel 9300 4050 2    50   Input ~ 0
-A4
-Text GLabel 9300 3950 2    50   Input ~ 0
-A5
-Text GLabel 9300 3850 2    50   Input ~ 0
-A6
-Text GLabel 9300 3750 2    50   Input ~ 0
-A7
 Text GLabel 9300 4250 2    50   Input ~ 0
 A2
 Text GLabel 2600 1150 0    50   Input ~ 0
@@ -2082,7 +2050,6 @@ Wire Wire Line
 	9750 1400 10200 1400
 Wire Wire Line
 	9750 2700 10200 2700
-NoConn ~ 10200 1100
 NoConn ~ 10200 1200
 NoConn ~ 10200 1300
 NoConn ~ 10700 1300
@@ -2090,4 +2057,40 @@ NoConn ~ 10700 1200
 NoConn ~ 10700 1100
 NoConn ~ 10200 2200
 NoConn ~ 10200 1800
+$Comp
+L Logic_Programmable:GAL16V8 U3
+U 1 1 62173FE1
+P 1450 3900
+F 0 "U3" H 1450 4781 50  0000 C CNN
+F 1 "GAL16V8" H 1450 4690 50  0000 C CNN
+F 2 "Package_DIP:DIP-20_W7.62mm_LongPads" H 1450 3900 50  0001 C CNN
+F 3 "" H 1450 3900 50  0001 C CNN
+	1    1450 3900
+	1    0    0    -1  
+$EndComp
+Text GLabel 1950 4100 2    50   Input ~ 0
+WRDY
+Text GLabel 8300 4050 0    50   Input ~ 0
+PB7
+Text GLabel 8300 3950 0    50   Input ~ 0
+PB6
+Text GLabel 8300 3850 0    50   Input ~ 0
+PB5
+Text GLabel 8300 3750 0    50   Input ~ 0
+PB4
+Text GLabel 9300 3750 2    50   Input ~ 0
+A4
+Text GLabel 9300 3850 2    50   Input ~ 0
+A5
+Text GLabel 9300 3950 2    50   Input ~ 0
+A6
+Text GLabel 9300 4050 2    50   Input ~ 0
+A7
+Text GLabel 10200 1100 0    50   Input ~ 0
+#RESET
+Text GLabel 1950 4000 2    50   Input ~ 0
+#RESET
+Text GLabel 3600 3700 2    50   Input ~ 0
+#RESET
+NoConn ~ 3600 4100
 $EndSCHEMATC
