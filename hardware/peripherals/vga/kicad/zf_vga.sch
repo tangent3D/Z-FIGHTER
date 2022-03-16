@@ -134,17 +134,6 @@ F 3 "" H 7300 3200 50  0001 C CNN
 	1    7300 3200
 	1    0    0    -1  
 $EndComp
-$Comp
-L Memory_RAM:AS6C6264 U11
-U 1 1 62268A82
-P 7050 4150
-F 0 "U11" H 7050 5231 50  0000 C CNN
-F 1 "AS6C6264" H 7050 5140 50  0000 C CNN
-F 2 "Package_DIP:DIP-28_W15.24mm_LongPads" H 7050 4050 50  0001 C CNN
-F 3 "https://www.futurlec.com/Datasheet/Memory/62256.pdf" H 7050 4050 50  0001 C CNN
-	1    7050 4150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7050 3250 7300 3250
 Wire Wire Line
@@ -2093,4 +2082,30 @@ Text GLabel 1950 4000 2    50   Input ~ 0
 Text GLabel 3600 3700 2    50   Input ~ 0
 #RESET
 NoConn ~ 3600 4100
+$Comp
+L Memory_RAM:AS6C6264 U11
+U 1 1 62268A82
+P 7050 4150
+F 0 "U11" H 7050 5231 50  0000 C CNN
+F 1 "AS6C6264" H 7050 5140 50  0000 C CNN
+F 2 "Package_DIP:DIP-28_W15.24mm_LongPads" H 7050 4050 50  0001 C CNN
+F 3 "https://www.futurlec.com/Datasheet/Memory/62256.pdf" H 7050 4050 50  0001 C CNN
+	1    7050 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 6232784E
+P 6200 4600
+F 0 "#PWR?" H 6200 4450 50  0001 C CNN
+F 1 "VCC" H 6215 4773 50  0000 C CNN
+F 2 "" H 6200 4600 50  0001 C CNN
+F 3 "" H 6200 4600 50  0001 C CNN
+	1    6200 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 4600 6200 4750
+Wire Wire Line
+	6200 4750 6550 4750
 $EndSCHEMATC
