@@ -810,7 +810,7 @@ Wire Wire Line
 	6550 4650 6450 4650
 Connection ~ 6450 4650
 Wire Wire Line
-	6450 4650 6450 5050
+	6450 4650 6450 4750
 Text GLabel 2500 6400 0    50   Input ~ 0
 #OE
 Text GLabel 850  6400 0    50   Input ~ 0
@@ -2093,19 +2093,9 @@ F 3 "https://www.futurlec.com/Datasheet/Memory/62256.pdf" H 7050 4050 50  0001 C
 	1    7050 4150
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:VCC #PWR?
-U 1 1 6232784E
-P 6200 4600
-F 0 "#PWR?" H 6200 4450 50  0001 C CNN
-F 1 "VCC" H 6215 4773 50  0000 C CNN
-F 2 "" H 6200 4600 50  0001 C CNN
-F 3 "" H 6200 4600 50  0001 C CNN
-	1    6200 4600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	6200 4600 6200 4750
+	6550 4750 6450 4750
+Connection ~ 6450 4750
 Wire Wire Line
-	6200 4750 6550 4750
+	6450 4750 6450 5050
 $EndSCHEMATC
