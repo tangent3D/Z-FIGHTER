@@ -1,12 +1,12 @@
 G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,5.1.10*
-G04 #@! TF.CreationDate,2022-03-17T17:22:04-07:00*
+G04 #@! TF.CreationDate,2022-03-17T17:43:00-07:00*
 G04 #@! TF.ProjectId,zf_vga,7a665f76-6761-42e6-9b69-6361645f7063,rev?*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,Soldermask,Top*
 G04 #@! TF.FilePolarity,Negative*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 5.1.10) date 2022-03-17 17:22:04*
+G04 Created by KiCad (PCBNEW 5.1.10) date 2022-03-17 17:43:00*
 %MOMM*%
 %LPD*%
 G01*
@@ -77,9 +77,6 @@ X133459000Y-69864000D03*
 X125839000Y-97804000D03*
 X133459000Y-67324000D03*
 X125839000Y-100344000D03*
-D12*
-X144998000Y-231168000D03*
-X160238000Y-231168000D03*
 D13*
 X101104000Y-35358000D03*
 X126104000Y-35358000D03*
