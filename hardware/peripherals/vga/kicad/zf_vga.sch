@@ -1188,7 +1188,7 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 320
 $EndComp
 Wire Wire Line
 	4400 5100 4400 5400
-Text Notes 5100 4100 0    50   ~ 0
+Text Notes 5050 4100 0    50   ~ 0
 #PRESET pulse
 Text Notes 5050 4450 0    50   ~ 0
 #LRESET pulse
@@ -1253,33 +1253,11 @@ $Comp
 L Device:C_Small C3
 U 1 1 623D14EC
 P 5300 4650
-F 0 "C3" V 5529 4650 50  0001 C CNN
+F 0 "C3" V 5450 4650 50  0000 C CNN
 F 1 "C_Small" V 5437 4650 50  0001 C CNN
 F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 4650 50  0001 C CNN
 F 3 "~" H 5300 4650 50  0001 C CNN
 	1    5300 4650
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:C_Small C2
-U 1 1 623621DE
-P 5300 4300
-F 0 "C2" V 5529 4300 50  0001 C CNN
-F 1 "C_Small" V 5437 4300 50  0001 C CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 4300 50  0001 C CNN
-F 3 "~" H 5300 4300 50  0001 C CNN
-	1    5300 4300
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:C_Small C1
-U 1 1 6235FCD8
-P 5300 3950
-F 0 "C1" V 5529 3950 50  0001 C CNN
-F 1 "C_Small" V 5437 3950 50  0001 C CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 3950 50  0001 C CNN
-F 3 "~" H 5300 3950 50  0001 C CNN
-	1    5300 3950
 	0    -1   -1   0   
 $EndComp
 NoConn ~ 5200 5000
@@ -2098,4 +2076,26 @@ Wire Wire Line
 Connection ~ 6450 4750
 Wire Wire Line
 	6450 4750 6450 5050
+$Comp
+L Device:C_Small C1
+U 1 1 6235FCD8
+P 5300 3950
+F 0 "C1" V 5450 3950 50  0000 C CNN
+F 1 "C_Small" V 5437 3950 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 3950 50  0001 C CNN
+F 3 "~" H 5300 3950 50  0001 C CNN
+	1    5300 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C_Small C2
+U 1 1 623621DE
+P 5300 4300
+F 0 "C2" V 5450 4300 50  0000 C CNN
+F 1 "C_Small" V 5437 4300 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 4300 50  0001 C CNN
+F 3 "~" H 5300 4300 50  0001 C CNN
+	1    5300 4300
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
