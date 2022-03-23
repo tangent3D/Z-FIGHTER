@@ -941,26 +941,26 @@ $EndComp
 $Comp
 L power:GND #PWR0158
 U 1 1 5FFC5FAA
-P 14550 1350
-F 0 "#PWR0158" H 14550 1100 50  0001 C CNN
-F 1 "GND" H 14555 1177 50  0000 C CNN
-F 2 "" H 14550 1350 50  0001 C CNN
-F 3 "" H 14550 1350 50  0001 C CNN
-	1    14550 1350
-	0    1    1    0   
+P 15550 2550
+F 0 "#PWR0158" H 15550 2300 50  0001 C CNN
+F 1 "GND" H 15555 2377 50  0000 C CNN
+F 2 "" H 15550 2550 50  0001 C CNN
+F 3 "" H 15550 2550 50  0001 C CNN
+	1    15550 2550
+	0    -1   -1   0   
 $EndComp
 Text Notes 14600 1050 0    50   ~ 0
 Accessory board header
 $Comp
 L Connector_Generic:Conn_02x13_Odd_Even J4
 U 1 1 5FEEECFD
-P 15000 1950
-F 0 "J4" H 15050 2767 50  0000 C CNN
-F 1 "Conn_02x13_Odd_Even" H 15050 2676 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 15000 1950 50  0001 C CNN
-F 3 "~" H 15000 1950 50  0001 C CNN
-	1    15000 1950
-	1    0    0    -1  
+P 15100 1950
+F 0 "J4" H 15150 2767 50  0000 C CNN
+F 1 "Conn_02x13_Odd_Even" H 15150 2676 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 15100 1950 50  0001 C CNN
+F 3 "~" H 15100 1950 50  0001 C CNN
+	1    15100 1950
+	-1   0    0    1   
 $EndComp
 $Comp
 L Interface:82C55A U9
@@ -974,31 +974,31 @@ F 3 "http://jap.hu/electronic/8255.pdf" H 12550 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	15450 1350 15300 1350
-Text GLabel 15300 1850 2    50   Input ~ 0
+	14650 2550 14800 2550
+Text GLabel 14800 2050 0    50   Input ~ 0
 PC7S
-Text GLabel 15300 1950 2    50   Input ~ 0
+Text GLabel 14800 1950 0    50   Input ~ 0
 PC6S
-Text GLabel 15300 1750 2    50   Input ~ 0
+Text GLabel 14800 2150 0    50   Input ~ 0
 PB7S
-Text GLabel 15300 1650 2    50   Input ~ 0
+Text GLabel 14800 2250 0    50   Input ~ 0
 PB6S
-Text GLabel 15300 1550 2    50   Input ~ 0
+Text GLabel 14800 2350 0    50   Input ~ 0
 PB5S
-Text GLabel 15300 1450 2    50   Input ~ 0
+Text GLabel 14800 2450 0    50   Input ~ 0
 PB4S
 $Comp
 L power:VCC #PWR0159
 U 1 1 5FF7E8E0
-P 15450 1350
-F 0 "#PWR0159" H 15450 1200 50  0001 C CNN
-F 1 "VCC" V 15468 1477 50  0000 L CNN
-F 2 "" H 15450 1350 50  0001 C CNN
-F 3 "" H 15450 1350 50  0001 C CNN
-	1    15450 1350
-	0    1    1    0   
+P 14650 2550
+F 0 "#PWR0159" H 14650 2400 50  0001 C CNN
+F 1 "VCC" V 14668 2677 50  0000 L CNN
+F 2 "" H 14650 2550 50  0001 C CNN
+F 3 "" H 14650 2550 50  0001 C CNN
+	1    14650 2550
+	0    -1   -1   0   
 $EndComp
-Text Notes 14700 3100 0    50   ~ 0
+Text Notes 15400 4250 2    50   ~ 0
 User parallel port
 $Comp
 L Connector_Generic:Conn_02x20_Odd_Even J6
@@ -1041,128 +1041,128 @@ F 3 "" H 15300 5250 50  0001 C CNN
 	1    15300 5250
 	0    -1   -1   0   
 $EndComp
-Text GLabel 14800 1850 0    50   Input ~ 0
-PA7S
-Text GLabel 14800 1950 0    50   Input ~ 0
-PA6S
-Text GLabel 14800 2050 0    50   Input ~ 0
-PA5S
-Text GLabel 14800 2150 0    50   Input ~ 0
-PA4S
-Text GLabel 14800 2250 0    50   Input ~ 0
-PA3S
-Text GLabel 14800 2350 0    50   Input ~ 0
-PA2S
-Text GLabel 14800 2450 0    50   Input ~ 0
-PA1S
-Text GLabel 14800 2550 0    50   Input ~ 0
-PA0S
-Text GLabel 14800 1750 0    50   Input ~ 0
-PB0S
-Text GLabel 14800 1650 0    50   Input ~ 0
-PB1S
-Text GLabel 14800 1550 0    50   Input ~ 0
-PB2S
-Text GLabel 14800 1450 0    50   Input ~ 0
-PB3S
-Text GLabel 15300 2550 2    50   Input ~ 0
-PC0S
-Text GLabel 15300 2350 2    50   Input ~ 0
-PC2S
-Text GLabel 15300 2250 2    50   Input ~ 0
-PC3S
-Text GLabel 15300 2150 2    50   Input ~ 0
-PC4S
 Text GLabel 15300 2050 2    50   Input ~ 0
-PC5S
+PA7S
+Text GLabel 15300 1950 2    50   Input ~ 0
+PA6S
+Text GLabel 15300 1850 2    50   Input ~ 0
+PA5S
+Text GLabel 15300 1750 2    50   Input ~ 0
+PA4S
+Text GLabel 15300 1650 2    50   Input ~ 0
+PA3S
+Text GLabel 15300 1550 2    50   Input ~ 0
+PA2S
+Text GLabel 15300 1450 2    50   Input ~ 0
+PA1S
+Text GLabel 15300 1350 2    50   Input ~ 0
+PA0S
+Text GLabel 15300 2150 2    50   Input ~ 0
+PB0S
+Text GLabel 15300 2250 2    50   Input ~ 0
+PB1S
+Text GLabel 15300 2350 2    50   Input ~ 0
+PB2S
 Text GLabel 15300 2450 2    50   Input ~ 0
+PB3S
+Text GLabel 14800 1350 0    50   Input ~ 0
+PC0S
+Text GLabel 14800 1550 0    50   Input ~ 0
+PC2S
+Text GLabel 14800 1650 0    50   Input ~ 0
+PC3S
+Text GLabel 14800 1750 0    50   Input ~ 0
+PC4S
+Text GLabel 14800 1850 0    50   Input ~ 0
+PC5S
+Text GLabel 14800 1450 0    50   Input ~ 0
 PC1S
 Wire Wire Line
-	14550 1350 14800 1350
+	15550 2550 15300 2550
 Wire Wire Line
-	14550 3200 14800 3200
+	15550 4150 15300 4150
 $Comp
 L power:GND #PWR0164
 U 1 1 5FFD71FF
-P 14550 3200
-F 0 "#PWR0164" H 14550 2950 50  0001 C CNN
-F 1 "GND" V 14555 3072 50  0000 R CNN
-F 2 "" H 14550 3200 50  0001 C CNN
-F 3 "" H 14550 3200 50  0001 C CNN
-	1    14550 3200
-	0    1    1    0   
+P 15550 4150
+F 0 "#PWR0164" H 15550 3900 50  0001 C CNN
+F 1 "GND" V 15555 4022 50  0000 R CNN
+F 2 "" H 15550 4150 50  0001 C CNN
+F 3 "" H 15550 4150 50  0001 C CNN
+	1    15550 4150
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector_Generic:Conn_02x13_Odd_Even J5
 U 1 1 5FF43D36
-P 15000 3800
-F 0 "J5" H 15050 4617 50  0000 C CNN
-F 1 "Conn_Parallel_User" H 15050 4526 50  0001 C CNN
-F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Horizontal" H 15000 3800 50  0001 C CNN
-F 3 "~" H 15000 3800 50  0001 C CNN
-	1    15000 3800
-	1    0    0    -1  
+P 15100 3550
+F 0 "J5" H 15150 4367 50  0000 C CNN
+F 1 "Conn_Parallel_User" H 15150 4276 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Horizontal" H 15100 3550 50  0001 C CNN
+F 3 "~" H 15100 3550 50  0001 C CNN
+	1    15100 3550
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	15300 3200 15450 3200
-Text GLabel 15300 4300 2    50   Input ~ 0
+	14800 4150 14650 4150
+Text GLabel 14800 3050 0    50   Input ~ 0
 PC1U
-Text GLabel 15300 3700 2    50   Input ~ 0
+Text GLabel 14800 3650 0    50   Input ~ 0
 PC7U
-Text GLabel 15300 3800 2    50   Input ~ 0
+Text GLabel 14800 3550 0    50   Input ~ 0
 PC6U
-Text GLabel 15300 3900 2    50   Input ~ 0
+Text GLabel 14800 3450 0    50   Input ~ 0
 PC5U
-Text GLabel 15300 4000 2    50   Input ~ 0
+Text GLabel 14800 3350 0    50   Input ~ 0
 PC4U
-Text GLabel 15300 4100 2    50   Input ~ 0
+Text GLabel 14800 3250 0    50   Input ~ 0
 PC3U
-Text GLabel 15300 4200 2    50   Input ~ 0
+Text GLabel 14800 3150 0    50   Input ~ 0
 PC2U
-Text GLabel 15300 4400 2    50   Input ~ 0
+Text GLabel 14800 2950 0    50   Input ~ 0
 PC0U
 $Comp
 L power:VCC #PWR0157
 U 1 1 5FF739EE
-P 15450 3200
-F 0 "#PWR0157" H 15450 3050 50  0001 C CNN
-F 1 "VCC" V 15467 3328 50  0000 L CNN
-F 2 "" H 15450 3200 50  0001 C CNN
-F 3 "" H 15450 3200 50  0001 C CNN
-	1    15450 3200
-	0    1    1    0   
+P 14650 4150
+F 0 "#PWR0157" H 14650 4000 50  0001 C CNN
+F 1 "VCC" V 14667 4278 50  0000 L CNN
+F 2 "" H 14650 4150 50  0001 C CNN
+F 3 "" H 14650 4150 50  0001 C CNN
+	1    14650 4150
+	0    -1   -1   0   
 $EndComp
-Text GLabel 15300 3600 2    50   Input ~ 0
+Text GLabel 14800 3750 0    50   Input ~ 0
 PB7U
-Text GLabel 15300 3500 2    50   Input ~ 0
+Text GLabel 14800 3850 0    50   Input ~ 0
 PB6U
-Text GLabel 15300 3400 2    50   Input ~ 0
+Text GLabel 14800 3950 0    50   Input ~ 0
 PB5U
-Text GLabel 15300 3300 2    50   Input ~ 0
+Text GLabel 14800 4050 0    50   Input ~ 0
 PB4U
-Text GLabel 14800 3300 0    50   Input ~ 0
+Text GLabel 15300 4050 2    50   Input ~ 0
 PB3U
-Text GLabel 14800 3400 0    50   Input ~ 0
+Text GLabel 15300 3950 2    50   Input ~ 0
 PB2U
-Text GLabel 14800 3500 0    50   Input ~ 0
+Text GLabel 15300 3850 2    50   Input ~ 0
 PB1U
-Text GLabel 14800 3600 0    50   Input ~ 0
+Text GLabel 15300 3750 2    50   Input ~ 0
 PB0U
-Text GLabel 14800 3700 0    50   Input ~ 0
+Text GLabel 15300 3650 2    50   Input ~ 0
 PA7U
-Text GLabel 14800 3800 0    50   Input ~ 0
+Text GLabel 15300 3550 2    50   Input ~ 0
 PA6U
-Text GLabel 14800 3900 0    50   Input ~ 0
+Text GLabel 15300 3450 2    50   Input ~ 0
 PA5U
-Text GLabel 14800 4000 0    50   Input ~ 0
+Text GLabel 15300 3350 2    50   Input ~ 0
 PA4U
-Text GLabel 14800 4100 0    50   Input ~ 0
+Text GLabel 15300 3250 2    50   Input ~ 0
 PA3U
-Text GLabel 14800 4200 0    50   Input ~ 0
+Text GLabel 15300 3150 2    50   Input ~ 0
 PA2U
-Text GLabel 14800 4300 0    50   Input ~ 0
+Text GLabel 15300 3050 2    50   Input ~ 0
 PA1U
-Text GLabel 14800 4400 0    50   Input ~ 0
+Text GLabel 15300 2950 2    50   Input ~ 0
 PA0U
 Text GLabel 13250 3350 2    50   Input ~ 0
 PC1U
@@ -2353,54 +2353,54 @@ Text GLabel 2650 8100 2    50   Input ~ 0
 CLOCK2_EXT
 Text GLabel 9450 5300 0    50   Input ~ 0
 A13
-Text GLabel 10150 9150 2    50   Input ~ 0
+Text GLabel 9650 8750 0    50   Input ~ 0
 #RESET
 $Comp
 L Connector_Generic:Conn_02x04_Odd_Even J7
 U 1 1 61332756
-P 9850 8950
-F 0 "J7" H 9900 9267 50  0000 C CNN
-F 1 "Conn_02x04_Odd_Even" H 9900 9176 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x04_P2.54mm_Horizontal" H 9850 8950 50  0001 C CNN
-F 3 "~" H 9850 8950 50  0001 C CNN
-	1    9850 8950
-	1    0    0    -1  
+P 9950 8950
+F 0 "J7" H 10000 9267 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 10000 9176 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x04_P2.54mm_Horizontal" H 9950 8950 50  0001 C CNN
+F 3 "~" H 9950 8950 50  0001 C CNN
+	1    9950 8950
+	-1   0    0    1   
 $EndComp
-Text GLabel 10150 9050 2    50   Input ~ 0
+Text GLabel 9650 8850 0    50   Input ~ 0
 #WAIT
 $Comp
 L power:VCC #PWR0150
 U 1 1 6137DFCB
-P 10350 8850
-F 0 "#PWR0150" H 10350 8700 50  0001 C CNN
-F 1 "VCC" V 10368 8977 50  0000 L CNN
-F 2 "" H 10350 8850 50  0001 C CNN
-F 3 "" H 10350 8850 50  0001 C CNN
-	1    10350 8850
-	0    1    1    0   
+P 9450 9050
+F 0 "#PWR0150" H 9450 8900 50  0001 C CNN
+F 1 "VCC" V 9468 9177 50  0000 L CNN
+F 2 "" H 9450 9050 50  0001 C CNN
+F 3 "" H 9450 9050 50  0001 C CNN
+	1    9450 9050
+	0    -1   -1   0   
 $EndComp
-Text GLabel 10150 8950 2    50   Input ~ 0
+Text GLabel 9650 8950 0    50   Input ~ 0
 #NMI
-Text GLabel 9650 9050 0    50   Input ~ 0
+Text GLabel 10150 8850 2    50   Input ~ 0
 CLOCK2_EXT
 Wire Wire Line
-	10150 8850 10350 8850
+	9650 9050 9450 9050
 Wire Wire Line
-	9450 8850 9650 8850
+	10350 9050 10150 9050
 $Comp
 L power:GND #PWR0147
 U 1 1 61376857
-P 9450 8850
-F 0 "#PWR0147" H 9450 8600 50  0001 C CNN
-F 1 "GND" H 9455 8677 50  0000 C CNN
-F 2 "" H 9450 8850 50  0001 C CNN
-F 3 "" H 9450 8850 50  0001 C CNN
-	1    9450 8850
-	0    1    1    0   
+P 10350 9050
+F 0 "#PWR0147" H 10350 8800 50  0001 C CNN
+F 1 "GND" H 10355 8877 50  0000 C CNN
+F 2 "" H 10350 9050 50  0001 C CNN
+F 3 "" H 10350 9050 50  0001 C CNN
+	1    10350 9050
+	0    -1   -1   0   
 $EndComp
-Text GLabel 9650 8950 0    50   Input ~ 0
+Text GLabel 10150 8950 2    50   Input ~ 0
 #INT
-Text GLabel 9650 9150 0    50   Input ~ 0
+Text GLabel 10150 8750 2    50   Input ~ 0
 CLOCK
 $Comp
 L CPU:Z80CPU U2
