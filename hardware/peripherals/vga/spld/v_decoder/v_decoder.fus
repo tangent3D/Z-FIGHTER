@@ -2,7 +2,7 @@
 
 Pin 19 = LRESET       XOR = 0   AC1 = 1
   0  ---- ---- ---- ---- ---- ---- ---- ----
-  1  --x- x--- x--- ---- ---- ---- ---- --x-
+  1  --x- ---- ---- ---- ---- x--- x--- --x-
   2  ---- ---- ---- ---x ---- ---- ---- ----
   3  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   4  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -12,8 +12,8 @@ Pin 19 = LRESET       XOR = 0   AC1 = 1
 
 Pin 18 = VSYNC        XOR = 0   AC1 = 1
   8  ---- ---- ---- ---- ---- ---- ---- ----
-  9  x--x -x-- x--- x--- x--- -x-- x--- x--x
- 10  x--- -x-- x--- x--- x--- -x-- x--- x--x
+  9  x--x x--- -x-- x--- x--- x--- -x-- x--x
+ 10  x--x x--- -x-- x--- x--- x--- -x-- x---
  11  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  12  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  13  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -24,8 +24,8 @@ Pin 17 = LD           XOR = 0   AC1 = 1
  16  ---- ---- ---- ---- ---- ---- ---- ----
  17  ---- ---- ---- ---- ---- ---- --x- ----
  18  ---- ---- ---- ---- --x- ---- ---- ----
- 19  ---- ---- ---- ---- ---- ---- ---- --x-
- 20  ---- ---- ---- ---- ---- ---- x--- x---
+ 19  --x- ---- ---- ---- ---- ---- ---- ----
+ 20  x--- x--- ---- ---- ---- ---- ---- ----
  21  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  22  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  23  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

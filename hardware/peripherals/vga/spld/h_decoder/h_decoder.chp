@@ -3,23 +3,23 @@
                                 GAL16V8
 
                           -------\___/-------
-                       P0 |  1           20 | VCC
+                       P9 |  1           20 | VCC
                           |                 |
-                       P1 |  2           19 | PRESET
+                       P8 |  2           19 | PRESET
                           |                 |
-                       P2 |  3           18 | HSET
+                       P7 |  3           18 | HSET
                           |                 |
-                       P3 |  4           17 | OE
+                       P6 |  4           17 | OE
                           |                 |
-                       P4 |  5           16 | WE
+                       P5 |  5           16 | WE
                           |                 |
-                       P5 |  6           15 | CE2
+                       P4 |  6           15 | CE2
                           |                 |
-                       P6 |  7           14 | HRESET
+                       P3 |  7           14 | HRESET
                           |                 |
-                       P7 |  8           13 | RESET
+                       P2 |  8           13 | RESET
                           |                 |
-                       P8 |  9           12 | WRDY
+                       P1 |  9           12 | WRDY
                           |                 |
-                      GND | 10           11 | P9
+                      GND | 10           11 | P0
                           -------------------

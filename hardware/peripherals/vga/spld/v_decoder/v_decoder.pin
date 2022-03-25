@@ -2,17 +2,17 @@
 
  Pin # | Name     | Pin Type
 -----------------------------
-   1   | L0       | Input
-   2   | L1       | Input
-   3   | L2       | Input
-   4   | L3       | Input
-   5   | L4       | Input
-   6   | L5       | Input
-   7   | L6       | Input
-   8   | L7       | Input
-   9   | L8       | Input
+   1   | L9       | Input
+   2   | L8       | Input
+   3   | L7       | Input
+   4   | L6       | Input
+   5   | L5       | Input
+   6   | L4       | Input
+   7   | L3       | Input
+   8   | L2       | Input
+   9   | L1       | Input
   10   | GND      | GND
-  11   | L9       | Input
+  11   | L0       | Input
   12   | NC       | NC
   13   | P4       | Input
   14   | P5       | NC
