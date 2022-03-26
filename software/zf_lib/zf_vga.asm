@@ -45,7 +45,7 @@ _vga64:
     OUT     (CTRL),A    ; Init PPI
     LD      DE,256      ; Initialize destination address
     LD      BC,1024     ; Initialize byte counter
-LOOP:
+LOOP64:
     LD      A,(HL)      ; Load byte in (HL) to port A
     OUT     (PORTA),A
 
@@ -66,6 +66,6 @@ LOOP:
     DEC     BC          ; Check byte counter
     LD      A,C
     OR      B
-    JP      NZ,LOOP
+    JP      NZ,LOOP64
 
 RET

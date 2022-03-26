@@ -7,4 +7,6 @@
 // Fill VGA module VRAM with a 128x96px bitmap (ex. 'screen' from zf_gfx).
 void vga(unsigned char *bitmap) __z88dk_fastcall;
 
+void vga64(unsigned char *bitmap) __z88dk_fastcall;
+
 #endif
