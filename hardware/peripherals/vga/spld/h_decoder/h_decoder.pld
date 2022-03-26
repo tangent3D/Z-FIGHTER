@@ -5,9 +5,9 @@ P9 P8 P7 P6 P5 P4 P3 P2 P1 GND
 P0 WRDY RESET HRESET CE2 WE OE HSET PRESET VCC
 
 ; Horizontal sync pulses, pixels 592 and 688 (centered timings)
-/HSET =         P9 * /P8 * /P7 * P6 * /P5 * P4 * /P3 * /P2 * /P1 * /P0
+/HSET =          P9 * /P8 * /P7 * P6 * P5 * /P4 * /P3 * /P2 * /P1 * /P0
 
-/HRESET =       P9 * /P8 * P7 * /P6 * P5 * P4 * /P3 * /P2 * /P1 * /P0
+/HRESET =        P9 * /P8 * P7 * P6 * /P5 * /P4 * /P3 * /P2 * /P1 * /P0
 
 ; Reset pixel counter at pixel 800
 /PRESET =       P9 * P8 * P5
