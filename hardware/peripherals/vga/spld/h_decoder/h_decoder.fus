@@ -11,7 +11,7 @@ Pin 19 = PRESET       XOR = 0   AC1 = 0
   7  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 Pin 18 = HSET         XOR = 0   AC1 = 0
-  8  -xx- -x-- x--- -x-- x--- -x-- -x-- -x-x
+  8  -xx- -x-- x--- x--- -x-- -x-- -x-- -x-x
   9  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  10  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  11  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -51,7 +51,7 @@ Pin 15 = CE2          XOR = 1   AC1 = 0
  39  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 Pin 14 = HRESET       XOR = 0   AC1 = 0
- 40  -xx- x--- -x-- x--- x--- -x-- -x-- -x-x
+ 40  -xx- x--- x--- -x-- -x-- -x-- -x-- -x-x
  41  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  42  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  43  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
