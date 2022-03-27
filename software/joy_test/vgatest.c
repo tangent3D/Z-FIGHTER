@@ -9,6 +9,7 @@ void main()
 
 	for(;;)
 	{	
+		cls();
 		utoa(joyTest(), str, 10);
 		print(str, 0, 0);
 		vga(screen);
