@@ -2,6 +2,7 @@
 #include <zf_gfx.h>
 #include <zf_text.h>
 #include <stdlib.h>
+#include <zf_sio.h>
 
 void main()
 {
@@ -9,9 +10,10 @@ void main()
 
 	for(;;)
 	{	
-		cls();
+		//cls();
 		utoa(joyTest(), str, 10);
-		print(str, 0, 0);
-		vga(screen);
+		sioPrint(str);
+		//print(str, 0, 0);
+		//vga(screen);
 	}
 }
