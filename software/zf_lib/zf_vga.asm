@@ -37,7 +37,7 @@ LOOP:
     OR      B
     JP      NZ,LOOP
 
-RET
+    RET
 
 PUBLIC _vga64
 _vga64:
@@ -68,4 +68,24 @@ LOOP64:
     OR      B
     JP      NZ,LOOP64
 
-RET
+    RET
+
+PUBLIC _joyTest
+_joyTest:
+    LD      A,90h
+    OUT     (CTRL),A    ; Init PPI, Port A = input
+
+    LD      A,11
+    OUT     (CTRL),A    ; C5 = on
+
+    IN      A,(PORTA)   ; Read and return state of Joystick 1
+    LD      L,A
+
+    LD      A,10
+    OUT     (CTRL),A    ; C5 = off
+
+
+    LD      A,80h
+    OUT     (CTRL),A    ; Init PPI, Port A = output
+
+    RET
