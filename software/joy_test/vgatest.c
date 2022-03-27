@@ -7,6 +7,8 @@
 void main()
 {
 	unsigned char str[4];
+	channel = CH_A;
+	sioInit();
 
 	for(;;)
 	{	
