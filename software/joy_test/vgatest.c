@@ -7,15 +7,15 @@
 void main()
 {
 	unsigned char str[4];
-	channel = CH_A;
-	sioInit();
+	// channel = CH_A;
+	// sioInit();
 
 	for(;;)
 	{	
-		//cls();
+		cls();
 		utoa(joyTest(), str, 10);
-		sioWrite(joyTest());
-		//print(str, 0, 0);
-		//vga(screen);
+		// sioPrint(str);
+		print(str, 0, 0);
+		vga(screen);
 	}
 }
