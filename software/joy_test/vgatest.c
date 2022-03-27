@@ -1,12 +1,16 @@
 #include <zf_vga.h>
 #include <zf_gfx.h>
 #include <zf_text.h>
+#include <stdlib.h>
 
 void main()
 {
+	unsigned char str[3];
+
 	for(;;)
 	{	
-		print(joyTest(), 0, 0);
+		utoa(joyTest(), str, 10);
+		print(str, 0, 0);
 		vga(screen);
 	}
 }
