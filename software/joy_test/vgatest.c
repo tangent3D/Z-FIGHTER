@@ -14,7 +14,7 @@ void main()
 	{	
 		//cls();
 		utoa(joyTest(), str, 10);
-		sioPrint(str);
+		sioWrite(joyTest());
 		//print(str, 0, 0);
 		//vga(screen);
 	}
