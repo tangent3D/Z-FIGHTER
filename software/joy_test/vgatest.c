@@ -5,7 +5,7 @@
 
 void main()
 {
-	unsigned char str[3];
+	unsigned char str[4];
 
 	for(;;)
 	{	
