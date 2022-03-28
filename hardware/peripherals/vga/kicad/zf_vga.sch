@@ -154,8 +154,6 @@ $EndComp
 NoConn ~ 7550 1250
 Wire Wire Line
 	7050 2750 6550 2750
-Wire Wire Line
-	6550 2750 6550 2450
 Text GLabel 6550 2150 0    50   Input ~ 0
 #LDPULSE
 $Comp
@@ -175,21 +173,8 @@ Wire Wire Line
 	6250 1150 6550 1150
 Wire Wire Line
 	4500 7600 4450 7600
-Text GLabel 4400 7000 0    50   Input ~ 0
-P4
 Text GLabel 5200 6900 2    50   Input ~ 0
 WRDY
-$Comp
-L 74xx:74HC74 U9
-U 2 1 6243AADD
-P 4900 7000
-F 0 "U9" H 4900 7481 50  0001 C CNN
-F 1 "74HC74" H 4900 7389 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7000 50  0001 C CNN
-F 3 "74xx/74hc_hct74.pdf" H 4900 7000 50  0001 C CNN
-	2    4900 7000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5650 6700 4900 6700
 Wire Wire Line
@@ -220,8 +205,6 @@ Text Notes 5150 7250 0    50   ~ 0
 Write ready
 Text GLabel 5250 6400 2    50   Input ~ 0
 #HSYNC
-Text GLabel 4400 6900 0    50   Input ~ 0
-DATARDY
 $Comp
 L 4xxx:4040 U2
 U 1 1 622EEB18
@@ -311,8 +294,6 @@ Text GLabel 4600 2800 0    50   Input ~ 0
 P1
 Text GLabel 5200 2800 2    50   Input ~ 0
 #P1
-Text GLabel 6550 2350 0    50   Input ~ 0
-#P1
 Wire Wire Line
 	5250 6400 5200 6400
 Text GLabel 4600 4750 0    50   Input ~ 0
@@ -362,10 +343,6 @@ Wire Wire Line
 Wire Wire Line
 	4400 6000 4900 6000
 Wire Wire Line
-	4400 6900 4600 6900
-Wire Wire Line
-	4600 7000 4400 7000
-Wire Wire Line
 	4600 6200 4600 6300
 $Comp
 L power:GND #PWR0132
@@ -377,17 +354,6 @@ F 2 "" H 4450 7600 50  0001 C CNN
 F 3 "" H 4450 7600 50  0001 C CNN
 	1    4450 7600
 	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC74 U9
-U 3 1 6243E965
-P 4900 7600
-F 0 "U9" V 4625 7600 50  0001 C CNN
-F 1 "74HC74" V 4624 7600 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7600 50  0001 C CNN
-F 3 "74xx/74hc_hct74.pdf" H 4900 7600 50  0001 C CNN
-	3    4900 7600
-	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0109
@@ -551,17 +517,6 @@ Wire Wire Line
 Wire Wire Line
 	5750 4950 5650 4950
 Connection ~ 4600 6300
-$Comp
-L 74xx:74HC74 U9
-U 1 1 62437D41
-P 4900 6300
-F 0 "U9" H 4900 6781 50  0000 C CNN
-F 1 "74HC74" H 4900 6690 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 6300 50  0001 C CNN
-F 3 "74xx/74hc_hct74.pdf" H 4900 6300 50  0001 C CNN
-	1    4900 6300
-	1    0    0    -1  
-$EndComp
 Text Notes 5150 6650 0    50   ~ 0
 ~HSYNC
 Connection ~ 7050 5050
@@ -1387,7 +1342,6 @@ Wire Wire Line
 Connection ~ 9950 4150
 Wire Wire Line
 	9950 4250 9950 4150
-Connection ~ 9950 4050
 Wire Wire Line
 	9950 4050 9950 4150
 $Comp
@@ -1408,16 +1362,14 @@ Text GLabel 9950 4650 0    50   Input ~ 0
 $Comp
 L power:GND #PWR0111
 U 1 1 622324B0
-P 9750 4050
-F 0 "#PWR0111" H 9750 3800 50  0001 C CNN
-F 1 "GND" H 9755 3877 50  0000 C CNN
-F 2 "" H 9750 4050 50  0001 C CNN
-F 3 "" H 9750 4050 50  0001 C CNN
-	1    9750 4050
+P 9650 4350
+F 0 "#PWR0111" H 9650 4100 50  0001 C CNN
+F 1 "GND" H 9655 4177 50  0000 C CNN
+F 2 "" H 9650 4350 50  0001 C CNN
+F 3 "" H 9650 4350 50  0001 C CNN
+	1    9650 4350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9750 4050 9950 4050
 $Comp
 L 74xx:74HC541 U13
 U 1 1 62242671
@@ -1493,19 +1445,6 @@ F 3 "" H 6400 7400 50  0001 C CNN
 	1    6400 7400
 	1    0    0    -1  
 $EndComp
-Connection ~ 6400 7400
-Connection ~ 6400 7600
-$Comp
-L Device:C_Small C6
-U 1 1 6237BAAD
-P 6400 7500
-F 0 "C6" H 6492 7500 50  0000 L CNN
-F 1 "0.1uF" H 6492 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 6400 7500 50  0001 C CNN
-F 3 "~" H 6400 7500 50  0001 C CNN
-	1    6400 7500
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR0146
 U 1 1 6241D767
@@ -1517,244 +1456,6 @@ F 3 "" H 11300 7600 50  0001 C CNN
 	1    11300 7600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6400 7400 6750 7400
-Wire Wire Line
-	6400 7600 6750 7600
-$Comp
-L Device:C_Small C7
-U 1 1 62469443
-P 6750 7500
-F 0 "C7" H 6842 7500 50  0000 L CNN
-F 1 "0.1uF" H 6842 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 6750 7500 50  0001 C CNN
-F 3 "~" H 6750 7500 50  0001 C CNN
-	1    6750 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C8
-U 1 1 6246E0E7
-P 7100 7500
-F 0 "C8" H 7192 7500 50  0000 L CNN
-F 1 "0.1uF" H 7192 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7100 7500 50  0001 C CNN
-F 3 "~" H 7100 7500 50  0001 C CNN
-	1    7100 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C9
-U 1 1 62472CE8
-P 7450 7500
-F 0 "C9" H 7542 7500 50  0000 L CNN
-F 1 "0.1uF" H 7542 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7450 7500 50  0001 C CNN
-F 3 "~" H 7450 7500 50  0001 C CNN
-	1    7450 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C10
-U 1 1 624778F6
-P 7800 7500
-F 0 "C10" H 7892 7500 50  0000 L CNN
-F 1 "0.1uF" H 7892 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7800 7500 50  0001 C CNN
-F 3 "~" H 7800 7500 50  0001 C CNN
-	1    7800 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C11
-U 1 1 6247C500
-P 8150 7500
-F 0 "C11" H 8242 7500 50  0000 L CNN
-F 1 "0.1uF" H 8242 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8150 7500 50  0001 C CNN
-F 3 "~" H 8150 7500 50  0001 C CNN
-	1    8150 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C12
-U 1 1 624811A8
-P 8500 7500
-F 0 "C12" H 8592 7500 50  0000 L CNN
-F 1 "0.1uF" H 8592 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8500 7500 50  0001 C CNN
-F 3 "~" H 8500 7500 50  0001 C CNN
-	1    8500 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C13
-U 1 1 62485E36
-P 8850 7500
-F 0 "C13" H 8942 7500 50  0000 L CNN
-F 1 "0.1uF" H 8942 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8850 7500 50  0001 C CNN
-F 3 "~" H 8850 7500 50  0001 C CNN
-	1    8850 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C14
-U 1 1 6248AB78
-P 9200 7500
-F 0 "C14" H 9292 7500 50  0000 L CNN
-F 1 "0.1uF" H 9292 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9200 7500 50  0001 C CNN
-F 3 "~" H 9200 7500 50  0001 C CNN
-	1    9200 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C15
-U 1 1 6248F869
-P 9550 7500
-F 0 "C15" H 9642 7500 50  0000 L CNN
-F 1 "0.1uF" H 9642 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9550 7500 50  0001 C CNN
-F 3 "~" H 9550 7500 50  0001 C CNN
-	1    9550 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C16
-U 1 1 624945A2
-P 9900 7500
-F 0 "C16" H 9992 7500 50  0000 L CNN
-F 1 "0.1uF" H 9992 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9900 7500 50  0001 C CNN
-F 3 "~" H 9900 7500 50  0001 C CNN
-	1    9900 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C17
-U 1 1 6249921E
-P 10250 7500
-F 0 "C17" H 10342 7500 50  0000 L CNN
-F 1 "0.1uF" H 10342 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10250 7500 50  0001 C CNN
-F 3 "~" H 10250 7500 50  0001 C CNN
-	1    10250 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C18
-U 1 1 6249DEB0
-P 10600 7500
-F 0 "C18" H 10692 7500 50  0000 L CNN
-F 1 "0.1uF" H 10692 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10600 7500 50  0001 C CNN
-F 3 "~" H 10600 7500 50  0001 C CNN
-	1    10600 7500
-	1    0    0    -1  
-$EndComp
-Connection ~ 6750 7400
-Connection ~ 6750 7600
-Connection ~ 7100 7400
-Connection ~ 7100 7600
-Wire Wire Line
-	6750 7400 7100 7400
-Wire Wire Line
-	6750 7600 7100 7600
-Connection ~ 7450 7400
-Connection ~ 7450 7600
-Wire Wire Line
-	7100 7400 7450 7400
-Wire Wire Line
-	7100 7600 7450 7600
-Connection ~ 7800 7400
-Connection ~ 7800 7600
-Wire Wire Line
-	7450 7400 7800 7400
-Wire Wire Line
-	7450 7600 7800 7600
-Wire Wire Line
-	7800 7400 8150 7400
-Wire Wire Line
-	7800 7600 8150 7600
-$Comp
-L Device:C_Small C19
-U 1 1 624A2AD1
-P 10950 7500
-F 0 "C19" H 11042 7500 50  0000 L CNN
-F 1 "0.1uF" H 11042 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10950 7500 50  0001 C CNN
-F 3 "~" H 10950 7500 50  0001 C CNN
-	1    10950 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C20
-U 1 1 624A78E9
-P 11300 7500
-F 0 "C20" H 11392 7500 50  0000 L CNN
-F 1 "0.1uF" H 11392 7455 50  0001 L CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 11300 7500 50  0001 C CNN
-F 3 "~" H 11300 7500 50  0001 C CNN
-	1    11300 7500
-	1    0    0    -1  
-$EndComp
-Connection ~ 8150 7400
-Connection ~ 8150 7600
-Wire Wire Line
-	8150 7400 8500 7400
-Wire Wire Line
-	8150 7600 8500 7600
-Connection ~ 8500 7400
-Connection ~ 8500 7600
-Wire Wire Line
-	8500 7400 8850 7400
-Wire Wire Line
-	8500 7600 8850 7600
-Connection ~ 8850 7400
-Connection ~ 8850 7600
-Wire Wire Line
-	8850 7400 9200 7400
-Wire Wire Line
-	8850 7600 9200 7600
-Connection ~ 9200 7400
-Connection ~ 9200 7600
-Wire Wire Line
-	9200 7400 9550 7400
-Wire Wire Line
-	9200 7600 9550 7600
-Connection ~ 9550 7400
-Connection ~ 9550 7600
-Wire Wire Line
-	9550 7400 9900 7400
-Wire Wire Line
-	9550 7600 9900 7600
-Connection ~ 9900 7400
-Connection ~ 9900 7600
-Wire Wire Line
-	9900 7600 10250 7600
-Connection ~ 10250 7400
-Connection ~ 10250 7600
-Wire Wire Line
-	10250 7400 10600 7400
-Wire Wire Line
-	10250 7600 10600 7600
-Connection ~ 10600 7400
-Connection ~ 10600 7600
-Wire Wire Line
-	9900 7400 10250 7400
-Wire Wire Line
-	10600 7400 10950 7400
-Wire Wire Line
-	10950 7400 11300 7400
-Connection ~ 10950 7400
-Connection ~ 11300 7400
-Wire Wire Line
-	10600 7600 10950 7600
-Wire Wire Line
-	10950 7600 11300 7600
-Connection ~ 10950 7600
-Connection ~ 11300 7600
 Text Notes 1500 2450 0    50   ~ 0
 Pixel Counter
 $Comp
@@ -1791,7 +1492,7 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf" H 7050 17
 	1    7050 1750
 	1    0    0    -1  
 $EndComp
-Text GLabel 7550 1150 2    50   Input ~ 0
+Text GLabel 7750 1150 2    50   Input ~ 0
 VIDOUT
 Wire Wire Line
 	11350 1150 11250 1150
@@ -1809,9 +1510,6 @@ Wire Wire Line
 Connection ~ 12000 2600
 Wire Wire Line
 	12000 2900 12000 2600
-Wire Wire Line
-	12150 2400 12600 2400
-Connection ~ 12150 2400
 Wire Wire Line
 	12150 2900 12150 2400
 Wire Wire Line
@@ -1853,7 +1551,7 @@ L Device:R R4
 U 1 1 62460BDF
 P 12250 1150
 F 0 "R4" V 12457 1150 50  0000 C CNN
-F 1 "R" V 12366 1150 50  0000 C CNN
+F 1 "75Ω" V 12366 1150 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 12180 1150 50  0001 C CNN
 F 3 "~" H 12250 1150 50  0001 C CNN
 	1    12250 1150
@@ -1864,7 +1562,7 @@ L Device:R R5
 U 1 1 6246552C
 P 12250 1500
 F 0 "R5" V 12457 1500 50  0000 C CNN
-F 1 "R" V 12366 1500 50  0000 C CNN
+F 1 "75Ω" V 12366 1500 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 12180 1500 50  0001 C CNN
 F 3 "~" H 12250 1500 50  0001 C CNN
 	1    12250 1500
@@ -1877,7 +1575,7 @@ L Device:R R6
 U 1 1 624A50DB
 P 12250 1900
 F 0 "R6" V 12457 1900 50  0000 C CNN
-F 1 "R" V 12366 1900 50  0000 C CNN
+F 1 "75Ω" V 12366 1900 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 12180 1900 50  0001 C CNN
 F 3 "~" H 12250 1900 50  0001 C CNN
 	1    12250 1900
@@ -1951,48 +1649,15 @@ Text GLabel 11650 2400 0    50   Input ~ 0
 Text GLabel 11650 2600 0    50   Input ~ 0
 #VSYNC
 $Comp
-L Device:R R7
-U 1 1 624C6475
-P 11800 2400
-F 0 "R7" V 12007 2400 50  0000 C CNN
-F 1 "R" V 11916 2400 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 11730 2400 50  0001 C CNN
-F 3 "~" H 11800 2400 50  0001 C CNN
-	1    11800 2400
-	0    -1   -1   0   
-$EndComp
-$Comp
 L Device:R R8
 U 1 1 624D11F1
 P 11800 2600
 F 0 "R8" V 12007 2600 50  0000 C CNN
-F 1 "R" V 11916 2600 50  0000 C CNN
+F 1 "75Ω" V 11916 2600 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 11730 2600 50  0001 C CNN
 F 3 "~" H 11800 2600 50  0001 C CNN
 	1    11800 2600
 	0    -1   1    0   
-$EndComp
-$Comp
-L Device:C_Small C5
-U 1 1 6251404A
-P 12000 3000
-F 0 "C5" H 12229 3000 50  0000 C CNN
-F 1 "C_Small" H 12137 3000 50  0001 C CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 12000 3000 50  0001 C CNN
-F 3 "~" H 12000 3000 50  0001 C CNN
-	1    12000 3000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C4
-U 1 1 62510662
-P 12150 3000
-F 0 "C4" H 12379 3000 50  0000 C CNN
-F 1 "C_Small" V 12287 3000 50  0001 C CNN
-F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 12150 3000 50  0001 C CNN
-F 3 "~" H 12150 3000 50  0001 C CNN
-	1    12150 3000
-	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_02x17_Odd_Even J2
@@ -2098,4 +1763,407 @@ F 3 "~" H 5300 4300 50  0001 C CNN
 	1    5300 4300
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Device:C_Small C5
+U 1 1 6251404A
+P 12000 3000
+F 0 "C5" H 12229 3000 50  0000 C CNN
+F 1 "22pF" H 12229 2913 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 12000 3000 50  0001 C CNN
+F 3 "~" H 12000 3000 50  0001 C CNN
+	1    12000 3000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C4
+U 1 1 624407CC
+P 12150 3000
+F 0 "C4" H 12323 3000 50  0000 C CNN
+F 1 "22pF" H 12323 2913 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 12150 3000 50  0001 C CNN
+F 3 "~" H 12150 3000 50  0001 C CNN
+	1    12150 3000
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	7650 1250 7650 1150
+Wire Wire Line
+	7750 1150 7650 1150
+Wire Wire Line
+	7650 1150 7550 1150
+Connection ~ 7650 1150
+$Comp
+L 74xx:74HC74 U9
+U 2 1 6243AADD
+P 4900 7000
+F 0 "U9" H 4900 7481 50  0001 C CNN
+F 1 "74HC74" H 4900 7389 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7000 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 7000 50  0001 C CNN
+	2    4900 7000
+	1    0    0    -1  
+$EndComp
+Connection ~ 10600 7600
+Connection ~ 10600 7400
+Connection ~ 10250 7600
+Connection ~ 10250 7400
+Connection ~ 9900 7600
+Connection ~ 9900 7400
+Connection ~ 9550 7600
+Connection ~ 9550 7400
+Connection ~ 9200 7600
+Connection ~ 9200 7400
+Connection ~ 8850 7600
+Connection ~ 8850 7400
+Connection ~ 8500 7600
+Connection ~ 8500 7400
+Connection ~ 8150 7600
+Connection ~ 8150 7400
+Connection ~ 7800 7600
+Connection ~ 7800 7400
+Connection ~ 7450 7600
+Connection ~ 7450 7400
+Connection ~ 7100 7600
+Connection ~ 7100 7400
+Wire Wire Line
+	10250 7600 10600 7600
+Wire Wire Line
+	10250 7400 10600 7400
+Wire Wire Line
+	9900 7600 10250 7600
+Wire Wire Line
+	9900 7400 10250 7400
+Wire Wire Line
+	9550 7600 9900 7600
+Wire Wire Line
+	9550 7400 9900 7400
+Wire Wire Line
+	9200 7600 9550 7600
+Wire Wire Line
+	9200 7400 9550 7400
+Wire Wire Line
+	8850 7600 9200 7600
+Wire Wire Line
+	8850 7400 9200 7400
+Wire Wire Line
+	8500 7600 8850 7600
+Wire Wire Line
+	8500 7400 8850 7400
+Wire Wire Line
+	8150 7600 8500 7600
+Wire Wire Line
+	8150 7400 8500 7400
+Wire Wire Line
+	7800 7600 8150 7600
+Wire Wire Line
+	7800 7400 8150 7400
+Wire Wire Line
+	7450 7600 7800 7600
+Wire Wire Line
+	7450 7400 7800 7400
+Wire Wire Line
+	7100 7600 7450 7600
+Wire Wire Line
+	7100 7400 7450 7400
+Connection ~ 6750 7600
+Connection ~ 6750 7400
+Wire Wire Line
+	6750 7600 7100 7600
+Wire Wire Line
+	6400 7600 6750 7600
+Wire Wire Line
+	6750 7400 7100 7400
+Wire Wire Line
+	6400 7400 6750 7400
+Connection ~ 6400 7600
+Connection ~ 6400 7400
+$Comp
+L power:GND #PWR0147
+U 1 1 62494FCA
+P 7650 1450
+F 0 "#PWR0147" H 7650 1200 50  0001 C CNN
+F 1 "GND" H 7655 1277 50  0000 C CNN
+F 2 "" H 7650 1450 50  0001 C CNN
+F 3 "" H 7650 1450 50  0001 C CNN
+	1    7650 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 6300 2350 0    50   Input ~ 0
+#P1
+Wire Wire Line
+	6400 2350 6300 2350
+Wire Wire Line
+	6400 2350 6550 2350
+Connection ~ 6400 2350
+Wire Wire Line
+	6400 2550 6550 2550
+Wire Wire Line
+	6550 2750 6550 2550
+Wire Wire Line
+	6550 2550 6550 2450
+Connection ~ 6550 2550
+Text GLabel 4150 6900 0    50   Input ~ 0
+DATARDY
+Wire Wire Line
+	4150 6900 4450 6900
+Text GLabel 4300 7000 0    50   Input ~ 0
+P4
+$Comp
+L Device:R R9
+U 1 1 624F7FEB
+P 4450 7250
+F 0 "R9" V 4657 7250 50  0000 C CNN
+F 1 "1KΩ" V 4566 7250 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 7250 50  0001 C CNN
+F 3 "~" H 4450 7250 50  0001 C CNN
+	1    4450 7250
+	-1   0    0    1   
+$EndComp
+$Comp
+L 74xx:74HC74 U9
+U 1 1 62437D41
+P 4900 6300
+F 0 "U9" H 4900 6781 50  0000 C CNN
+F 1 "74HC74" H 4900 6690 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 6300 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 6300 50  0001 C CNN
+	1    4900 6300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C20
+U 1 1 624A78E9
+P 10600 7500
+F 0 "C20" H 10692 7500 50  0000 L CNN
+F 1 "0.1uF" H 10692 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10600 7500 50  0001 C CNN
+F 3 "~" H 10600 7500 50  0001 C CNN
+	1    10600 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C19
+U 1 1 624A2AD1
+P 10250 7500
+F 0 "C19" H 10342 7500 50  0000 L CNN
+F 1 "0.1uF" H 10342 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10250 7500 50  0001 C CNN
+F 3 "~" H 10250 7500 50  0001 C CNN
+	1    10250 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C18
+U 1 1 6249DEB0
+P 9900 7500
+F 0 "C18" H 9992 7500 50  0000 L CNN
+F 1 "0.1uF" H 9992 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9900 7500 50  0001 C CNN
+F 3 "~" H 9900 7500 50  0001 C CNN
+	1    9900 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C17
+U 1 1 6249921E
+P 9550 7500
+F 0 "C17" H 9642 7500 50  0000 L CNN
+F 1 "0.1uF" H 9642 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9550 7500 50  0001 C CNN
+F 3 "~" H 9550 7500 50  0001 C CNN
+	1    9550 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C16
+U 1 1 624945A2
+P 9200 7500
+F 0 "C16" H 9292 7500 50  0000 L CNN
+F 1 "0.1uF" H 9292 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 9200 7500 50  0001 C CNN
+F 3 "~" H 9200 7500 50  0001 C CNN
+	1    9200 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C15
+U 1 1 6248F869
+P 8850 7500
+F 0 "C15" H 8942 7500 50  0000 L CNN
+F 1 "0.1uF" H 8942 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8850 7500 50  0001 C CNN
+F 3 "~" H 8850 7500 50  0001 C CNN
+	1    8850 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C14
+U 1 1 6248AB78
+P 8500 7500
+F 0 "C14" H 8592 7500 50  0000 L CNN
+F 1 "0.1uF" H 8592 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8500 7500 50  0001 C CNN
+F 3 "~" H 8500 7500 50  0001 C CNN
+	1    8500 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C13
+U 1 1 62485E36
+P 8150 7500
+F 0 "C13" H 8242 7500 50  0000 L CNN
+F 1 "0.1uF" H 8242 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 8150 7500 50  0001 C CNN
+F 3 "~" H 8150 7500 50  0001 C CNN
+	1    8150 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C12
+U 1 1 624811A8
+P 7800 7500
+F 0 "C12" H 7892 7500 50  0000 L CNN
+F 1 "0.1uF" H 7892 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7800 7500 50  0001 C CNN
+F 3 "~" H 7800 7500 50  0001 C CNN
+	1    7800 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C11
+U 1 1 6247C500
+P 7450 7500
+F 0 "C11" H 7542 7500 50  0000 L CNN
+F 1 "0.1uF" H 7542 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7450 7500 50  0001 C CNN
+F 3 "~" H 7450 7500 50  0001 C CNN
+	1    7450 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C10
+U 1 1 624778F6
+P 7100 7500
+F 0 "C10" H 7192 7500 50  0000 L CNN
+F 1 "0.1uF" H 7192 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7100 7500 50  0001 C CNN
+F 3 "~" H 7100 7500 50  0001 C CNN
+	1    7100 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C9
+U 1 1 62472CE8
+P 6750 7500
+F 0 "C9" H 6842 7500 50  0000 L CNN
+F 1 "0.1uF" H 6842 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 6750 7500 50  0001 C CNN
+F 3 "~" H 6750 7500 50  0001 C CNN
+	1    6750 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C8
+U 1 1 6246E0E7
+P 6400 7500
+F 0 "C8" H 6492 7500 50  0000 L CNN
+F 1 "0.1uF" H 6492 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 6400 7500 50  0001 C CNN
+F 3 "~" H 6400 7500 50  0001 C CNN
+	1    6400 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 7400 10950 7400
+Wire Wire Line
+	10950 7400 11300 7400
+Connection ~ 10950 7400
+Wire Wire Line
+	10600 7600 10950 7600
+Wire Wire Line
+	10950 7600 11300 7600
+Connection ~ 10950 7600
+Connection ~ 11300 7400
+Connection ~ 11300 7600
+$Comp
+L Device:C_Small C21
+U 1 1 6237BAAD
+P 10950 7500
+F 0 "C21" H 11042 7500 50  0000 L CNN
+F 1 "0.1uF" H 11042 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 10950 7500 50  0001 C CNN
+F 3 "~" H 10950 7500 50  0001 C CNN
+	1    10950 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C22
+U 1 1 62469443
+P 11300 7500
+F 0 "C22" H 11392 7500 50  0000 L CNN
+F 1 "0.1uF" H 11392 7455 50  0001 L CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 11300 7500 50  0001 C CNN
+F 3 "~" H 11300 7500 50  0001 C CNN
+	1    11300 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C6
+U 1 1 624A42EF
+P 6400 2450
+F 0 "C6" H 6629 2450 50  0000 C CNN
+F 1 "470pF" H 6629 2363 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 6400 2450 50  0001 C CNN
+F 3 "~" H 6400 2450 50  0001 C CNN
+	1    6400 2450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C7
+U 1 1 6245A6A7
+P 7650 1350
+F 0 "C7" H 7879 1350 50  0000 C CNN
+F 1 "470pF" H 7879 1263 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 7650 1350 50  0001 C CNN
+F 3 "~" H 7650 1350 50  0001 C CNN
+	1    7650 1350
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	12150 2400 12600 2400
+Connection ~ 12150 2400
+$Comp
+L Device:R R7
+U 1 1 624C6475
+P 11800 2400
+F 0 "R7" V 12007 2400 50  0000 C CNN
+F 1 "75Ω" V 11916 2400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 11730 2400 50  0001 C CNN
+F 3 "~" H 11800 2400 50  0001 C CNN
+	1    11800 2400
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4450 6900
+Wire Wire Line
+	4450 6900 4600 6900
+$Comp
+L 74xx:74HC74 U9
+U 3 1 6243E965
+P 4900 7600
+F 0 "U9" V 4625 7600 50  0001 C CNN
+F 1 "74HC74" V 4624 7600 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 7600 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4900 7600 50  0001 C CNN
+	3    4900 7600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4300 7000 4600 7000
+Wire Wire Line
+	4450 6900 4450 7100
+Wire Wire Line
+	4450 7400 4450 7600
+Connection ~ 4450 7600
+Wire Wire Line
+	9650 4350 9950 4350
 $EndSCHEMATC
