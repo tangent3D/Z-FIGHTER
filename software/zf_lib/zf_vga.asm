@@ -26,7 +26,7 @@ LOOP:
 
     LD      A,9         ; Toggle WRDY
     OUT     (CTRL),A
-    LD      A,8
+    DEC     A
     OUT     (CTRL),A
 
     INC     HL
@@ -38,6 +38,7 @@ LOOP:
     JP      NZ,LOOP
 
     RET
+
 
 PUBLIC _vga64
 _vga64:
