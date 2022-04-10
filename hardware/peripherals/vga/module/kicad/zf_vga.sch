@@ -408,44 +408,30 @@ Text GLabel 7550 3550 2    50   Input ~ 0
 D1
 Text GLabel 7550 3450 2    50   Input ~ 0
 D0
-Text GLabel 7000 5550 0    50   Input ~ 0
-PA0
-Text GLabel 7000 5650 0    50   Input ~ 0
-PA5
 $Comp
 L power:VCC #PWR0116
 U 1 1 622CFD96
-P 6650 5850
-F 0 "#PWR0116" H 6650 5700 50  0001 C CNN
-F 1 "VCC" H 6665 6023 50  0000 C CNN
-F 2 "" H 6650 5850 50  0001 C CNN
-F 3 "" H 6650 5850 50  0001 C CNN
-	1    6650 5850
+P 6650 5550
+F 0 "#PWR0116" H 6650 5400 50  0001 C CNN
+F 1 "VCC" H 6665 5723 50  0000 C CNN
+F 2 "" H 6650 5550 50  0001 C CNN
+F 3 "" H 6650 5550 50  0001 C CNN
+	1    6650 5550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7000 5850 6650 5850
+	7000 5550 6650 5550
 $Comp
 L power:GND #PWR0135
 U 1 1 622D919E
-P 6650 6050
-F 0 "#PWR0135" H 6650 5800 50  0001 C CNN
-F 1 "GND" H 6655 5877 50  0000 C CNN
-F 2 "" H 6650 6050 50  0001 C CNN
-F 3 "" H 6650 6050 50  0001 C CNN
-	1    6650 6050
+P 6650 5650
+F 0 "#PWR0135" H 6650 5400 50  0001 C CNN
+F 1 "GND" H 6655 5477 50  0000 C CNN
+F 2 "" H 6650 5650 50  0001 C CNN
+F 3 "" H 6650 5650 50  0001 C CNN
+	1    6650 5650
 	1    0    0    -1  
 $EndComp
-Text GLabel 7000 5750 0    50   Input ~ 0
-PA1
-Text GLabel 7000 5950 0    50   Input ~ 0
-PA2
-Text GLabel 7000 6150 0    50   Input ~ 0
-PA3
-Text GLabel 7000 6350 0    50   Input ~ 0
-PA4
-Text GLabel 7000 6250 0    50   Input ~ 0
-PC5
 $Comp
 L Connector:DB9_Female J4
 U 1 1 6228DB8D
@@ -464,7 +450,7 @@ L Device:R R1
 U 1 1 6234883C
 P 5750 4100
 F 0 "R1" H 5820 4146 50  0000 L CNN
-F 1 "R" H 5820 4055 50  0000 L CNN
+F 1 "220" H 5820 4055 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5680 4100 50  0001 C CNN
 F 3 "~" H 5750 4100 50  0001 C CNN
 	1    5750 4100
@@ -478,7 +464,7 @@ L Device:R R2
 U 1 1 6234A634
 P 5750 4450
 F 0 "R2" H 5820 4496 50  0000 L CNN
-F 1 "R" H 5820 4405 50  0000 L CNN
+F 1 "220" H 5820 4405 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5680 4450 50  0001 C CNN
 F 3 "~" H 5750 4450 50  0001 C CNN
 	1    5750 4450
@@ -489,7 +475,7 @@ L Device:R R3
 U 1 1 6234C805
 P 5750 4800
 F 0 "R3" H 5820 4846 50  0000 L CNN
-F 1 "R" H 5820 4755 50  0000 L CNN
+F 1 "200" H 5820 4755 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5680 4800 50  0001 C CNN
 F 3 "~" H 5750 4800 50  0001 C CNN
 	1    5750 4800
@@ -535,58 +521,44 @@ F 3 " ~" H 9050 5950 50  0001 C CNN
 	1    9050 5950
 	1    0    0    -1  
 $EndComp
-Text Notes 8200 6500 0    50   ~ 0
+Text Notes 8200 6550 0    50   ~ 0
 Controller Port 2
-Text Notes 6450 6500 0    50   ~ 0
+Text Notes 6450 6550 0    50   ~ 0
 Controller Port 1
 Text Notes 8850 4950 0    50   ~ 0
 Lower Write Address Buffer
 Text Notes 10500 4950 0    50   ~ 0
 Upper Write Address Buffer
-Text GLabel 8750 6250 0    50   Input ~ 0
-PC6
-Text GLabel 8750 6350 0    50   Input ~ 0
-PA4
-Text GLabel 8750 6150 0    50   Input ~ 0
-PA3
-Text GLabel 8750 5950 0    50   Input ~ 0
-PA2
-Text GLabel 8750 5750 0    50   Input ~ 0
-PA1
-Text GLabel 8750 5650 0    50   Input ~ 0
-PA5
-Text GLabel 8750 5550 0    50   Input ~ 0
-PA0
 $Comp
 L power:GND #PWR0139
 U 1 1 622E4CA3
-P 8400 6050
-F 0 "#PWR0139" H 8400 5800 50  0001 C CNN
-F 1 "GND" H 8405 5877 50  0000 C CNN
-F 2 "" H 8400 6050 50  0001 C CNN
-F 3 "" H 8400 6050 50  0001 C CNN
-	1    8400 6050
+P 8400 5650
+F 0 "#PWR0139" H 8400 5400 50  0001 C CNN
+F 1 "GND" H 8405 5477 50  0000 C CNN
+F 2 "" H 8400 5650 50  0001 C CNN
+F 3 "" H 8400 5650 50  0001 C CNN
+	1    8400 5650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8750 6050 8400 6050
+	8750 5650 8400 5650
 Wire Wire Line
-	8750 5850 8400 5850
+	8750 5550 8400 5550
 $Comp
 L power:VCC #PWR0136
 U 1 1 622E4C9B
-P 8400 5850
-F 0 "#PWR0136" H 8400 5700 50  0001 C CNN
-F 1 "VCC" H 8415 6023 50  0000 C CNN
-F 2 "" H 8400 5850 50  0001 C CNN
-F 3 "" H 8400 5850 50  0001 C CNN
-	1    8400 5850
+P 8400 5550
+F 0 "#PWR0136" H 8400 5400 50  0001 C CNN
+F 1 "VCC" H 8415 5723 50  0000 C CNN
+F 2 "" H 8400 5550 50  0001 C CNN
+F 3 "" H 8400 5550 50  0001 C CNN
+	1    8400 5550
 	1    0    0    -1  
 $EndComp
-Text GLabel 10200 2100 0    50   Input ~ 0
-PC6
 Text GLabel 10200 2000 0    50   Input ~ 0
 PC5
+Text GLabel 10200 1900 0    50   Input ~ 0
+PC4
 Text GLabel 10200 1500 0    50   Input ~ 0
 PC0
 Text GLabel 10200 1600 0    50   Input ~ 0
@@ -612,7 +584,7 @@ F 3 "" H 11050 2700 50  0001 C CNN
 	1    11050 2700
 	1    0    0    -1  
 $EndComp
-Text GLabel 10200 1900 0    50   Input ~ 0
+Text GLabel 10200 1800 0    50   Input ~ 0
 DATARDY
 Text GLabel 10950 3950 2    50   Input ~ 0
 A8
@@ -1220,7 +1192,7 @@ Wire Wire Line
 	10700 3450 10450 3450
 NoConn ~ 10150 5950
 Wire Wire Line
-	7000 6050 6650 6050
+	7000 5650 6650 5650
 Wire Wire Line
 	7300 3200 7300 3250
 Connection ~ 4400 5400
@@ -1684,11 +1656,8 @@ Wire Wire Line
 	9750 2700 10200 2700
 NoConn ~ 10200 1200
 NoConn ~ 10200 1300
-NoConn ~ 10700 1300
 NoConn ~ 10700 1200
 NoConn ~ 10700 1100
-NoConn ~ 10200 2200
-NoConn ~ 10200 1800
 $Comp
 L Logic_Programmable:GAL16V8 U3
 U 1 1 62173FE1
@@ -1724,7 +1693,6 @@ Text GLabel 1950 4000 2    50   Input ~ 0
 #RESET
 Text GLabel 3600 3700 2    50   Input ~ 0
 #RESET
-NoConn ~ 3600 4100
 $Comp
 L Memory_RAM:AS6C6264 U11
 U 1 1 62268A82
@@ -2166,4 +2134,88 @@ Wire Wire Line
 Connection ~ 4450 7600
 Wire Wire Line
 	9650 4350 9950 4350
+Text GLabel 10200 2200 0    50   Input ~ 0
+PC7
+Text GLabel 10200 2100 0    50   Input ~ 0
+PC6
+Text GLabel 8750 6350 0    50   Input ~ 0
+PA3
+Text GLabel 8750 6150 0    50   Input ~ 0
+PA2
+Text GLabel 8750 5950 0    50   Input ~ 0
+PA1
+Text GLabel 8750 5750 0    50   Input ~ 0
+PA0
+Text GLabel 8750 6050 0    50   Input ~ 0
+PC7
+Text GLabel 8750 5850 0    50   Input ~ 0
+PC6
+Text GLabel 7000 6150 0    50   Input ~ 0
+PA2
+Text GLabel 7000 5950 0    50   Input ~ 0
+PA1
+Text GLabel 7000 5750 0    50   Input ~ 0
+PA0
+Text GLabel 7000 6350 0    50   Input ~ 0
+PA3
+Text GLabel 7000 6050 0    50   Input ~ 0
+PC5
+Text GLabel 7000 5850 0    50   Input ~ 0
+PC4
+NoConn ~ 7000 6250
+NoConn ~ 8750 6250
+Text GLabel 3600 4100 2    50   Input ~ 0
+VSYNC
+Text GLabel 13250 5750 2    50   Input ~ 0
+#INT
+Text GLabel 10700 1300 2    50   Input ~ 0
+#INT
+$Comp
+L power:GND #PWR0148
+U 1 1 6253F3E7
+P 12650 6150
+F 0 "#PWR0148" H 12650 5900 50  0001 C CNN
+F 1 "GND" H 12655 5977 50  0000 C CNN
+F 2 "" H 12650 6150 50  0001 C CNN
+F 3 "" H 12650 6150 50  0001 C CNN
+	1    12650 6150
+	1    0    0    -1  
+$EndComp
+Text GLabel 12050 5950 0    50   Input ~ 0
+VSYNC
+$Comp
+L Transistor_BJT:BC547 Q1
+U 1 1 6253DD93
+P 12550 5950
+F 0 "Q1" H 12741 5996 50  0000 L CNN
+F 1 "BC547" H 12741 5905 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_HandSolder" H 12750 5875 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/BC550-D.pdf" H 12550 5950 50  0001 L CNN
+	1    12550 5950
+	1    0    0    -1  
+$EndComp
+Text Notes 12750 6150 0    50   ~ 0
+Interrupt generator
+$Comp
+L Device:R R10
+U 1 1 625772C8
+P 12200 5950
+F 0 "R10" V 12407 5950 50  0000 C CNN
+F 1 "1K" V 12316 5950 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 12130 5950 50  0001 C CNN
+F 3 "~" H 12200 5950 50  0001 C CNN
+	1    12200 5950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Jumper JP1
+U 1 1 62896E08
+P 12950 5750
+F 0 "JP1" H 12950 6014 50  0000 C CNN
+F 1 "Jumper" H 12950 5923 50  0000 C CNN
+F 2 "" H 12950 5750 50  0001 C CNN
+F 3 "~" H 12950 5750 50  0001 C CNN
+	1    12950 5750
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

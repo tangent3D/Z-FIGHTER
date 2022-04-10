@@ -13,7 +13,7 @@
    9   | L1       | Input
   10   | GND      | GND
   11   | L0       | Input
-  12   | NC       | NC
+  12   | INT      | Output
   13   | P4       | Input
   14   | P5       | NC
   15   | P9       | Input
