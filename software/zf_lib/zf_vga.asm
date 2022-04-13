@@ -11,7 +11,7 @@ SECTION code_user
 PUBLIC _vga
 _vga:
     LD      A,80h
-    OUT     (CTRL),A    ; Init PPI
+    OUT     (CTRL),A    ; Initialize PPI
     LD      DE,0        ; Initialize destination address
     LD      BC,1536     ; Initialize byte counter
 LOOP:
@@ -24,7 +24,7 @@ LOOP:
     LD      A,D         ; Load upper destination address to port C
     OUT     (PORTC),A
 
-    LD      A,9         ; Toggle WRDY
+    LD      A,9         ; Toggle WRDY ("write ready" control signal)
     OUT     (CTRL),A
     DEC     A
     OUT     (CTRL),A
@@ -35,7 +35,7 @@ LOOP:
     DEC     BC          ; Check byte counter
     LD      A,C
     OR      B
-    JP      NZ,LOOP
+    JP      NZ,LOOP     ; Repeat until last byte is written
 
     RET
 
