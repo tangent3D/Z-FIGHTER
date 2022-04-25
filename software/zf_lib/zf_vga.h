@@ -9,17 +9,20 @@ void vga(unsigned char *bitmap) __z88dk_fastcall;
 
 void vga64(unsigned char *bitmap) __z88dk_fastcall;
 
-// Key definitions
-#define BTN_UP      1   // Port A bit 0
-#define BTN_DOWN    1   //        bit 1
-#define BTN_LEFT    1   //        bit 2
-#define BTN_RIGHT   1   //        bit 3
-#define BTN_A       1   //        bit 4
-#define BTN_B       1   //        bit 5
-#define BTN_ANY     1
+// Button definitions
+#define KEY_UP      1 		// bit 0
+#define KEY_DOWN    2 		// bit 1
+#define KEY_LEFT    4   	// bit 2
+#define KEY_RIGHT   8   	// bit 3
+#define KEY_A       16  	// bit 4
+#define KEY_B       32  	// bit 5
+#define KEY_C       64  	// bit 6
+#define KEY_D       128 	// bit 7
+#define KEY_ANY     255
 
-unsigned char joy(unsigned char port, unsigned char button);
 
-unsigned char joyTest();
+// Horrible cludge based on _key from zf_keypad.asm
+// Check if a specific JOY1 button is pressed (ex. 'KEY_UP')
+unsigned char joy(unsigned char button) __z88dk_fastcall;
 
 #endif
