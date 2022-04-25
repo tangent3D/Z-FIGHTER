@@ -24,7 +24,7 @@ LOOP:
     LD      A,D         ; Load upper destination address to port C
     OUT     (PORTC),A
 
-    LD      A,9         ; Toggle WRDY ("write ready" control signal)
+    LD      A,7         ; Toggle WRDY ("write ready" control signal)
     OUT     (CTRL),A
     DEC     A
     OUT     (CTRL),A
@@ -56,7 +56,7 @@ LOOP64:
     LD      A,D         ; Load upper destination address to port C
     OUT     (PORTC),A
 
-    LD      A,9         ; Toggle WRDY
+    LD      A,7         ; Toggle WRDY
     OUT     (CTRL),A
     DEC     A
     OUT     (CTRL),A
