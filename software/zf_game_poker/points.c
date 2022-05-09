@@ -14,25 +14,25 @@ unsigned char getPairCount(unsigned char* cardCountByValue);
 
 unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessageStringPointer)
 {
-	// generate statistics 1/2
-	unsigned char flush=isFlush();
-	unsigned char cardCountByValue[13];
-	getCardCountByValue(cardCountByValue);
-	unsigned char straight=isStraight(cardCountByValue);
+    // generate statistics 1/2
+    unsigned char flush=isFlush();
+    unsigned char cardCountByValue[13];
+    getCardCountByValue(cardCountByValue);
+    unsigned char straight=isStraight(cardCountByValue);
 
-	// royal flush?
-	if( straight && flush && cardCountByValue[ACE]==1 && cardCountByValue[KING]==1 )
-	{
-	    *returnMessageStringPointer="  ROYAL FLUSH   ";
-		if(bet==5)return 4000;
-		else      return bet*250;
-	}
+    // royal flush?
+    if( straight && flush && cardCountByValue[ACE]==1 && cardCountByValue[KING]==1 )
+    {
+        *returnMessageStringPointer="  ROYAL FLUSH   ";
+        if(bet==5)return 4000;
+        else      return bet*250;
+    }
 
-	// straight flush?
-	if( straight && flush )
+    // straight flush?
+    if( straight && flush )
     {
         *returnMessageStringPointer=" STRAIGHT FLUSH ";
-	    return bet*50;
+        return bet*50;
     }
 
     // 4 of a kind (a) with 2,3,4?
@@ -90,10 +90,10 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
     }
 
     // 4 of a kind (a)?
-	if( cardCountByValue[ACE]==4 )
+    if( cardCountByValue[ACE]==4 )
     {
         *returnMessageStringPointer="   FOUR ACES    ";
-	    return bet*160;
+        return bet*160;
     }
 
     // 4 of a kind (2,3,4)?
@@ -120,126 +120,126 @@ unsigned int getHandPoints(unsigned char bet, const unsigned char** returnMessag
         return bet*50;
     }
 
-	// generate statistics 2/2
-	unsigned char threeOfAKind=hasThreeOfAKind(cardCountByValue);
-	unsigned char pairCount=getPairCount(cardCountByValue);
+    // generate statistics 2/2
+    unsigned char threeOfAKind=hasThreeOfAKind(cardCountByValue);
+    unsigned char pairCount=getPairCount(cardCountByValue);
 
-	// full house?
-	if( threeOfAKind && pairCount==1 )
+    // full house?
+    if( threeOfAKind && pairCount==1 )
     {
         *returnMessageStringPointer="   FULL HOUSE   ";
-	    return bet*7;
+        return bet*7;
     }
 
-	// flush?
-	if( flush )
+    // flush?
+    if( flush )
     {
         *returnMessageStringPointer="     FLUSH      ";
-	    return bet*5;
+        return bet*5;
     }
 
-	// straight?
-	if( straight )
-	{
+    // straight?
+    if( straight )
+    {
         *returnMessageStringPointer="    STRAIGHT    ";
-	    return bet*4;
-	}
+        return bet*4;
+    }
 
-	// 3 of a kind?
-	if( threeOfAKind )
+    // 3 of a kind?
+    if( threeOfAKind )
     {
         *returnMessageStringPointer="THREE OF A KIND ";
-	    return bet*3;
+        return bet*3;
     }
 
-	// 2 pair?
-	if( pairCount==2 )
+    // 2 pair?
+    if( pairCount==2 )
     {
         *returnMessageStringPointer="    TWO PAIR    ";
-	    return bet;
+        return bet;
     }
 
-	// jacks or better?
-	if( cardCountByValue[JACK ]==2 ||
-	    cardCountByValue[QUEEN]==2 ||
-	    cardCountByValue[KING ]==2 ||
-	    cardCountByValue[ACE  ]==2 )
+    // jacks or better?
+    if( cardCountByValue[JACK ]==2 ||
+        cardCountByValue[QUEEN]==2 ||
+        cardCountByValue[KING ]==2 ||
+        cardCountByValue[ACE  ]==2 )
     {
         *returnMessageStringPointer="JACKS OR BETTER ";
-	    return bet;
+        return bet;
     }
 
     *returnMessageStringPointer="NOTHING";
-	return 0;
+    return 0;
 }
 
 unsigned char isFlush()
 {
-	for(unsigned char suit=0;suit<4;suit++)
-	{
-		if( deck[hand[0]].suit==suit &&
-		    deck[hand[1]].suit==suit && 
-		    deck[hand[2]].suit==suit && 
-		    deck[hand[3]].suit==suit && 
-		    deck[hand[4]].suit==suit )return TRUE;
-	}
-	return FALSE;
+    for(unsigned char suit=0;suit<4;suit++)
+    {
+        if( deck[hand[0]].suit==suit &&
+            deck[hand[1]].suit==suit &&
+            deck[hand[2]].suit==suit &&
+            deck[hand[3]].suit==suit &&
+            deck[hand[4]].suit==suit )return TRUE;
+    }
+    return FALSE;
 }
 
 void getCardCountByValue(unsigned char* cardCountByValue)
 {
-	for(unsigned char value=0;value<13;value++)
-	{
-		unsigned char count=0;
-		for(unsigned char iHand=0;iHand<5;iHand++)
-		{
-			if(deck[hand[iHand]].value==value)count++;
-		}
-		cardCountByValue[value]=count;
-	}
+    for(unsigned char value=0;value<13;value++)
+    {
+        unsigned char count=0;
+        for(unsigned char iHand=0;iHand<5;iHand++)
+        {
+            if(deck[hand[iHand]].value==value)count++;
+        }
+        cardCountByValue[value]=count;
+    }
 }
 
 unsigned char isStraight(unsigned char* cardCountByValue)
 {
-	unsigned char straightLength=0;
-	if(cardCountByValue[ACE]==1)
-	{
-		// allows detection of {ace,2,3,4,5}
-		straightLength++;
-	}
-	for(unsigned char value=0;value<13;value++)
-	{
-		if(cardCountByValue[value]==1)
-		{
-			straightLength++;
-			if(straightLength==5)return TRUE;
-		}
-		else
-		{
-			straightLength=0;
-		}
-	}
-	return FALSE;
+    unsigned char straightLength=0;
+    if(cardCountByValue[ACE]==1)
+    {
+        // allows detection of {ace,2,3,4,5}
+        straightLength++;
+    }
+    for(unsigned char value=0;value<13;value++)
+    {
+        if(cardCountByValue[value]==1)
+        {
+            straightLength++;
+            if(straightLength==5)return TRUE;
+        }
+        else
+        {
+            straightLength=0;
+        }
+    }
+    return FALSE;
 }
 
 unsigned char hasThreeOfAKind(unsigned char* cardCountByValue)
 {
-	for(unsigned char value=0;value<13;value++)
-	{
-		if(cardCountByValue[value]==3)
-		{
-			return TRUE;
-		}
-	}
-	return FALSE;
+    for(unsigned char value=0;value<13;value++)
+    {
+        if(cardCountByValue[value]==3)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 unsigned char getPairCount(unsigned char* cardCountByValue)
 {
-	unsigned char result=0;
-	for(unsigned char value=0;value<13;value++)
-	{
-		if(cardCountByValue[value]==2)result++;
-	}
-	return result;
+    unsigned char result=0;
+    for(unsigned char value=0;value<13;value++)
+    {
+        if(cardCountByValue[value]==2)result++;
+    }
+    return result;
 }

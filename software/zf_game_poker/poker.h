@@ -59,9 +59,9 @@ void switchBacklight();
 
 // Graphics
 
-#define HAND_X 			2
-#define HAND_Y 			13
-#define CARD_OFFSET 	25
+#define HAND_X      2
+#define HAND_Y      13
+#define CARD_OFFSET 25
 
 extern const unsigned char spriteTwo[];
 extern const unsigned char spriteThree[];
