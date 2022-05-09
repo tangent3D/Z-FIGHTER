@@ -24,7 +24,7 @@ unsigned char exitGameLoop;
 
 void main()
 {
-	bet = BET_INIT;
+    bet = BET_INIT;
 
     for (;;)
     {
@@ -336,7 +336,6 @@ void holdCard(unsigned char i)
     {
         held[i] = TRUE;
         sprite(spriteHeld, 5 + (25 * i), 46);
-
     }
     else
     {
@@ -459,7 +458,7 @@ void revealCard(unsigned char i)
 
 void switchBacklight()
 {
-        if (key(KEY_DOWN))
+    if (key(KEY_DOWN))
     {
         backlight = !backlight;
         while (key(KEY_DOWN));
