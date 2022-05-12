@@ -9,6 +9,7 @@ SECTION code_user
 
 PUBLIC _buzzer
 _buzzer:
+    DI                  ; Disable interrupts
     LD      IY,2        ; Bypass return address of function
     ADD     IY,SP
     LD      L,(IY)      ; Load HL with parameter (pulseWidth)
@@ -35,4 +36,5 @@ DLOOP:
     OR      B
     JP      NZ,DLOOP
     POP     BC
+    EI                  ; Enable interrupts
     RET
