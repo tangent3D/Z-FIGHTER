@@ -283,13 +283,6 @@ F 3 "" H 1700 850 50  0001 C CNN
 $EndComp
 Text GLabel 950  1450 0    50   Input ~ 0
 PRESET
-Wire Wire Line
-	4600 4900 4400 4900
-Wire Wire Line
-	4400 4900 4400 5100
-Wire Wire Line
-	4600 5100 4400 5100
-Connection ~ 4400 5100
 Text GLabel 4600 2800 0    50   Input ~ 0
 P1
 Text GLabel 5200 2800 2    50   Input ~ 0
@@ -745,7 +738,7 @@ Text GLabel 850  6400 0    50   Input ~ 0
 Text GLabel 1950 3900 2    50   Input ~ 0
 #HRESET
 Text GLabel 3600 3900 2    50   Input ~ 0
-P5
+P8.P7
 Text GLabel 3600 4000 2    50   Input ~ 0
 P4
 Text GLabel 950  3600 0    50   Input ~ 0
@@ -1113,14 +1106,10 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 4900 320
 	7    4900 3200
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	4400 5100 4400 5400
 Text Notes 5050 4100 0    50   ~ 0
 #PRESET pulse
 Text Notes 5050 4450 0    50   ~ 0
 #LRESET pulse
-Text Notes 5050 4800 0    50   ~ 0
-#LOAD pulse
 $Comp
 L 74xx:74HC00 U7
 U 1 1 6222CFFF
@@ -1142,17 +1131,6 @@ F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 4300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 4300 50  0001 C CNN
 	2    4900 4300
 	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC00 U7
-U 5 1 6223A0D4
-P 4900 5400
-F 0 "U7" V 4625 5400 50  0001 C CNN
-F 1 "74HC00" V 4624 5400 50  0001 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 5400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5400 50  0001 C CNN
-	5    4900 5400
-	0    1    1    0   
 $EndComp
 $Comp
 L 74xx:74HC00 U7
@@ -1187,7 +1165,6 @@ F 3 "~" H 5300 4650 50  0001 C CNN
 	1    5300 4650
 	0    -1   -1   0   
 $EndComp
-NoConn ~ 5200 5000
 Wire Wire Line
 	10700 3450 10450 3450
 NoConn ~ 10150 5950
@@ -1195,7 +1172,6 @@ Wire Wire Line
 	7000 5650 6650 5650
 Wire Wire Line
 	7300 3200 7300 3250
-Connection ~ 4400 5400
 Wire Wire Line
 	4400 5400 4400 5650
 Wire Wire Line
@@ -2217,5 +2193,24 @@ F 2 "Capacitor_THT:C_Disc_D7.5mm_W2.5mm_P5.00mm" H 5300 3950 50  0001 C CNN
 F 3 "~" H 5300 3950 50  0001 C CNN
 	1    5300 3950
 	0    -1   -1   0   
+$EndComp
+Text GLabel 5200 5000 2    50   Input ~ 0
+P8.P7
+Text Notes 5050 4800 0    50   ~ 0
+#LOAD pulse
+Text GLabel 4600 5100 0    50   Input ~ 0
+P8
+Text GLabel 4600 4900 0    50   Input ~ 0
+P7
+$Comp
+L 74xx:74HC00 U7
+U 5 1 6223A0D4
+P 4900 5400
+F 0 "U7" V 4625 5400 50  0001 C CNN
+F 1 "74HC00" V 4624 5400 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm_LongPads" H 4900 5400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74hc00" H 4900 5400 50  0001 C CNN
+	5    4900 5400
+	0    1    1    0   
 $EndComp
 $EndSCHEMATC

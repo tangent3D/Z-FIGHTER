@@ -15,7 +15,7 @@
   11   | L0       | Input
   12   | INT      | Output
   13   | P4       | Input
-  14   | P5       | NC
+  14   | P8P7     | Input
   15   | P9       | Input
   16   | RESET    | Input
   17   | LD       | Output
