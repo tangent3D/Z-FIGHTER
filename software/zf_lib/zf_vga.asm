@@ -78,14 +78,14 @@ _vgaWrite:
     LD      IY,2                ; Bypass return address of function
     ADD     IY,SP
 
-    LD      A,(IY+1)            ; Load A with parameter (lower address)
-    OUT     (PORTC),A
-
-    LD      A,(IY)              ; Load A with parameter (upper address)
-    OUT     (PORTB),A
-
-    LD      A,(IY+2)            ; Load A with parameter (data)
+    LD      A,(IY+2)
     OUT     (PORTA),A           ; Load data to port A
+
+    LD      A,(IY)
+    OUT     (PORTB),A           ; Load lower destination address to port B
+
+    LD      A,(IY+1)
+    OUT     (PORTC),A           ; Load upper destination address to port C
 
     LD      A,7                 ; Toggle WRDY
     OUT     (CTRL),A
