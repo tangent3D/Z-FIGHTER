@@ -7,7 +7,11 @@
 // Fill VGA module VRAM with a 128x96px bitmap (ex. 'screen' from zf_gfx).
 void vga(unsigned char *bitmap) __z88dk_fastcall;
 
+// Fill VGA module VRAM with a 128x64px bitmap
 void vga64(unsigned char *bitmap) __z88dk_fastcall;
+
+// Write a byte to VRAM at specified address (0 to 1535)
+void vgaWrite(int address, unsigned char data);
 
 // Button definitions
 #define KEY_UP      1 		// bit 0

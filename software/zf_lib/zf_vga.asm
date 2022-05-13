@@ -70,6 +70,30 @@ LOOP64:
 
     RET
 
+PUBLIC _vgaWrite
+_vgaWrite:
+    LD      A,80h
+    OUT     (CTRL),A            ; Init PPI
+
+    LD      IY,2                ; Bypass return address of function
+    ADD     IY,SP
+
+    LD      A,(IY+1)            ; Load A with parameter (lower address)
+    OUT     (PORTC),A
+
+    LD      A,(IY)              ; Load A with parameter (upper address)
+    OUT     (PORTB),A
+
+    LD      A,(IY+2)            ; Load A with parameter (data)
+    OUT     (PORTA),A           ; Load data to port A
+
+    LD      A,7                 ; Toggle WRDY
+    OUT     (CTRL),A
+    DEC     A
+    OUT     (CTRL),A
+
+    RET
+
 PUBLIC _joy
 _joy:                           ; Uses FASTCALL. L = button
     LD      A,90h
