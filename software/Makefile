@@ -82,12 +82,12 @@ else
 	crt =           -startup=1
 endif
 
-# Don't use interrupt unless specified.
+# Disable interrupts and IM1 ISR unless specified.
 ifneq ($(int),true)
-	pragma_int =
+	pragma_int = -pragma-define:CRT_ENABLE_EIDI=0x0
 endif
 
-# Don't use NMI unless specified.
+# Disable NMI ISR unless specified.
 ifneq ($(nmi),true)
 	pragma_nmi =
 endif
