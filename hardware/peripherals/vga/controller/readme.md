@@ -5,6 +5,7 @@
 [PCB schematic](../../media/schematic_vga_controller.pdf)
 
 [PCB layout (Front)](../../media/layout_vga_controller_front.pdf)
+
 [PCB layout (Back)](../../media/layout_vga_controller_back.pdf)
 
 ## Bill of Materials
