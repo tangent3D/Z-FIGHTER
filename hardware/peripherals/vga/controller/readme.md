@@ -2,7 +2,7 @@
 
 [Project Notes](https://tangent.space/vga.htm)
 
-[PCB schematic](../../media/schematic_vga_controller.pdf)
+[PCB schematic](../../../media/schematic_vga_controller.pdf)
 
 [PCB layout (Front)](../../media/layout_vga_controller_front.pdf)
 
