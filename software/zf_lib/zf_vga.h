@@ -4,10 +4,10 @@
 #ifndef ZF_VGA_H
 #define ZF_VGA_H
 
-// Fill VGA module VRAM with a 128x96px bitmap (ex. 'screen' from zf_gfx).
+// Fill VGA module VRAM with a 128x96px bitmap
 void vga(unsigned char *bitmap) __z88dk_fastcall;
 
-// Fill VGA module VRAM with a 128x64px bitmap
+// Fill VGA module VRAM with a 128x64px bitmap (ex. 'screen' from zf_gfx).
 void vga64(unsigned char *bitmap) __z88dk_fastcall;
 
 // Write a byte to VRAM at specified address (0 to 1535)
@@ -23,7 +23,6 @@ void vgaWrite(int address, unsigned char data);
 #define KEY_C       64  	// bit 6
 #define KEY_D       128 	// bit 7
 #define KEY_ANY     255
-
 
 // Horrible cludge based on _key from zf_keypad.asm
 // Check if a specific JOY1 button is pressed (ex. 'KEY_UP')
