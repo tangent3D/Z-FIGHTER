@@ -2,11 +2,11 @@
 
 [Project Notes](https://tangent.space/vga.htm)
 
-[PCB schematic](../../../media/schematic_vga_controller.pdf)
+[PCB schematic](../../../../media/schematic_vga_controller.pdf)
 
-[PCB layout (Front)](../../media/layout_vga_controller_front.pdf)
+[PCB layout (Front)](../../../../media/layout_vga_controller_front.pdf)
 
-[PCB layout (Back)](../../media/layout_vga_controller_back.pdf)
+[PCB layout (Back)](../../../../media/layout_vga_controller_back.pdf)
 
 ## Bill of Materials
 |Reference|Description|Mouser #|Link
