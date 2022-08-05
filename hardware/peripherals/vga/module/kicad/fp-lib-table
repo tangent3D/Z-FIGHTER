@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name Z-FIGHTER)(type KiCad)(uri D:/depot/Z-FIGHTER/hardware/peripherals/kicad)(options "")(descr ""))
+  (lib (name zf_vga)(type KiCad)(uri ${KIPRJMOD}/zf_vga.pretty)(options "")(descr ""))
+)

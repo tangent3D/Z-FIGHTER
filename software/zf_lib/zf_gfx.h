@@ -8,7 +8,7 @@
 // x = 0 left ... x = 127 right
 // y = 0 top  ... y =  63 bottom
 #define SCREEN_W 128
-#define SCREEN_H 64
+#define SCREEN_H 96
 
 // there is no gfxInit()
 // init what you need: color=1; cls(); lcd(screen);

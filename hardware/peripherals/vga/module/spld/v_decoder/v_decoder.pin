@@ -1,0 +1,25 @@
+
+
+ Pin # | Name     | Pin Type
+-----------------------------
+   1   | L9       | Input
+   2   | L8       | Input
+   3   | L7       | Input
+   4   | L6       | Input
+   5   | L5       | Input
+   6   | L4       | Input
+   7   | L3       | Input
+   8   | L2       | Input
+   9   | L1       | Input
+  10   | GND      | GND
+  11   | L0       | Input
+  12   | INT      | Output
+  13   | P4       | Input
+  14   | P8P7     | Input
+  15   | P9       | Input
+  16   | RESET    | Input
+  17   | LD       | Output
+  18   | VSYNC    | Output
+  19   | LRESET   | Output
+  20   | VCC      | VCC
+
