@@ -1,4 +1,4 @@
-## Z-FIGHTER Mainboard
+## Z-FIGHTER VGA Module
 
 [Project Notes](https://tangent.space/vga.htm)
 
