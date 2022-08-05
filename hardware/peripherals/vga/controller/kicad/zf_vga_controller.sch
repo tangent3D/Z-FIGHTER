@@ -400,7 +400,7 @@ L Device:R_Network04 RN1
 U 1 1 62631E7E
 P 950 1350
 F 0 "RN1" V 533 1350 50  0000 C CNN
-F 1 "R_Network04" V 624 1350 50  0000 C CNN
+F 1 "10KΩ" V 624 1350 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP5" V 1225 1350 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 950 1350 50  0001 C CNN
 	1    950  1350
@@ -411,7 +411,7 @@ L Device:R_Network04 RN2
 U 1 1 626381AB
 P 950 2000
 F 0 "RN2" V 533 2000 50  0000 C CNN
-F 1 "R_Network04" V 624 2000 50  0000 C CNN
+F 1 "10KΩ" V 624 2000 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP5" V 1225 2000 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 950 2000 50  0001 C CNN
 	1    950  2000
