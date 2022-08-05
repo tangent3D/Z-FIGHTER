@@ -28,4 +28,6 @@ void vgaWrite(int address, unsigned char data);
 // Check if a specific JOY1 button is pressed (ex. 'KEY_UP')
 unsigned char joy(unsigned char button) __z88dk_fastcall;
 
+// FIXME: Add JOY2 support, cleanup
+
 #endif
