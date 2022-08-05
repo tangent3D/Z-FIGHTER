@@ -2,9 +2,9 @@
 
 [Project Notes](https://tangent.space/vga.htm)
 
-[PCB schematic](../../media/schematic_vga_module.pdf)
+[PCB schematic](../../../../media/schematic_vga_module.pdf)
 
-[PCB layout](../../media/layout_vga_module.pdf)
+[PCB layout](../../../../media/layout_vga_module.pdf)
 
 ## Bill of Materials
 |Reference|Description|Mouser #|Link
