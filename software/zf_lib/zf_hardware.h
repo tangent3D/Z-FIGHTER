@@ -34,4 +34,14 @@
 #define SIO_AC          0x02    // SIO channel A control port
 #define SIO_BC          0x03    // SIO channel B control port
 
+// CompactFlash
+#define CF0             0x10    // CF data I/O
+#define CF1             CF0+1   // Error register (/RD), Feature (/WR)
+#define CF2             CF0+2   // Sector count
+#define CF3             CF0+3   // Sector address LBA 0 [0:7]
+#define CF4             CF0+4   // Sector address LBA 1 [8:15]
+#define CF5             CF0+5   // Sector address LBA 2 [16:23]
+#define CF6             CF0+6   // Sector address LBA 3 [24:27 (LSB)]
+#define CF7             CF0+7   // Status (/RD), Command (/WR)
+
 #endif

@@ -24,6 +24,14 @@ EXTERN      _sio_a
 EXTERN      _sio_b
 EXTERN      _sio_ac 
 EXTERN      _sio_bc
+EXTERN      _cf0
+EXTERN      _cf1
+EXTERN      _cf2
+EXTERN      _cf3
+EXTERN      _cf4
+EXTERN      _cf5
+EXTERN      _cf6
+EXTERN      _cf7
 
 PORTA_ACC   EQU     _porta_acc
 PORTB_ACC   EQU     _portb_acc
@@ -51,6 +59,15 @@ SIO_B       EQU     _sio_b
 SIO_AC      EQU     _sio_ac
 SIO_BC      EQU     _sio_bc
 
+CF0         EQU     _cf0
+CF1         EQU     _cf1
+CF2         EQU     _cf2
+CF3         EQU     _cf3
+CF4         EQU     _cf4
+CF5         EQU     _cf5
+CF6         EQU     _cf6
+CF7         EQU     _cf7
+
 PUBLIC      PORTA_ACC
 PUBLIC      PORTB_ACC
 PUBLIC      PORTC_ACC
@@ -73,3 +90,11 @@ PUBLIC      SIO_A
 PUBLIC      SIO_B
 PUBLIC      SIO_AC
 PUBLIC      SIO_BC
+PUBLIC      CF0
+PUBLIC      CF1
+PUBLIC      CF2
+PUBLIC      CF3
+PUBLIC      CF4
+PUBLIC      CF5
+PUBLIC      CF6
+PUBLIC      CF7

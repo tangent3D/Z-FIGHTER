@@ -29,3 +29,12 @@ __at (SIO_A)        void *sio_a;
 __at (SIO_B)        void *sio_b;
 __at (SIO_AC)       void *sio_ac;
 __at (SIO_BC)       void *sio_bc;
+
+__at (CF0)          void *cf0;
+__at (CF1)          void *cf1;
+__at (CF2)          void *cf2;
+__at (CF3)          void *cf3;
+__at (CF4)          void *cf4;
+__at (CF5)          void *cf5;
+__at (CF6)          void *cf6;
+__at (CF7)          void *cf7;
