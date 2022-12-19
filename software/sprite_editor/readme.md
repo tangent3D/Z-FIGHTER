@@ -1,2 +1,2 @@
 ### Z-Fighter GFX Sprite Editor
-[Start](https://xrrawva.com/etc/sprite-editor)
+[Start](https://xrrawva.com/sprite-editor)
