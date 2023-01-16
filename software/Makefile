@@ -170,23 +170,10 @@ else
 	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
 endif
 
-ext_clean =    *_CODE.bin *_DATA.bin *_BSS.bin *_UNASSIGNED.bin *.lis *.map *.def *.err *.ticks_history.txt *.sym
-ext_cleaner =  zf_lib.lib *.bin *.rom *.com *.COM *.o
-
 # Clean intermediate binaries, assembly listings and symbol tables.
 clean:
-ifeq ($(OS),Windows_NT)
-	@DEL /S /Q $(ext_clean) >nul 2>&1
-else
-	@rm -f $(ext_clean)
-	@rm -f $(foreach ext,$(ext_clean),./**/$(ext))
-endif
+	@python clean.py
 
 # Clean everything.
-cleaner: clean
-ifeq ($(OS),Windows_NT)
-	@DEL /S /Q $(ext_cleaner) >nul 2>&1
-else
-	@rm -f $(ext_cleaner)
-	@rm -f $(foreach ext,$(ext_cleaner),./**/$(ext))
-endif
+cleaner:
+	@python clean.py --all
