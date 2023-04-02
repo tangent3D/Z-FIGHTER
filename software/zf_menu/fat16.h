@@ -4,18 +4,34 @@
 #ifndef MENU_FAT16_H
 #define MENU_FAT16_H
 
+// base functions
+// --------------
+
 // must be called before all other fat16...() calls
 // returns 0 on success
 unsigned char fat16Init();
 
-unsigned char fat16GetFileCountByExtension(const char* fileExtension);
-
 extern char fat16GetFileNameResult[13];
 void fat16GetFileName(unsigned char fileI);
-void fat16GetFileNameByExtension(const char* fileExtension, unsigned char fileWithExtensionI);
 
 // returns 0 on success
 unsigned char fat16LoadFile(unsigned char fileI, unsigned char* targetAddress);
+
+// extension-based functions
+// -------------------------
+
+unsigned char fat16GetFileCountByExtension(const char* fileExtension);
+
+// result in fat16GetFileNameResult[]
+void fat16GetFileNameByExtension(const char* fileExtension, unsigned char fileWithExtensionI);
+
+// returns 0 on success
 unsigned char fat16LoadFileByExtension(const char* fileExtension, unsigned char fileWithExtensionI, unsigned char* targetAddress);
+
+// name-based functions
+// --------------------
+
+// returns 0 on success
+unsigned char fat16LoadFileByName(const char* fileName, unsigned char* targetAddress);
 
 #endif // MENU_FAT16_H

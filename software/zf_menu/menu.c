@@ -2,6 +2,7 @@
 // by xrrawva 2023
 
 #include <stdlib.h>
+#include <string.h>
 #include <zf_gfx.h>
 #include <zf_lcd.h>
 #include <zf_text.h>
@@ -13,11 +14,17 @@
 
 void renderMenu(unsigned char i, unsigned char n)
 {
+    char fileName[13];
+    fat16GetFileNameByExtension("BIN",i);
+    strcpy(fileName,fat16GetFileNameResult);
+    fileName[ 9]='A';
+    fileName[10]='R';
+    fileName[11]='T';
+
     color=1;
     cls();
-    print((unsigned char*)"FILENAME.ART",2,1); // TODO
+    fat16LoadFileByName(fileName,screen);
 
-    fat16GetFileNameByExtension("BIN",i);
     char text[17];
   //text[ 0]=' ';
     text[ 1]=' ';
@@ -27,14 +34,14 @@ void renderMenu(unsigned char i, unsigned char n)
     text[ 5]=' ';
     text[ 6]=' ';
     text[ 7]=' ';
-    text[ 8]=fat16GetFileNameResult[0];
-    text[ 9]=fat16GetFileNameResult[1];
-    text[10]=fat16GetFileNameResult[2];
-    text[11]=fat16GetFileNameResult[3];
-    text[12]=fat16GetFileNameResult[4];
-    text[13]=fat16GetFileNameResult[5];
-    text[14]=fat16GetFileNameResult[6];
-    text[15]=fat16GetFileNameResult[7];
+    text[ 8]=fileName[0];
+    text[ 9]=fileName[1];
+    text[10]=fileName[2];
+    text[11]=fileName[3];
+    text[12]=fileName[4];
+    text[13]=fileName[5];
+    text[14]=fileName[6];
+    text[15]=fileName[7];
     text[16]='\0';
 
     color=0;
@@ -55,12 +62,12 @@ void main()
 
     unsigned char fat16InitError=fat16Init();
     if(fat16InitError){
-        print((unsigned char*)"ERROR",0,2);
-        if     (fat16InitError==1)print((unsigned char*)"OEM NAME",0,3);
-        else if(fat16InitError==2)print((unsigned char*)"SECTOR SIZE     ",0,3);
-        else if(fat16InitError==3)print((unsigned char*)"FAT COUNT",0,3);
-        else if(fat16InitError==4)print((unsigned char*)"ROOT ENTRY COUNT",0,3);
-        else print((unsigned char*)"UNKNOWN",0,3);
+        print((unsigned char*)"ERROR",0,1);
+        if     (fat16InitError==1)print((unsigned char*)"OEM NAME",0,2);
+        else if(fat16InitError==2)print((unsigned char*)"SECTOR SIZE     ",0,2);
+        else if(fat16InitError==3)print((unsigned char*)"FAT COUNT",0,2);
+        else if(fat16InitError==4)print((unsigned char*)"ROOT ENTRY COUNT",0,2);
+        else print((unsigned char*)"UNKNOWN",0,2);
         lcd(screen);
         soundError();
         while(TRUE){}
@@ -70,14 +77,14 @@ void main()
     unsigned char n=fat16GetFileCountByExtension("BIN");
     if(n==0)
     {
-        print((unsigned char*)"ERROR",0,2);
-        print((unsigned char*)"NO .BIN-FILES",0,3);
+        print((unsigned char*)"ERROR",0,1);
+        print((unsigned char*)"NO .BIN-FILES",0,2);
         lcd(screen);
         soundError();
         while(TRUE){}
     }
 
-    print((unsigned char*)"OK",0,2);
+    print((unsigned char*)"OK",0,1);
     lcd(screen);
     soundHello();
 

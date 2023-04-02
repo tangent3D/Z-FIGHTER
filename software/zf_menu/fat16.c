@@ -1,6 +1,7 @@
 // module implementation for z-fighter application "menu"
 // by xrrawva 2023
 
+#include <string.h>
 #include "fat16.h"
 
 // read 1 byte from cf
@@ -69,17 +70,6 @@ unsigned char fat16Init()
     return 0;
 }
 
-unsigned char fat16GetFileCountByExtension(const char* fileExtension)
-{
-    unsigned char result=0;
-    for(unsigned char i=0;i<255;i++)
-    {
-        fat16GetFileName(i);
-        if(fat16GetFileNameResult[9]==fileExtension[0]&&fat16GetFileNameResult[10]==fileExtension[1]&&fat16GetFileNameResult[11]==fileExtension[2])result++;
-    }
-    return result;
-}
-
 char fat16GetFileNameResult[13];
 void fat16GetFileName(unsigned char fileI)
 {
@@ -96,19 +86,6 @@ void fat16GetFileName(unsigned char fileI)
     fat16GetFileNameResult[10]=disk(start+rootDirStartSector*512+32*fileI+ 9);
     fat16GetFileNameResult[11]=disk(start+rootDirStartSector*512+32*fileI+10);
     fat16GetFileNameResult[12]='\0';
-}
-
-void fat16GetFileNameByExtension(const char* fileExtension, unsigned char fileWithExtensionI)
-{
-    for(unsigned char i=0;i<255;i++)
-    {
-        fat16GetFileName(i);
-        if(fat16GetFileNameResult[9]==fileExtension[0]&&fat16GetFileNameResult[10]==fileExtension[1]&&fat16GetFileNameResult[11]==fileExtension[2])
-        {
-            fileWithExtensionI--;
-            if(fileWithExtensionI==255)return;
-        }
-    }
 }
 
 unsigned char fat16LoadFile(unsigned char fileI, unsigned char* targetAddress)
@@ -131,6 +108,30 @@ unsigned char fat16LoadFile(unsigned char fileI, unsigned char* targetAddress)
     return 0;
 }
 
+unsigned char fat16GetFileCountByExtension(const char* fileExtension)
+{
+    unsigned char result=0;
+    for(unsigned char i=0;i<255;i++)
+    {
+        fat16GetFileName(i);
+        if(fat16GetFileNameResult[9]==fileExtension[0]&&fat16GetFileNameResult[10]==fileExtension[1]&&fat16GetFileNameResult[11]==fileExtension[2])result++;
+    }
+    return result;
+}
+
+void fat16GetFileNameByExtension(const char* fileExtension, unsigned char fileWithExtensionI)
+{
+    for(unsigned char i=0;i<255;i++)
+    {
+        fat16GetFileName(i);
+        if(fat16GetFileNameResult[9]==fileExtension[0]&&fat16GetFileNameResult[10]==fileExtension[1]&&fat16GetFileNameResult[11]==fileExtension[2])
+        {
+            fileWithExtensionI--;
+            if(fileWithExtensionI==255)return;
+        }
+    }
+}
+
 unsigned char fat16LoadFileByExtension(const char* fileExtension, unsigned char fileWithExtensionI, unsigned char* targetAddress)
 {
     for(unsigned char i=0;i<255;i++)
@@ -143,6 +144,19 @@ unsigned char fat16LoadFileByExtension(const char* fileExtension, unsigned char 
             {
                 return fat16LoadFile(i,targetAddress);
             }
+        }
+    }
+    return 128;
+}
+
+unsigned char fat16LoadFileByName(const char* fileName, unsigned char* targetAddress)
+{
+    for(unsigned char i=0;i<255;i++)
+    {
+        fat16GetFileName(i);
+        if(strcmp(fat16GetFileNameResult,fileName)==0)
+        {
+            return fat16LoadFile(i,targetAddress);
         }
     }
     return 128;
