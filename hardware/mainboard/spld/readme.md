@@ -2,7 +2,7 @@
 
 An Atmel ATF22V10C-15PU SPLD is responsible for producing all chip select logic for Z-FIGHTER. An EEPROM burner is required to program the SPLD with a fuse map.
 
-By default, Z-FIGHTER's memory map is configured as 16K ROM (0000h-3FFFh) and 48K RAM (4000h-FFFFh) for compatibility with Grant Searle's CP/M BIOS and Z-FIGHTER's serial loader. ROM is disabled when an I/O write is executed on port 38h. RAM will thereafter use the entire 64K memory map until system reset.
+By default, Z-FIGHTER's memory map is configured as 32K ROM (0000h-7FFFh) and 32K RAM (8000h-FFFFh). ROM is disabled when an I/O write is executed on port 38h. RAM will thereafter use the entire 64K memory map until system reset.
 
 A 3-position DIP switch (connected to EEPROM A18, A17, A16) will manually page the 512K EEPROM, affording the user eight bootable ROMs to be installed on the system. All ROMS should be placed at base addresses of 0000h, 10000h, ..., 70000h.
 
