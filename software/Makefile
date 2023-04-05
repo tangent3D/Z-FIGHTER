@@ -39,8 +39,8 @@ name ?=             $(notdir $(CURDIR))
 # Use z88dk/zsdcc newlib.
 clib =              -clib=sdcc_iy
 
-# Pragmas for ROM model ('rom') target (originate DATA section at 4000h).
-pragma_rom =        -pragma-define:CRT_ORG_DATA=0x4000
+# Pragmas for ROM model ('rom') target (originate DATA section at 8000h).
+pragma_rom =        -pragma-define:CRT_ORG_DATA=0x8000
 
 # Pragmas for interrupts.
 # Enables IM1 ISR. User must implement _z80_rst_38h routine which must preserve register values and exit with EI; RETI.
