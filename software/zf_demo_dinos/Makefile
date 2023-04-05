@@ -1,8 +1,9 @@
+.PHONY: rom send
+
 name=demo_dinos
 export
 
-ram:
-	@make -s -f ../Makefile ram
+default: rom
 
 rom:
 	@make -s -f ../Makefile rom

@@ -4,6 +4,8 @@
 
 #include <zf_hardware.h>
 
+__at (ROMDISABLE_n) void *romdisable_n;
+
 __at (PORTA_ACC)    void *porta_acc;
 __at (PORTB_ACC)    void *portb_acc;
 __at (PORTC_ACC)    void *portc_acc;

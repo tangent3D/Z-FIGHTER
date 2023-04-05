@@ -1,8 +1,7 @@
 name=poker
 export
 
-ram:
-	@make -s -f ../Makefile ram
+default: rom
 
 rom:
 	@make -s -f ../Makefile rom

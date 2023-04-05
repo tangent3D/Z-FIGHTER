@@ -4,14 +4,11 @@
 # Uses z88dk/zsdcc, GNU Make
 
 # Targets:
-# ram       Build RAM model Z-FIGHTER binary from C/ASM source(s).
 # rom       Build ROM model Z-FIGHTER binary from C/ASM source(s).
-# cpm       Build CP/M COM file from C/ASM source(s).
 # asm       Assemble a standalone ASM project.
 # libs      Build Z-FIGHTER library.
 # lib       Build a library from source files.
-# send      Transfer output to zf_loader. To be used with 'ram' target.
-# term      Open an interactive terminal for serial I/O with Z-FIGHTER. Uses plink (PuTTY).
+# send      Transfer output to zf_loader via z80com.
 # clean     Recursively clean intermediate binaries, assembly listings and symbol tables.
 # cleaner   Recursively clean everything.
 
@@ -25,7 +22,6 @@
 
 # ASM (asm) target environment variables:
 # file      First module to assemble, e.g. "file=program.asm" (required)
-# ext       Desired extension of output, e.g. "ext=.com" (optional, defaults to .bin)
 
 # Get path to this Makefile.
 makefile_path :=    $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -40,15 +36,8 @@ endif
 # Assign base name of directory as output name if no name is specified.
 name ?=             $(notdir $(CURDIR))
 
-# Use .bin extension for ASM project output if no extension is specified.
-ext ?=              .bin
-
 # Use z88dk/zsdcc newlib.
 clib =              -clib=sdcc_iy
-
-# Pragmas for RAM model ('ram') target (don't move stack pointer, return to caller on exit).
-pragma_ram =        -pragma-define:REGISTER_SP=-1 $\
-                    -pragma-define:CRT_ON_EXIT=0x10002
 
 # Pragmas for ROM model ('rom') target (originate DATA section at 4000h).
 pragma_rom =        -pragma-define:CRT_ORG_DATA=0x4000
@@ -121,21 +110,13 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 	@echo Making $<.
 	@zcc +z80 $(inc) --list -c -o $@ $<
 
-# Build RAM model binary from source files.
-ram: $(OBJ)
-	@zcc +z80 $(clib) -startup=0 $(pragma_ram) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o $(name) $^ -create-app --list -gen-symbol-file
-
 # Build ROM model binary from source files.
 rom: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(pragma_rom) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o $(name) $^ -create-app --list -Cz--romsize=16384
-
-# Build CP/M COM file from source files. Uses newlib.
-cpm: $(OBJ)
-	@zcc +cpm $(clib) $(inc) -m -o $(name).com $^ -create-app
+	@zcc +z80 $(clib) $(crt) $(pragma_rom) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o $(name).rom $^ -create-app --list -Cz--romsize=0x8000
 
 # Assemble a standalone ASM project.
 asm:
-	@z80asm -b -m $(inc) -o$(name)$(ext) $(file)
+	@z80asm -b -m $(inc) -o$(name).rom $(file)
 
 # Build a library from source files.
 lib: $(OBJ)
@@ -147,27 +128,16 @@ libs:
 
 # Send binary to Z-FIGHTER serial loader (zf_loader).
 send:
+ifeq (,$(wildcard $(name).rom))
+	echo Cannot send. $(name).rom not found.
+	exit 1
+endif
 # Exit if COM port (com_port) is not defined.
 ifeq (,$(com_port))
-	@echo Cannot send to zf_loader. COM port (com_port) not specified.
+	@echo Cannot send to ix_loader. COM port $(com_port) not specified.
 else
-	@echo Sending $(name).bin to Z-FIGHTER via $(com_port).
-ifeq ($(OS),Windows_NT)
-	@MODE $(com_port): BAUD=115200 PARITY=N DATA=8 STOP=1 OCTS=OFF DTR=OFF RTS=OFF >nul
-	@COPY $(name).bin \\.\$(com_port) >nul 2>&1
-else
-	@stty -F $(com_port) 115200
-	@cat $(name).bin > $(com_port)
-endif
-endif
-
-# Open an interactive terminal for serial I/O with Z-FIGHTER.
-term:
-ifeq (,$(com_port))
-	@echo Cannot open terminal. COM port (com_port) not specified.
-else
-	@echo Opening terminal for serial I/O with Z-FIGHTER.
-	@plink -serial $(com_port) -sercfg 115200,8,n,1,N
+	@echo Sending $(name).rom to Z-FIGHTER via $(com_port).
+	@z80com -p $(com_port) -f $(name).rom
 endif
 
 # Clean intermediate binaries, assembly listings and symbol tables.

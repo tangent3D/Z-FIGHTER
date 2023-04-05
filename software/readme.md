@@ -6,25 +6,21 @@ Z-FIGHTER uses a cross-platform build system using z88dk/zsdcc and GNU Make.
 1. Install z88dk for your platform according to these [instructions](https://github.com/z88dk/z88dk/wiki/installation). If applicable, follow any additional instructions for zsdcc. If using Windows, install a port of GNU Make, e.g. [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) or MinGW. Add the location of `make.exe` to your PATH.
 2. Navigate your shell to the Z-FIGHTER software directory (the location of this readme) and execute `make`. Z-FIGHTER's development library and software will immediately begin compiling![^1]
 3. Create a text file named `.env` in this directory containing a definition for Z-FIGHTER's Makefile's `com_port` environment variable specifying the address of your serial communications device, e.g. `com_port=COM1`, `com_port=/dev/ttyS1`, or `com_port=/dev/ttyUSB1`.[^2]
-4. Optionally, install [PuTTY/Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and add the location of its installed binaries to your PATH.
+4. Install [z80com](https://github.com/tangent3D/z80com).
 
 ### Preparing for Serial Communication with Z-FIGHTER
 Z-FIGHTER's build system is configured to work with a boot loader ROM, `zf_serial_loader/zf_loader.rom`, to be burned to the SST39SF040 EEPROM on-board Z-FIGHTER. Functionality can be verified by connecting your serial communications device to Z-FIGHTER's SIO/0 **Ch.A** port (furthest from power port). If you followed step 4 above, navigate your shell to this directory and execute `make term` to open a simple terminal for serial I/O with Z-FIGHTER.  Otherwise, configure your preferred terminal emulator for 115200 baud, 8-N-1 (8 data bits, no parity, 1 stop bit) and no flow control. Upon power-up or reset, Z-FIGHTER should transmit the text `[Z-Fighter Serial Boot Loader v0.1] Ready to load binary at 0000h.` Z-FIGHTER is ready to load a program into memory!
 
-### Transferring Programs to Z-FIGHTER
-No additional software is required to transfer programs to Z-FIGHTER. Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER RAM and executed. Upon program exit or system reset, Z-FIGHTER will return to the boot loader, ready to load another program into memory.
+### Transferring Programs to Z-FIGHTER with zf_loader
+Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER RAM and executed. Upon program exit or system reset, Z-FIGHTER will return to the boot loader, ready to load another program into memory.
 
 # Developing Z-FIGHTER Software
 
 ### Make Targets
-#### 'ram' (RAM Model) Target[^3]
-Produces a '.bin' file intended to be loaded into Z-FIGHTER RAM. Programs have full use of the 64K memory space minus any space at the top of RAM reserved for a boot loader (approximately 512 bytes for `zf_loader`.)
 #### 'rom' (ROM Model) Target[^3]
-Produces a 16K '.rom' file intended for burning to Z-FIGHTER's EEPROM for immediate execution.[^4] This target is configured to generate ROM files for Z-FIGHTER's default memory map (16K ROM, 48K RAM).[^5] Compression can be enabled when using this target by specifying `compress=true`.
-#### 'cpm' (CP/M) Target
-Produces a COM file for use with CP/M. Programs can be uploaded to a CP/M installation via serial using protocols like Xmodem and Telnet.
+Produces a 16K '.rom' file intended for loading via zf_loader and CompactFlash or burning directly to Z-FIGHTER's EEPROM. This target is configured to generate ROM files for Z-FIGHTER's default memory map (16K ROM, 48K RAM).[^5] Compression can be enabled when using this target by specifying `compress=true`.
 #### 'asm' (Standalone ASM Project) Target
-Assembles a standalone ASM project using `z80asm`. The first module to be assembled must be specified with the `file` environment variable, e.g. `file=program.asm`. Additional source files should be included with `INCLUDE` and `INCBIN` directives. Code and data sections should be located with `ORG` directives. Reference to Z-FIGHTER library components is supported via `EXTERN` directives. The output file extension (default .bin) can optionally be specified with the `ext` environment variable, e.g. `ext=.com`. An example of a project assembled with this target is [`zf_loader`](https://github.com/tangent3D/Z-FIGHTER/blob/main/src/zf_serial_loader/zf_loader.asm).
+Assembles a standalone ASM project using `z80asm`. The first module to be assembled must be specified with the `file` environment variable, e.g. `file=program.asm`. Additional source files should be included with `INCLUDE` and `INCBIN` directives. Code and data sections should be located with `ORG` directives. Reference to Z-FIGHTER library components is supported via `EXTERN` directives. An example of a project assembled with this target is [`zf_loader`](https://github.com/tangent3D/Z-FIGHTER/blob/main/src/zf_serial_loader/zf_loader.asm).
 
 ### A Note about Z-FIGHTER Front Panel Peripherals
 Before using the front panel accessories (LCD, buzzer, keypad) in your program, Z-FIGHTER's parallel I/O chip should be initialized. The `ram` and `rom` targets include `zf_init.asm` on the compile line and initialization will automatically occur during the CRT startup code. To manually initialize the parallel I/O chip, only one call of `zf_init()` (defined in `zf_init.h`) is necessary. This can be implemented in ASM projects with `EXTERN _zf_init` and `CALL _zf_init`.

@@ -117,8 +117,8 @@ Pin 17 = SIOCS        S0 = 0   S1 = 0
 Pin 16 = RAMCS        S0 = 0   S1 = 0
  98  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
  99  ---- x--- ---- ---- ---- ---- ---- ---- ---- -x-- x---
-100  x--- ---- ---- ---- ---- ---- ---- ---- ---- -x-- x---
-101  ---- ---- ---- ---- ---- ---- ---- ---- ---- -x-- x--x
+100  ---- ---- ---- ---- ---- ---- ---- ---- ---- -x-- x--x
+101  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 102  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 103  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 104  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -131,7 +131,7 @@ Pin 16 = RAMCS        S0 = 0   S1 = 0
 
 Pin 15 = ROMCS        S0 = 0   S1 = 0
 111  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-112  -x-- -x-- ---- ---- ---- ---- ---- ---- x--- -x-- x-x-
+112  ---- -x-- ---- ---- ---- ---- ---- ---- x--- -x-- x-x-
 113  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 114  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 115  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

@@ -3,15 +3,14 @@ GAL22V10
 A14 A15 A13 A7 A6 A5 A4 A3 WR MREQ IORQ GND
 ROMDIN ROMDOUT ROMCS RAMCS SIOCS CFCS PPISCS PPIUCS ROMA17 ROMA16 ROMA18 VCC
 
-; 38h & /WR
+; ROMDISABLE_n (38h & /WR)
 /ROMDOUT = MREQ * /IORQ * /WR * /A7 * /A6 * A5 * A4 * A3
 
-; 0000-3FFFh on initial boot
-/ROMCS = /MREQ * IORQ * WR * ROMDIN * /A15 * /A14
+; ROM 0000-7FFFh on initial boot
+/ROMCS = /MREQ * IORQ * WR * ROMDIN * /A15
 
-; 4000-FFFFh on initial boot
+; RAM 8000-FFFFh on initial boot
 /RAMCS =   /MREQ * IORQ * A15
-         + /MREQ * IORQ * A14
          + /MREQ * IORQ * /ROMDIN
 
 ; 00h

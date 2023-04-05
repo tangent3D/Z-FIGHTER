@@ -1,9 +1,6 @@
 name=lib_benchmark
 export
 
-ram:
-	@make -s -f ../Makefile ram
-
 rom:
 	@make -s -f ../Makefile rom
 

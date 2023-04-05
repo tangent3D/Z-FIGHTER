@@ -4,6 +4,8 @@
 #ifndef ZF_HARDWARE_H
 #define ZF_HARDWARE_H
 
+#define ROMDISABLE_n    0x38
+
 // 8255A Programmable Peripheral Interface (Accessory)
 #define PORTA_ACC       0x40    // Connected to key switches
 #define PORTB_ACC       0x41    // Connected to ST7920 LCD data bus
@@ -12,7 +14,7 @@
 
 // BSR (Bit Set/Reset) control words (Accessory)
 #define LCD_E_LO        0x00    // LCD E (Enable) low
-#define LCD_E_HI        0x01    // LCD E (Enable) high    
+#define LCD_E_HI        0x01    // LCD E (Enable) high
 #define LCD_WR          0x02    // LCD R/#W low (Write)
 #define LCD_RD          0x03    // LCD R/#W high (Read)
 #define LCD_INST        0x04    // LCD RS low (Instruction)
