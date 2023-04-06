@@ -142,8 +142,8 @@ endif
 
 # Clean intermediate binaries, assembly listings and symbol tables.
 clean:
-	@python clean.py
+	@python $(zf_dir)clean.py
 
 # Clean everything.
 cleaner:
-	@python clean.py --all
+	@python $(zf_dir)clean.py --all
