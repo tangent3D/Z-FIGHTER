@@ -63,7 +63,7 @@ void main()
             unsigned char* thisObjectXSubpixel = objectXSubpixel;
             unsigned char* thisObjectX = objectX;
             unsigned char* nObjectX = objectX + OBJECT_N;
-            while(thisObjectX < nObjectX)
+            while(thisObjectX != nObjectX)
             {
                 // load object
                 unsigned char x = *thisObjectX;
@@ -164,7 +164,7 @@ void main()
             unsigned char* thisObjectX = objectX;
             unsigned char* thisObjectY = objectY;
             unsigned char* nObjectX = objectX + OBJECT_N;
-            while(thisObjectX < nObjectX)
+            while(thisObjectX != nObjectX)
             {
                 unsigned char x = *thisObjectX;
                 unsigned char y = *thisObjectY;
