@@ -12,7 +12,8 @@ unsigned char screen[(SCREEN_W / 8) * SCREEN_H];
 unsigned char oldLineX;
 unsigned char oldLineY;
 
-void cls()
+// replaced by .asm
+/*void cls()
 {
     unsigned char* screenPointer = screen;
     if(color)
@@ -31,7 +32,7 @@ void cls()
             screenPointer++;
         }
     }
-}
+}*/
 
 void point(unsigned char x, unsigned char y)
 {
