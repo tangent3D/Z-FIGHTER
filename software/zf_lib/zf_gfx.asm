@@ -17,7 +17,7 @@ _cls:
     ld c,0
     ld a,(_color)
     cp 0
-    jp nz,start
+    jr nz,start
     ld c,255
 start:
 
@@ -27,9 +27,9 @@ more:
     ld (hl),c
     inc hl
     dec a
-    jp nz,more
+    jr nz,more
     dec b
-    jp nz,more
+    jr nz,more
 
     RET
 
