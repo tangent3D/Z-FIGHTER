@@ -37,19 +37,18 @@ endif
 # Assign base name of directory as output name if no name is specified.
 name ?=             $(notdir $(CURDIR))
 
-# Use z88dk/zsdcc newlib.
-clib =              -clib=sdcc_iy
-
 ifeq ($(rom),true)
 # Options for ROM-based programs.
-	options =       -pragma-define:CRT_ORG_DATA=0x8000$ $\
-                    -Cz--output=$(name).rom $\
-                    -Cz--romsize=0x8000
+	options =       -startup=1 $\
+	                -pragma-define:CRT_ORG_DATA=0x8000 $\
+	                -Cz--output=$(name).rom $\
+	                -Cz--romsize=0x8000
 else
 # Options for RAM-based programs.
-	options =       -pragma-define:REGISTER_SP=-1 $\
-                    -pragma-define:CRT_ON_EXIT=0x10002 $\
-                    -Cz--output=$(name).ram
+	options =       -startup=0 $\
+	                -pragma-define:REGISTER_SP=-1 $\
+	                -pragma-define:CRT_ON_EXIT=0x10002 $\
+	                -Cz--output=$(name).ram
 endif
 
 # Pragmas for interrupts.
@@ -72,13 +71,6 @@ init =              $(zf_dir)zf_lib/zf_init.asm
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
 	optimization =  -SO3 --max-allocs-per-node200000
-endif
-
-# Use compressed ROM model if specified. Otherwise, use uncompressed ROM model.
-ifeq ($(compress),true)
-	crt =           -startup=2
-else
-	crt =           -startup=1
 endif
 
 # Disable interrupts and IM1 ISR unless specified.
@@ -113,7 +105,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 %.o: %.c $(HDR)
 	@echo Making $<.
-	@zcc +z80 $(clib) $(optimization) $(inc) --c-code-in-asm --list -c -o $@ $<
+	@zcc +z80 -clib=sdcc_iy $(optimization) $(inc) --c-code-in-asm --list -c -o $@ $<
 
 %_asm.o: %.asm $(HDR)
 	@echo Making $<.
@@ -121,7 +113,7 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 
 # Build binary to execute from RAM.
 bin: $(OBJ)
-	@zcc +z80 $(clib) $(crt) $(options) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o=$(name).bin $^ -create-app --list
+	@zcc +z80 -clib=sdcc_iy $(options) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o=$(name).bin $^ -create-app --list
 
 # Assemble a standalone ASM project.
 asm:
@@ -129,7 +121,7 @@ asm:
 
 # Build a library from source files.
 lib: $(OBJ)
-	@zcc +z80 $(clib) -x -o $(name) $^
+	@zcc +z80 -clib=sdcc_iy -x -o $(name) $^
 
 # Make Z-FIGHTER library from another Makefile.
 libs:
