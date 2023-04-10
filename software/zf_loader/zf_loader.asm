@@ -12,7 +12,7 @@ EXTERN ROMDISABLE_n
 EXTERN SIO_A
 EXTERN SIO_AC
 
-RAMLOC      EQU     0FE00h        ; Destination address in RAM for boot loader
+RAMLOC      EQU     0FE00h        ; Destination address in RAM for boot loader (reserve 512 bytes)
 
     LD      SP,RAMLOC-1
 
