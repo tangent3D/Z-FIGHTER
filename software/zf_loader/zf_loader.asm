@@ -1,11 +1,10 @@
 ; Serial boot loader ROM for Z-Fighter
-; by Tangent 2021
+; by Tangent 2023
 
-; Does not use CRT/startup code.
-
+; For use with z80com (https://github.com/tangent3D/z80com).
 ; Copies boot loader to top of RAM, jumps to it and disables ROM.
 ; Loads a .BIN serially through SIO Ch.A to 0000h.
-; Uses RTS/CTS flow control.
+; Uses RTS/CTS signals.
 ; Initializes stack pointer beneath boot loader.
 ; Performs CALL to 0000h. RET to boot loader is supported.
 
@@ -38,13 +37,8 @@ LOADER:
     CALL    STRING
 
     CALL    RXDATA                 ; Receive and load data to 0000h
-
-    LD      HL,CONFIRM             ; Write confirmation message
-    CALL    STRING
-
-EXECUTE:
+    CALL    RTS_OFF                ; Deassert RTS when finished receiving data
     CALL    0000h                  ; CALL loaded data
-
     JP      LOADER                 ; Allow program to RET to boot loader
 
 INITSIO:
@@ -63,7 +57,6 @@ ST1:
     CALL    TXCHAR                 ; Otherwise, transmit character
     INC     HL                     ; Increment HL to next character in string
     JP      ST1                    ; Repeat until string is terminated
-
 CRLF:
     LD      A,0Dh                  ; Transmit CR
     CALL    TXCHAR
@@ -86,23 +79,25 @@ TX1:
 
 RXDATA:
     LD      HL,0000h               ; Point HL to bottom of address space
-    LD      BC,8000h               ; Prepare byte counter for 32K binary
-RD1:
-    CALL    RTS_ON
+    CALL    RTS_ON                 ; Assert RTS to indicate readiness to z80com
+READ:
+    LD      A,0                    ; Check if CTS active
+    OUT     (SIO_AC),A             ; WR0, select RR0
+    IN      A,(SIO_AC)
+    BIT     5,A
+    RET     Z                      ; Exit loop if CTS inactive (host closed serial connection)
+
     LD      A,0                    ; WR0, select RR0
     OUT     (SIO_AC),A
     IN      A,(SIO_AC)             ; Read SIO RR0
     BIT     0,A                    ; Test RR0 D0 (Rx Character Available)
-    JP      Z,RD1                  ; Wait until character is available
-    CALL    RTS_OFF
-    IN      A,(SIO_A)              ; Read character
+    JP      Z,READ                 ; Repeat routine if no character available
+
+    IN      A,(SIO_A)              ; Read available character
     LD      (HL),A                 ; Load received character to (HL)
     INC     HL
-    DEC     BC                     ; Decrement byte counter
-    LD      A,C
-    OR      B
-    JP      NZ,RD1                 ; Repeat until byte counter is empty
-    RET
+
+    JP      READ                   ; Repeat routine until CTS inactive
 
 INITCFG:
     DB      00011000b              ; WR0, Channel Reset
@@ -140,10 +135,7 @@ WAIT_CTS:
     RET
 
 GREETING:
-    DB      "[Z-FIGHTER Serial Boot Loader v0.2]",0
-
-CONFIRM:
-    DB      "Transfer complete.",0
+    DB      "[Z-FIGHTER Serial Boot Loader v0.3]",0
 
 PAD:
     DEFS    8000h-PAD              ; Pad binary size to 32K
