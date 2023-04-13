@@ -3,10 +3,9 @@
 name=demo_dinos
 export
 
-default: rom
+default: bin
 
-rom:
-	@make -s -f ../Makefile rom
-
+bin:
+	@make -s -f ../Makefile bin
 send:
 	@make -s -f ../Makefile send

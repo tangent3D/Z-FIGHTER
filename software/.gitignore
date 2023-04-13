@@ -1,5 +1,6 @@
 zf_lib.lib
 *.bin
+*.ram
 *.rom
 *.o
 *.map
