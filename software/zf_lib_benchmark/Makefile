@@ -1,8 +1,10 @@
 name=lib_benchmark
+opt=true
 export
 
-rom:
-	@make -s -f ../Makefile rom
+default: bin
 
+bin:
+	@make -s -f ../Makefile bin
 send:
 	@make -s -f ../Makefile send
