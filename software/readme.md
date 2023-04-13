@@ -9,7 +9,7 @@ Z-FIGHTER uses a cross-platform build system using z88dk/zsdcc and GNU Make.
 4. Install [z80com](https://github.com/tangent3D/z80com) by pointing your shell to its root directory and executing `pip install -e .`
 
 ### Preparing for Serial Communication with Z-FIGHTER
-Z-FIGHTER's build system is configured to work with a boot loader ROM, `zf_loader/zf_loader.bin`, to be burned to the SST39SF040 EEPROM on-board Z-FIGHTER. Functionality can be verified by connecting your serial communications device to Z-FIGHTER's SIO/0 **Ch.A** port (furthest from power port). Configure your preferred terminal emulator for 115200 baud, 8-N-1 (8 data bits, no parity, 1 stop bit) and RTS/CTS flow control. Upon power-up or reset, Z-FIGHTER should transmit the text `[Z-FIGHTER Serial Boot Loader v0.3]` Z-FIGHTER is ready to load a program into memory!
+Z-FIGHTER's build system is configured to work with a boot loader ROM, `zf_loader/zf_loader.bin`, to be burned to the SST39SF040 EEPROM on-board Z-FIGHTER. Functionality can be verified by connecting your serial communications device to Z-FIGHTER's SIO/0 **Ch.A** port (furthest from power port). Configure your preferred terminal emulator for 115200 baud, 8-N-1 (8 data bits, no parity, 1 stop bit) with no flow control. Upon power-up or reset, Z-FIGHTER should transmit the text `[Z-FIGHTER Serial Boot Loader v0.3]` Z-FIGHTER is ready to load a program into memory!
 
 ### Transferring Programs to Z-FIGHTER with zf_loader
 Navigate your shell to the `game` or `demo` directory of your choice and execute `make send`. A binary will be immediately loaded into Z-FIGHTER RAM and executed. Upon program exit or system reset, Z-FIGHTER will return to the boot loader, ready to load another program into memory.
