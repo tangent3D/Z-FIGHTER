@@ -1,5 +1,3 @@
-.PHONY: rom send
-
 name=demo_dinos
 export
 
