@@ -3,13 +3,13 @@ Z-FIGHTER is a Z80 hobby computer loosely based on [Grant Searle's CP/M on bread
 
 ![Z-FIGHTER](media/case_io.jpg "Z-FIGHTER")
 
+![Z-FIGHTER Mainboard](media/mainboard_front.png "Z-FIGHTER mainboard")
+
 ![Poker](media/screenshot_poker_1.png "Z-FIGHTER poker game")
 
 ![Mechzoom](media/screenshot_mechzoom_1.png "Z-FIGHTER 'Mechzoom' game")
 
 ![Mechzoom](media/screenshot_mechzoom_2.png "Z-FIGHTER 'Mechzoom' game")
-
-![Z-FIGHTER Mainboard](media/mainboard_front.png "Z-FIGHTER mainboard")
 
 ### Specifications
 - Z80 CPU @ 7.3728MHz
