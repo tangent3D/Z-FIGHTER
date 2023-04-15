@@ -2512,7 +2512,7 @@
     (property "Datasheet" "http://www.assmann-wsw.com/uploads/datasheets/ASS_4888_CO.pdf" (id 3) (at 55.88 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Digi-Key" "https://www.digikey.com/en/products/detail/assmann-wsw-components/A-DS-09-A-KG-T2S/1241804" (id 4) (at 58.42 134.62 90)
+    (property "Digi-Key" "https://www.digikey.com/en/products/detail/assmann-wsw-components/A-DF-09-A-KG-T2S/1241800" (id 4) (at 58.42 134.62 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "0" (uuid abc20141-752e-4e35-925f-327ad1435c0d))
