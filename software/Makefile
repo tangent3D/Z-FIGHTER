@@ -2,6 +2,7 @@
 # by Tangent 2021
 
 # Uses z88dk/zsdcc, GNU Make
+# 'reset' feature requires https://github.com/tangent3D/python-ucdev.
 
 # Targets:
 # bin       Build binary from C/ASM source(s) for use with zf_loader.
@@ -13,7 +14,7 @@
 # cleaner   Recursively clean everything.
 
 # Environment variables:
-# rom       Build ROM to be burned to the EEPROM. Enable with 'true' Assumes ROM = 0x0000-0x7FFF, RAM = 0x8000-0xFFFF.
+# rom       Build ROM to be burned to the EEPROM. Assumes ROM = 0x0000-0x7FFF, RAM = 0x8000-0xFFFF. Enable with 'true'
 # name      Desired name of output. Defaults to current directory base name if unspecified.
 # com_port  COM port of serial communications device, e.g. COM1, /dev/ttyS1, /dev/ttyUSB1.
 # compress  Use compressed ROM model with +z80 target. Enable with 'true'
@@ -67,6 +68,11 @@ inc =               -I$(zf_dir)zf_lib $\
 
 # Path to Z-FIGHTER peripheral initialization code for use in +z80 CRT startup code.
 init =              $(zf_dir)zf_lib/zf_init.asm
+
+# Reset Z-FIGHTER USB serial/power module before upload if specified.
+ifeq ($(reset),true)
+	reset = gpio3 --reset
+endif
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
@@ -138,6 +144,7 @@ ifeq (,$(com_port))
 	@echo Cannot send to ix_loader. COM port $(com_port) not specified.
 else
 	@echo Sending $(name).ram to Z-FIGHTER via $(com_port).
+	$(reset)
 	@z80com -p $(com_port) -f $(name).ram
 endif
 
