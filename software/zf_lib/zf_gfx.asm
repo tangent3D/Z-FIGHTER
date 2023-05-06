@@ -9,6 +9,30 @@ SCREEN_W equ _screen_w
 SCREEN_H equ _screen_h
 SECTION code_user
 
+; void cls()
+PUBLIC _cls
+_cls:
+    ld hl,_screen
+
+    ld c,0
+    ld a,(_color)
+    cp 0
+    jr nz,start
+    ld c,255
+start:
+
+    ld a,0
+    ld b,6
+more:
+    ld (hl),c
+    inc hl
+    dec a
+    jr nz,more
+    dec b
+    jr nz,more
+
+    RET
+
 ; void block(const unsigned char* blockPattern, unsigned char blockX, unsigned char blockY)
 PUBLIC _block
 _block:
