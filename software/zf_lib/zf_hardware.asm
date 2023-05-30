@@ -21,6 +21,7 @@ EXTERN      _porta
 EXTERN      _portb
 EXTERN      _portc
 EXTERN      _ctrl
+EXTERN      _sio
 EXTERN      _sio_a
 EXTERN      _sio_b
 EXTERN      _sio_ac
@@ -57,6 +58,7 @@ PORTB           EQU     _portb
 PORTC           EQU     _portc
 CTRL            EQU     _ctrl
 
+SIO             EQU     _sio
 SIO_A           EQU     _sio_a
 SIO_B           EQU     _sio_b
 SIO_AC          EQU     _sio_ac
@@ -91,6 +93,7 @@ PUBLIC          PORTA
 PUBLIC          PORTB
 PUBLIC          PORTC
 PUBLIC          CTRL
+PUBLIC          SIO
 PUBLIC          SIO_A
 PUBLIC          SIO_B
 PUBLIC          SIO_AC
