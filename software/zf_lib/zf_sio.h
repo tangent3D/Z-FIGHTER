@@ -25,4 +25,7 @@ void sioWaitCTS();
 // Write character to specified channel when ready.
 void sioWrite(unsigned char character) __z88dk_fastcall;
 
+// Wait for CTS and dump specified number of bytes beginning at specified base address.
+void sioDump(unsigned char *baseAddr, unsigned long bytes);
+
 #endif
