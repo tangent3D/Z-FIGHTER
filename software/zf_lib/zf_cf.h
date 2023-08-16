@@ -6,10 +6,13 @@
 
 #include <zf_hardware.h>
 
+// Initialize CF card for data transfers
 unsigned char cfInit();
 
-unsigned char cfIdentify();
+// Read a specified sector (28-bit LBA)
+unsigned char cfRead(unsigned long sector);
 
+// 512-byte sector buffer
 extern unsigned char cfBuffer[512];
 
 #endif
