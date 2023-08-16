@@ -51,13 +51,13 @@ INIT_SIO:
     RET
 
 WAIT_CTS:
+    LD      A,00000000b            ; WR0, select RR0
+    OUT     (SIO_AC),A
     IN      A,(SIO_AC)             ; Read SIO RR0
     BIT     5,A                    ; Test RR0 D5 (CTS)
     JP      Z,WAIT_CTS             ; Wait until CTS set
-                                   ; Fall through
-REST_INT:
-    LD      A,00010000b            ; Reset ext/status interrupts (acknowledge CTS)
-    OUT     (SIO_AC),A
+
+    CALL    INIT_SIO               ; Reset SIO (reset Ext/Status Interrupts)
     RET
 
 TXSTRING:
@@ -83,6 +83,8 @@ RXDATA:
     LD      A,01101010b            ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS on
     OUT     (SIO_AC),A
 RX1:
+    LD      A,0                    ; WR0, select RR0
+    OUT     (SIO_AC),A
     IN      A,(SIO_AC)
     BIT     0,A                    ; Test RR0 D0 (Rx character available)
     JP      NZ,RX2                 ; Receive character if available
@@ -99,12 +101,7 @@ RX3:
     OR      H
     JP      Z,LOADER
 
-    LD      A,00000101b            ; Deassert RTS
-    OUT     (SIO_AC),A             ; WR0, select WR5
-    LD      A,01101000b            ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS off
-    OUT     (SIO_AC),A
-    CALL    REST_INT               ; Acknowledge CTS
-
+    CALL    INIT_SIO               ; Reset SIO (disable RTS)
     RET                            ; Return to execute loaded data
 
 ; Data
