@@ -29,6 +29,8 @@ LOADER:
     LD      A,0
     OUT     (ROMDISABLE_n),A       ; Disable ROM
 
+    CALL    WAIT                   ; Wait a moment for any serial activity to finish
+
     CALL    INIT_SIO               ; Initialize SIO Ch.A
 
     CALL    WAIT_CTS               ; Wait for CTS
@@ -51,13 +53,16 @@ INIT_SIO:
     RET
 
 WAIT_CTS:
+    LD      A,00000000b            ; WR0, select RR0
+    OUT     (SIO_AC),A
     IN      A,(SIO_AC)             ; Read SIO RR0
     BIT     5,A                    ; Test RR0 D5 (CTS)
     JP      Z,WAIT_CTS             ; Wait until CTS set
-                                   ; Fall through
-REST_INT:
-    LD      A,00010000b            ; Reset ext/status interrupts (acknowledge CTS)
-    OUT     (SIO_AC),A
+
+    CALL    INIT_SIO               ; Reset SIO (reset Ext/Status Interrupts)
+
+    CALL    WAIT                   ; Wait a moment for serial devices to be ready
+
     RET
 
 TXSTRING:
@@ -83,6 +88,8 @@ RXDATA:
     LD      A,01101010b            ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS on
     OUT     (SIO_AC),A
 RX1:
+    LD      A,0                    ; WR0, select RR0
+    OUT     (SIO_AC),A
     IN      A,(SIO_AC)
     BIT     0,A                    ; Test RR0 D0 (Rx character available)
     JP      NZ,RX2                 ; Receive character if available
@@ -99,13 +106,24 @@ RX3:
     OR      H
     JP      Z,LOADER
 
-    LD      A,00000101b            ; Deassert RTS
-    OUT     (SIO_AC),A             ; WR0, select WR5
-    LD      A,01101000b            ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS off
-    OUT     (SIO_AC),A
-    CALL    REST_INT               ; Acknowledge CTS
-
+    CALL    INIT_SIO               ; Reset SIO (disable RTS)
     RET                            ; Return to execute loaded data
+
+WAIT:
+    LD      B,1                    ; Amount of times to repeat wait loop
+W1:
+    PUSH    BC
+    LD      BC,65535
+W2:
+    DEC     BC
+    LD      A,C
+    OR      B
+    JP      NZ,W2
+
+    POP     BC
+    DJNZ    W1                     ; Repeat wait loop until loop count is exhausted
+
+    RET
 
 ; Data
 
@@ -123,4 +141,4 @@ INITCFG:
     DB      01101000b              ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS off
 
 GREETING:
-    DB      "[Z-FIGHTER Serial Boot Loader v0.3]",0Dh,0Ah,0
+    DB      "[Z-FIGHTER Serial Boot Loader v0.4]",0Dh,0Ah,0

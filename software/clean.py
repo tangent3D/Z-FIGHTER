@@ -4,7 +4,7 @@ from glob import glob
 import argparse
 
 EXT = ['*_CODE.bin','*_DATA.bin','*_BSS.bin','*_UNASSIGNED.bin','*.lis','*.map','*.def','*.err,','*.ticks_history.txt','*.sym']
-EXT_ALL = ['zf_lib.lib','*.bin','*.rom','*.com','*.COM','*.o']
+EXT_ALL = ['zf_lib.lib','*.bin','*.ram','*.rom','*.com','*.COM','*.o']
 
 def main():
     parser = argparse.ArgumentParser()

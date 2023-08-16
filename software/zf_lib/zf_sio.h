@@ -6,28 +6,23 @@
 
 #include <zf_hardware.h>
 
-// Define SIO channel. Subsequent serial I/O will occur on the channel specified.
-// Default channel is SIO channel A.
-// Example: channel = CH_B; // Subsequent serial I/O will occur on SIO channel B.
-#define CH_A SIO_AC // SIO chanel A
-#define CH_B SIO_BC // SIO channel B
-extern unsigned char channel;
+// Define SIO channel. 'channel' variable is initialized as '0'.
+// channel = 0; // Subsequent data I/O and configuration will occur on SIO channel A.
+// channel = 1; // Subsequent data I/O and configuration will occur on SIO channel B.
+extern unsigned char sioChannel;
 
-// Initialize specified channel with default configuration (8-N-1, no flow control).
+// Initialize specified channel with typical configuration (115200 baud, 8-N-1).
 void sioInit();
 
-// Read specified channel. If no RX character is available, return 0.
-unsigned char sioRead();
+// Set channel RTS state.
+// sioRTS(0); // Channel RTS reset
+// sioRTS(1); // Channel RTS set
+void sioSetRTS(unsigned char rts) __z88dk_fastcall;
 
-// Poll specified channel until RX character is available to read. Returns the read character.
-unsigned char sioWait();
+// Wait until channel CTS set.
+void sioWaitCTS();
 
-// Wait until TX buffer is empty and write character to specified channel.
+// Write character to specified channel when ready.
 void sioWrite(unsigned char character) __z88dk_fastcall;
-
-// Write string to specified channel.
-// Example: unsigned char string[]="Hello, world!\n";
-//          sioPrint(string);
-void sioPrint(unsigned char string[]);
 
 #endif

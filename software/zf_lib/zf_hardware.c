@@ -27,6 +27,7 @@ __at (PORTB)        void *portb;
 __at (PORTC)        void *portc;
 __at (CTRL)         void *ctrl;
 
+__at (SIO)          void *sio;
 __at (SIO_A)        void *sio_a;
 __at (SIO_B)        void *sio_b;
 __at (SIO_AC)       void *sio_ac;
