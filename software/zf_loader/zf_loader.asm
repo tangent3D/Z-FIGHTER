@@ -58,6 +58,9 @@ WAIT_CTS:
     JP      Z,WAIT_CTS             ; Wait until CTS set
 
     CALL    INIT_SIO               ; Reset SIO (reset Ext/Status Interrupts)
+
+    CALL    WAIT                   ; Wait a while before proceeding!
+
     RET
 
 TXSTRING:
@@ -104,6 +107,22 @@ RX3:
     CALL    INIT_SIO               ; Reset SIO (disable RTS)
     RET                            ; Return to execute loaded data
 
+WAIT:
+    LD      B,1                    ; Amount of times to repeat wait loop
+W1:
+    PUSH    BC
+    LD      BC,65535
+W2:
+    DEC     BC
+    LD      A,C
+    OR      B
+    JP      NZ,W2
+
+    POP     BC
+    DJNZ    W1                    ; Repeat wait loop until loop count is exhausted
+
+    RET
+
 ; Data
 
 INITCFG:
@@ -120,4 +139,4 @@ INITCFG:
     DB      01101000b              ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS off
 
 GREETING:
-    DB      "[Z-FIGHTER Serial Boot Loader v0.3]",0Dh,0Ah,0
+    DB      "[Z-FIGHTER Serial Boot Loader v0.4]",0Dh,0Ah,0
