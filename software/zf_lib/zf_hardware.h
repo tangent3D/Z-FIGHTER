@@ -8,10 +8,10 @@
 
 // 8255A Programmable Peripheral Interface (Accessory)
 #define PPI_ACC         0x40
-#define PORTA_ACC       PPI_ACC+1   // Connected to key switches
-#define PORTB_ACC       PPI_ACC+2   // Connected to ST7920 LCD data bus
-#define PORTC_ACC       PPI_ACC+3   // Connected to LCD control signals, backlight and buzzer
-#define CTRL_ACC        PPI_ACC+4   // PPI control port
+#define PORTA_ACC       PPI_ACC+0   // Connected to key switches
+#define PORTB_ACC       PPI_ACC+1   // Connected to ST7920 LCD data bus
+#define PORTC_ACC       PPI_ACC+2   // Connected to LCD control signals, backlight and buzzer
+#define CTRL_ACC        PPI_ACC+3   // PPI control port
 
 // BSR (Bit Set/Reset) control words (Accessory)
 #define LCD_E_LO        0x00        // LCD E (Enable) low
