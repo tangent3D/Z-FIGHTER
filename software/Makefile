@@ -141,7 +141,7 @@ ifeq (,$(wildcard $(name).ram))
 endif
 # Exit if COM port (com_port) is not defined.
 ifeq (,$(com_port))
-	@echo Cannot send to ix_loader. COM port $(com_port) not specified.
+	@echo Cannot send. COM port $(com_port) not specified.
 else
 	@echo Sending $(name).ram to Z-FIGHTER via $(com_port).
 	$(reset)
