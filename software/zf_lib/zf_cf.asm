@@ -38,11 +38,11 @@ _cfInit:
 
 PUBLIC _cfRead              ; Read sector
 _cfRead:
-    CALL    cfWaitBusy
-
     LD      IY,2            ; Bypass return address of function
     ADD     IY,SP
 
+    CALL    cfWaitBusy
+    
     LD      A,(IY+0)        ; Set LBA with parameter (sector)
     OUT     (CF3),A
     LD      A,(IY+1)
