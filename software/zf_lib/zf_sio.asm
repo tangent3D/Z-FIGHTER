@@ -18,10 +18,10 @@ PUBLIC _sioWrite                   ; Uses FASTCALL. L = character
 _sioWrite:
     CALL    getChannel
 WRLOOP:
-    LD      B,1                    ; WR0, select RR1
-    OUT     (C),B
-    IN      B,(C)                  ; Read SIO RR1
-    BIT     0,B                    ; Test RR1 D0 (All Sent)
+    LD      A,1                    ; WR0, select RR1
+    OUT     (C),A
+    IN      A,(C)                  ; Read SIO RR1
+    BIT     0,A                    ; Test RR1 D0 (All Sent)
     JP      Z,WRLOOP               ; Wait until All Sent
     DEC     C                      ; Decrement C to point to channel data port
     DEC     C
@@ -38,13 +38,27 @@ WCLOOP:
     JP      Z,WCLOOP               ; Wait until CTS set
     LD      A,00010000b            ; Reset ext/status interrupts (acknowledge CTS)
     OUT     (C),A
+                                   ; Wait a while before proceeding!
+    LD      B,1                    ; Amount of times to repeat wait loop
+WAIT0:
+    PUSH    BC
+    LD      BC,65535
+WAIT1:
+    DEC     BC
+    LD      A,C
+    OR      B
+    JP      NZ,WAIT1
+
+    POP     BC
+    DJNZ    WAIT0                  ; Repeat wait loop until loop count is exhausted
+
     RET
 
 PUBLIC _sioSetRTS                  ; Uses FASTCALL. L = rts
 _sioSetRTS:
     CALL    getChannel
     LD      A,00000101b            ; WR0, select WR5
-    OUT     (C),A                  
+    OUT     (C),A
     XOR     A                      ; Clear Carry flag
     LD      A,L                    ; Load A with parameter (rts)
     RLA                            ; Rotate value to bit 1
@@ -54,14 +68,14 @@ _sioSetRTS:
 
 ; Subroutines
 
-getChannel:                      
-    LD      A,(_channel)           ; Retrieve value of _channel
-    ADD     A,SIO                  ; Add base address of SIO
+getChannel:
+    LD      A,(_sioChannel)        ; Retrieve value of _channel
+    ADD     A,SIO                  ; Add base I/O address of SIO
     ADD     2                      ; Add '2' for channel Control port
     LD      C,A                    ; Load specified channel Control port value in C
     RET
 
-; Data
+; Definitions
 
 SIOCFG:
     DB      00011000b              ; WR0, Channel Reset
@@ -75,3 +89,11 @@ SIOCFG:
     DB      11000100b              ; WR4, x64 Clock Mode, 1 Stop Bit/Character, Parity Disable
     DB      00000101b              ; WR0, select WR5
     DB      01101000b              ; WR5, No DTR, TX 8 Bits/Character, No Send Break, Tx Enable, RTS off
+
+; Data
+
+SECTION data_user
+
+PUBLIC _sioChannel
+_sioChannel:
+    DB      0                      ; Desired SIO channel (0 = A, 1 = B)
