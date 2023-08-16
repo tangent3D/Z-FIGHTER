@@ -76,7 +76,7 @@ endif
 
 # Use maximum optimization if specified.
 ifeq ($(opt),true)
-	optimization =  -SO3 --max-allocs-per-node200000
+	optimization = -SO3 --max-allocs-per-node200000
 endif
 
 # Disable interrupts and IM1 ISR unless specified.
@@ -117,9 +117,9 @@ OBJ = $(SRC:.c=.o) $(ASM:.asm=_asm.o)
 	@echo Making $<.
 	@zcc +z80 $(inc) --list -c -o $@ $<
 
-# Build binary to execute from RAM.
+# Build binary (.ram, .rom).
 bin: $(OBJ)
-	@zcc +z80 -clib=sdcc_iy $(options) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o=$(name).bin $^ -create-app --list
+	@zcc +z80 -clib=sdcc_iy $(options) $(pragma_int) $(pragma_nmi) $(inc) $(init) -m -o $(name).bin $^ -create-app --list
 
 # Assemble a standalone ASM project.
 asm:
