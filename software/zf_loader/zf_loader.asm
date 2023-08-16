@@ -29,6 +29,8 @@ LOADER:
     LD      A,0
     OUT     (ROMDISABLE_n),A       ; Disable ROM
 
+    CALL    WAIT                   ; Wait a moment for any serial activity to finish
+
     CALL    INIT_SIO               ; Initialize SIO Ch.A
 
     CALL    WAIT_CTS               ; Wait for CTS
@@ -59,7 +61,7 @@ WAIT_CTS:
 
     CALL    INIT_SIO               ; Reset SIO (reset Ext/Status Interrupts)
 
-    CALL    WAIT                   ; Wait a while before proceeding!
+    CALL    WAIT                   ; Wait a moment for serial devices to be ready
 
     RET
 
@@ -119,7 +121,7 @@ W2:
     JP      NZ,W2
 
     POP     BC
-    DJNZ    W1                    ; Repeat wait loop until loop count is exhausted
+    DJNZ    W1                     ; Repeat wait loop until loop count is exhausted
 
     RET
 
